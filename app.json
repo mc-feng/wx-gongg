@@ -13,15 +13,23 @@
      "enablePullDownRefresh":true
   },
   "tabBar": {
+    "color":"#CCCCCC",
+    "selectedColor": "#0D86EB",
     "backgroundColor": "#fff",
     "list": [
       {
       "pagePath": "pages/index/index",
-      "text": "首页"
+      "text": "首页",
+       "iconPath":"images/tabimages/shouye@2x.png",
+       "selectedIconPath":
+       "images/tabimages/shouye1@2x.png"
       },
       {
         "pagePath": "pages/logs/logs",
-        "text": "我的"
+        "text": "我的",
+        "iconPath": "images/tabimages/wode@2x.png",
+        "selectedIconPath":
+        "images/tabimages/wode1@2x.png"
       }
     ]
   }
