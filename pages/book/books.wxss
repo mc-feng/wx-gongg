@@ -1,3 +1,53 @@
+.appointment-place-header{
+  padding: 20rpx 28rpx 0 28rpx;
+  background-color: #0D86EB;
+}
+.appointment-place-input{
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 4rpx;
+  width: 694rpx;
+  height: 70rpx
+}
+.appointment-place-input input{
+   display: inline-block;
+   position: absolute;
+   top:10rpx;
+   left: 88rpx;
+   height: 34rpx
+}
+.appointment-place-select{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding: 40rpx 0 14rpx 38rpx;
+  background-color: #0D86EB;
+}
+.appointment-place-select i{
+  position: absolute;
+  top: 14rpx;
+  left: 62rpx;
+  width: 0rpx;
+  height: 0rpx;
+  border: 12rpx solid #FFFFFF;
+  border-top-color: #FFFFFF;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+.appointment-place-selectitems{
+  position: relative;
+  width: 80rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #FFFFFF;
+}
+.appointment-place-selectitems:nth-of-type(3){
+  width: 132rpx
+}
+.appointment-place-selectitems:nth-of-type(3) i{
+  left: 110rpx
+}
 #swiper-tab {
   width: 100%;
   position: relative;

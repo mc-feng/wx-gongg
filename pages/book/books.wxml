@@ -1,4 +1,23 @@
-<view id="swiper-tab">
+<view class='appointment-place-header'>
+   <view class='appointment-place-input'>
+     <input placeholder="输入医院名称" placeholder-style="font-family: PingFangSC-Regular;font-size: 12px;color: #A3A3A3;"></input>
+   </view>
+   <view class='appointment-place-select'>
+      <view class='appointment-place-selectitems'>
+        等级
+        <i></i>
+      </view>
+      <view class='appointment-place-selectitems'>
+        区域
+        <i></i>
+      </view>
+      <view class='appointment-place-selectitems'>
+        离我最近
+        <i></i>
+      </view>
+   </view>
+</view>
+<!-- <view id="swiper-tab">
     <view class="swiper-tab">
       <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="tabNav">{{first}}
         <i></i>
@@ -67,4 +86,4 @@
       </swiper-item>
     </swiper>
   </view>
-  <view class="swiper-beijing" bindtap="hideNav" style='display:{{displays}}'></view>
+  <view class="swiper-beijing" bindtap="hideNav" style='display:{{displays}}'></view> -->
