@@ -14,20 +14,20 @@ Page({
     duration: 800,
     circular: true,
     introduces:[
-      { "title": "公卫简介","url":"../introduce/introduce","id":"1"},
-      { "title": "就医指南", "url": "../introduce/introduce", "id": "2"},
-      { "title": "来院路线", "url": "../introduce/introduce", "id": "3"},
-      { "title": "院内导航", "url": "../introduce/introduce", "id": "4"}
+      { "title": "公卫简介","url":"../introduce/introduce","id":"1", "src":"../../images/homeimages/jianjie@2x.png"},
+      { "title": "来院路线", "url": "../introduce/introduce", "id": "2", "src": "../../images/homeimages/luxian@2x.png"},
+      { "title": "就医指南", "url": "../introduce/introduce", "id": "3", "src": "../../images/homeimages/zhidao@2x.png"},
+      { "title": "院内导航", "url": "../introduce/introduce", "id": "4", "src": "../../images/homeimages/daohang@2x.png"}
     ],
     mainNavs:[
-      { 'word': '预约挂号', "color":"rgba(24, 179, 151, 1)","url":"../book/books"},
-      { 'word': '诊间付费', "color": "#FF9800 100%", "url": "../book/books"},
-      { 'word': '预约挂号', "color": "rgba(24, 179, 151, 1)", "url": "../book/books"},
-      { 'word': '诊间付费', "color": "#FF9800 100%", "url": "../book/books"},
-      { 'word': '预约挂号', "color": "rgba(24, 179, 151, 1)", "url": "../book/books"},
-      { 'word': '诊间付费', "color": "#FF9800 100%", "url": "../book/books"},
-      { 'word': '预约挂号', "color": "rgba(24, 179, 151, 1)", "url": "../book/books"},
-      { 'word': '诊间付费', "color": "#FF9800 100%", "url": "../book/books"}
+      { 'word': '预约挂号', "url": "../book/books", "src":"../../images/homeimages/guahao@2x.png"},
+      { 'word': '诊间付费', "url": "../book/books", "src": "../../images/homeimages/fufei@2x.png"},
+      { 'word': '咨询医生', "url": "../book/books", "src": "../../images/homeimages/yisheng@2x.png"},
+      { 'word': '报告查询', "url": "../book/books", "src": "../../images/homeimages/baogao@2x.png"},
+      { 'word': '住院预约', "url": "../book/books", "src": "../../images/homeimages/zhuyuan@2x.png"},
+      { 'word': '手术方案', "url": "../book/books", "src": "../../images/homeimages/shoushu@2x.png"},
+      { 'word': '体验服务', "url": "../book/books", "src": "../../images/homeimages/tijian@2x.png"},
+      { 'word': '更多服务', "url": "../book/books", "src": "../../images/homeimages/gengduo@2x.png"}
     ],
     imgUrls: [
       'https://p3.pstatp.com/large/43700001e49d85d3ab52',

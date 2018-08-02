@@ -1,10 +1,5 @@
 <!--index.wxml-->
-<view class='main-container' bindtouchend="changeloading">
-  <!-- <view class='index-header'>
-    <view class='index-header-color'>
-      上海市公共卫生临床中心
-    </view>
-  </view> -->
+<view class='.container'>
   <view class="swiper-container">
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{duration}}" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper">
       <block wx:for="{{imgUrls}}" wx:key="unique">
@@ -14,58 +9,55 @@
       </block>
     </swiper>
   </view>
+  <view class='hometips-nav'>
+    <block wx:for="{{introduces}}" wx:key="item.id">
+      <navigator url="{{item.url}}">
+        <image class='hometips-image' src='{{item.src}}'></image>
+        <view class='hometips-color'> {{item.title}}</view>
+      </navigator>
+    </block>
+  </view>
   <view class='index-tips'>
-    <image></image>
+    <view class='index-tips-images'>
+      <image src='../../images/homeimages/gongbu@2x.png'></image>
+      <text>公卫发布</text>
+    </view>
     <view class='index-tips-color'>
       产科安全办公室组织开展2018年危重孕产..... 
     </view>
   </view>
-  <view class='hometips-nav'>
-    <block wx:for="{{introduces}}" wx:key="item.id">
-      <navigator url="{{item.url}}">
-        {{item.title}}
-      </navigator>
-    </block>
-  </view>
   <view class='main-content'>
      <view class='main-header'>
-       <view class='main-header-left'></view>
-       <view class='main-header-right'>
           自助诊疗服务
-       </view>
       </view>
       <view class='main-nav'>
        <block wx:for="{{mainNavs}}" wx:key="unique">
             <navigator url="{{item.url}}">
-              <view class='mainnav-box' style="background:{{item.color}};"></view>
+              <image class='mainnav-box' src='{{item.src}}'></image>
               <view class='mainnav-color'>{{item.word}}</view>
             </navigator>
         </block>
        </view>
      </view>
      <view class='sub-main'>
-      <view class='main-header'>
-        <view class='main-header-left'></view>
-        <view class='main-header-right'>
+        <view class='main-header'>
             人性化服务
         </view>
+        <view class='fuwu-subnav'>
+          <scroll-view scroll-x="true" class='hometips-subnav'>
+            <image src='../../images/homeimages/manyidu1@2x.png'>
+              <text>满意度调查</text>
+            </image>
+            <image src='../../images/homeimages/xiaogongju2@2x.png'>
+              <text>健康小工具</text>
+            </image>
+            <image src='../../images/homeimages/zixun3@2x.png'>
+              <text>健康咨询</text>
+            </image>
+            <image src='../../images/homeimages/xuan jiao4@2x.png'>
+              <text>健康报告</text>
+            </image>
+          </scroll-view>
         </view>
-        <view class='hometips-nav'>
-          <navigator>
-            满意度调研
-          </navigator>
-          <navigator>
-            健康患教
-          </navigator>
-          <navigator>
-            健康小工具
-          </navigator>
-          <navigator>
-            健康资讯
-          </navigator>
-        </view>
-      </view>
-      <view class="refresh-block" wx:if="{{loading}}">
-            <text>义金健康有限公司</text>
       </view>
 </view>

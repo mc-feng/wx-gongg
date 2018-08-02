@@ -7,8 +7,8 @@
     "pages/book/books"
   ],
   "window":{
-    "navigationBarBackgroundColor": "#18B397",
-    "navigationBarTextStyle":"white",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTextStyle":"black",
     "navigationBarTitleText": "上海市公共卫生临床中心",
      "enablePullDownRefresh":true
   },
