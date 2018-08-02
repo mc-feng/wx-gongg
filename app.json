@@ -1,0 +1,28 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/out/out",
+    "pages/introduce/introduce",
+    "pages/book/books"
+  ],
+  "window":{
+    "navigationBarBackgroundColor": "#18B397",
+    "navigationBarTextStyle":"white",
+    "navigationBarTitleText": "上海市公共卫生临床中心",
+     "enablePullDownRefresh":true
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "list": [
+      {
+      "pagePath": "pages/index/index",
+      "text": "首页"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "我的"
+      }
+    ]
+  }
+}

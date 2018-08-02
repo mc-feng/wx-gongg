@@ -1,0 +1,86 @@
+
+.swiper-tab{
+	width: 100%;
+	text-align: center;
+	line-height: 80rpx;}
+.swiper-tab-list{ 
+  font-size: 32rpx;
+  height: 46rpx;
+  line-height: 46rpx;
+  font-family: Arial;
+  display: inline-block;
+	width: 33.33%;
+	color: #9B9797 ;
+	border-bottom: 2rpx solid #9B9797;
+}
+.on{ color: #18B397;
+	border-bottom: 4rpx solid #18B397;}
+ 
+.swiper-box{ display: block; width: 100%; }
+.hospital-title{
+  height: 74rpx;
+  line-height:74rpx;
+  padding-left: 38rpx;
+  color: rgba(51, 83, 54, 1);
+  font-size: 32rpx;
+  font-family: Arial; 
+  font-weight: 600;
+}
+.hospital-image{
+  padding: 0 12rpx 0 20rpx;
+}
+.hospital-image image{
+  width: 718rpx;
+  height: 368rpx;
+  background-color: #18B397
+}
+.hospital-introduce{
+  height: 2160rpx;
+  padding: 20rpx 12rpx 0 38rpx;
+  width: 700rpx;
+  line-height: 40rpx;
+  color: rgba(91, 88, 88, 1);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: Arial;
+}
+.hospital-log{
+  padding: 60rpx  246rpx 144rpx 252rpx
+}
+.hospital-log image{
+  width: 252rpx;
+  height: 280rpx;
+  background-color: red;
+}
+.riding{
+  padding: 20rpx 32rpx 0 40rpx
+}
+.riding-site{
+color: rgba(91, 88, 88, 1);
+font-size: 34rpx;
+text-align: left;
+font-family: Arial;
+font-weight: 600
+}
+.riding-project{
+  padding: 12rpx 0 80rpx 0;
+  height: 120rpx;
+  line-height: 40rpx;
+  color: rgba(16, 16, 16, 1);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: Arial;
+  }
+  .gongwei-contact{
+    padding: 46rpx 104rpx 0 132rpx;
+  }
+  .contact-color{
+    width: 514rpx;
+    padding-bottom: 40rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    color: rgba(16, 16, 16, 1);
+    font-size: 28rpx;
+    text-align: left;
+    font-family: Arial;
+  }
