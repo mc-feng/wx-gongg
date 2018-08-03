@@ -1,0 +1,27 @@
+<view class='ydepartments-header'>
+   <view class='ydepartments-header-font'>{{title}}</view>
+   <view class='ydepartments-header-input'>
+    <image src='../../images/homeimages/fangdajing.png'></image>
+    <input class='ydepartments-header-inputs' placeholder='输入科室或者疾病关键词直接查找' placeholder-class='ydepartments-header-inputc'></input>
+   </view>
+</view>
+<view class='qiehuan'>
+            <view class="bc-white">
+              <view class="{{selected?'red':'default'}}" bindtap="selected">普通</view>
+              <view class="{{selected1?'red':'default'}}" bindtap="selected1">专家</view>
+            </view>
+            <view id="rights">
+              <view hidden='{{!selected}}'>
+               <block wx:for="{{normallist}}" wx:key="item.id">
+                  <navigator class='normaldocter' url='{{item.url}}'>
+                    {{item.content}}
+                    <image src='../../images/homeimages/sword.png'></image>
+                  </navigator>
+                </block>
+              </view>
+              <view hidden='{{!selected1}}'>
+                <view class='expertdocter'>
+                </view>
+              </view>
+            </view>
+          </view>

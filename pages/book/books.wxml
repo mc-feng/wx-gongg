@@ -1,21 +1,49 @@
-<view class='appointment-place-header'>
-   <view class='appointment-place-input'>
-     <input placeholder="输入医院名称" placeholder-style="font-family: PingFangSC-Regular;font-size: 12px;color: #A3A3A3;"></input>
-   </view>
-   <view class='appointment-place-select'>
-      <view class='appointment-place-selectitems'>
-        等级
-        <i></i>
-      </view>
-      <view class='appointment-place-selectitems'>
-        区域
-        <i></i>
-      </view>
-      <view class='appointment-place-selectitems'>
-        离我最近
-        <i></i>
-      </view>
-   </view>
+<view class='appointment-place-warp'>
+  <view class='appointment-place-header'>
+    <view class='appointment-place-input'>
+      <image src='../../images/homeimages/fangdajing.png'></image>
+      <input placeholder="输入医院名称" placeholder-style="font-family: PingFangSC-Regular;font-size: 12px;color: #A3A3A3;"></input>
+    </view>
+    <view class='appointment-place-select'>
+        <view class='appointment-place-selectitems'>
+          等级
+          <i></i>
+        </view>
+        <view class='appointment-place-selectitems'>
+          区域
+          <i></i>
+        </view>
+        <view class='appointment-place-selectitems'>
+          离我最近
+          <i></i>
+        </view>
+    </view>
+  </view>
+  <view class='appointment-place-main'>
+  </view>
+  <view class='appointment-place-main'>
+   <block wx:for="{{content}}" wx:key="*this">
+        <navigator class='appointment-place-mainitems' url='../bookdepartments/bookdepartments?header={{item.title}}'>
+          <image src='../../images/homeimages/yiyuanlogo@2x.png'>
+          </image>
+          <view class='appointment-place-content'>
+              <view class='appointment-place-contentheader'>
+                上海市公卫中心（{{item.title}}）
+              </view>
+              <view class='appointment-place-contentcolor'>
+                医院等级：{{item.leve}}
+              </view>
+              <view class='appointment-place-contentcolor'>
+                医院地址：{{item.place}}
+              </view>
+          </view>
+          <view class='appointment-place-distance'>
+                {{item.distance}}km
+          </view>
+        </navigator>
+    </block>
+    <view></view>
+  </view>
 </view>
 <!-- <view id="swiper-tab">
     <view class="swiper-tab">

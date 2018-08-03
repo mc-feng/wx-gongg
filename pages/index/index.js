@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+    list:[],
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     array: ['foo', 'bar'],
@@ -53,6 +54,17 @@ Page({
     })
   },
   onLoad: function () {
+    var that =this;
+    //  wx.request({
+    //    url: 'http://192.168.2.165:8081/photo/select',
+    //    method:"get",
+    //    success:function(res){
+    //      that.setData({
+    //        list: res.data.result
+    //      })
+    //      console.log(that.data.list)
+    //    }
+    //  })
   },
   //轮播图的切换事件
   swiperChange: function (e) {

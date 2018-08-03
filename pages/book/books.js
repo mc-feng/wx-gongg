@@ -1,5 +1,7 @@
 Page({
   data: {
+    content: [{ "title": "金山总部", "leve": "三级甲等", "place": "上海市金山区嘈廊公路2901号", "distance": "139.99"}, 
+    { "title": "市区总部", "leve": "三级甲等", "place": "上海市虹口区同心路921号", "distance": "139.99"}],
     // 下拉菜单
     first: '等级',
     second: '区域',
@@ -22,10 +24,9 @@ Page({
     five: 0,
     six: 0,
     seven: 0,
+    isShow: true,
+    currentTab: 0,
   },
-  isShow: true,
-  currentTab: 0,
-
   // 下拉切换
   hideNav: function () {
     this.setData({

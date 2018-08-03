@@ -1,0 +1,80 @@
+.ydepartments-header{  
+  padding: 0  0 32rpx 28rpx;
+  background: #0D86EB;
+}
+.ydepartments-header-font{
+  font-family: PingFangSC-Medium;
+  font-size: 34rpx;
+  color: #FFFFFF;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+.ydepartments-header-input{
+  position: relative;
+  height: 70rpx;
+  background-color: #FFFFFF;
+  width: 694rpx;
+}
+.ydepartments-header-input image{
+  position: absolute;
+  left: 44rpx;
+  top:20rpx;
+  width: 30rpx;
+  height: 30rpx
+}
+.ydepartments-header-inputs{
+  margin-left: 88rpx;
+  padding-top: 10rpx
+}
+.ydepartments-header-inputc{
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #A3A3A3;
+}
+.qiehuan{
+  background: #F5F7F9;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.bc-white{
+  width: 282rpx;
+  height: 1038rpx;
+  text-align: center;
+}
+.red{
+  height: 90rpx;
+  line-height: 90rpx;
+  font-family: PingFangSC-Medium;
+  font-size: 32rpx;
+  color: #0D86EB;
+  background-color: white
+}
+.default{
+  height: 90rpx;
+  line-height: 90rpx;
+  font-family: PingFangSC-Medium;
+  font-size: 32rpx;
+  color: #232323;
+}
+#rights{
+  background-color: #FFFFFF;
+   height: 1038rpx;
+   width: 100%
+}
+.normaldocter{
+  position: relative;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: 2rpx solid #F5F7F9;
+  padding: 0 28rpx 0 10rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #232323;
+}
+.normaldocter image{
+  width: 16rpx;
+  height: 28rpx;
+  position: relative;
+  left: 296rpx;
+  top:0rpx;
+}

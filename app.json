@@ -4,7 +4,9 @@
     "pages/logs/logs",
     "pages/out/out",
     "pages/introduce/introduce",
-    "pages/book/books"
+    "pages/book/books",
+    "pages/bookdepartments/bookdepartments",
+    "pages/bookdetails/bookdetails"
   ],
   "window":{
     "navigationBarBackgroundColor": "#FFFFFF",

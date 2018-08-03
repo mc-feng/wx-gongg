@@ -1,8 +1,8 @@
-
 .swiper-tab{
 	width: 100%;
 	text-align: center;
-	line-height: 80rpx;}
+	line-height: 80rpx;
+  }
 .swiper-tab-list{ 
   font-size: 32rpx;
   height: 46rpx;
