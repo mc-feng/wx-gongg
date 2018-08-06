@@ -1,0 +1,40 @@
+<view class='doctor'>
+  <view class='doctor-name'>张科名</view>
+  <view class='doctor-position'>副主任医师</view>
+  <view class='doctor-collect' bindtap='collectchange'>
+   <image src='{{collect?"../../images/smallicon/shoucang@2x.png":"../../images/smallicon/yishoucang@2x.png"}}'></image>
+    收藏
+  </view>
+</view>
+<view class='introduce' bindtap='expand'>
+  <view class='introduce-header'>
+   <image src="{{change?'../../images/smallicon/xiala@2x.png':'../../images/smallicon/shouqi@2x.png'}}"></image>
+    简介
+  </view>
+  <block wx:if="{{change}}">
+    <view class='introduce-content'>
+      毕业于上海第二医科大学临床医疗系。擅长失代偿性乙、毕业于上海第二医科大学临床医疗系。擅长失代偿性乙、毕业于上海…
+    </view>
+  </block>
+  <block wx:else>
+    <view class='introduce-content'>
+      毕业于上海第二医科大学临床医疗系。擅长失代偿性乙、毕业于上海第二医科大学临床医疗系。擅长失代偿性乙、毕业于上海…毕业于上海第二医科大学临床医疗系。擅长失代偿性乙、毕业于上海第二医科大学临床医疗系。擅长失代偿性乙、毕业于上海…毕业于上海第二医科大学临床医疗系。擅长失代偿性乙、毕业于上海第二医科大学临床医疗系。擅长失代偿性乙、毕业于上海…
+    </view>
+  </block>
+</view>
+<view class='content'>
+   <view class='yuding-riqi'>
+    <image src='../../images/smallicon/rili@2x.png'></image>
+     2018-07-28 星期三
+   </view>
+   <view class='yuding-details'>
+      <view class='yuding-state'>已满</view>
+      <view class='yuding-time'>08:00-09:00</view>
+      <view class='yuding-price'>￥38.00</view>
+   </view>
+   <view class='yuding-details other'>
+      <view class='yuding-state'>已满</view>
+      <view class='yuding-time'>08:00-09:00</view>
+      <view class='yuding-price'>￥38.00</view>
+   </view>
+</view>

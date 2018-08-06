@@ -1,9 +1,9 @@
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
+    details: [{ "name": "张科名", "position": "副主任医师", "introduce": "毕业于上海第二医科大学临…" }, { "name": "张科名", "position": "副主任医师", "introduce": "毕业于上海第二医科大学临…" }, { "name": "张科名", "position": "副主任医师", "introduce": "毕业于上海第二医科大学临…" }],
     arr: [],
     weeks: [],
     months:[],

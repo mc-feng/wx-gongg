@@ -1,7 +1,9 @@
+<!-- 日历功能 -->
 <view class='date-header'>
+  <image src='../../images/smallicon/rili@2x.png'></image>
   {{year}}-{{nowmonth}}-{{nowdate}}  星期{{nowweek}}
 </view>
-<swiper style='padding: 0 48rpx 0 40rpx;'>
+<swiper style='padding: 0 48rpx 0 40rpx;height:194rpx;background:#fff;' indicator-dots="true">
    <swiper-item class="swiper-warp" wx:for="{{resultData}}" wx:key="index"  wx:for-item="data">
         <view class='riqi'wx:for="{{data}}" wx:key="*this"  wx:for-item="result" bindtap='changdate' data-date="{{result.value}}" data-week="{{result.name}}" data-month="{{result.months}}">
           <view class='riqi-week'>{{result.name}}</view>
@@ -9,3 +11,25 @@
         </view>
      </swiper-item>
 </swiper>
+<!-- 专家详情 -->
+<view class='details'>
+  <block wx:for="{{details}}" wx:key="*this">
+    <view class='details-items'>
+      <view class='details-header'>
+        <view class='doctor-name'>
+          {{item.name}}
+        </view>
+        <view class='doctor-position'>
+          {{item.position}}
+        </view>
+      </view>
+      <view class='doctor-introduce'>
+        {{item.introduce}}
+      </view>
+      <navigator class='yuding' url='../docterdetails/docterdetails?year={{year}}'>
+        <image src='../../images/homeimages/sword.png'></image>
+        <view>有号</view>
+      </navigator>
+    </view>
+  </block>
+</view>

@@ -6,7 +6,8 @@
     "pages/introduce/introduce",
     "pages/book/books",
     "pages/bookdepartments/bookdepartments",
-    "pages/bookdetails/bookdetails"
+    "pages/bookdetails/bookdetails",
+    "pages/docterdetails/docterdetails"
   ],
   "window":{
     "navigationBarBackgroundColor": "#FFFFFF",

@@ -1,6 +1,10 @@
+page{
+  background: #F5F7F9;
+}
 .date-header{
+  position: relative;
   height: 34rpx;
-  padding: 18rpx 0 30rpx 68rpx;
+  padding: 18rpx 0 30rpx 88rpx;
   border-top: 2rpx solid rgba(200,200,200,0.50);
   background: #fff;
   line-height: 34rpx;
@@ -8,6 +12,13 @@
   font-size: 24rpx;
   color: #232323;
   font-weight: 600
+}
+.date-header image{
+  width: 30rpx;
+  height: 26rpx;
+  position: absolute;
+  left: 46rpx;
+  top:24rpx
 }
 .swiper-warp {
 background-color: #fff;
@@ -35,4 +46,63 @@ align-items: center;
   font-size: 30rpx;
   color: #0D86EB;
   letter-spacing: 0.42rpx;
+}
+.details{
+  padding-top: 20rpx;
+}
+.details-items{
+  position: relative;
+  padding: 34rpx 0 0 164rpx;
+  height: 162rpx;
+  background: #FFFFFF;
+  box-shadow: 0 0 8rpx 0 #E5F1FF;
+  margin-bottom: 20rpx;
+}
+.details-header{
+  height: 44rpx;
+  line-height: 44rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  font-family: PingFangSC-Regular;
+}
+.doctor-name{
+  font-size: 32rpx;
+  color: #232323;
+}
+.doctor-position{
+  font-size: 24rpx;
+  color: #A3A3A3;
+  margin-left: 24rpx;
+}
+.doctor-introduce{
+  margin-top: 24rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #666666;
+}
+.yuding{
+  position: absolute;
+  height: 196rpx;
+  right:28rpx;
+  top: 0;
+  line-height: 196rpx;
+  width: 90rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #0D86EB;
+  display: flex;
+  flex-flow: row nowrap;
+  background-color: #fff;
+}
+.yuding view{
+  width: 52rpx;
+}
+.yuding image{
+  position: absolute;
+  right: 0;
+  top: 83rpx;
+  width: 16rpx;
+  height: 28rpx;
 }
