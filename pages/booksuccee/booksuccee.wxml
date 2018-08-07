@@ -1,5 +1,6 @@
 <view class='bookordermain-wrap'>
   <view class='bookordermain'>
+      <!-- 列表 -->
      <view class='bookordermain-item'>
          <view class='bookordermain-title'>所属医院：</view>
          <view class='bookordermain-content'>金山总部</view>
@@ -26,26 +27,18 @@
        <view class='circle'></view>
        <view class='circle1'></view>
      </view>
+     <!-- 列表 -->
      <view class='bookordermain-item'>
          <view class='bookordermain-title'>所属医院：</view>
          <view class='bookordermain-content'>金山总部萨达萨达萨达</view>
      </view>
      <view class='bookordermain-item'>
          <view class='bookordermain-title'>预约时间</view>
-         <view class='bookordermain-content'>{{data.time}}</view>
+         <view class='bookordermain-content'></view>
      </view>
   </view>
 </view>
 <!-- 按钮 -->
-<view class='newbuttun' bindtap='showmode'>
-  确认预约
-</view>
-<!-- toast弹出提示框 -->
-<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
-<view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
-  <image src='../../images/homeimages/booksucceed.png'></image>
-  <view class='toast-title'>预约成功</view>
-  <view class='toast-number'>取号密码：188888</view>
-  <view class='toast-buttun' bindtap='linksuccee'>确认</view>
-  <view class='toast-tip'>详细信息可在个人中心-预约记录查看</view>
+<view class='newbuttun'>
+  取消预约
 </view>

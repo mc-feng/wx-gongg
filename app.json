@@ -8,7 +8,8 @@
     "pages/bookdepartments/bookdepartments",
     "pages/bookdetails/bookdetails",
     "pages/docterdetails/docterdetails",
-    "pages/bookorder/bookorder"
+    "pages/bookorder/bookorder",
+    "pages/booksuccee/booksuccee"
   ],
   "window":{
     "navigationBarBackgroundColor": "#FFFFFF",

@@ -69,9 +69,9 @@ Page({
   showmode:function(e){
    this.showView()
   },
-  showView() {
+  showView:function(){
     // 显示遮罩层
-    var animation = wx.createAnimation({
+    let animation = wx.createAnimation({
       duration: 200,
       timingFunction: "linear",
       delay: 0
@@ -89,14 +89,12 @@ Page({
       })
     }.bind(this), 200)
   },
-
   hideModal: function () {
     this.hideView();
   },
-
-  hideView() {
+  hideView:function(){
     // 隐藏遮罩层
-    var animation = wx.createAnimation({
+    let animation = wx.createAnimation({
       duration: 200,
       timingFunction: "linear",
       delay: 0
@@ -113,5 +111,10 @@ Page({
         showModalStatus: false
       })
     }.bind(this), 200)
+  },
+  linksuccee:function(){
+    wx.navigateTo({
+      url:'../booksuccee/booksuccee',
+    })
   }
 })
