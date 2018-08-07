@@ -26,10 +26,10 @@
       <view class='doctor-introduce'>
         {{item.introduce}}
       </view>
-      <navigator class='yuding' url='../docterdetails/docterdetails?year={{year}}'>
+      <view class='yuding' bindtap='link' data-now=" {{year}}-{{nowmonth}}-{{nowdate}}" data-nowdate="{{nowweek}}">
         <image src='../../images/homeimages/sword.png'></image>
         <view>有号</view>
-      </navigator>
+      </view>
     </view>
   </block>
 </view>

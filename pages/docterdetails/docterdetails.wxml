@@ -25,16 +25,13 @@
 <view class='content'>
    <view class='yuding-riqi'>
     <image src='../../images/smallicon/rili@2x.png'></image>
-     2018-07-28 星期三
+     {{date.now}} 星期{{date.nowdate}} 
    </view>
-   <view class='yuding-details'>
-      <view class='yuding-state'>已满</view>
-      <view class='yuding-time'>08:00-09:00</view>
-      <view class='yuding-price'>￥38.00</view>
-   </view>
-   <view class='yuding-details other'>
-      <view class='yuding-state'>已满</view>
-      <view class='yuding-time'>08:00-09:00</view>
-      <view class='yuding-price'>￥38.00</view>
-   </view>
+   <block wx:for="{{docterbook}}" wx:key="*this">
+      <view class='{{item.man?"yuding-details":"yuding-details other"}}' bindtap='linkBook' data-time="{{item.time}}" data-price="{{item.price}}">
+        <view class='yuding-state'>{{item.shengyu}}</view>
+        <view class='yuding-time'>{{item.time}}</view>
+        <view class='yuding-price'>￥{{item.price}}</view>
+      </view>
+   </block>
 </view>

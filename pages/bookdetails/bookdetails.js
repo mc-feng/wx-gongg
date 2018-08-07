@@ -39,7 +39,7 @@ Page({
       nowdate: date.getDate()
     })
     let firstDay = new Date(year, month, this.data.nowdate);
-        this.data.firstDay = firstDay.getDay();
+    this.data.firstDay = firstDay.getDay();
     switch (this.data.firstDay) {
       case (0):
         this.setData({
@@ -106,8 +106,14 @@ Page({
     this.setData({
       nowmonth: e.currentTarget.dataset.month
     })
+  },
+  //页面跳转传对象
+  link:function(e){
 
-    console.log(e.currentTarget.dataset.date)
+    let str = JSON.stringify(e.currentTarget.dataset)
+    wx.navigateTo({
+      url: '../docterdetails/docterdetails?date='+str,
+    })
   },
   //字符串分割
   switchWeek:function(date){
@@ -149,6 +155,5 @@ Page({
     this.setData({
       resultData: relust
     })
-    console.log(this.data.resultData)
   }
 })
