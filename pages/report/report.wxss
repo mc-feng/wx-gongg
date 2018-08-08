@@ -1,0 +1,25 @@
+page{
+  background: #F5F7F9;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.report-color{
+  margin-top: 528rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #666666;
+}
+.report-buttun{
+  margin-top: 76rpx;
+  border: 2rpx solid #0D86EB;
+  border-radius: 8rpx;
+  width: 560rpx;
+  height: 84rpx;
+  line-height: 84rpx;
+  text-align: center;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #0D86EB;
+}

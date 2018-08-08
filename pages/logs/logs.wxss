@@ -1,8 +1,91 @@
-.log-list {
-  display: flex;
-  flex-direction: column;
-  padding: 40rpx;
+page{
+  background: #F6F9FB;
 }
-.log-item {
-  margin: 10rpx;
+.header-background{
+  background: #0D86EB;
+  height: 266rpx;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.user{
+  width: 104rpx;
+  height: 104rpx;
+  border-radius: 50%;
+  background-color: rebeccapurple;
+  margin-top: 38rpx;
+}
+.name{
+  width: 102rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  font-family: PingFangSC-Medium;
+  font-size: 34rpx;
+  color: #FFFFFF;
+}
+.floor-box{
+  position: absolute;
+  left: 28rpx;
+  top: 230rpx;
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  width: 694rpx;
+  height: 150rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  box-shadow:  0rpx 10rpx 30rpx  rgb(77, 169, 245)
+}
+.floor-box-item{
+  width: 50%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center
+}
+.floor-box-item image{
+  width: 48rpx;
+  height: 42rpx;
+  background-color: #FFFFFF
+}
+.floor-box-item text{
+  width: 120rpx;
+  height: 42rpx;
+  line-height: 42rpx;
+  text-align: center;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  margin-top: 8rpx;
+  color: #232323;
+}
+.person-content{
+  padding-top: 160rpx;
+  background-color: #FFFFFF;
+}
+.person-item{
+  height: 114rpx;
+  line-height: 114rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  border-bottom: 2rpx solid rgba(216,216,216,0.5);
+  position: relative;
+}
+.person-item .tips{
+  width: 42rpx;
+  height: 42rpx;
+  position: absolute;
+  left: 50rpx;
+  top:38rpx;
+}
+.sword{
+  width: 16rpx;
+  height: 28rpx;
+  position: absolute;
+  right: 28rpx;
+  top:46rpx;
+}
+.person-font{
+  margin-left: 122rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #232323;
 }

@@ -1,0 +1,74 @@
+<block wx:if="{{card}}">
+  <view class='inhospital-tips'>暂未查询到您的住院申请信息</view>
+  <view class='inhospital-buttun' bindtap='change'>立即绑定就诊卡</view>
+</block>
+<block wx:else>
+   <view class='inhospital-swiper'>
+     <view class="inhospital-swiper-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap='swichNav'>医保卡</view>
+     <view class="inhospital-swiper-item {{currentTab==1 ? 'on' : ''}}"data-current="1"bindtap='swichNav'>医院就诊卡</view>
+   </view>
+   <swiper current="{{currentTab}}" class="swiper-box" duration="300">
+      <swiper-item>
+        <view class='inhospital-card-warp'>
+          <view class='card-boday'>
+           <view class='card-header'></view>
+           <view class='card-header1'></view>
+           <view class='card-content'>
+              <view class='card-message'>
+                 <view>姓名：xxx</view>
+                 <view>卡号：500xxxxxxxx</view>
+                 <view>身份证号：139xxxxxxxxxxxx421</view>
+              </view>
+              <view class='card-tips'>
+                 本卡系参保人员身份凭证凭卡
+                 就医，妥善保管
+                 医保咨询热线：962218
+              </view>
+           </view>
+          </view>
+        </view>
+        <view class='user'>
+           <view class='user-item'>
+            <view class='item-title'>姓名</view>
+            <input class='item-content' type='text' placeholder='请输入姓名'></input>
+           </view>
+           <view class='user-item'>
+            <view class='item-title'>身份证号</view>
+            <input class='item-content' type='text' placeholder='请输入证件号码'></input>
+           </view>
+           <view class='user-item'>
+            <view class='item-title'>手机号</view>
+            <input class='item-content' type='text' placeholder='请输入您的手机号码'></input>
+           </view>
+           <view class='user-item'>
+            <view class='item-title'>医保卡号</view>
+            <input class='item-content' type='text' placeholder='圈出位置的本人医保卡号'></input>
+           </view>
+        </view>
+      </swiper-item>
+      <swiper-item class="patient-card">
+      <view class='user'>
+           <view class='user-item'>
+            <view class='item-title'>姓名</view>
+            <input class='item-content' type='text' placeholder='请输入姓名'></input>
+           </view>
+           <view class='user-item'>
+            <view class='item-title'>身份证号</view>
+            <input class='item-content' type='text' placeholder='请输入证件号码'></input>
+           </view>
+           <view class='user-item'>
+            <view class='item-title'>手机号</view>
+            <input class='item-content' type='text' placeholder='请输入您的手机号码'></input>
+           </view>
+           <view class='user-item'>
+            <view class='item-title'>医保卡号</view>
+            <input class='item-content' type='text' placeholder='请输入的本人医保卡号'></input>
+           </view>
+        </view>
+      </swiper-item>
+   </swiper>
+  <view class='buttun-tab'>
+     <view class='tab1' bindtap='noadd'>暂不添加</view>
+     <view class='tab2'>确认添加</view>
+  </view>
+</block>

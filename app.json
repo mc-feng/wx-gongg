@@ -9,7 +9,9 @@
     "pages/bookdetails/bookdetails",
     "pages/docterdetails/docterdetails",
     "pages/bookorder/bookorder",
-    "pages/booksuccee/booksuccee"
+    "pages/booksuccee/booksuccee",
+    "pages/report/report",
+    "pages/inHospital/inHospital"
   ],
   "window":{
     "navigationBarBackgroundColor": "#FFFFFF",
@@ -32,7 +34,7 @@
       },
       {
         "pagePath": "pages/logs/logs",
-        "text": "我的",
+        "text": "个人中心",
         "iconPath": "images/tabimages/wode@2x.png",
         "selectedIconPath":
         "images/tabimages/wode1@2x.png"

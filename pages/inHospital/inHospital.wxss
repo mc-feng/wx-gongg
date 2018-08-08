@@ -1,0 +1,175 @@
+page{
+  background: #F5F7F9;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center
+}
+.inhospital-tips{
+  margin-top: 528rpx;
+  width: 356rpx;
+  height: 40rpx;
+  letter-spacing: -0.64rpx;
+  line-height: 40rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #666666;
+}
+.inhospital-buttun{
+  margin-top: 76rpx;
+  width: 560rpx;
+  height: 82rpx;
+  line-height: 82rpx;
+  text-align: center;
+  border: 2rpx solid #0D86EB;
+  border-radius: 8rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #0D86EB;
+}
+.inhospital-swiper{
+  width: 100%;
+  height: 100rpx;
+  background-color: #ffffff;
+  border-top: 2rpx solid #F5F7F9;
+  display: flex;
+  flex-flow: row nowrap;
+  margin-bottom: 4rpx;
+}
+.inhospital-swiper-item{
+  width: 50%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-family: PingFangSC-Medium;
+  font-size: 34rpx;
+  color: #000000;
+  border-bottom: 2rpx solid #F5F7F9;
+}
+.on{
+  color: #0D86EB;
+  border-bottom: 4rpx solid #0D86EB;
+}
+.swiper-box{
+  width: 100%;
+  height: 916rpx;
+}
+.inhospital-card-warp{
+  width: 100%;
+  height: 400rpx;
+  background-color: #ffffff;
+  padding-top: 20rpx;
+}
+.card-boday{
+  margin-left: 28rpx;
+  width: 694rpx;
+  height: 376rpx;
+  background: #F1F5F8;
+  border-radius: 20rpx;
+  position: relative;
+}
+.card-header{
+  height: 66rpx;
+  width: 694rpx;
+  background: #4A90E2;
+  position: absolute;
+  top: 48rpx;
+  left: 0rpx;
+}
+.card-header1{
+  width: 628rpx;
+  height: 66rpx;
+  background-color: #ffffff;
+  position: absolute;
+  left: 34rpx;
+  top: 132rpx;
+}
+.card-content{
+  position: absolute;
+  left: 34rpx;
+  top: 218rpx;
+  height: 138rpx;
+  width: 628rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+.card-message{
+  height: 138rpx;
+}
+.card-message view{
+  height: 44rpx;
+  line-height: 44rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 20rpx;
+  color: #5499E3;
+}
+.card-tips{
+  margin-top: 36rpx;
+  height: 76rpx;
+  width: 220rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 18rpx;
+  color: #5499E3;
+}
+.user{
+  height: 374rpx;
+  width: 100%;
+  margin-top: 20rpx;
+  background: #ffffff;
+}
+.user-item {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  height: 90rpx;
+  width: 100%;
+  flex-wrap: nowrap;
+  align-items: center;
+  border-bottom: 2rpx dashed #F5F7F9
+}
+.user-item:nth-of-type(4){
+  border: none;
+}
+.item-title {
+  white-space: nowrap;
+  margin-left: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #232323;
+}
+.item-content {
+  flex: 1;
+  padding-right: 30rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #D8D8D8;
+  text-align: right;
+}
+.patient-card .user{
+  margin:0;
+}
+.buttun-tab{
+  display: flex;
+  flex-flow: row nowrap;
+  height: 96rpx;
+  line-height: 96rpx;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  left: 0rpx;
+  bottom: 0rpx; 
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  letter-spacing: -0.74rpx;
+}
+.tab1{
+  width: 25%;
+  color: #0D86EB;
+  background-color: #ffffff;
+}
+.tab2{
+  width: 75%;
+  color: #FFFFFF;
+  background: #0D86EB;
+}
