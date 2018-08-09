@@ -95,7 +95,21 @@ Page({
     console.log(text)
   },
   onLoad: function (options) {
+    console.log(1)
+    wx.request({
+      url: 'http://192.168.2.165:8081/booking/getbookingresource',
+      method: "post",
+      data: {
+        "accessToken": "800EBED9-63E5-4408-A184-BE693DA32CB6",
+        "openUserID": "1",
+        "HospitalUserID": "",
+        "DataSource": ""
 
+      },
+      success: function (res) {
+        console.log(res.data.result)
+      }
+    })
   },
   clickMum: function (e) {
     console.log(e.target.dataset.num)
@@ -108,9 +122,6 @@ Page({
     var text = this.data.name
     console.log(text)
   },
-  onLoad: function (options) {
-
-  },
   clickCum: function (e) {
     console.log(e.target.dataset.num)
     this.setData({
@@ -121,9 +132,6 @@ Page({
     })
     var text = this.data.name
     console.log(text)
-  },
-  onLoad: function (options) {
-
   },
   // 地域
   clickNum: function (e) {
@@ -140,9 +148,6 @@ Page({
     var text = this.data.name
     console.log(text)
   },
-  onLoad: function (options) {
-
-  },
   // 离我距离
   clickHouse: function (e) {
     console.log(e.target.dataset.num)
@@ -155,8 +160,5 @@ Page({
     this.setData({
       displays: "none"
     })
-  },
-  onLoad: function (options) {
-
   }
 })

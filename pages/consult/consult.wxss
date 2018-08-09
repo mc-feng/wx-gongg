@@ -1,0 +1,109 @@
+.consult-place-warp{
+  background: #F5F7F9;
+  height: 1206rpx;
+  position: relative;
+}
+.consult-place-header{
+  padding: 20rpx 28rpx 0 28rpx;
+  background-color: #0D86EB;
+}
+.consult-place-input{
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 4rpx;
+  width: 694rpx;
+  height: 70rpx
+}
+.consult-place-input input{
+   display: inline-block;
+   position: absolute;
+   top:10rpx;
+   left: 88rpx;
+   height: 34rpx
+}
+.consult-place-input image{
+  position: absolute;
+  left: 22rpx;
+  top:22rpx;
+  width: 30rpx;
+  height: 30rpx
+}
+.consult-place-select{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding: 40rpx 0 14rpx 0rpx;
+  background-color: #0D86EB;
+}
+.consult-place-select i{
+  position: absolute;
+  top: 14rpx;
+  left: 62rpx;
+  width: 0rpx;
+  height: 0rpx;
+  border: 12rpx solid #FFFFFF;
+  border-top-color: #FFFFFF;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+.consult-place-selectitems{
+  position: relative;
+  width: 80rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #FFFFFF;
+}
+.consult-place-selectitems:nth-of-type(3){
+  width: 100rpx
+}
+.consult-place-selectitems:nth-of-type(3) i{
+  left: 66rpx
+}
+.consult-items-warp{
+  position: absolute;
+  width: 100%;
+  left: 0rpx;
+  top:178rpx;
+  height: 1026rpx;
+  background-color: rgba(0,0,0,0.2)
+}
+.consult-inner-warp{
+  height: 268rpx;
+  background-color: #FFFFFF;
+  padding: 26rpx 34rpx 26rpx 44rpx
+}
+.consult-select-title{
+  height: 40rpx;
+  line-height: 40rpx;
+  font-family: PingFangSC-Medium;
+  font-size: 28rpx;
+  color: #232323;
+  letter-spacing: -0.64rpx;
+  font-weight: 600
+  }
+  .consult-select-content{
+    height: 70rpx;
+    line-height: 70rpx;
+    margin-top: 8rpx;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+  .consult-select-items{
+    width: 150rpx;
+    border: 2rpx solid #0D86EB;
+    border-radius: 4rpx;
+    text-align: center;
+    font-family: PingFangSC-Regular;
+    font-size: 26rpx;
+    color: #232323;
+    letter-spacing: 0;
+  }
+  .consult-select-fuwu{
+    margin-top: 22rpx;
+  }
+  .on{
+    background: #0D86EB;
+    color: #FFFFFF;
+  }
