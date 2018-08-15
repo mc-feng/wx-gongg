@@ -1,3 +1,6 @@
+page{
+  background-color: #F5F7F9;
+}
 .ydepartments-header{  
   padding: 0  0 32rpx 28rpx;
   background: #0D86EB;
@@ -58,7 +61,7 @@
 }
 #rights{
   background-color: #FFFFFF;
-   height: 1038rpx;
+   height: 100%;
    width: 100%
 }
 .normaldocter{
@@ -74,7 +77,7 @@
 .normaldocter image{
   width: 16rpx;
   height: 28rpx;
-  position: relative;
-  left: 296rpx;
-  top:0rpx;
+  position: absolute;
+  right: 24rpx;
+  top:30rpx;
 }

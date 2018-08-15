@@ -35,6 +35,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.request({
+      url: 'http://192.168.2.165:8081/booking/getbookingdocresource',
+      method: "post",
+      data: {
+        "docCode": "01_01_111_pt",
+        "day": "2018-08-20",
+        "accessToken": "800EBED9-63E5-4408-A184-BE693DA32CB6",
+        "openUserID": "",
+      },
+      success: function (res) {
+        console.log(res)
+      }
+    })
     let objects= JSON.parse(options.date);
 
     this.setData({ date: objects });

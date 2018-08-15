@@ -13,15 +13,19 @@
             <view id="rights">
               <view hidden='{{!selected}}'>
                <block wx:for="{{normallist}}" wx:key="item.id">
-                  <navigator class='normaldocter' url='{{item.url}}'>
-                    {{item.content}}
+                  <view class='normaldocter' url='{{item.url}}'>
+                    {{item.deptName2}}
                     <image src='../../images/homeimages/sword.png'></image>
-                  </navigator>
+                  </view>
                 </block>
               </view>
               <view hidden='{{!selected1}}'>
-                <view class='expertdocter'>
-                </view>
+                <block wx:for="{{departmentlist}}" wx:key="item.id">
+                  <view class='normaldocter' url='{{item.url}}'>
+                    {{item.deptName2}}
+                    <image src='../../images/homeimages/sword.png'></image>
+                  </view>
+                </block>
               </view>
             </view>
           </view>

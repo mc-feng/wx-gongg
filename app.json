@@ -17,8 +17,7 @@
   "window":{
     "navigationBarBackgroundColor": "#FFFFFF",
     "navigationBarTextStyle":"black",
-    "navigationBarTitleText": "上海市公共卫生临床中心",
-     "enablePullDownRefresh":true
+    "navigationBarTitleText": "上海市公共卫生临床中心"
   },
   "tabBar": {
     "borderStyle": "white",

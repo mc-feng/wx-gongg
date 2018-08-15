@@ -1,3 +1,33 @@
+page{
+  background: #F5F7F9;
+}
+.crad-warp{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center
+}
+.crad-tips{
+  margin-top: 528rpx;
+  width: 356rpx;
+  height: 40rpx;
+  letter-spacing: -0.64rpx;
+  line-height: 40rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #666666;
+}
+.crad-buttun{
+  margin-top: 76rpx;
+  width: 560rpx;
+  height: 82rpx;
+  line-height: 82rpx;
+  text-align: center;
+  border: 2rpx solid #0D86EB;
+  border-radius: 8rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #0D86EB;
+}
 .appointment-place-warp{
   background: #F5F7F9;
   height: 1206rpx

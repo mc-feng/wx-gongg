@@ -136,6 +136,19 @@ Page({
     return newArr;
   },
   onLoad: function (options) {
+    wx.request({
+      url: 'http://192.168.2.165:8081/booking/getbookingdeptnosource',
+      method: "post",
+      data: {
+        "deptCode": "01_01_111",
+        "day":"2018-08-20",
+        "accessToken": "800EBED9-63E5-4408-A184-BE693DA32CB6",
+        "openUserID": "",
+      },
+      success: function (res) {
+        console.log(res)
+      }
+    })
     this.dataTime();
     //数组转换为对象数组
     var activeSubjectsArr = [];

@@ -6,18 +6,8 @@ Page({
    */
   data: {
     selected:true,
-    normallist: [
-      { 'content': '感染与免疫科', "id": 0, "url": "../bookdetails/bookdetails" },
-      { 'content': '感染与免疫科', "id": 1, "url": "../bookdetails/bookdetails"}, 
-      { 'content': '感染与免疫科', "id": 2, "url":"../bookdetails/bookdetails"},
-      { 'content': '感染与免疫科', "id": 3, "url": "../bookdetails/bookdetails"}, 
-      { 'content': '感染与免疫科', "id": 4, "url": "../bookdetails/bookdetails"},
-      { 'content': '感染与免疫科', "id": 5, "url": "../bookdetails/bookdetails"}, 
-      { 'content': '感染与免疫科', "id": 6, "url": "../bookdetails/bookdetails"}, 
-      { 'content': '感染与免疫科', "id": 7, "url": "../bookdetails/bookdetails"},
-      { 'content': '感染与免疫科', "id": 8, "url": "../bookdetails/bookdetails"},
-      { 'content': '感染与免疫科', "id": 9, "url": "../bookdetails/bookdetails"}, 
-      { 'content': '感染与免疫科', "id": 10, "url": "../bookdetails/bookdetails"}]
+    normallist: [],
+    departmentlist:[]
   },
   tabNav: function (e) {
     this.setData({
@@ -50,9 +40,37 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var header = options.header;
+    let objects = JSON.parse(options.data);
+    console.log(objects)
     this.setData({
-      title: header
+      title: objects.header
+    })
+    //进行数据请求
+    var that = this
+    wx.request({
+      url: 'http://192.168.2.165:8081/booking/getdept',
+      method: "post",
+      data: {
+        "hospitalID": objects.hosid
+      },
+      success: function (res) {
+        var allArr = res.data.result;
+        var normol =[];
+        var department=[];
+        for (var i = 0; i < allArr.length;i++){
+          if (allArr[i].deptName1 == "普通"){
+            normol.push(allArr[i])
+          } else if (allArr[i].deptName1 == "专家"){
+            department.push(allArr[i])
+          }
+        }
+         that.setData({
+           normallist: normol,
+           departmentlist: department
+         })
+        console.log(that.data.normallist);
+        console.log(that.data.departmentlist)
+      }
     })
   },
 

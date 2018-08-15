@@ -1,117 +1,35 @@
-<view class='appointment-place-warp'>
-  <view class='appointment-place-header'>
-    <view class='appointment-place-input'>
-      <image src='../../images/homeimages/fangdajing.png'></image>
-      <input placeholder="输入医院名称" placeholder-style="font-family: PingFangSC-Regular;font-size: 12px;color: #A3A3A3;"></input>
-    </view>
-    <view class='appointment-place-select'>
-        <view class='appointment-place-selectitems'>
-          等级
-          <i></i>
-        </view>
-        <view class='appointment-place-selectitems'>
-          区域
-          <i></i>
-        </view>
-        <view class='appointment-place-selectitems'>
-          离我最近
-          <i></i>
-        </view>
-    </view>
+<block wx:if="{{result}}">
+  <view class='crad-warp'>
+    <view class='crad-tips'>暂未查询到您的住院申请信息</view>
+    <view class='crad-buttun' bindtap='change'>立即绑定就诊卡</view>
   </view>
-  <view class='appointment-place-main'>
-  </view>
-  <view class='appointment-place-main'>
-   <block wx:for="{{content}}" wx:key="*this">
-        <navigator class='appointment-place-mainitems' url='../bookdepartments/bookdepartments?header={{item.title}}'>
-          <image src='../../images/homeimages/yiyuanlogo@2x.png'>
-          </image>
-          <view class='appointment-place-content'>
-              <view class='appointment-place-contentheader'>
-                上海市公卫中心（{{item.title}}）
-              </view>
-              <view class='appointment-place-contentcolor'>
-                医院等级：{{item.leve}}
-              </view>
-              <view class='appointment-place-contentcolor'>
-                医院地址：{{item.place}}
-              </view>
-          </view>
-          <view class='appointment-place-distance'>
-                {{item.distance}}km
-          </view>
-        </navigator>
-    </block>
-    <view></view>
-  </view>
-</view>
-<!-- <view id="swiper-tab">
-    <view class="swiper-tab">
-      <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="tabNav">{{first}}
-        <i></i>
-      </view>
-      <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="tabNav">{{second}}
-        <i></i>
-      </view>
-      <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="tabNav">{{thirds}}
-        <i></i>
-      </view>
+</block>
+<block wx:else>
+  <view class='appointment-place-warp'>
+    <view class='appointment-place-main'>
     </view>
-    <swiper current="{{currentTab}}" duration="1000" class="swiper-item" style='display:{{displays}}'>
-      <swiper-item>
-        <view>
-          <view class='qiehuannier'>
-            <view class="nav bc_white">
-              <view class="{{selected?'red':'default'}}" bindtap="selected">普通</view>
-              <view class="{{selected1?'red':'default'}}" bindtap="selected1">专家</view>
-              <view class="{{selected2?'red':'default'}}" bindtap="selected2">精英</view>
+    <view class='appointment-place-main'>
+    <block wx:for="{{content}}" wx:key="*this">
+          <view class='appointment-place-mainitems' data-hosID="{{item.hospitalID}}" data-header="{{item.title}}" bindtap='linkToDepartments'>
+            <image src='../../images/homeimages/yiyuanlogo@2x.png'>
+            </image>
+            <view class='appointment-place-content'>
+                <view class='appointment-place-contentheader'>
+                  上海市公卫中心（{{item.title}}）
+                </view>
+                <view class='appointment-place-contentcolor'>
+                  医院等级：{{item.leve}}
+                </view>
+                <view class='appointment-place-contentcolor'>
+                  医院地址：{{item.place}}
+                </view>
             </view>
-            <view id="rights">
-              <view class="{{selected?'show':'hidden'}}">
-                <view class="{{_sum == 1?'add_adress':'add_city'}}" data-num="1" bindtap="clickSum" data-name="张三">张三</view>
-                <view class="{{_sum == 2?'add_adress':'add_city'}}" data-num="2" bindtap="clickSum" data-name="李四">李四</view>
-                <view class="{{_sum == 3?'add_adress':'add_city'}}" data-num="3" bindtap="clickSum" data-name="王五">王五</view>
-                <view class="{{_sum == 4?'add_adress':'add_city'}}" data-num="4" bindtap="clickSum" data-name="上海">上海</view>
-                <view class="{{_sum == 5?'add_adress':'add_city'}}" data-num="5" bindtap="clickSum" data-name="上海">上海</view>
-                <view class="{{_sum == 6?'add_adress':'add_city'}}" data-num="6" bindtap="clickSum" data-name="上海">上海</view>
-              </view>
-              <view class="{{selected1?'show':'hidden'}}">
-                <view class="{{_mum == 1?'add_adre':'add_city'}}" data-num="1" bindtap="clickMum" data-name="北京">北京</view>
-                <view class="{{_mum == 2?'add_adre':'add_city'}}" data-num="2" bindtap="clickMum" data-name="上海">上海</view>
-                <view class="{{_mum == 3?'add_adre':'add_city'}}" data-num="3" bindtap="clickMum" data-name="上海">上海</view>
-                <view class="{{_mum == 4?'add_adre':'add_city'}}" data-num="4" bindtap="clickMum" data-name="上海">上海</view>
-              </view>
-              <view class="{{selected2?'show':'hidden'}}">
-                <view class="{{_cum == 1?'add_ad':'add_city'}}" data-num="1" bindtap="clickCum" data-name="北京">北京</view>
-                <view class="{{_cum == 2?'add_ad':'add_city'}}" data-num="2" bindtap="clickCum" data-name="上海">上海</view>
-                <view class="{{_cum == 3?'add_ad':'add_city'}}" data-num="3" bindtap="clickCum" data-name="上海">上海</view>
-              </view>
+            <view class='appointment-place-distance'>
+                  {{item.distance}}km
             </view>
           </view>
-        </view>
-      </swiper-item>
-      <swiper-item>
-        <view class="location_bottom" hidden="">
-          <view class="{{_num == 1?'add_citying':'add_city'}}" data-num="1" bindtap="clickNum" data-name="北京">北京</view>
-          <view class="{{_num == 2?'add_citying':'add_city'}}" data-num="2" bindtap="clickNum" data-name="上海">上海</view>
-          <view class="{{_num == 3?'add_citying':'add_city'}}" data-num="3" bindtap="clickNum" data-name="上海">上海</view>
-          <view class="{{_num == 4?'add_citying':'add_city'}}" data-num="4" bindtap="clickNum" data-name="上海">上海</view>
-          <view class="{{_num == 5?'add_citying':'add_city'}}" data-num="5" bindtap="clickNum" data-name="上海">上海</view>
-          <view class="{{_num == 6?'add_citying':'add_city'}}" data-num="6" bindtap="clickNum" data-name="上海">上海</view>
-          <view class="{{_num == 7?'add_citying':'add_city'}}" data-num="7" bindtap="clickNum" data-name="上海">上海</view>
-        </view>
-      </swiper-item>
-      <swiper-item>
-        <view class="location_bottom" hidden="">
-          <view class="{{_res == 1?'add_House':'add_city'}}" data-num="1" bindtap="clickHouse" data-name="北京">北京</view>
-          <view class="{{_res == 2?'add_House':'add_city'}}" data-num="2" bindtap="clickHouse" data-name="北京">上海</view>
-          <view class="{{_res == 3?'add_House':'add_city'}}" data-num="3" bindtap="clickHouse" data-name="北京">上海</view>
-          <view class="{{_res == 4?'add_House':'add_city'}}" data-num="4" bindtap="clickHouse" data-name="北京">上海</view>
-          <view class="{{_res == 5?'add_House':'add_city'}}" data-num="5" bindtap="clickHouse" data-name="上海">上海</view>
-          <view class="{{_res == 6?'add_House':'add_city'}}" data-num="6" bindtap="clickHouse" data-name="北京">上海</view>
-          <view class="{{_res == 7?'add_House':'add_city'}}" data-num="7" bindtap="clickHouse" data-name="北京">上海</view>
-        </view>
-      </swiper-item>
-    </swiper>
+      </block>
+      <view></view>
+    </view>
   </view>
-  <view class="swiper-beijing" bindtap="hideNav" style='display:{{displays}}'></view> -->
+</block>
