@@ -3,7 +3,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    details: [{ "name": "张科名", "position": "副主任医师", "introduce": "毕业于上海第二医科大学临…" }, { "name": "张科名", "position": "副主任医师", "introduce": "毕业于上海第二医科大学临…" }, { "name": "张科名", "position": "副主任医师", "introduce": "毕业于上海第二医科大学临…" }],
+    details: [],
     arr: [],
     weeks: [],
     months:[],
@@ -13,9 +13,12 @@ Page({
     resultData: [],
     nowmonth:null,
     nowdate:null,
-    nowweek:null
+    nowweek:null,
+    transferData:null,
+    shownormal:"",
+    avatar:[],
+    showDate : ""
   },
-
   //获取日历相关参数
   dataTime: function () {
     var date = new Date();
@@ -97,7 +100,7 @@ Page({
   //改变日期
   changdate:function(e){
     this.setData({
-      nowdate: e.currentTarget.dataset.date
+      nowdate: e.currentTarget.dataset.date-1
     })
     this.setData({
       nowweek: e.currentTarget.dataset.week
@@ -106,11 +109,11 @@ Page({
     this.setData({
       nowmonth: e.currentTarget.dataset.month
     })
+    this.sendData();
   },
   //页面跳转传对象
   link:function(e){
-
-    let str = JSON.stringify(e.currentTarget.dataset)
+    let str = JSON.stringify(e.currentTarget.dataset);
     wx.navigateTo({
       url: '../docterdetails/docterdetails?date='+str,
     })
@@ -135,21 +138,61 @@ Page({
     }
     return newArr;
   },
-  onLoad: function (options) {
+  sendData:function(){
+    let that = this;
+    //默认发送后一天日期
+    let datetime = "";
+    if (that.data.nowmonth < 10 && that.data.nowdate >= 10) {
+      datetime = that.data.year + "-" + "0" + that.data.nowmonth + "-" + (that.data.nowdate + 1);
+    } else if (that.data.nowmonth < 10 && that.data.nowdate < 10 ) {
+      datetime = that.data.year + "-" + "0" + that.data.nowmonth + "-" + "0" + (that.data.nowdate + 1);
+    } else if (that.data.nowmonth >= 10 && that.data.nowdate < 10 ){
+      datetime = that.data.year + "-"  + that.data.nowmonth + "-" + "0" + (that.data.nowdate + 1);
+    } else if (that.data.nowmonth >= 10 && that.data.nowdate >=10){
+      datetime = that.data.year + "-" + that.data.nowmonth + "-" + (that.data.nowdate + 1);
+    }
+    that.setData({
+      showDate: datetime
+    })
+    console.log(datetime)
+    console.log(that.data.transferData)
     wx.request({
       url: 'http://192.168.2.165:8081/booking/getbookingdeptnosource',
       method: "post",
       data: {
-        "deptCode": "01_01_111",
-        "day":"2018-08-20",
+        "deptCode": that.data.transferData.id,
+        "day": datetime,
         "accessToken": "800EBED9-63E5-4408-A184-BE693DA32CB6",
         "openUserID": "",
       },
       success: function (res) {
         console.log(res)
+        that.setData({
+          details: res.data.result
+        })
       }
     })
+  },
+  onLoad: function (options) {
+    // 获取日期参数
     this.dataTime();
+    //接受上一页传过来的参数
+    let objects = JSON.parse(options.data);
+    console.log(objects)
+    if (objects.leve=="普通"){
+      this.setData({
+        shownormal:true
+      })
+    } else if (objects.leve == "专家"){
+      this.setData({
+        shownormal: false
+      })
+    }
+    this.setData({
+      transferData: objects
+    });
+    //发送数据
+    this.sendData();
     //数组转换为对象数组
     var activeSubjectsArr = [];
     for (var i = 0; i < this.data.weeks.length; i++) {

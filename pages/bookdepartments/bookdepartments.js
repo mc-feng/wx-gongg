@@ -72,8 +72,21 @@ Page({
         console.log(that.data.departmentlist)
       }
     })
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          clientHeight: res.windowHeight
+        });
+      }
+    })
   },
-
+  linToDetails:function(e){
+    let str = JSON.stringify(e.currentTarget.dataset)
+    console.log(e)
+    wx.navigateTo({
+      url:'../bookdetails/bookdetails?data=' + str,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

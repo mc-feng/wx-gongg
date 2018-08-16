@@ -53,10 +53,18 @@ align-items: center;
 .details-items{
   position: relative;
   padding: 34rpx 0 0 164rpx;
-  height: 162rpx;
+  height: 140rpx;
   background: #FFFFFF;
   box-shadow: 0 0 8rpx 0 #E5F1FF;
   margin-bottom: 20rpx;
+}
+.docter-image{
+  position: absolute;
+  width: 100rpx;
+  height: 100rpx;
+  left: 28rpx;
+  top:38rpx;
+  border-radius: 50%;
 }
 .details-header{
   height: 44rpx;
@@ -75,19 +83,24 @@ align-items: center;
   margin-left: 24rpx;
 }
 .doctor-introduce{
-  margin-top: 24rpx;
+  width: 328rpx;
+  margin-top: 18rpx;
   height: 40rpx;
   line-height: 40rpx;
   font-family: PingFangSC-Regular;
   font-size: 24rpx;
   color: #666666;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap
+
 }
 .yuding{
   position: absolute;
-  height: 196rpx;
+  height: 140rpx;
   right:28rpx;
   top: 0;
-  line-height: 196rpx;
+  line-height: 170rpx;
   width: 90rpx;
   font-family: PingFangSC-Regular;
   font-size: 26rpx;
@@ -102,7 +115,7 @@ align-items: center;
 .yuding image{
   position: absolute;
   right: 0;
-  top: 83rpx;
+  top: 74rpx;
   width: 16rpx;
   height: 28rpx;
 }

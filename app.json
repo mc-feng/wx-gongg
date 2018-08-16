@@ -20,7 +20,7 @@
     "navigationBarTitleText": "上海市公共卫生临床中心"
   },
   "tabBar": {
-    "borderStyle": "white",
+    "borderStyle": "black",
     "color":"#CCCCCC",
     "selectedColor": "#0D86EB",
     "backgroundColor": "#fff",

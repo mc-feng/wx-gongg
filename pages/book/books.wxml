@@ -9,7 +9,7 @@
     <view class='appointment-place-main'>
     </view>
     <view class='appointment-place-main'>
-    <block wx:for="{{content}}" wx:key="*this">
+    <block wx:for="{{content}}" wx:key="{{item.hospitalID}}">
           <view class='appointment-place-mainitems' data-hosID="{{item.hospitalID}}" data-header="{{item.title}}" bindtap='linkToDepartments'>
             <image src='../../images/homeimages/yiyuanlogo@2x.png'>
             </image>

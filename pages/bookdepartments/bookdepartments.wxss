@@ -40,8 +40,8 @@ page{
   flex-flow: row nowrap;
 }
 .bc-white{
-  width: 282rpx;
-  height: 1038rpx;
+  width: 382rpx;
+  height: 1016rpx;
   text-align: center;
 }
 .red{
@@ -64,20 +64,23 @@ page{
    height: 100%;
    width: 100%
 }
+.scroll-wrap{
+  background: #FFFFFF;
+}
 .normaldocter{
   position: relative;
   height: 90rpx;
   line-height: 90rpx;
   border-bottom: 2rpx solid #F5F7F9;
-  padding: 0 28rpx 0 10rpx;
+  padding: 0 28rpx 0 30rpx;
   font-family: PingFangSC-Regular;
   font-size: 30rpx;
   color: #232323;
 }
 .normaldocter image{
-  width: 16rpx;
-  height: 28rpx;
+  width: 14rpx;
+  height: 22rpx;
   position: absolute;
-  right: 24rpx;
+  right: 34rpx;
   top:30rpx;
 }
