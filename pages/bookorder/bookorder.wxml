@@ -2,23 +2,23 @@
   <view class='bookordermain'>
      <view class='bookordermain-item'>
          <view class='bookordermain-title'>所属医院：</view>
-         <view class='bookordermain-content'>金山总部</view>
+         <view class='bookordermain-content'>{{data.trans.hospital}}</view>
      </view>
      <view class='bookordermain-item'>
          <view class='bookordermain-title'>所属科室：</view>
-         <view class='bookordermain-content'>感染科</view>
+         <view class='bookordermain-content'>{{data.trans.office}}</view>
      </view>
      <view class='bookordermain-item'>
          <view class='bookordermain-title'>医生名称：</view>
-         <view class='bookordermain-content'>张科名</view>
+         <view class='bookordermain-content'>{{data.trans.docName}}</view>
      </view>
      <view class='bookordermain-item'>
-         <view class='bookordermain-title'>所属医院：</view>
-         <view class='bookordermain-content'>金山总部萨达萨达萨达</view>
+         <view class='bookordermain-title'>挂号费用</view>
+         <view class='bookordermain-content'>{{data.price}}元（医院取号支付）</view>
      </view>
      <view class='bookordermain-item'>
          <view class='bookordermain-title'>预约时间</view>
-         <view class='bookordermain-content'>{{data.time}}</view>
+         <view class='bookordermain-content black'>{{data.now}}    {{data.time}}</view>
      </view>
      <!-- 分割线 -->
      <view class='Cutting-line'>
@@ -27,12 +27,8 @@
        <view class='circle1'></view>
      </view>
      <view class='bookordermain-item'>
-         <view class='bookordermain-title'>所属医院：</view>
-         <view class='bookordermain-content'>金山总部萨达萨达萨达</view>
-     </view>
-     <view class='bookordermain-item'>
-         <view class='bookordermain-title'>预约时间</view>
-         <view class='bookordermain-content'>{{data.time}}</view>
+         <view class='bookordermain-title jiuzheng'>就诊人：</view>
+         <view class='bookordermain-crad' bindtap='linkToCard'>绑定就诊卡</view>
      </view>
   </view>
 </view>

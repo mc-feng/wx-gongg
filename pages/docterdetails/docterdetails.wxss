@@ -23,12 +23,12 @@ page{
   margin-left: 24rpx;
 }
 .doctor-collect{
-  position: relative;
+  position: absolute;
   padding-left: 24rpx;
   font-family: PingFangSC-Regular;
   font-size: 24rpx;
   color: #232323;
-  margin-left: 278rpx
+  right: 30rpx;
 }
 .doctor-collect image{
   width: 24rpx;
@@ -65,9 +65,29 @@ page{
   color: #666666;
   text-align: justify;
 }
+/* 多行省略号 */
+.introduce-content-hidden{
+  margin-top: 10rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #666666;
+  text-align: justify;
+  position:relative;
+  line-height:32rpx;
+  height:64rpx;
+  overflow:hidden;
+}
+.introduce-content-hidden:after{
+  content:"...";
+  position:absolute;
+  bottom:0;
+  right:0;
+  background-color: #fff;
+}
 .content{
   margin-top: 20rpx;
 }
+/* 预定信息 */
 .yuding-riqi{
   position: relative;
   height: 34rpx;
@@ -99,7 +119,7 @@ page{
 }
 .yuding-state{
   margin-left: 28rpx;
-  width: 60rpx;
+  width: 106rpx;
 }
 .yuding-time{
   width: 203rpx;
@@ -107,7 +127,7 @@ page{
 }
 .yuding-price{
   width: 96rpx;
-  margin-left: 306rpx;
+  margin-left: 264rpx;
 }
 .other .yuding-state{
   color: #0D86EB;
@@ -117,4 +137,12 @@ page{
 }
 .other .yuding-price{
   color: #F58F08;
+}
+.docter-image{
+  position: absolute;
+  width: 80rpx;
+  height: 80rpx;
+  left: 28rpx;
+  top:30rpx;
+  border-radius: 50%;
 }

@@ -116,5 +116,10 @@ Page({
     wx.navigateTo({
       url:'../booksuccee/booksuccee',
     })
+  },
+  linkToCard:function(){
+    wx.navigateTo({
+      url: '../inHospital/inHospital',
+    })
   }
 })

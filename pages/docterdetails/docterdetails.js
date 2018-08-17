@@ -4,10 +4,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-     change:true,
-     collect:false,
-     date:null,
-    docterbook: [{ "shengyu": "已满", "time": "08:00-09:00", "price": "38.00", "man": true }, { "shengyu": "余 3", "time": "11:00-17:00", "price": "48.00", "man": false }, { "shengyu": "余 5", "time": "17:00-19:00", "price": "58.00", "man": false }]
+    change:true,
+    collect:false,
+    date:null,
+    docterbook: [],
+    docPhotoPath:"",
+    docMemo:"",
+    docCode:"",
+    docDuty:"",
+    transData:{}
   },
   expand: function () {
     if(this.data.change ===false){
@@ -35,20 +40,37 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that =this;
     let objects = JSON.parse(options.date);
-    this.setData({ date: objects });
-    console.log(this.data.date)
+    this.setData({
+      date: objects
+    })
+    console.log(options)
     wx.request({
       url: 'http://192.168.2.165:8081/booking/getbookingdocresource',
       method: "post",
       data: {
         "docCode": objects.doccode,
-        "day": "2018-08-20",
+        "day": objects.now.trim(),
         "accessToken": "800EBED9-63E5-4408-A184-BE693DA32CB6",
         "openUserID": "",
       },
       success: function (res) {
+        let transData={
+          hospital: objects.trans.title,
+          office: objects.trans.office,
+          docName: res.data.result[0].docCode
+        };
         console.log(res)
+        console.log(transData)
+        that.setData({
+          docterbook: res.data.result,
+          docPhotoPath: res.data.result[0].docPhotoPath,
+          docMemo: res.data.result[0].docMemo,
+          docCode: res.data.result[0].docCode,
+          docDuty: res.data.result[0].docDuty,
+          transData: transData
+        })
       }
     })
   },
