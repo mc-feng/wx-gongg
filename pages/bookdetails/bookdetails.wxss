@@ -29,8 +29,8 @@ height: 194rpx
 }
 .riqi{
 height: 194rpx;
-width: 58rpx;
 display: flex;
+width: 66rpx;
 flex-flow: column nowrap;
 align-items: center;
 }
@@ -118,4 +118,44 @@ align-items: center;
   top: 74rpx;
   width: 16rpx;
   height: 28rpx;
+}
+.normalyd{
+  width: 120rpx;
+}
+.normalyd view{
+   width: 90rpx;
+}
+.details-normal{
+  padding-top: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #232323;
+}
+.noData-warp{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.noData-warp image{
+  margin-top:200rpx;
+  width: 316rpx;
+  height: 246rpx
+}
+.noData-font{
+  margin-top: 20rpx;
+  height: 40rpx;
+  color: #232323;
+  font-size: 30rpx;
+  line-height: 40rpx;
+}
+.raduis{
+  background-color: #0D86EB;
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  line-height: 64rpx;
+  margin:10rpx 0 0 4rpx;
 }

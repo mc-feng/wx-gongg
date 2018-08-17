@@ -106,7 +106,7 @@ swiper-item image {
 }
 .main-nav navigator{
   margin-bottom: 20rpx;
-  width: 140rpx;
+  width: 142rpx;
   display: flex;
   flex-flow: column wrap;
 }

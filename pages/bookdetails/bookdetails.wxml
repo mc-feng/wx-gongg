@@ -6,54 +6,101 @@
 <swiper style='padding: 0 48rpx 0 40rpx;height:160rpx;background:#fff;' indicator-dots="true" duration="10">
    <swiper-item class="swiper-warp" wx:for="{{resultData}}" wx:key="{{index}}"  wx:for-item="data">
         <!-- data是上一个循环的item -->
-        <view class='riqi'wx:for="{{data}}" wx:key="{{index}}"  wx:for-item="result" bindtap='changdate' data-date="{{result.value}}" data-week="{{result.name}}" data-month="{{result.months}}">
+        <view class='riqi'wx:for="{{data}}" wx:key="{{index}}"  wx:for-item="result" bindtap='changdate' data-date="{{result.value}}" data-week="{{result.name}}" data-month="{{result.months}}" data-index="{{result.value}}">
           <view class='riqi-week'>{{result.name}}</view>
-          <view class='riqi-date'>{{result.value}}</view>
+          <view class='riqi-date {{result.value==catalogSelect?"raduis":""}}'>{{result.value}}</view>
         </view>
-     </swiper-item>
+    </swiper-item>
 </swiper>
 <!-- 专家详情 -->
 <block wx:if="{{shownormal}}">
-    <view>这个是普通号</view>
-</block>
-<block wx:else>
- <block wx:if="{{details.length!=0}}">
-  <view class='details'>
-    <block wx:for="{{details}}" wx:key="{{items.docCode}}">
-        <view class='details-items'>
-          <view class='details-header'>
-            <block wx:if="{{item.docPhotoPath}}">
-              <view class='docter-image' style='background-image:url("{{item.docPhotoPath}}");background-position:10rpx 0rpx;background-size:80rpx 120rpx'></view>
-            </block>
-            <block wx:else>
-              <image class='docter-image' src='../../images/homeimages/defaultAvatar.png'></image>
-            </block>
-            <view class='doctor-name'>
-              {{item.deptCode}}
-            </view>
-            <view class='doctor-position'>
-              {{item.docDuty}}
-            </view>
-          </view>
-          <block wx:if="{{item.docMemo}}">
-            <view class='doctor-introduce'>
-              {{item.docMemo}}
-            </view>
+  <block wx:if="{{loading}}">
+    <block wx:if="{{details.length!=0}}">
+        <view class='details'>
+          <block wx:for="{{details}}" wx:key="{{items.docCode}}">
+              <view class='details-items'>
+                <image class='docter-image' src='../../images/homeimages/defaultAvatar.png'></image>
+                <view class='details-normal'>
+                    {{item.deptCode}}
+                </view>
+                <view class='yuding normalyd' bindtap='link' data-now="  {{showDate}}" data-nowdate="{{nowweek}}" data-trans="{{transferData}}" data-docCode="{{item.docCode}}">
+                  <image src='../../images/homeimages/sword.png'></image>
+                  <view>{{item.resourceMemo}}</view>
+                </view>
+              </view>
           </block>
-          <block wx:else>
-          <view class='doctor-introduce'>
-            该医生暂无简介
-          </view>
-          </block>
-          <view class='yuding' bindtap='link' data-now=" {{year}}-{{nowmonth}}-{{nowdate}}" data-nowdate="{{nowweek}}">
-            <image src='../../images/homeimages/sword.png'></image>
-            <view>{{item.resourceMemo}}</view>
-          </view>
         </view>
     </block>
-    </view>
+    <block wx:else>
+      <view class='noData-warp'>
+        <image src='../../images/smallicon/nodata.png'></image>
+        <view class='noData-font'>当日无排班</view>
+      </view>
+    </block>
   </block>
   <block wx:else>
-    <view>暂无数据</view>
+    <loading>
+        加载中...
+    </loading>
+  </block>
+</block>
+<block wx:else>
+<!-- 显示正在加载中 -->
+  <block wx:if="{{loading}}">
+  <!-- 没有数据显示的提醒 -->
+    <block wx:if="{{details.length!=0}}">
+    <!-- 有数据显示的具体项 -->
+      <view class='details'>
+        <block wx:for="{{details}}" wx:key="{{items.docCode}}">
+            <view class='details-items'>
+            <!-- 显示医生头像 -->
+              <view class='details-header'>
+                <block wx:if="{{item.docPhotoPath}}">
+                  <view class='docter-image' style='background-image:url("{{item.docPhotoPath}}");background-position:10rpx 0rpx;background-size:80rpx 120rpx'></view>
+                </block>
+                <block wx:else>
+                  <image class='docter-image' src='../../images/homeimages/defaultAvatar.png'></image>
+                </block>
+                <!-- 显示医生姓名 -->
+                <view class='doctor-name'>
+                  {{item.deptCode}}
+                </view>
+                <!-- 显示医生职位 -->
+                <view class='doctor-position'>
+                  {{item.docDuty}}
+                </view>
+              </view>
+              <!-- 显示医生的介绍 -->
+              <block wx:if="{{item.docMemo}}">
+                <view class='doctor-introduce'>
+                  {{item.docMemo}}
+                </view>
+              </block>
+              <block wx:else>
+              <view class='doctor-introduce'>
+                该医生暂无简介
+              </view>
+              </block>
+              <view class='yuding' bindtap='link' data-now=" {{showDate}}" data-nowdate="{{nowweek}}" data-trans="{{transferData}}" data-docCode="{{item.docCode}}">
+                <image src='../../images/homeimages/sword.png'></image>
+                <view>{{item.resourceMemo}}</view>
+              </view>
+            </view>
+        </block>
+        </view>
+      </block>
+      <!-- 没有数据的提示 -->
+      <block wx:else>
+        <view class='noData-warp'>
+         <image src='../../images/smallicon/nodata.png'></image>
+         <view class='noData-font'>当日无排班</view>
+        </view>
+      </block>
+  </block>
+  <!-- 正在加载的提示 -->
+  <block wx:else>
+    <loading>
+        加载中...
+    </loading>
   </block>
 </block>

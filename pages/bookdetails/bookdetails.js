@@ -17,7 +17,8 @@ Page({
     transferData:null,
     shownormal:"",
     avatar:[],
-    showDate : ""
+    showDate : "",
+    catalogSelect:""
   },
   //获取日历相关参数
   dataTime: function () {
@@ -100,14 +101,11 @@ Page({
   //改变日期
   changdate:function(e){
     this.setData({
-      nowdate: e.currentTarget.dataset.date-1
-    })
-    this.setData({
-      nowweek: e.currentTarget.dataset.week
-    })
-
-    this.setData({
-      nowmonth: e.currentTarget.dataset.month
+      nowmonth: e.currentTarget.dataset.month,
+      nowweek: e.currentTarget.dataset.week,
+      nowdate: e.currentTarget.dataset.date - 1,
+      loading:false,
+      catalogSelect:e.currentTarget.dataset.index
     })
     this.sendData();
   },
@@ -152,7 +150,8 @@ Page({
       datetime = that.data.year + "-" + that.data.nowmonth + "-" + (that.data.nowdate + 1);
     }
     that.setData({
-      showDate: datetime
+      showDate: datetime,
+      catalogSelect:this.data.nowdate + 1
     })
     console.log(datetime)
     console.log(that.data.transferData)
@@ -168,7 +167,8 @@ Page({
       success: function (res) {
         console.log(res)
         that.setData({
-          details: res.data.result
+          details: res.data.result,
+          loading:true
         })
       }
     })
