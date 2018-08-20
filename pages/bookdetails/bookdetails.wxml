@@ -56,7 +56,7 @@
             <!-- 显示医生头像 -->
               <view class='details-header'>
                 <block wx:if="{{item.docPhotoPath}}">
-                  <view class='docter-image' style='background-image:url("{{item.docPhotoPath}}");background-position:10rpx 0rpx;background-size:80rpx 120rpx'></view>
+                  <view class='docter-image' style='background-image:url("{{item.docPhotoPath}}");background-position:10rpx 0rpx;background-size:80rpx 120rpx;background-repeat:norepeat'></view>
                 </block>
                 <block wx:else>
                   <image class='docter-image' src='../../images/homeimages/defaultAvatar.png'></image>

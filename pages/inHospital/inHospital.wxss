@@ -5,27 +5,100 @@ page{
   justify-content: center;
   align-items: center
 }
-.inhospital-tips{
-  margin-top: 528rpx;
-  width: 356rpx;
-  height: 40rpx;
-  letter-spacing: -0.64rpx;
-  line-height: 40rpx;
-  font-family: PingFangSC-Regular;
-  font-size: 28rpx;
-  color: #666666;
+.patient-list{
+  margin-top: 20rpx;
+  width: 666rpx;
+  background: #ffffff;
+  display: flex;
+  flex-flow: column nowrap;
+  border-radius: 4rpx;
+  padding: 24rpx 0 20rpx 28rpx;
+  position: relative
 }
-.inhospital-buttun{
-  margin-top: 76rpx;
-  width: 560rpx;
-  height: 82rpx;
-  line-height: 82rpx;
-  text-align: center;
-  border: 2rpx solid #0D86EB;
-  border-radius: 8rpx;
+.patient-name{
+  font-family: PingFangSC-Medium;
+  font-size: 36rpx;
+  color: #232323;
+  letter-spacing: 0;
+  font-weight: 600;
+  margin-bottom: 12rpx;
+}
+.patient-left{
   font-family: PingFangSC-Regular;
-  font-size: 32rpx;
+  height: 50rpx;
+  font-size: 26rpx;
+  color: #232323;
+  letter-spacing: 0;
+  line-height: 50rpx;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.patient-right{
+  color: #A3A3A3;
+}
+.radius{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background: #F5F7F9;
+  position: absolute;
+  left: -20rpx;
+  bottom: -20rpx;
+}
+.radius2{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background: #F5F7F9;
+  position: absolute;
+  bottom: -20rpx;
+  right: -20rpx;
+}
+.relation{
+  position: absolute;
+  width: 98rpx;
+  height: 40rpx;
+  border-radius: 2rpx;
+  background: #AED4FC;
+  text-align: center;
+  line-height: 40rpx;
+  right: 0rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 22rpx;
   color: #0D86EB;
+  letter-spacing: 0;
+}
+.trigon{
+  width: 0;
+  height: 0;
+  border: 20rpx solid transparent;
+  border-left: 20rpx solid #ffffff;
+  position: absolute;
+  left: 0rpx;
+  top: 0rpx;
+}
+.choose-buttun{
+  width: 18rpx;
+  height: 18rpx;
+  padding: 8rpx;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2rpx solid  #0D86EB;
+  position: absolute;
+  top: 112rpx;
+  right: 28rpx;
+}
+.choose-buttun2{
+  border: 2rpx solid #A3A3A3;
+}
+.choose-show{
+  width: 18rpx;
+  height: 18rpx;
+  border-radius: 50%;
+  background:#0D86EB; 
+}
+.choose-hidden{
+  display: none
 }
 .inhospital-swiper{
   width: 100%;
@@ -172,4 +245,10 @@ page{
   width: 75%;
   color: #FFFFFF;
   background: #0D86EB;
+}
+.buttun-peopel1{
+  width: 33.33%
+}
+.buttun-peopel2{
+  width: 66.33%
 }

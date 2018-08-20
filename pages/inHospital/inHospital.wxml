@@ -1,6 +1,34 @@
 <block wx:if="{{card}}">
-  <view class='inhospital-tips'>暂未查询到您的住院申请信息</view>
-  <view class='inhospital-buttun' bindtap='change'>立即绑定就诊卡</view>
+  <block wx:for="{{parameter}}" wx:key="parameter">
+    <view class='patient-list' bindtap='parameterTap' data-id='{{item.openId}}'>
+      <view class='patient-name'>{{item.openUserName}}</view>
+      <view class='patient-left'>手机号码：
+        <view class='patient-right'>{{item.openTel}}</view>
+      </view>
+      <view class='patient-left'>身份证号码：
+        <view class='patient-right'>{{item.openIDCard}}</view>
+      </view>
+      <view class='patient-left'>就诊卡号：
+        <view class='patient-right'>{{item.createTime}}</view>
+      </view>
+      <!-- 左右下角的圆 -->
+      <view class='radius'></view>
+      <view class='radius2'></view>
+      <!-- 与就诊人的关系 -->
+      <view class='relation'>本人
+        <view class='trigon'></view>
+      </view>
+      <!-- 点击确认事件 -->
+      <view class='choose-buttun {{item.checked?"":"choose-buttun2"}}'>
+        <view class='{{item.checked?"choose-show":"choose-hidden"}}'></view>
+      </view>
+    </view>
+  </block>
+  <view class='buttun-tab'>
+    <view class='tab1 buttun-peopel1' bindtap='change'>+添加就诊卡
+    </view>
+    <view class='tab2 buttun-peopel2' bindtap='ConfirmPatient'>确认</view>
+  </view>
 </block>
 <block wx:else>
    <view class='inhospital-swiper'>
@@ -30,19 +58,19 @@
         <view class='user'>
            <view class='user-item'>
             <view class='item-title'>姓名</view>
-            <input class='item-content' type='text' placeholder='请输入姓名'></input>
+            <input class='item-content' type='text' placeholder='请输入姓名' bindinput='getUseruserName'></input>
            </view>
            <view class='user-item'>
             <view class='item-title'>身份证号</view>
-            <input class='item-content' type='text' placeholder='请输入证件号码'></input>
+            <input class='item-content' type='text' placeholder='请输入证件号码' bindinput='getUseridentityCard'></input>
            </view>
            <view class='user-item'>
             <view class='item-title'>手机号</view>
-            <input class='item-content' type='text' placeholder='请输入您的手机号码'></input>
+            <input class='item-content' type='text' placeholder='请输入您的手机号码' bindinput='getUserphoneNumber'></input>
            </view>
            <view class='user-item'>
             <view class='item-title'>医保卡号</view>
-            <input class='item-content' type='text' placeholder='圈出位置的本人医保卡号'></input>
+            <input class='item-content' type='text' placeholder='圈出位置的本人医保卡号' bindinput='getUsermedicareCard'></input>
            </view>
         </view>
       </swiper-item>
@@ -69,6 +97,6 @@
    </swiper>
   <view class='buttun-tab'>
      <view class='tab1' bindtap='noadd'>暂不添加</view>
-     <view class='tab2'>确认添加</view>
+     <view class='tab2' bindtap='addCard'>确认添加</view>
   </view>
 </block>

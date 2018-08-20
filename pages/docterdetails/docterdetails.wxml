@@ -1,6 +1,6 @@
 <view class='doctor'>
   <block wx:if="{{docPhotoPath}}">
-    <view class='docter-image' style='background-image:url("{{docPhotoPath}}");background-position:0rpx -4rpx;background-size:80rpx 120rpx'></view>
+    <view class='docter-image' style='background-image:url("{{docPhotoPath}}");background-position:0rpx -4rpx;background-size:80rpx 120rpx;background-repeat:norepeat'></view>
   </block>
   <block wx:else>
     <image class='docter-image' src='../../images/homeimages/defaultAvatar.png'></image>
@@ -34,7 +34,7 @@
      {{date.now}} 星期{{date.nowdate}} 
    </view>
    <block wx:for="{{docterbook}}" wx:key="{{item.resourceID}}">
-      <view class='{{item.resourceMemo=="已满"?"yuding-details":"yuding-details other"}}' bindtap='{{item.resourceMemo=="已满"?"":"linkBook"}}' data-time="{{item.timeEnd}}" data-price="{{item.amount}}" data-trans="{{transData}}" data-now="{{date.now}}">
+      <view class='{{item.resourceMemo=="已满"?"yuding-details":"yuding-details other"}}' bindtap='{{item.resourceMemo=="已满"?"":"linkBook"}}' data-time="{{item.timeEnd}}" data-price="{{item.amount}}" data-trans="{{transData}}" data-now="{{date.now}}" data-resourceID="{{item.resourceID}}">
         <view class='yuding-state'>{{item.resourceMemo
 }}</view>
         <view class='yuding-time'>{{item.timeEnd}}</view>
