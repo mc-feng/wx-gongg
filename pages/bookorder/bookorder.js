@@ -94,6 +94,7 @@ Page({
        "patientID": this.data.patientMessage.patientID,
        "accessToken": "800EBED9-63E5-4408-A184-BE693DA32CB6",
        "openUserID": "",
+       "id": this.data.patientMessage.id
      },
      success:function(res){
        console.log(res)

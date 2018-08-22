@@ -48,7 +48,7 @@ page{
   background-color: #FFFFFF
 }
 .floor-box-item text{
-  width: 120rpx;
+  width: 156rpx;
   height: 42rpx;
   line-height: 42rpx;
   text-align: center;

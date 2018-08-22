@@ -1,0 +1,27 @@
+<view class='header'>
+   <view class='header-font'>李丽丽</view>
+   <image src='../../images/personimages/changeUser.png' class='changeUser'></image>
+</view>
+<block wx:for="{{parameter}}" wx:key="parameter">
+    <view class='patient-list' bindtap='parameterTap' data-id='{{item.openId}}'>
+      <view class='patient-left'>就诊人：
+        <view class='patient-right'>{{item.openTel}}</view>
+      </view>
+      <view class='patient-left'>预约时间：
+        <view class='patient-right'>{{item.openIDCard}}</view>
+      </view>
+      <view class='patient-left'>所属医院：
+        <view class='patient-right'>{{item.createTime}}</view>
+      </view>
+      <view class='patient-left'>所属科室：
+        <view class='patient-right'>{{item.createTime}}</view>
+      </view>
+      <!-- 左右下角的圆 -->
+      <view class='radius'></view>
+      <view class='radius2'></view>
+      <!-- 与就诊人的关系 -->
+      <view class='relation'>本人
+        <view class='trigon'></view>
+      </view>
+    </view>
+  </block>

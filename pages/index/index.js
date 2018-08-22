@@ -30,15 +30,7 @@ Page({
       { 'word': '体验服务', "url": "../book/books", "src": "../../images/homeimages/tijian@2x.png"},
       { 'word': '更多服务', "url": "../book/books", "src": "../../images/homeimages/gengduo@2x.png"}
     ],
-    imgUrls: [
-      'https://p3.pstatp.com/large/43700001e49d85d3ab52',
-
-      'https://p3.pstatp.com/large/39f600038907bf3b9c96',
-
-      'https://p3.pstatp.com/large/31fa0003ed7228adf421'
-
-    ],
-
+    imgUrls: [],
     links: [
       '../user/user',
 
@@ -54,17 +46,18 @@ Page({
     })
   },
   onLoad: function () {
+    console.log(1)
     var that =this;
-    //  wx.request({
-    //    url: 'http://192.168.2.165:8081/photo/select',
-    //    method:"get",
-    //    success:function(res){
-    //      that.setData({
-    //        list: res.data.result
-    //      })
-    //      console.log(that.data.list)
-    //    }
-    //  })
+     wx.request({
+       url: 'http://192.168.2.165:8081/medicalcard/selectphoto',
+       method:"get",
+       success:function(res){
+         console.log(res)
+         that.setData({
+           imgUrls: res.data.result
+         })
+       }
+     })
   },
   //轮播图的切换事件
   swiperChange: function (e) {

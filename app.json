@@ -12,7 +12,8 @@
     "pages/booksuccee/booksuccee",
     "pages/report/report",
     "pages/inHospital/inHospital",
-    "pages/consult/consult"
+    "pages/consult/consult",
+    "pages/bookRecord/bookRecord"
   ],
   "window":{
     "navigationBarBackgroundColor": "#FFFFFF",

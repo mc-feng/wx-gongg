@@ -2,13 +2,13 @@
    <view class='ydepartments-header-font'>{{title}}</view>
    <view class='ydepartments-header-input'>
     <image src='../../images/homeimages/fangdajing.png'></image>
-    <input class='ydepartments-header-inputs' placeholder='输入科室或者疾病关键词直接查找' placeholder-class='ydepartments-header-inputc'></input>
+    <input class='ydepartments-header-inputs' placeholder='输入科室直接查找' placeholder-class='ydepartments-header-inputc' bindinput="search"></input>
    </view>
 </view>
 <view class='qiehuan'>
             <view class="bc-white">
-              <view class="{{selected?'red':'default'}}" bindtap="selected">普通</view>
-              <view class="{{selected1?'red':'default'}}" bindtap="selected1">专家</view>
+              <view class="{{selected?'red':'default'}}" bindtap="selected" data-deptCode="01_01">普通</view>
+              <view class="{{selected1?'red':'default'}}" bindtap="selected1" data-deptCode="01_02">专家</view>
             </view>
             <scroll-view scroll-y class='scroll-wrap' style="height: {{clientHeight?clientHeight+'px':'auto'}}">
               <view id="rights">

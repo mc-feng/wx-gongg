@@ -25,7 +25,7 @@
                 </view>
             </view>
             <view class='appointment-place-distance'>
-                  {{item.distance}}km
+                  {{distance[index]}}km
             </view>
           </view>
       </block>

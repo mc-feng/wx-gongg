@@ -20,10 +20,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let objects = JSON.parse(options.data);
-    console.log(objects);
-    this.setData({ data: objects });
-    this.data.parameter[0].checked = true;
+    if (options.data){
+      let objects = JSON.parse(options.data);
+      console.log(objects);
+      this.setData({ data: objects });
+      this.data.parameter[0].checked = true;
+    }
     var that =this;
     wx.request({
       url: 'http://192.168.2.165:8081/medicalcard/getweachattopatient',
@@ -155,17 +157,18 @@ Page({
     })
   },
   addCard:function(){
+    console.log(this.data.identityCard)
     wx.request({
       url: 'http://192.168.2.165:8081/medicalcard/getRecordCard',
       method:"post",
       data:{
         "openID":"123456",
         "tel": this.data.phoneNumber,
-        "IDCard": this.data.identityCard,
+        "idCard": this.data.identityCard,
         "patientName": this.data.userName,
         "cardNo": this.data.medicareCard,
         "cardType": 0,
-        "cardProperty ": 0,
+        "cardProperty": 0,
         "accessToken": "800EBED9-63E5-4408-A184-BE693DA32CB6",
         "openUserID": "",
       },

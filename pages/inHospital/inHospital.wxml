@@ -78,19 +78,19 @@
       <view class='user'>
            <view class='user-item'>
             <view class='item-title'>姓名</view>
-            <input class='item-content' type='text' placeholder='请输入姓名'></input>
+            <input class='item-content' type='text' placeholder='请输入姓名' bindinput='getUseruserName'></input>
            </view>
            <view class='user-item'>
             <view class='item-title'>身份证号</view>
-            <input class='item-content' type='text' placeholder='请输入证件号码'></input>
+            <input class='item-content' type='text' placeholder='请输入证件号码' bindinput='getUseridentityCard'></input>
            </view>
            <view class='user-item'>
             <view class='item-title'>手机号</view>
-            <input class='item-content' type='text' placeholder='请输入您的手机号码'></input>
+            <input class='item-content' type='text' placeholder='请输入您的手机号码'bindinput='getUserphoneNumber'></input>
            </view>
            <view class='user-item'>
             <view class='item-title'>医保卡号</view>
-            <input class='item-content' type='text' placeholder='请输入的本人医保卡号'></input>
+            <input class='item-content' type='text' placeholder='请输入的本人医保卡号' bindinput='getUsermedicareCard'></input>
            </view>
         </view>
       </swiper-item>

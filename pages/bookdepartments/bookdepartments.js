@@ -7,9 +7,13 @@ Page({
   data: {
     selected:true,
     normallist: [],
-    departmentlist:[]
+    departmentlist:[],
+    hospitalID:"",
+    deptCode1:'01_01',
+    value:""
   },
   tabNav: function (e) {
+    var that = this
     this.setData({
       selected1: false,
       selected: true
@@ -25,16 +29,62 @@ Page({
     }
   },
   selected: function (e) {
+    var that = this
+    console.log(e)
     this.setData({
       selected1: false,
-      selected: true
+      selected: true,
+      deptCode1: e.currentTarget.dataset.deptcode
+    })
+    wx.request({
+      url: 'http://192.168.2.165:8081/booking/getdept',
+      method: "post",
+      data: {
+        "hospitalID": that.data.hospitalID,
+        "deptCode1": that.data.deptCode1,
+        "deptName2": that.data.value
+      },
+      success: function (res) {
+        if (that.data.deptCode1 == "01_02") {
+          that.setData({
+            departmentlist: res.data.result
+          })
+        } else {
+          that.setData({
+            normallist: res.data.result
+          })
+        }
+      }
     })
   },
   selected1: function (e) {
+    console.log(e)
+    var that = this
     this.setData({
       selected: false,
-      selected1: true
-    })
+      selected1: true,
+      deptCode1: e.currentTarget.dataset.deptcode
+    }),
+      wx.request({
+        url: 'http://192.168.2.165:8081/booking/getdept',
+        method: "post",
+        data: {
+          "hospitalID": that.data.hospitalID,
+          "deptCode1": that.data.deptCode1,
+          "deptName2": that.data.value
+        },
+        success: function (res) {
+          if (that.data.deptCode1 == "01_02") {
+            that.setData({
+              departmentlist: res.data.result
+            })
+          } else {
+            that.setData({
+              normallist: res.data.result
+            })
+          }
+        }
+      })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -43,7 +93,8 @@ Page({
     let objects = JSON.parse(options.data);
     console.log(objects)
     this.setData({
-      title: objects.header
+      title: objects.header,
+      hospitalID: objects.hosid
     })
     //进行数据请求
     var that = this
@@ -85,6 +136,34 @@ Page({
     console.log(e)
     wx.navigateTo({
       url:'../bookdetails/bookdetails?data=' + str,
+    })
+  },
+  //进行搜索查询
+  search:function(e){
+    console.log(e)
+    var that = this;
+    that.setData({
+      value:e.detail.value
+    })
+    wx.request({
+      url: 'http://192.168.2.165:8081/booking/getdept',
+      method: "post",
+      data: {
+        "hospitalID": that.data.hospitalID,
+        "deptCode1": that.data.deptCode1,
+        "deptName2": that.data.value
+      },
+      success:function(res){
+        if (that.data.deptCode1 =="01_02"){
+          that.setData({
+            departmentlist: res.data.result
+          })
+        }else{
+          that.setData({
+            normallist: res.data.result
+          })
+        }
+      }
     })
   },
   /**
