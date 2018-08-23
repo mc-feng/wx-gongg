@@ -2,10 +2,10 @@
    <view class='user'></view>
    <view class='name'>李丽丽</view>
    <view class='floor-box'>
-     <view class='floor-box-item'>
+     <navigator class='floor-box-item' url="../myCollect/myCollect">
        <image src='../../images/personimages/shoucang@2x.png'></image>
        <text>我的收藏</text>
-     </view>
+     </navigator>
      <view class='floor-box-item'>
        <image src='../../images/personimages/jiuzhengren@2x.png'></image>
        <text>添加就诊人</text>

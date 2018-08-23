@@ -170,7 +170,7 @@ Page({
         "cardType": 0,
         "cardProperty": 0,
         "accessToken": "800EBED9-63E5-4408-A184-BE693DA32CB6",
-        "openUserID": "",
+        "openUserID": "2088022943884345",
       },
       success:function(res){
         console.log(res)

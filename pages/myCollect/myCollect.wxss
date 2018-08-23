@@ -1,0 +1,92 @@
+/* pages/myCollect/myCollect.wxss */
+page{
+   background: #F5F7F9;
+}
+view{ 
+  box-sizing: border-box; 
+} 
+.item-box{ 
+  width: 100%; 
+  padding:2rpx 0; 
+  background: #F5F7F9;
+} 
+.items{ 
+  width: 100%; 
+} 
+.item{ 
+  position: relative; 
+  margin-top: 18rpx; 
+  height: 176rpx; 
+  line-height: 176rpx; 
+  overflow: hidden; 
+  box-shadow: 0 0 4px 0 #E5F1FF;
+} 
+/* .item:last-child{ 
+  border-bottom: 2rpx solid #eee; 
+}  */
+.inner{ 
+  position: absolute; 
+  top:0; 
+} 
+.inner.txt{ 
+  background-color: #fff; 
+  width: 100%; 
+  height: 176rpx;
+  z-index: 5;
+  padding:0 10rpx; 
+  transition: left 0.2s ease-in-out; 
+  white-space:nowrap; 
+  overflow:hidden; 
+  text-overflow:ellipsis; 
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center
+} 
+.inner.txt image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-left: 36rpx;
+}
+.item-left{
+  display: flex;
+  flex-flow: column nowrap;
+  margin-left: 24rpx;
+}
+.innerHeader{
+  display: flex;
+  flex-flow: row nowrap;
+}
+.docter-name{
+  width: 120rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #232323;
+}
+.docter-position{
+  margin-top:10rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #A3A3A3;
+  height: 34rpx;
+  line-height: 34rpx;
+}
+.docter-introduce{
+  height: 20rpx;
+  line-height: 20rpx;
+  width: 328rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #666666;
+  margin-top: 8rpx;
+
+}
+.inner.del{ 
+  background-color: #e64340; 
+  width: 180rpx;text-align: center; 
+  z-index: 4; 
+  right: 0; 
+  color: #fff 
+} 

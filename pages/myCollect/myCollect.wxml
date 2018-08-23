@@ -1,0 +1,18 @@
+<!--pages/myCollect/myCollect.wxml-->
+<view class="item-box"> 
+ <view class="items"> 
+  <view wx:for="{{list}}" wx:key="{{index}}" class="item"> 
+   <view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" style="{{item.txtStyle}}" class="inner txt">
+     <image src='../../images/homeimages/defaultAvatar.png'></image>
+     <view class='item-left'>
+        <view class='innerHeader'>
+          <view class='docter-name'>张科明</view>
+          <view class='docter-position'>副主任医师</view>
+        </view>
+        <view class='docter-introduce'> 毕业于上海第二医科大学临…</view>
+     </view>
+   </view> 
+   <view data-index="{{index}}" bindtap = "delItem" class="inner del">删除</view> 
+  </view> 
+ </view> 
+</view> 

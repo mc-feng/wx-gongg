@@ -1,0 +1,105 @@
+/* pages/bookContent/bookContent.wxss */
+page{
+  background: #F5F7F9;
+}
+.bookordermain-wrap{
+   padding: 20rpx 30rpx 0 28rpx;
+  background: #F5F7F9;
+}
+.bookordermain{
+  padding: 24rpx 40rpx 14rpx 40rpx;
+  background: #FFFFFF;
+  border-radius: 14rpx;
+}
+.bookordermain-item{
+  display: flex;
+  flex-flow: row nowrap;
+  height: 90rpx;
+  line-height: 90rpx;
+}
+.bookordermain-title{
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #232323;
+}
+.bookordermain-content{
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #A3A3A3;
+  margin-left: 16rpx
+}
+.Cutting-line{
+  height: 80rpx;
+  position: relative;
+  background-color: #FFFFFF;
+}
+.line{
+  width: 652rpx;
+  border: 1rpx dashed #F5F7F9;
+  position: absolute;
+  left: -18rpx;
+  top: 20rpx;
+}
+.circle{
+  background-color: #F5F7F9;
+  position: absolute;
+  height: 48rpx;
+  width: 48rpx;
+  border-radius: 50%;
+  left: -66rpx;
+  top: 0rpx;
+}
+.circle1{
+  background-color: #F5F7F9;
+  position: absolute;
+  height: 48rpx;
+  width: 48rpx;
+  border-radius: 50%;
+  right: -66rpx;
+  top: 0rpx;
+}
+.newbuttun{
+  margin:82rpx 0 0 28rpx;
+  width: 694rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  background: #0D86EB;
+  border: 2rpx solid #0D86EB;
+  border-radius: 8rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #FFFFFF;
+  box-shadow:  0px 10rpx 30rpx  rgb(77, 169, 245);
+}
+.relation{
+  position: absolute;
+  width: 90rpx;
+  height: 40rpx;
+  border-radius: 2rpx;
+  background: #AED4FC;
+  text-align: right;
+  line-height: 40rpx;
+  right: 30rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 22rpx;
+  color: #0D86EB;
+  letter-spacing: 0;
+  padding:0rpx 15rpx 0 0
+}
+.trigon{
+  width: 0;
+  height: 0;
+  border: 20rpx solid transparent;
+  border-left: 20rpx solid #ffffff;
+  position: absolute;
+  left: 0rpx;
+  top: 0rpx;
+}
+.gray{
+  background: #D8D8D8;
+  color: #666666
+}
+.disno{
+  display: none
+}

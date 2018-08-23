@@ -93,7 +93,7 @@ Page({
        "hospitalUserID": this.data.patientMessage.openId,
        "patientID": this.data.patientMessage.patientID,
        "accessToken": "800EBED9-63E5-4408-A184-BE693DA32CB6",
-       "openUserID": "",
+       "openUserID": "2088022943884345",
        "id": this.data.patientMessage.id
      },
      success:function(res){

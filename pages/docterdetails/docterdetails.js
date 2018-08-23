@@ -53,7 +53,7 @@ Page({
         "docCode": objects.doccode,
         "day": objects.now.trim(),
         "accessToken": "800EBED9-63E5-4408-A184-BE693DA32CB6",
-        "openUserID": "",
+        "openUserID": "2088022943884345",
       },
       success: function (res) {
         let transData={
