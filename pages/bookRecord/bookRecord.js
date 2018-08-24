@@ -5,13 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    parameter: [{ id: 1 }, { id: 2 }],
+    parameter: [],
     relation:[],
     relations: [],
     choose:[{},{}],
     show:[],
     showChoose:[],
-    headerName:true
+    headerName:true,
+    index:"",
+    loading:true
   },
 
   /**
@@ -50,7 +52,8 @@ Page({
           }
         }
         that.setData({
-          relations: that.data.relation
+          relations: that.data.relation,
+          loading:false
         })
         console.log(that.data.relation)
       }
@@ -129,6 +132,9 @@ Page({
   },
   bindPickerChange:function(e){
     var that = this;
+    that.setData({
+      index: e.detail.value
+    })
     wx.request({
       url: 'http://192.168.2.165:8081/booking/getpatientlist',
       data: {

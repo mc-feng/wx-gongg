@@ -59,7 +59,7 @@ page{
   top: 0rpx;
 }
 .newbuttun{
-  margin:82rpx 0 0 28rpx;
+  margin:82rpx 0 50rpx 28rpx;
   width: 694rpx;
   height: 90rpx;
   line-height: 90rpx;
@@ -102,4 +102,23 @@ page{
 }
 .disno{
   display: none
+}
+.tokeNumber{
+  height: 140rpx;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center
+}
+.toke-title{
+  font-size: 28rpx;
+  color: #666666;
+}
+.number{
+  font-size: 36rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #0D86EB
+}
+.dark{
+  color: #A3A3A3
 }

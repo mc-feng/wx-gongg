@@ -1,65 +1,25 @@
-var initdata = function (that) {
-  var list = that.data.list
-  for (var i = 0; i < list.length; i++) {
-    list[i].txtStyle = ""
-  }
-  that.setData({ list: list })
-}
-
 Page({
   data: {
     delBtnWidth: 180,//删除按钮宽度单位（rpx） 
-    list: [
-      {
-        txtStyle: "",
-        txt: "指尖快递"
-      },
-      {
-        txtStyle: "",
-        txt: "指尖快递"
-      },
-      {
-        txtStyle: "",
-        txt: "指尖快递"
-      },
-      {
-        txtStyle: "",
-        txt: "指尖快递"
-      },
-      {
-        txtStyle: "",
-        txt: "指尖快递"
-      },
-      {
-        txtStyle: "",
-        txt: "指尖快递"
-      },
-      {
-        txtStyle: "",
-        txt: "指尖快递"
-      },
-      {
-        txtStyle: "",
-        txt: "指尖快递"
-      },
-      {
-        txtStyle: "",
-        txt: "指尖快递"
-      },
-      {
-        txtStyle: "",
-        txt: "指尖快递"
-      },
-      {
-        txtStyle: "",
-        txt: "指尖快递"
-      },
-
-    ]
+    list: []
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数 
     this.initEleWidth();
+    var that = this
+    wx.request({
+      url: 'http://192.168.2.165:8081/medicalcard/getdoclist',
+      data:{
+        "hospitalID":"123456"//openID
+      },
+      method:"post",
+      success:function(res){
+        that.setData({
+          list: res.data.result
+        })
+        console.log(res)
+      }
+    })
   },
   onReady: function () {
     // 页面渲染完成 
@@ -81,9 +41,16 @@ Page({
       });
     }
   },
+  initdata:function (that) {
+    var list = that.data.list
+    for (var i = 0; i < list.length; i++) {
+      list[i].txtStyle = ""
+    }
+    that.setData({ list: list })
+  },
   touchM: function (e) {
     var that = this
-    initdata(that)
+    this.initdata(that)
     if (e.touches.length == 1) {
       //手指移动时水平方向位置 
       var moveX = e.touches[0].clientX;
@@ -119,7 +86,7 @@ Page({
       var disX = this.data.startX - endX;
       var delBtnWidth = this.data.delBtnWidth;
       //如果距离小于删除按钮的1/2，不显示删除按钮 
-      var txtStyle = disX > delBtnWidth / 2 ? "left:-" + delBtnWidth + "px" : "left:0px";
+      var txtStyle = disX > delBtnWidth / 4 ? "left:-" + delBtnWidth + "px" : "left:0px";
       //获取手指触摸的是哪一项 
       var index = e.target.dataset.index;
       var list = this.data.list;
@@ -158,6 +125,19 @@ Page({
       content: '是否删除？',
       success: function (res) {
         if (res.confirm) {
+          //数据库中删除
+          console.log(that.data.list[e.target.dataset.index].docCode)
+          wx.request({
+            url: 'http://192.168.2.165:8081/medicalcard/deletedoclist',
+            method: "post",
+            data: {
+              "hospitalID": that.data.list[e.target.dataset.index].docCode,
+              "hospitalName": "123456"//--openID
+            },
+            success: function (res) {
+              console.log(res)
+            }
+          })
           //获取列表中要删除项的下标 
           var index = e.target.dataset.index;
           var list = that.data.list;
@@ -168,11 +148,18 @@ Page({
             list: list
           });
         } else {
-          initdata(that)
+          this.initdata(that)
         }
       }
     })
-
+  },
+  // 点击跳转收藏预约
+  linkToDetails:function(e){
+    var index = e.currentTarget.dataset.index
+    let str = JSON.stringify(this.data.list[index])
+    wx.navigateTo({
+      url: '../collectdetails/collectdetails?data='+str,
+    })
   }
 
 }) 

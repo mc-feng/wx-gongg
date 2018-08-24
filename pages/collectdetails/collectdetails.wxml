@@ -1,0 +1,79 @@
+<!--pages/collectdetails/collectdetails.wxml-->
+<!-- 加载页面 -->
+<block wx:if="{{loading}}">
+ <loading>
+        加载中...
+  </loading>
+</block>
+<block wx:else>
+<!-- 医生头像收藏 -->
+  <view class='doctor'>
+    <block wx:if="{{docPhotoPath}}">
+      <view class='docter-image' style='background-image:url("{{docPhotoPath}}");background-position:0rpx -4rpx;background-size:80rpx 120rpx;background-repeat:norepeat'></view>
+    </block>
+    <block wx:else>
+      <image class='docter-image' src='../../images/homeimages/defaultAvatar.png'></image>
+    </block>
+    <view class='doctor-name'>{{docCode}}</view>
+    <view class='doctor-position'>{{docDuty}}</view>
+    <view class='doctor-collect' bindtap='collectchange'>
+    <image src='{{collect?"../../images/smallicon/shoucang@2x.png":"../../images/smallicon/yishoucang@2x.png"}}'></image>
+      收藏
+    </view>
+  </view>
+  <!-- 医生简介 -->
+  <view class='introduce' bindtap='expand'>
+    <view class='introduce-header'>
+    <image src="{{change?'../../images/smallicon/xiala@2x.png':'../../images/smallicon/shouqi@2x.png'}}"></image>
+      简介
+    </view>
+    <block wx:if="{{change}}">
+      <view class='introduce-content-hidden'>
+        {{docMemo}}
+      </view>
+    </block>
+    <block wx:else>
+      <view class='introduce-content'>
+        {{docMemo}}
+      </view>
+    </block>
+  </view>
+  <!-- 排班日期列表显示 -->
+  <!-- 日历功能 -->
+<view class='date-header'>
+  <image src='../../images/smallicon/rili@2x.png'></image>
+  {{showDate}}
+</view>
+<swiper style='padding: 0 48rpx 0 40rpx;height:160rpx;background:#fff;' indicator-dots="true" duration="10">
+   <swiper-item class="swiper-warp" wx:for="{{resultData}}" wx:key="{{index}}"  wx:for-item="data">
+        <!-- data是上一个循环的item -->
+        <view class='riqi'wx:for="{{data}}" wx:key="{{index}}"  wx:for-item="result" bindtap='changdate' data-date="{{result.value}}" data-week="{{result.name}}" data-month="{{result.months}}" data-index="{{result.value}}">
+          <view class='riqi-week'>{{result.name}}</view>
+          <view class='riqi-date {{result.value==catalogSelect?"raduis":""}}'>{{result.value}}</view>
+        </view>
+    </swiper-item>
+</swiper>
+<!-- 主体内容 -->
+  <view class='content'>
+   <block wx:if="{{showContent}}">
+     <loading>
+        加载中...
+     </loading>
+   </block>
+   <block wx:else>
+      <block wx:if="{{docterbook.length == 0}}">
+        <view>暂无数据</view>
+      </block>
+      <block wx:else>
+          <block wx:for="{{docterbook}}" wx:key="{{item.resourceID}}">
+              <view class='{{item.resourceMemo=="已满"?"yuding-details":"yuding-details other"}}' bindtap='{{item.resourceMemo=="已满"?"":"linkBook"}}' data-time="{{item.timeEnd}}" data-price="{{item.amount}}" data-trans="{{transData}}" data-now="{{date.now}}" data-resourceID="{{item.resourceID}}">
+                <view class='yuding-state'>{{item.resourceMemo
+        }}</view>
+                <view class='yuding-time'>{{item.timeEnd}}</view>
+                <view class='yuding-price'>￥{{item.amount}}</view>
+              </view>
+            </block>
+        </block>
+    </block>
+  </view>
+</block>

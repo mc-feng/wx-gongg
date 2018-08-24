@@ -7,9 +7,9 @@ Page({
   data: {
     data:{},
     relations:"",
-    transData:{}
+    transData:{},
+    check:true
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -30,7 +30,8 @@ Page({
         that.setData({
           data: res.data.result[0],
           relations: options.relations,
-          transData: transData
+          transData: transData,
+          check:false
         })
         console.log(res)
       }
@@ -84,5 +85,21 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  cancel:function(){
+    var that = this
+    wx.showModal({
+      title: '提示',
+      content: '是否取消预约？',
+      success: function (res) {
+        if (res.confirm) {
+          that.setData({
+            relations: "已取消"
+          })
+        } else {
+          initdata(that)
+        }
+      }
+    })
   }
 })

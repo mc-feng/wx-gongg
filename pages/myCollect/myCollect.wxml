@@ -1,15 +1,21 @@
 <!--pages/myCollect/myCollect.wxml-->
 <view class="item-box"> 
  <view class="items"> 
-  <view wx:for="{{list}}" wx:key="{{index}}" class="item"> 
+  <view wx:for="{{list}}" wx:key="{{index}}" class="item" bindtap='linkToDetails' data-index="{{index}}"> 
    <view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" style="{{item.txtStyle}}" class="inner txt">
-     <image src='../../images/homeimages/defaultAvatar.png'></image>
+   <!-- 显示头像 -->
+     <block wx:if="{{item.docPhotoPath}}">
+      <view class='docter-image' style='background-image:url("{{item.docPhotoPath}}");background-position:10rpx 0rpx;background-size:80rpx 120rpx;background-repeat:norepeat'></view>
+    </block>
+    <block wx:else>
+      <image class='docter-image' src='../../images/homeimages/defaultAvatar.png'></image>
+    </block>
      <view class='item-left'>
         <view class='innerHeader'>
-          <view class='docter-name'>张科明</view>
-          <view class='docter-position'>副主任医师</view>
+          <view class='docter-name'>{{item.docName}}</view>
+          <view class='docter-position'>{{item.docDuty}}</view>
         </view>
-        <view class='docter-introduce'> 毕业于上海第二医科大学临…</view>
+        <view class='docter-introduce'> {{item.deptName2}}</view>
      </view>
    </view> 
    <view data-index="{{index}}" bindtap = "delItem" class="inner del">删除</view> 

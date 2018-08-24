@@ -1,44 +1,54 @@
-<view class='doctor'>
-  <block wx:if="{{docPhotoPath}}">
-    <view class='docter-image' style='background-image:url("{{docPhotoPath}}");background-position:0rpx -4rpx;background-size:80rpx 120rpx;background-repeat:norepeat'></view>
-  </block>
-  <block wx:else>
-    <image class='docter-image' src='../../images/homeimages/defaultAvatar.png'></image>
-  </block>
-  <view class='doctor-name'>{{docCode}}</view>
-  <view class='doctor-position'>{{docDuty}}</view>
-  <view class='doctor-collect' bindtap='collectchange'>
-   <image src='{{collect?"../../images/smallicon/shoucang@2x.png":"../../images/smallicon/yishoucang@2x.png"}}'></image>
-    收藏
-  </view>
-</view>
-<view class='introduce' bindtap='expand'>
-  <view class='introduce-header'>
-   <image src="{{change?'../../images/smallicon/xiala@2x.png':'../../images/smallicon/shouqi@2x.png'}}"></image>
-    简介
-  </view>
-  <block wx:if="{{change}}">
-    <view class='introduce-content-hidden'>
-      {{docMemo}}
+<block wx:if="{{loading}}">
+ <loading>
+        加载中...
+  </loading>
+</block>
+<block wx:else>
+<!-- 医生头像收藏 -->
+  <view class='doctor'>
+    <block wx:if="{{docPhotoPath}}">
+      <view class='docter-image' style='background-image:url("{{docPhotoPath}}");background-position:0rpx -4rpx;background-size:80rpx 120rpx;background-repeat:norepeat'></view>
+    </block>
+    <block wx:else>
+      <image class='docter-image' src='../../images/homeimages/defaultAvatar.png'></image>
+    </block>
+    <view class='doctor-name'>{{docCode}}</view>
+    <view class='doctor-position'>{{docDuty}}</view>
+    <view class='doctor-collect' bindtap='collectchange'>
+    <image src='{{collect?"../../images/smallicon/shoucang@2x.png":"../../images/smallicon/yishoucang@2x.png"}}'></image>
+      收藏
     </view>
-  </block>
-  <block wx:else>
-    <view class='introduce-content'>
-      {{docMemo}}
+  </view>
+  <!-- 医生简介 -->
+  <view class='introduce' bindtap='expand'>
+    <view class='introduce-header'>
+    <image src="{{change?'../../images/smallicon/xiala@2x.png':'../../images/smallicon/shouqi@2x.png'}}"></image>
+      简介
     </view>
-  </block>
-</view>
-<view class='content'>
-   <view class='yuding-riqi'>
-    <image src='../../images/smallicon/rili@2x.png'></image>
-     {{date.now}} 星期{{date.nowdate}} 
-   </view>
-   <block wx:for="{{docterbook}}" wx:key="{{item.resourceID}}">
-      <view class='{{item.resourceMemo=="已满"?"yuding-details":"yuding-details other"}}' bindtap='{{item.resourceMemo=="已满"?"":"linkBook"}}' data-time="{{item.timeEnd}}" data-price="{{item.amount}}" data-trans="{{transData}}" data-now="{{date.now}}" data-resourceID="{{item.resourceID}}">
-        <view class='yuding-state'>{{item.resourceMemo
-}}</view>
-        <view class='yuding-time'>{{item.timeEnd}}</view>
-        <view class='yuding-price'>￥{{item.amount}}</view>
+    <block wx:if="{{change}}">
+      <view class='introduce-content-hidden'>
+        {{docMemo}}
       </view>
-   </block>
-</view>
+    </block>
+    <block wx:else>
+      <view class='introduce-content'>
+        {{docMemo}}
+      </view>
+    </block>
+  </view>
+  <!-- 排班日期列表显示 -->
+  <view class='content'>
+    <view class='yuding-riqi'>
+      <image src='../../images/smallicon/rili@2x.png'></image>
+      {{date.now}} 星期{{date.nowdate}} 
+    </view>
+    <block wx:for="{{docterbook}}" wx:key="{{item.resourceID}}">
+        <view class='{{item.resourceMemo=="已满"?"yuding-details":"yuding-details other"}}' bindtap='{{item.resourceMemo=="已满"?"":"linkBook"}}' data-time="{{item.timeEnd}}" data-price="{{item.amount}}" data-trans="{{transData}}" data-now="{{date.now}}" data-resourceID="{{item.resourceID}}">
+          <view class='yuding-state'>{{item.resourceMemo
+  }}</view>
+          <view class='yuding-time'>{{item.timeEnd}}</view>
+          <view class='yuding-price'>￥{{item.amount}}</view>
+        </view>
+    </block>
+  </view>
+</block>

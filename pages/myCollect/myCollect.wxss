@@ -51,14 +51,13 @@ view{
 .item-left{
   display: flex;
   flex-flow: column nowrap;
-  margin-left: 24rpx;
+  margin-left: 150rpx;
 }
 .innerHeader{
   display: flex;
   flex-flow: row nowrap;
 }
 .docter-name{
-  width: 120rpx;
   height: 44rpx;
   line-height: 44rpx;
   font-family: PingFangSC-Regular;
@@ -67,20 +66,24 @@ view{
 }
 .docter-position{
   margin-top:10rpx;
+  margin-left: 20rpx;
   font-family: PingFangSC-Regular;
   font-size: 24rpx;
   color: #A3A3A3;
   height: 34rpx;
-  line-height: 34rpx;
+  line-height: 34rpx
 }
 .docter-introduce{
-  height: 20rpx;
-  line-height: 20rpx;
+  height: 28rpx;
+  line-height: 28rpx;
   width: 328rpx;
   font-family: PingFangSC-Regular;
   font-size: 24rpx;
   color: #666666;
   margin-top: 8rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap
 
 }
 .inner.del{ 
@@ -90,3 +93,11 @@ view{
   right: 0; 
   color: #fff 
 } 
+.docter-image{
+  position: absolute;
+  width: 100rpx;
+  height: 100rpx;
+  left: 28rpx;
+  top:38rpx;
+  border-radius: 50%;
+}

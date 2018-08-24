@@ -1,51 +1,71 @@
-<view class='bookordermain-wrap'>
-  <view class='bookordermain'>
-       <view class='relation {{relations =="待就诊"?"":"gray"}}'>{{relations}}
-          <view class='trigon'></view>
-        </view>
+<block wx:if="{{check}}">
+  <loading>
+        加载中...
+  </loading>
+</block>
+<block wx:else>
+  <!-- 主体显示 -->
+  <view class='bookordermain-wrap'>
+    <view class='bookordermain'>
+        <view class='relation {{relations =="待就诊"?"":"gray"}}'>{{relations}}
+            <view class='trigon'></view>
+          </view>
+        <!-- 列表 -->
+      <view class='bookordermain-item'>
+          <view class='bookordermain-title'>所属医院：</view>
+          <view class='bookordermain-content'>{{data.hospt}}</view>
+      </view>
+      <view class='bookordermain-item'>
+          <view class='bookordermain-title'>所属科室：</view>
+          <view class='bookordermain-content'>{{data.dept}}</view>
+      </view>
+      <view class='bookordermain-item'>
+          <view class='bookordermain-title'>医生名称：</view>
+          <view class='bookordermain-content'>{{data.doc}}</view>
+      </view>
+      <view class='bookordermain-item'>
+          <view class='bookordermain-title'>挂号费用：</view>
+          <view class='bookordermain-content'>{{data.cost}}(医院取号支付)</view>
+      </view>
+      <view class='bookordermain-item'>
+          <view class='bookordermain-title'>预约时间:  </view>
+          <view class='bookordermain-content'>{{data.time}}</view>
+      </view>
+      <!-- 分割线 -->
+      <view class='Cutting-line'>
+        <view class='line'></view>
+        <view class='circle'></view>
+        <view class='circle1'></view>
+      </view>
       <!-- 列表 -->
-     <view class='bookordermain-item'>
-         <view class='bookordermain-title'>所属医院：</view>
-         <view class='bookordermain-content'>{{data.hospt}}</view>
-     </view>
-     <view class='bookordermain-item'>
-         <view class='bookordermain-title'>所属科室：</view>
-         <view class='bookordermain-content'>{{data.dept}}</view>
-     </view>
-     <view class='bookordermain-item'>
-         <view class='bookordermain-title'>医生名称：</view>
-         <view class='bookordermain-content'>{{data.doc}}</view>
-     </view>
-     <view class='bookordermain-item'>
-         <view class='bookordermain-title'>挂号费用：</view>
-         <view class='bookordermain-content'>{{data.cost}}(医院取号支付)</view>
-     </view>
-     <view class='bookordermain-item'>
-         <view class='bookordermain-title'>预约时间:  </view>
-         <view class='bookordermain-content'>{{data.time}}</view>
-     </view>
-     <!-- 分割线 -->
-     <view class='Cutting-line'>
-       <view class='line'></view>
-       <view class='circle'></view>
-       <view class='circle1'></view>
-     </view>
-     <!-- 列表 -->
-     <view class='bookordermain-item'>
-         <view class='bookordermain-title'>就诊人：</view>
-         <view class='bookordermain-content'>{{transData.openUserName}}</view>
-     </view>
-     <view class='bookordermain-item'>
-         <view class='bookordermain-title'>就诊身份证: </view>
-         <view class='bookordermain-content'>{{transData.idCard}}</view>
-     </view>
-     <view class='bookordermain-item'>
-         <view class='bookordermain-title'>就诊手机号: </view>
-         <view class='bookordermain-content'>{{transData.tel}}</view>
-     </view>
+      <view class='bookordermain-item'>
+          <view class='bookordermain-title'>就诊人：</view>
+          <view class='bookordermain-content'>{{transData.openUserName}}</view>
+      </view>
+      <view class='bookordermain-item'>
+          <view class='bookordermain-title'>就诊身份证: </view>
+          <view class='bookordermain-content'>{{transData.idCard}}</view>
+      </view>
+      <view class='bookordermain-item'>
+          <view class='bookordermain-title'>就诊手机号: </view>
+          <view class='bookordermain-content'>{{transData.tel}}</view>
+      </view>
+      <!-- 分割线 -->
+      <view class='Cutting-line'>
+        <view class='line'></view>
+        <view class='circle'></view>
+        <view class='circle1'></view>
+      </view>
+      <!-- 取号 -->
+      <view class='tokeNumber'>
+          <view class='toke-title'>预约号码</view>
+          <view class='number {{relations =="待就诊"?"":"dark"}}'>{{data.bookingID}}</view>
+      </view>
+    </view>
   </view>
-</view>
-<!-- 按钮 -->
-<view class='newbuttun {{relations =="待就诊"?"":"disno"}}'>
-  取消预约
-</view>
+  <!-- 按钮 -->
+  <view class='newbuttun {{relations =="待就诊"?"":"disno"}}' bindtap='cancel'>
+    取消预约
+  </view>
+  <!-- 尾部显示 -->
+</block>

@@ -1,0 +1,207 @@
+/* pages/collectdetails/collectdetails.wxss */
+page{
+  background: #F5F7F9;
+}
+/* 日期样式 */
+.date-header{
+  position: relative;
+  height: 34rpx;
+  padding: 18rpx 0 30rpx 88rpx;
+  border-top: 2rpx solid rgba(200,200,200,0.50);
+  background: #fff;
+  line-height: 34rpx;
+  font-family: PingFangSC-Medium;
+  font-size: 24rpx;
+  color: #232323;
+  font-weight: 600;
+  margin-top:34rpx;
+}
+.date-header image{
+  width: 30rpx;
+  height: 26rpx;
+  position: absolute;
+  left: 46rpx;
+  top:24rpx
+}
+.swiper-warp {
+background-color: #fff;
+display: flex;
+flex-flow: row nowrap;
+justify-content: space-between;
+height: 194rpx
+}
+.riqi{
+height: 194rpx;
+display: flex;
+width: 66rpx;
+flex-flow: column nowrap;
+align-items: center;
+}
+.riqi-week{
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #232323;
+  letter-spacing: -0.6rpx;
+}
+.riqi-date{
+  margin-top: 20rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #0D86EB;
+  letter-spacing: 0.42rpx;
+}
+.raduis{
+  background-color: #0D86EB;
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  line-height: 64rpx;
+  margin:10rpx 0 0 4rpx;
+}
+/* 医生样式 */
+.doctor{
+  height: 44rpx;
+  line-height: 44rpx;
+  margin-top: 2rpx;
+  background-color: #ffffff;
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 46rpx 0 50rpx 132rpx;
+}
+.doctor-name{
+  font-family: PingFangSC-Medium;
+  font-size: 32rpx;
+  color: #232323;
+}
+.doctor-position{
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #A3A3A3;
+  margin-left: 24rpx;
+}
+.doctor-collect{
+  position: absolute;
+  padding-left: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #232323;
+  right: 30rpx;
+}
+.doctor-collect image{
+  width: 24rpx;
+  height: 24rpx;
+  position: absolute;
+  left: -7rpx;
+  top: 10rpx;
+}
+/* 介绍 */
+.introduce{
+  margin-top:2rpx; 
+  padding: 20rpx 28rpx 30rpx 28rpx;
+  background: #ffffff;
+}
+.introduce-header{
+  position: relative;
+  height: 42rpx;
+  line-height: 42rpx;
+  font-family: PingFangSC-Medium;
+  font-size: 30rpx;
+  color: #232323;
+}
+.introduce-header image{
+  height: 16rpx;
+  width: 28rpx;
+  position: absolute;
+  top:24rpx;
+  right: 0
+}
+.introduce-content{
+  margin-top: 10rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #666666;
+  text-align: justify;
+}
+/* 多行省略号 */
+.introduce-content-hidden{
+  margin-top: 10rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #666666;
+  text-align: justify;
+  position:relative;
+  line-height:32rpx;
+  height:64rpx;
+  overflow:hidden;
+}
+.introduce-content-hidden:after{
+  content:"...";
+  position:absolute;
+  bottom:0;
+  right:0;
+  background-color: #fff;
+}
+.content{
+  margin-top: 20rpx;
+}
+/* 预定信息 */
+.yuding-riqi{
+  position: relative;
+  height: 34rpx;
+  padding: 26rpx 0 20rpx 74rpx;
+  line-height: 34rpx;
+  font-family: PingFangSC-Medium;
+  font-size: 12px;
+  color: #232323;
+  background: #ffffff;
+}
+.yuding-riqi image{
+  width: 30rpx;
+  height: 26rpx;
+  position: absolute;
+  left: 34rpx;
+  top: 30rpx
+}
+.yuding-details{
+  margin-top: 2rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  padding: 26rpx 0 24rpx;
+  background-color: white;
+  display: flex;
+  flex-flow: row nowrap;
+  font-size: 28rpx;
+  color: #A3A3A3;
+  font-family: PingFangSC-Regular;
+}
+.yuding-state{
+  margin-left: 28rpx;
+  width: 106rpx;
+}
+.yuding-time{
+  width: 203rpx;
+  margin-left: 20rpx;
+}
+.yuding-price{
+  width: 96rpx;
+  margin-left: 264rpx;
+}
+.other .yuding-state{
+  color: #0D86EB;
+}
+.other .yuding-time{
+  color: #111111;
+}
+.other .yuding-price{
+  color: #F58F08;
+}
+.docter-image{
+  position: absolute;
+  width: 80rpx;
+  height: 80rpx;
+  left: 28rpx;
+  top:30rpx;
+  border-radius: 50%;
+}

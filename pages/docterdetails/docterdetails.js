@@ -5,14 +5,15 @@ Page({
    */
   data: {
     change:true,
-    collect:false,
+    collect:true,
     date:null,
     docterbook: [],
     docPhotoPath:"",
     docMemo:"",
     docCode:"",
     docDuty:"",
-    transData:{}
+    transData:{},
+    loading:true
   },
   expand: function () {
     if(this.data.change ===false){
@@ -25,12 +26,47 @@ Page({
       })
     }
   },
+  // 点击收藏按键
   collectchange:function(){
     if (this.data.collect === false) {
+      var that = this
+      wx.request({
+        url: 'http://192.168.2.165:8081/medicalcard/deletedoclist',
+        method:"post",
+        data:{
+          "hospitalID": that.data.date.doccode,
+          "hospitalName": "123456"//--openID
+        },
+        success:function(res){
+          wx.showToast({
+            title: '取消成功',
+            icon: 'none',
+            duration: 2000
+          })
+          console.log(res)
+        }
+      })
       this.setData({
         collect: true
       })
     } else {
+      var that = this
+      wx.request({
+        url: 'http://192.168.2.165:8081/medicalcard/adddoclist',
+        method:"post",
+        data:{
+          "docCode": that.data.date.doccode,
+           "hospitalName":"123456"//--openID
+        },
+        success:function(res){
+          wx.showToast({
+            title: '收藏成功',
+            icon: 'success',
+            duration: 2000
+          })
+          console.log(res)
+        }
+      })
       this.setData({
         collect: false
       })
@@ -69,7 +105,22 @@ Page({
           docMemo: res.data.result[0].docMemo,
           docCode: res.data.result[0].docCode,
           docDuty: res.data.result[0].docDuty,
-          transData: transData
+          transData: transData,
+          loading:false
+        })
+        // 请求是否已经收藏
+        wx.request({
+          url: 'http://192.168.2.165:8081/medicalcard/checkDoc',
+          method: "post",
+          data: {
+            "hospitalID": that.data.date.doccode,
+            "hospitalName": "123456"//--openID
+          },
+          success: function (res) {
+            that.setData({
+              collect:!res.data.success
+            })
+          }
         })
       }
     })
