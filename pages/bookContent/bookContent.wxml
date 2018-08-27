@@ -9,7 +9,7 @@
     <view class='bookordermain'>
         <view class='relation {{relations =="待就诊"?"":"gray"}}'>{{relations}}
             <view class='trigon'></view>
-          </view>
+        </view>
         <!-- 列表 -->
       <view class='bookordermain-item'>
           <view class='bookordermain-title'>所属医院：</view>

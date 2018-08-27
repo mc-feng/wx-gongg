@@ -16,7 +16,8 @@
     "pages/consult/consult",
     "pages/bookRecord/bookRecord",
     "pages/myCollect/myCollect",
-    "pages/collectdetails/collectdetails"
+    "pages/collectdetails/collectdetails",
+    "pages/inNavigation/inNavigation" 
   ],
   "window":{
     "navigationBarBackgroundColor": "#FFFFFF",

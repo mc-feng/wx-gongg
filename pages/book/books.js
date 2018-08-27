@@ -17,15 +17,16 @@ Page({
       url: 'http://192.168.2.165:8081/common/checkdata',
       method: "post",
       data: {
-        "hospitalID": "800EBED9-63E5-4408-A184-BE693DA32CB6"
+        "hospitalID": "1wew"
       },
       success: function (res) {
+        console.log(res)
         //判断绑卡操作
-        if (res.data.result== 1){
+        if (res.data.result== 0){
           that.setData({
             result: true
           })
-        } else if (res.data.result == 0){
+        } else if (res.data.result == 1){
           that.setData({
             result: false
           })

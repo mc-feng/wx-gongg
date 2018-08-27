@@ -62,11 +62,14 @@
    </block>
    <block wx:else>
       <block wx:if="{{docterbook.length == 0}}">
-        <view>暂无数据</view>
+        <view class='noData-warp'>
+          <image src='../../images/smallicon/nodata.png'></image>
+          <view class='noData-font'>当日无排班</view>
+        </view>
       </block>
       <block wx:else>
           <block wx:for="{{docterbook}}" wx:key="{{item.resourceID}}">
-              <view class='{{item.resourceMemo=="已满"?"yuding-details":"yuding-details other"}}' bindtap='{{item.resourceMemo=="已满"?"":"linkBook"}}' data-time="{{item.timeEnd}}" data-price="{{item.amount}}" data-trans="{{transData}}" data-now="{{date.now}}" data-resourceID="{{item.resourceID}}">
+              <view class='{{item.resourceMemo=="已满"?"yuding-details":"yuding-details other"}}' bindtap='{{item.resourceMemo=="已满"?"":"linkBook"}}' data-time="{{item.timeEnd}}" data-price="{{item.amount}}" data-trans="{{transData}}" data-now="{{showDate}}" data-resourceID="{{item.resourceID}}">
                 <view class='yuding-state'>{{item.resourceMemo
         }}</view>
                 <view class='yuding-time'>{{item.timeEnd}}</view>

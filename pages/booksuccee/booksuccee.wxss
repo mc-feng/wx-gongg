@@ -13,7 +13,6 @@ page{
 .bookordermain-item{
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
   height: 90rpx;
   line-height: 90rpx;
 }
@@ -59,7 +58,7 @@ page{
   top: 0rpx;
 }
 .newbuttun{
-  margin:82rpx 0 0 28rpx;
+  margin:82rpx 0 70rpx 28rpx;
   width: 694rpx;
   height: 90rpx;
   line-height: 90rpx;
@@ -71,4 +70,60 @@ page{
   font-size: 32rpx;
   color: #FFFFFF;
   box-shadow:  0px 10rpx 30rpx  rgb(77, 169, 245);
+}
+/* 预定号码 */
+.yuding-number{
+ display: flex;
+ flex-flow: column nowrap;
+ justify-content: center;
+ align-items: center;
+}
+.number-font{
+  height: 60rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #666666;
+  letter-spacing: 0;
+  line-height: 60rpx;
+}
+.number-shuzi{
+  font-family: PingFangSC-Medium;
+  font-size: 36rpx;
+  color: #003800;
+  letter-spacing: 0;
+  line-height: 60rpx;
+}
+.small-height{
+  height: 37rpx;
+}
+.relation{
+  position: absolute;
+  width: 90rpx;
+  height: 40rpx;
+  border-radius: 2rpx;
+  background: #AED4FC;
+  text-align: right;
+  line-height: 40rpx;
+  right: 30rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 22rpx;
+  color: #0D86EB;
+  letter-spacing: 0;
+  padding:0rpx 15rpx 0 0
+}
+.trigon{
+  width: 0;
+  height: 0;
+  border: 20rpx solid transparent;
+  border-left: 20rpx solid #ffffff;
+  position: absolute;
+  left: 0rpx;
+  top: 0rpx;
+}
+.gray{
+  background: #D8D8D8;
+  color: #0D86EB;
+}
+.disno{
+  display: none
 }

@@ -1,0 +1,45 @@
+/* pages/inNavigation/inNavigation.wxss */
+.swiper-tab{
+	width: 100%;
+	text-align: center;
+}
+.swiper-tab-list{ 
+  font-size: 32rpx;
+  height: 80rpx; 
+	line-height: 80rpx;
+  font-family: Arial;
+  display: inline-block;
+	width: 50%;
+	color: #000000 ;
+	border-bottom: 2rpx solid #D8D8D8;
+  border-top: 2rpx solid #D8D8D8;
+}
+.on{ color: #0D86EB;
+	border-bottom: 4rpx solid #0D86EB;}
+.swiper-box{ 
+  display: block; 
+  height: 100%; 
+  width: 100%; 
+  overflow: hidden;
+  margin: 28rpx 0 0 28rpx;
+}
+.swiper-box view{
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #2A2A2A;
+  letter-spacing: -0.32rpx;
+  line-height: 50rpx;
+}
+.swiper-box .header{
+ font-size: 36rpx;
+ height: 40rpx;
+ line-height: 40rpx;
+ font-weight: 600;
+ color: #232323;
+ margin-bottom: 60rpx;
+}
+.swiper-box .louceng{
+  color: #111111 ;
+  font-weight: 600;
+  font-size: 30rpx
+}

@@ -1,0 +1,38 @@
+<!--pages/inNavigation/inNavigation.wxml-->
+
+<view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">金山门诊楼层分布</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">市区门诊楼层分布</view>
+</view>
+ 
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
+    <!-- 我是哈哈 -->
+    <swiper-item>
+      <view class='header'>金山门诊楼层分布</view>
+      <view class='louceng'>一楼</view>
+      <view>外科诊区: 普外科、泌尿外科、骨科、神经外科、疼痛康复科</view>
+      <view>内科诊区：综合门诊、消化科、肝病科、肝胆外科、重症肝病科、中医科、中西医结合科</view>
+      <view>妇儿诊区：妇科、产科、儿科</view>
+      <view>结核门诊：结核科、胸外科</view>
+      <view>发热门诊、肠道门诊</view>
+      <view>放射科、超声医学科、心电图室、门诊手术室、体检中心</view>
+      <view class='louceng'>二楼</view>
+      <view>检验科、病理科、内镜室、功能科、手术室</view>
+      <view>A4一楼：眼科、耳鼻喉科、口腔科</view>
+    </swiper-item>
+    <!-- 我是呵呵 -->
+    <swiper-item>
+      <view class='header'>市区门诊楼层分布</view>
+      <view class='louceng'>一楼:</view>
+      <view>东：挂号收费室 预检处 便民服务中心 出入院办理处</view>
+      <view>西：西药房 抢救室 抽血室 卫生间 门诊接待室 抢救室 中医理疗室 卫生间</view>
+      <view class='louceng'>二楼：</view>
+      <view>东：门诊手术室 儿科门诊 妇产科门诊</view>
+      <view>西：补液室 注射室 超声室 中药房</view>
+      <view class='louceng'>三楼:</view>
+      <view>东：心电图室 肺功能室 换药室 外科门诊 肝病（专家，特需）门诊 挂号收费室</view>
+      <view>上海市级医院肉瘤诊治中心门诊 泌尿外科门诊 疼痛康复门诊 骨科门诊</view>
+      <view>东：西：肝病（普通，专科，专家，特需）门诊 肝胆外科门诊 介入科门诊 肾内科门诊</view>
+      <view>社工部 巫善明资深（终身）教授工作室 耳鼻喉科门诊 腹水回输门诊 血透门诊</view>
+    </swiper-item>
+</swiper>

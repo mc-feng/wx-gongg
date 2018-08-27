@@ -13,7 +13,9 @@ Page({
     medicareCard:"",
     parameter: [{ id: 1 }, { id: 2}],//模拟数据(里面必须要对象先初始定义---不知道为什么)
     transData:{},
-    data:{}
+    data:{},
+    showChoose:["本人","父母","子女","配偶","朋友"],
+    index:0
   },
 
   /**
@@ -168,7 +170,7 @@ Page({
         "patientName": this.data.userName,
         "cardNo": this.data.medicareCard,
         "cardType": 0,
-        "cardProperty": 0,
+        "cardProperty": this.data.index,
         "accessToken": "800EBED9-63E5-4408-A184-BE693DA32CB6",
         "openUserID": "2088022943884345",
       },
@@ -182,6 +184,13 @@ Page({
     let str2 = JSON.stringify(this.data.data)
     wx.navigateTo({
       url: '../bookorder/bookorder?patient=' + str + '&nowData=' + str2,
+    })
+  },
+  // 弹出关系框点击事件
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
     })
   }
 })

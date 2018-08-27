@@ -145,9 +145,12 @@ Page({
       })
     }.bind(this), 200)
   },
-  linksuccee:function(){
+  linksuccee:function(e){
+    this.hideView();
+    console.log(e)
+    let str = JSON.stringify(e.currentTarget.dataset)
     wx.navigateTo({
-      url:'../booksuccee/booksuccee',
+      url:'../booksuccee/booksuccee?data='+ str,
     })
   },
   linkToCard:function(){

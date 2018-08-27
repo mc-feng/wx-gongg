@@ -18,7 +18,7 @@ Page({
       { "title": "公卫简介","url":"../introduce/introduce","id":"1", "src":"../../images/homeimages/jianjie@2x.png"},
       { "title": "来院路线", "url": "../introduce/introduce", "id": "2", "src": "../../images/homeimages/luxian@2x.png"},
       { "title": "就医指南", "url": "../introduce/introduce", "id": "3", "src": "../../images/homeimages/zhidao@2x.png"},
-      { "title": "院内导航", "url": "../introduce/introduce", "id": "4", "src": "../../images/homeimages/daohang@2x.png"}
+      { "title": "院内导航", "url": "../inNavigation/inNavigation", "id": "4", "src": "../../images/homeimages/daohang@2x.png"}
     ],
     mainNavs:[
       { 'word': '预约挂号', "url": "../book/books", "src":"../../images/homeimages/guahao@2x.png"},

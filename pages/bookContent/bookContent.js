@@ -93,6 +93,20 @@ Page({
       content: '是否取消预约？',
       success: function (res) {
         if (res.confirm) {
+          // wx.request({
+          //   url: 'http://192.168.2.165:8081/booking/cancelbooking',
+          //   method:"post",
+          //   data:{
+          //     "bookingID": this.data.bookingID,
+          //     "accessToken": "800EBED9-63E5-4408-A184-BE693DA32CB6",
+          //     "openUserID": "2088022943884345",
+          //   },
+          //   success:function(res){
+          //     that.setData({
+          //       relations: "已取消"
+          //     })
+          //   }
+          // }) //取消预约jieko
           that.setData({
             relations: "已取消"
           })

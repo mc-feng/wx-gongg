@@ -10,33 +10,19 @@
   font-family: Arial;
   display: inline-block;
 	width: 33.33%;
-	color: #9B9797 ;
+	color: #000000 ;
 	border-bottom: 2rpx solid #9B9797;
 }
-.on{ color: #18B397;
-	border-bottom: 4rpx solid #18B397;}
+.on{ color: #0D86EB;
+	border-bottom: 4rpx solid #0D86EB;}
  
 .swiper-box{ display: block; width: 100%; }
-.hospital-title{
-  height: 74rpx;
-  line-height:74rpx;
-  padding-left: 38rpx;
-  color: rgba(51, 83, 54, 1);
-  font-size: 32rpx;
-  font-family: Arial; 
-  font-weight: 600;
-}
-.hospital-image{
-  padding: 0 12rpx 0 20rpx;
-}
-.hospital-image image{
-  width: 718rpx;
-  height: 368rpx;
-  background-color: #18B397
+.swiper-box image{
+  width: 692rpx;
+  height: 300rpx;
 }
 .hospital-introduce{
-  height: 2160rpx;
-  padding: 20rpx 12rpx 0 38rpx;
+  padding-left: 28rpx;
   width: 700rpx;
   line-height: 40rpx;
   color: rgba(91, 88, 88, 1);
@@ -49,38 +35,35 @@
 }
 .hospital-log image{
   width: 252rpx;
-  height: 280rpx;
-  background-color: red;
+  height: 246rpx;
+  margin-bottom: 24rpx;
 }
 .riding{
-  padding: 20rpx 32rpx 0 40rpx
+  padding: 0rpx 32rpx 0 40rpx
 }
 .riding-site{
-color: rgba(91, 88, 88, 1);
-font-size: 34rpx;
-text-align: left;
-font-family: Arial;
-font-weight: 600
+  font-family: PingFangSC-Medium;
+  font-size: 30rpx;
+  color: #232323;
+  letter-spacing: -0.6rpx;
+  margin-top: 34rpx;
+  font-weight: 600;
 }
 .riding-project{
-  padding: 12rpx 0 80rpx 0;
-  height: 120rpx;
-  line-height: 40rpx;
-  color: rgba(16, 16, 16, 1);
+  margin-top: 32rpx;
+  font-family: PingFangSC-Regular;
   font-size: 28rpx;
-  text-align: left;
-  font-family: Arial;
+  color: #666666;
+  letter-spacing: -0.16rpx;
   }
-  .gongwei-contact{
-    padding: 46rpx 104rpx 0 132rpx;
+  .contact{
+    margin:22rpx 0 0 28rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 26rpx;
+    color: #232323;
+    letter-spacing: -0.32rpx;
+    line-height: 50rpx;
   }
-  .contact-color{
-    width: 514rpx;
-    padding-bottom: 40rpx;
-    height: 40rpx;
-    line-height: 40rpx;
-    color: rgba(16, 16, 16, 1);
-    font-size: 28rpx;
-    text-align: left;
-    font-family: Arial;
+  .contact-introduce{
+    margin-left: 20rpx
   }

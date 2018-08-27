@@ -28,7 +28,8 @@ Page({
     docDuty: "",
     transData: {},
     loading: false,
-    showContent:true
+    showContent:true,
+    transData:{}//需要转移的数据
   },
   //简介切换
   expand: function () {
@@ -51,12 +52,18 @@ Page({
     this.dataTime();
     this.sendData();
     let that = this;
+    let transData = {
+      hospital: objects.hospitalName,
+      office: objects.deptName2,
+      docName: objects.docName
+    };
     this.setData({
       date: objects,
       docPhotoPath:objects.docPhotoPath,
       docMemo: objects.docDesc,
       docCode: objects.docName,
-      docDuty: objects.docDuty
+      docDuty: objects.docDuty,
+      transData: transData
     })
     wx.request({
       url: 'http://192.168.2.165:8081/booking/getbookingdocresource',
@@ -71,17 +78,18 @@ Page({
         console.log(res)
         that.setData({
           showContent: false,
+          docterbook: res.data.result
         })
         // 是否收到信息表
-        if (res.data.result.length == 0) {
-          that.setData({
-            docterbook: res.data.result,
-          })
-        } else {
-          that.setData({
-            docterbook: res.data.result
-          })
-        }
+        // if (res.data.result.length == 0) {
+        //   that.setData({
+        //     docterbook: res.data.result,
+        //   })
+        // } else {
+        //   that.setData({
+        //     docterbook: res.data.result
+        //   })
+        // }
         // 请求是否已经收藏
         wx.request({
           url: 'http://192.168.2.165:8081/medicalcard/checkDoc',
@@ -134,6 +142,13 @@ Page({
       catalogSelect: this.data.nowdate + 1
     })
     console.log(datetime)
+  },
+  linkBook: function (e) {
+    let str = JSON.stringify(e.currentTarget.dataset)
+    console.log(str)
+    wx.navigateTo({
+      url: '../bookorder/bookorder?data=' + str,
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -287,16 +302,17 @@ Page({
       success: function (res) {
         that.setData({
           showContent: false,
+          docterbook: res.data.result
         })
-        if (res.data.result.length == 0){
-          that.setData({
-            docterbook: res.data.result,
-          })
-        }else{
-          that.setData({
-            docterbook: res.data.result
-          })
-        }
+        // if (res.data.result.length == 0){
+        //   that.setData({
+        //     docterbook: res.data.result,
+        //   })
+        // }else{
+        //   that.setData({
+        //     docterbook: res.data.result
+        //   })
+        // }
       }
     })
   },

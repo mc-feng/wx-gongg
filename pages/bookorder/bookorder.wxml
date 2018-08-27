@@ -49,7 +49,7 @@
   </view>
 </view>
 <!-- 按钮 -->
-<view class='newbuttun' bindtap='{{patientMessage?"showmode":""}}'>
+<view class='newbuttun {{patientMessage?"":"nodick"}}' bindtap='{{patientMessage?"showmode":""}}'>
   确认预约
 </view>
 <!-- toast弹出提示框 -->
@@ -58,6 +58,6 @@
   <image src='../../images/homeimages/booksucceed.png'></image>
   <view class='toast-title'>预约成功</view>
   <view class='toast-number'>取号密码：188888</view>
-  <view class='toast-buttun' bindtap='linksuccee'>确认</view>
+  <view class='toast-buttun' bindtap='linksuccee' data-data="{{data}}" data-patientMessage="{{patientMessage}}">确认</view>
   <view class='toast-tip'>详细信息可在个人中心-预约记录查看</view>
 </view>

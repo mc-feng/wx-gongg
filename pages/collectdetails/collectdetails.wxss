@@ -205,3 +205,22 @@ align-items: center;
   top:30rpx;
   border-radius: 50%;
 }
+/* 无数据样式 */
+.noData-warp{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.noData-warp image{
+  margin-top:100rpx;
+  width: 316rpx;
+  height: 246rpx
+}
+.noData-font{
+  margin-top: 20rpx;
+  height: 40rpx;
+  color: #232323;
+  font-size: 30rpx;
+  line-height: 40rpx;
+}

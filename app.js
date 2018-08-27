@@ -19,20 +19,30 @@ App({
     //   }
     // })
     // 登录
-    wx.login({
-      success: res => {
-        console.log(res.code)
-        // wx.request({
-        //   url: 'http://192.168.2.165:8081/medicalcard/getopenid',
-        //   method: "post",
-        //   data: {
-        //     "openId": res.code
-        //   },
-        //   success: function (res) {
-        //     console.log(res)
-        //   }
-        // })
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+    ,
+    wx.checkSession({
+      success:function(e){
+        console.log("没有过期")
+      },
+      fail:function(){
+        console.log("过期了")
+        wx.login({
+          success: res => {
+            console.log(res.code)
+            wx.request({
+              url: 'http://192.168.2.165:8081/medicalcard/getopenid',
+              method: "post",
+              data: {
+                "openId": res.code
+              },
+              success: function (res) {
+                console.log(10)
+                console.log(res)
+              }
+            })
+            // 发送 res.code 到后台换取 openId, sessionKey, unionId
+          }
+        })
       }
     })
     // 获取用户信息

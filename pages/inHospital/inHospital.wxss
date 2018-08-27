@@ -199,9 +199,10 @@ page{
   width: 100%;
   flex-wrap: nowrap;
   align-items: center;
-  border-bottom: 2rpx dashed #F5F7F9
+  border-bottom: 2rpx dashed #F5F7F9;
+  justify-content: space-between
 }
-.user-item:nth-of-type(4){
+.user-item:nth-of-type(5){
   border: none;
 }
 .item-title {
@@ -251,4 +252,12 @@ page{
 }
 .buttun-peopel2{
   width: 66.33%
+}
+.guanxi{
+  margin-right: 30rpx;
+}
+.guanxi image{
+  width:24rpx;
+  height: 12rpx;
+  padding-bottom: 4rpx 
 }
