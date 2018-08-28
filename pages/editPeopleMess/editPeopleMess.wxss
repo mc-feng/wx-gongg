@@ -1,1 +1,49 @@
 /* pages/editPeopleMess/editPeopleMess.wxss */
+.user{
+  height: 374rpx;
+  width: 100%;
+  margin-top: 20rpx;
+  background: #ffffff;
+}
+.user-item {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  height: 90rpx;
+  width: 100%;
+  flex-wrap: nowrap;
+  align-items: center;
+  border-bottom: 2rpx dashed #F5F7F9;
+  justify-content: space-between
+}
+.user-item:nth-of-type(5){
+  border: none;
+}
+.item-title {
+  white-space: nowrap;
+  margin-left: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #232323;
+}
+.item-content {
+  flex: 1;
+  padding-right: 30rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #D8D8D8;
+  text-align: right;
+}
+.people-button{
+  margin:82rpx 0 0 28rpx;
+  width: 694rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  background: #0D86EB;
+  border-radius: 8rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #FFFFFF;
+  box-shadow:  0px 10rpx 30rpx  rgb(77, 169, 245);
+}
