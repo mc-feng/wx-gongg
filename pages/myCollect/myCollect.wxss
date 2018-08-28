@@ -101,3 +101,21 @@ view{
   top:38rpx;
   border-radius: 50%;
 }
+.noSearch-wrap{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.noSearch-wrap image{
+  margin-top: 160rpx;
+  width: 340rpx;
+  height: 324rpx;
+}
+.noSearch-title{
+  height: 40rpx;
+  font-size: 28rpx;
+  color: #666666;
+  margin-top:60rpx;
+  line-height: 40rpx;
+}

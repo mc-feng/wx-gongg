@@ -1,19 +1,20 @@
 <view class="header-background">
-   <view class='user'></view>
-   <view class='name'>李丽丽</view>
+   <image src='{{userInfo.avatarUrl}}' class='user'></image>
+   <view class='name'>{{userInfo.nickName}}</view>
    <view class='floor-box'>
      <navigator class='floor-box-item' url="../myCollect/myCollect">
        <image src='../../images/personimages/shoucang@2x.png'></image>
        <text>我的收藏</text>
      </navigator>
-     <view class='floor-box-item'>
+     <navigator class='floor-box-item' url="../managePatient/managePatient">
        <image src='../../images/personimages/jiuzhengren@2x.png'></image>
-       <text>添加就诊人</text>
-     </view>
+       <text>就诊人管理</text>
+     </navigator>
    </view>
+   <navigator class='edit' url="../editPeopleMess/editPeopleMess">编辑</navigator>
 </view>
 <view class='person-content'>
- <block wx:for="{{pagedata}}" wx:key="*this">
+ <block wx:for="{{pagedata}}" wx:key="{{index}}">
   <navigator class='person-item' url="../bookRecord/bookRecord">
     <image src='{{item.image}}' class='tips'></image>
     <view class='person-font'>{{item.title}}</view>

@@ -1,6 +1,6 @@
 // pages/collectdetails/collectdetails.js
+const app = getApp()
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -96,7 +96,7 @@ Page({
           method: "post",
           data: {
             "hospitalID": that.data.date.docCode,
-            "hospitalName": "123456"//--openID
+            "hospitalName": app.globalData.openId//--openID
           },
           success: function (res) {
             that.setData({

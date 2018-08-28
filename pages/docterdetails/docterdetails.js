@@ -1,4 +1,5 @@
 // pages/docterdetails/docterdetails.js
+const app = getApp()
 Page({
   /**
    * 页面的初始数据
@@ -30,12 +31,13 @@ Page({
   collectchange:function(){
     if (this.data.collect === false) {
       var that = this
+      console.log(app.globalData.openId)
       wx.request({
         url: 'http://192.168.2.165:8081/medicalcard/deletedoclist',
         method:"post",
         data:{
           "hospitalID": that.data.date.doccode,
-          "hospitalName": "123456"//--openID
+          "hospitalName": app.globalData.openId//--openID
         },
         success:function(res){
           wx.showToast({
@@ -56,7 +58,7 @@ Page({
         method:"post",
         data:{
           "docCode": that.data.date.doccode,
-           "hospitalName":"123456"//--openID
+          "hospitalName": app.globalData.openId//--openID
         },
         success:function(res){
           wx.showToast({
@@ -114,7 +116,7 @@ Page({
           method: "post",
           data: {
             "hospitalID": that.data.date.doccode,
-            "hospitalName": "123456"//--openID
+            "hospitalName": app.globalData.openId//--openID
           },
           success: function (res) {
             that.setData({

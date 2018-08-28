@@ -1,24 +1,32 @@
 <!--pages/myCollect/myCollect.wxml-->
-<view class="item-box"> 
- <view class="items"> 
-  <view wx:for="{{list}}" wx:key="{{index}}" class="item" bindtap='linkToDetails' data-index="{{index}}"> 
-   <view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" style="{{item.txtStyle}}" class="inner txt">
-   <!-- 显示头像 -->
-     <block wx:if="{{item.docPhotoPath}}">
-      <view class='docter-image' style='background-image:url("{{item.docPhotoPath}}");background-position:10rpx 0rpx;background-size:80rpx 120rpx;background-repeat:norepeat'></view>
-    </block>
-    <block wx:else>
-      <image class='docter-image' src='../../images/homeimages/defaultAvatar.png'></image>
-    </block>
-     <view class='item-left'>
-        <view class='innerHeader'>
-          <view class='docter-name'>{{item.docName}}</view>
-          <view class='docter-position'>{{item.docDuty}}</view>
-        </view>
-        <view class='docter-introduce'> {{item.deptName2}}</view>
-     </view>
-   </view> 
-   <view data-index="{{index}}" bindtap = "delItem" class="inner del">删除</view> 
+<block wx:if="{{list.length == 0}}">
+ <view class='noSearch-wrap'>
+      <image src='../../images/homeimages/search.png'></image>
+      <view class='noSearch-title'>暂未查到您的收藏记录</view>
+</view>
+</block>
+<block wx:else>
+  <view class="item-box"> 
+  <view class="items"> 
+   <view wx:for="{{list}}" wx:key="{{index}}" class="item" bindtap='linkToDetails' data-index="{{index}}"> 
+    <view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" style="{{item.txtStyle}}" class="inner txt">
+    <!-- 显示头像 -->
+      <block wx:if="{{item.docPhotoPath}}">
+        <view class='docter-image' style='background-image:url("{{item.docPhotoPath}}");background-position:10rpx 0rpx;background-size:80rpx 120rpx;background-repeat:norepeat'></view>
+      </block>
+      <block wx:else>
+        <image class='docter-image' src='../../images/homeimages/defaultAvatar.png'></image>
+      </block>
+      <view class='item-left'>
+          <view class='innerHeader'>
+            <view class='docter-name'>{{item.docName}}</view>
+            <view class='docter-position'>{{item.docDuty}}</view>
+          </view>
+          <view class='docter-introduce'> {{item.deptName2}}</view>
+      </view>
+    </view> 
+    <view data-index="{{index}}" bindtap = "delItem" class="inner del">删除</view> 
   </view> 
- </view> 
-</view> 
+  </view> 
+  </view> 
+</block>

@@ -1,45 +1,39 @@
+// pages/managePatient/managePatient.js
 // pages/inHospital/inHospital.js
-const app =getApp()
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    card:true,
-    currentTab:0,
-    userName:"",
-    identityCard:"",
-    phoneNumber:"",
-    medicareCard:"",
-    parameter: [{ id: 1 }, { id: 2}],//模拟数据(里面必须要对象先初始定义---不知道为什么)
-    transData:{},
-    data:{},
-    showChoose:["本人","父母","子女","配偶","朋友"],
-    index:0
+    card: true,
+    currentTab: 0,
+    userName: "",
+    identityCard: "",
+    phoneNumber: "",
+    medicareCard: "",
+    parameter: [{}],//就诊卡列表
+    data: {},
+    showChoose: ["本人", "父母", "子女", "配偶", "朋友"],
+    index: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (options.data){
-      let objects = JSON.parse(options.data);
-      console.log(objects);
-      this.setData({ data: objects });
-      this.data.parameter[0].checked = true;
-    }
-    var that =this;
+    var that = this;
     wx.request({
       url: 'http://192.168.2.165:8081/medicalcard/getweachattopatient',
       method: "post",
       data: {
-        "openId": app.globalData.openId
+        "openId": "123456"
       },
       success: function (res) {
         console.log(res)
         that.setData({
-          parameter:res.data.result
+          parameter: res.data.result
         })
       }
     })
@@ -49,56 +43,56 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-   
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   },
-  change:function(){
+  change: function () {
     this.setData({
       card: !this.data.card
     })
   },
-  swichNav:function(e){
+  swichNav: function (e) {
     var that = this;
     if (this.data.currentTab === e.target.dataset.current) {
       return false;
@@ -130,7 +124,7 @@ Page({
     })
     console.log(that.data.transData)
   },
-  getUseruserName:function(e){
+  getUseruserName: function (e) {
     this.setData({
       userName: e.detail.value
     })
@@ -154,17 +148,17 @@ Page({
     })
     console.log(this.data.medicareCard)
   },
-  noadd:function(){
+  noadd: function () {
     this.setData({
       card: !this.data.card
     })
   },
-  addCard:function(){
+  addCard: function () {
     console.log(this.data.identityCard)
     wx.request({
       url: 'http://192.168.2.165:8081/medicalcard/getRecordCard',
-      method:"post",
-      data:{
+      method: "post",
+      data: {
         "openID": app.globalData.openId,
         "tel": this.data.phoneNumber,
         "idCard": this.data.identityCard,
@@ -175,16 +169,9 @@ Page({
         "accessToken": "800EBED9-63E5-4408-A184-BE693DA32CB6",
         "openUserID": "2088022943884345",
       },
-      success:function(res){
+      success: function (res) {
         console.log(res)
       }
-    })
-  },
-  ConfirmPatient:function(res){
-    let str = JSON.stringify(this.data.transData);
-    let str2 = JSON.stringify(this.data.data)
-    wx.navigateTo({
-      url: '../bookorder/bookorder?patient=' + str + '&nowData=' + str2,
     })
   },
   // 弹出关系框点击事件
@@ -193,5 +180,72 @@ Page({
     this.setData({
       index: e.detail.value
     })
+  },
+  showDeleteButton: function (e) {
+    let productIndex = e.currentTarget.dataset.productindex
+    this.setXmove(productIndex, -65)
+  },
+
+  /**
+   * 隐藏删除按钮
+   */
+  hideDeleteButton: function (e) {
+    let productIndex = e.currentTarget.dataset.productindex
+
+    this.setXmove(productIndex,0)
+  },
+
+  /**
+   * 设置movable-view位移
+   */
+  setXmove: function (productIndex, xmove) {
+    let parameter = this.data.parameter
+    parameter[productIndex].xmove = xmove
+    console.log(xmove)
+    this.setData({
+      parameter: parameter
+    })
+  },
+
+  /**
+   * 处理movable-view移动事件
+   */
+  handleMovableChange: function (e) {
+    if (e.detail.source === 'friction') {
+      if (e.detail.x < -30) {
+        this.showDeleteButton(e)
+      } else {
+        this.hideDeleteButton(e)
+      }
+    } else if (e.detail.source === 'out-of-bounds' && e.detail.x === 0) {
+      this.hideDeleteButton(e)
+    }
+  },
+
+  /**
+   * 删除产品
+   */
+  handleDeleteProduct: function (e) {
+    let that = this
+    let productIndex = e.currentTarget.dataset.productindex
+    let parameter = this.data.parameter
+    wx.request({
+      url: 'http://192.168.2.165:8081/medicalcard/deletepatient',
+      method: "post",
+      data: {
+        "patientID": parameter[productIndex].patientID
+      },
+      success: function (res) {
+        console.log(res)
+      }
+    })
+    parameter.splice(productIndex, 1)
+    
+    this.setData({
+      parameter: parameter
+    })
+    if (parameter[productIndex]) {
+      this.setXmove(productIndex, 0)
+    }
   }
 })

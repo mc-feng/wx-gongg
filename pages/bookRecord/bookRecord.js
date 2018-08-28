@@ -1,6 +1,6 @@
 // pages/bookRecord/bookRecord.js
+const app = getApp();
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -20,12 +20,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(app.globalData.openId)
     var that = this
     wx.request({
       url: 'http://192.168.2.165:8081/booking/getpatientlist',
       method:"post",
       data:{
-        "openId":"123456"
+        "openId":app.globalData.openId//openID
       },
       success:function(res){
         console.log(res)
@@ -63,7 +64,7 @@ Page({
     wx.request({
       url: 'http://192.168.2.165:8081/medicalcard/getweachattopatient',
       data: {
-        "openId": "123456"
+        "openId": app.globalData.openId//openID
       },
       method: "post",
       success: function (res) {
@@ -138,7 +139,7 @@ Page({
     wx.request({
       url: 'http://192.168.2.165:8081/booking/getpatientlist',
       data: {
-        "openId": "123456",
+        "openId": app.globalData.openId,//openID
         "patientID":this.data.choose[e.detail.value].patientID
       },
       method: "post",

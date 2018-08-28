@@ -1,0 +1,128 @@
+<!--pages/managePatient/managePatient.wxml-->
+<block wx:if="{{card}}">
+ <!-- 选择就诊人 -->
+ <!-- 就诊人循环列表 -->
+  <block wx:for="{{parameter}}" wx:key="parameter">
+   <movable-area style="height:340rpx;width: 846rpx;margin-right:154rpx">
+    <movable-view class='patient-list' out-of-bounds="true" direction="horizontal" x="200" inertia="true" data-productIndex="{{index}}" bindchange="handleMovableChange">
+      <view class='patient-name'>{{item.openUserName}}</view>
+      <view class='patient-left'>手机号码：
+        <view class='patient-right'>{{item.openTel}}</view>
+      </view>
+      <view class='patient-left'>身份证号码：
+        <view class='patient-right'>{{item.openIDCard}}</view>
+      </view>
+      <view class='patient-left'>就诊卡号：
+        <view class='patient-right'>{{item.createTime}}</view>
+      </view>
+      <!-- 左右下角的圆 -->
+      <view class='radius'></view>
+      <view class='radius2'></view>
+      <!-- 与就诊人的关系 -->
+      <view class='relation'>本人
+        <view class='trigon'></view>
+      </view>
+      <!-- 点击确认事件 -->
+      <!-- <view class='choose-buttun {{item.checked?"":"choose-buttun2"}}'>
+        <view class='{{item.checked?"choose-show":"choose-hidden"}}'></view>
+      </view> -->
+    </movable-view>
+      <view class="delete-btn" data-productIndex="{{index}}" bindtap="handleDeleteProduct">删除</view>
+   </movable-area>
+  </block>
+  <view class='buttun-tab'>
+    <view class='tab1 buttun-peopel1' bindtap='change'>+添加就诊卡
+    </view>
+  </view>
+</block>
+<block wx:else>
+<!-- 添加就诊卡 -->
+   <view class='inhospital-swiper'>
+     <view class="inhospital-swiper-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap='swichNav'>医保卡</view>
+     <view class="inhospital-swiper-item {{currentTab==1 ? 'on' : ''}}"data-current="1"bindtap='swichNav'>医院就诊卡  </view>
+   </view>
+   <!-- 医保卡 -->
+   <swiper current="{{currentTab}}" class="swiper-box" duration="300">
+      <swiper-item>
+        <view class='inhospital-card-warp'>
+          <view class='card-boday'>
+           <view class='card-header'></view>
+           <view class='card-header1'></view>
+           <view class='card-content'>
+              <view class='card-message'>
+                 <view>姓名：xxx</view>
+                 <view>卡号：500xxxxxxxx</view>
+                 <view>身份证号：139xxxxxxxxxxxx421</view>
+              </view>
+              <view class='card-tips'>
+                 本卡系参保人员身份凭证凭卡
+                 就医，妥善保管
+                 医保咨询热线：962218
+              </view>
+           </view>
+          </view>
+        </view>
+        <view class='user'>
+           <view class='user-item'>
+            <view class='item-title'>姓名</view>
+            <input class='item-content' type='text' placeholder='请输入姓名' bindinput='getUseruserName'></input>
+           </view>
+           <view class='user-item'>
+            <view class='item-title'>身份证号</view>
+            <input class='item-content' type='text' placeholder='请输入证件号码' bindinput='getUseridentityCard'></input>
+           </view>
+           <view class='user-item'>
+            <view class='item-title'>手机号</view>
+            <input class='item-content' type='text' placeholder='请输入您的手机号码' bindinput='getUserphoneNumber'></input>
+           </view>
+           <view class='user-item'>
+            <view class='item-title'>医保卡号</view>
+            <input class='item-content' type='text' placeholder='圈出位置的本人医保卡号' bindinput='getUsermedicareCard'></input>
+           </view>
+           <view class='user-item'>
+            <view class='item-title'>关系</view>
+            <!-- 弹出关系框index就是要发到后端的关系 -->
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{showChoose}}">
+              <view class='item-title guanxi'>{{showChoose[index]}}
+                <image src='../../images/smallicon/xiala@2x.png'></image>
+              </view>
+            </picker>
+           </view>
+        </view>
+      </swiper-item>
+      <!-- 医院就诊卡 -->
+      <swiper-item class="patient-card">
+      <view class='user'>
+           <view class='user-item'>
+            <view class='item-title'>姓名</view>
+            <input class='item-content' type='text' placeholder='请输入姓名' bindinput='getUseruserName'></input>
+           </view>
+           <view class='user-item'>
+            <view class='item-title'>身份证号</view>
+            <input class='item-content' type='text' placeholder='请输入证件号码' bindinput='getUseridentityCard'></input>
+           </view>
+           <view class='user-item'>
+            <view class='item-title'>手机号</view>
+            <input class='item-content' type='text' placeholder='请输入您的手机号码'bindinput='getUserphoneNumber'></input>
+           </view>
+           <view class='user-item'>
+            <view class='item-title'>医保卡号</view>
+            <input class='item-content' type='text' placeholder='请输入的本人医保卡号' bindinput='getUsermedicareCard'></input>
+           </view>
+           <view class='user-item'>
+            <view class='item-title'>关系</view>
+            <!-- 弹出关系框index就是要发到后端的关系 -->
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{showChoose}}">
+              <view class='item-title guanxi'>{{showChoose[index]}}
+                <image src='../../images/smallicon/xiala@2x.png'></image>
+              </view>
+            </picker>
+           </view>
+        </view>
+      </swiper-item>
+   </swiper>
+  <view class='buttun-tab'>
+     <view class='tab1' bindtap='noadd'>暂不添加</view>
+     <view class='tab2' bindtap='addCard'>确认添加</view>
+  </view>
+</block>

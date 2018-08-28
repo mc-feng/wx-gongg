@@ -1,0 +1,256 @@
+page{
+  background: #F5F7F9;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center
+}
+.patient-list{
+  margin-top: 20rpx;
+  width: 666rpx;
+  height: 254rpx;
+  background: #ffffff;
+  display: flex;
+  flex-flow: column nowrap;
+  border-radius: 4rpx;
+  padding: 24rpx 0 20rpx 28rpx;
+  position: absolute;
+  z-index: 2;
+}
+.patient-name{
+  font-family: PingFangSC-Medium;
+  font-size: 36rpx;
+  color: #232323;
+  letter-spacing: 0;
+  font-weight: 600;
+  margin-bottom: 12rpx;
+}
+.patient-left{
+  font-family: PingFangSC-Regular;
+  height: 50rpx;
+  font-size: 26rpx;
+  color: #232323;
+  letter-spacing: 0;
+  line-height: 50rpx;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.patient-right{
+  color: #A3A3A3;
+}
+.radius{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background: #F5F7F9;
+  position: absolute;
+  left: -20rpx;
+  bottom: -20rpx;
+}
+.radius2{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background: #F5F7F9;
+  position: absolute;
+  bottom: -20rpx;
+  right: -20rpx;
+}
+.relation{
+  position: absolute;
+  width: 98rpx;
+  height: 40rpx;
+  border-radius: 2rpx;
+  background: #AED4FC;
+  text-align: center;
+  line-height: 40rpx;
+  right: 0rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 22rpx;
+  color: #0D86EB;
+  letter-spacing: 0;
+}
+.trigon{
+  width: 0;
+  height: 0;
+  border: 20rpx solid transparent;
+  border-left: 20rpx solid #ffffff;
+  position: absolute;
+  left: 0rpx;
+  top: 0rpx;
+}
+.inhospital-swiper{
+  width: 100%;
+  height: 100rpx;
+  background-color: #ffffff;
+  border-top: 2rpx solid #F5F7F9;
+  display: flex;
+  flex-flow: row nowrap;
+  margin-bottom: 4rpx;
+}
+.inhospital-swiper-item{
+  width: 50%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-family: PingFangSC-Medium;
+  font-size: 34rpx;
+  color: #000000;
+  border-bottom: 2rpx solid #F5F7F9;
+}
+.on{
+  color: #0D86EB;
+  border-bottom: 4rpx solid #0D86EB;
+}
+.swiper-box{
+  width: 100%;
+  height: 916rpx;
+}
+.inhospital-card-warp{
+  width: 100%;
+  height: 400rpx;
+  background-color: #ffffff;
+  padding-top: 20rpx;
+}
+.card-boday{
+  margin-left: 28rpx;
+  width: 694rpx;
+  height: 376rpx;
+  background: #F1F5F8;
+  border-radius: 20rpx;
+  position: relative;
+}
+.card-header{
+  height: 66rpx;
+  width: 694rpx;
+  background: #4A90E2;
+  position: absolute;
+  top: 48rpx;
+  left: 0rpx;
+}
+.card-header1{
+  width: 628rpx;
+  height: 66rpx;
+  background-color: #ffffff;
+  position: absolute;
+  left: 34rpx;
+  top: 132rpx;
+}
+.card-content{
+  position: absolute;
+  left: 34rpx;
+  top: 218rpx;
+  height: 138rpx;
+  width: 628rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+.card-message{
+  height: 138rpx;
+}
+.card-message view{
+  height: 44rpx;
+  line-height: 44rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 20rpx;
+  color: #5499E3;
+}
+.card-tips{
+  margin-top: 36rpx;
+  height: 76rpx;
+  width: 220rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 18rpx;
+  color: #5499E3;
+}
+.user{
+  height: 374rpx;
+  width: 100%;
+  margin-top: 20rpx;
+  background: #ffffff;
+}
+.user-item {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  height: 90rpx;
+  width: 100%;
+  flex-wrap: nowrap;
+  align-items: center;
+  border-bottom: 2rpx dashed #F5F7F9;
+  justify-content: space-between
+}
+.user-item:nth-of-type(5){
+  border: none;
+}
+.item-title {
+  white-space: nowrap;
+  margin-left: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #232323;
+}
+.item-content {
+  flex: 1;
+  padding-right: 30rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #D8D8D8;
+  text-align: right;
+}
+.patient-card .user{
+  margin:0;
+}
+.buttun-tab{
+  display: flex;
+  flex-flow: row nowrap;
+  height: 96rpx;
+  line-height: 96rpx;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  left: 0rpx;
+  bottom: 0rpx; 
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  letter-spacing: -0.74rpx;
+}
+.tab1{
+  width: 25%;
+  color: #0D86EB;
+  background-color: #ffffff;
+}
+.tab2{
+  width: 75%;
+  color: #FFFFFF;
+  background: #0D86EB;
+}
+.buttun-peopel1{
+  width: 100%
+}
+.guanxi{
+  margin-right: 30rpx;
+}
+.guanxi image{
+  width:24rpx;
+  height: 12rpx;
+  padding-bottom: 4rpx 
+}
+/* 侧滑功能样式 */
+.delete-btn{ 
+  position: absolute;
+  top:20rpx;
+  right: 0; 
+  width: 180rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #FFFFFF;
+  height: 294rpx;
+  line-height:294rpx;
+  z-index: 1;
+  background: #E66671;
+  text-align: center;
+  border-top-right-radius: 6rpx;
+  border-bottom-right-radius: 4rpx;
+}

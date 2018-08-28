@@ -17,7 +17,9 @@
     "pages/bookRecord/bookRecord",
     "pages/myCollect/myCollect",
     "pages/collectdetails/collectdetails",
-    "pages/inNavigation/inNavigation" 
+    "pages/inNavigation/inNavigation" ,
+    "pages/managePatient/managePatient",
+    "pages/editPeopleMess/editPeopleMess"
   ],
   "window":{
     "navigationBarBackgroundColor": "#FFFFFF",

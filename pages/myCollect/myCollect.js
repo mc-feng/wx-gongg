@@ -1,3 +1,4 @@
+const app = getApp()
 Page({
   data: {
     delBtnWidth: 180,//删除按钮宽度单位（rpx） 
@@ -10,7 +11,7 @@ Page({
     wx.request({
       url: 'http://192.168.2.165:8081/medicalcard/getdoclist',
       data:{
-        "hospitalID":"123456"//openID
+        "hospitalID": app.globalData.openId//openID
       },
       method:"post",
       success:function(res){
@@ -85,8 +86,8 @@ Page({
       //触摸开始与结束，手指移动的距离 
       var disX = this.data.startX - endX;
       var delBtnWidth = this.data.delBtnWidth;
-      //如果距离小于删除按钮的1/2，不显示删除按钮 
-      var txtStyle = disX > delBtnWidth / 4 ? "left:-" + delBtnWidth + "px" : "left:0px";
+      //如果距离小于删除按钮的1/10，不显示删除按钮 
+      var txtStyle = disX > delBtnWidth / 10 ? "left:-" + delBtnWidth + "px" : "left:0px";
       //获取手指触摸的是哪一项 
       var index = e.target.dataset.index;
       var list = this.data.list;
@@ -132,7 +133,7 @@ Page({
             method: "post",
             data: {
               "hospitalID": that.data.list[e.target.dataset.index].docCode,
-              "hospitalName": "123456"//--openID
+              "hospitalName": app.globalData.openId//--openID
             },
             success: function (res) {
               console.log(res)
