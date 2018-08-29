@@ -8,7 +8,6 @@ page{
 }
 .crad-tips{
   margin-top: 528rpx;
-  width: 356rpx;
   height: 40rpx;
   letter-spacing: -0.64rpx;
   line-height: 40rpx;

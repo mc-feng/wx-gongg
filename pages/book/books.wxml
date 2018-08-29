@@ -1,35 +1,45 @@
-<block wx:if="{{result}}">
-  <view class='crad-warp'>
-    <view class='crad-tips'>暂未查询到您的住院申请信息</view>
-    <view class='crad-buttun' bindtap='change'>立即绑定就诊卡</view>
-  </view>
+<block wx:if="{{loading}}">
+ <loading>
+        加载中...
+  </loading>
 </block>
 <block wx:else>
-  <view class='appointment-place-warp'>
-    <view class='appointment-place-main'>
-    </view>
-    <view class='appointment-place-main'>
-    <block wx:for="{{content}}" wx:key="{{item.hospitalID}}">
-          <view class='appointment-place-mainitems' data-hosID="{{item.hospitalID}}" data-header="{{item.title}}" bindtap='linkToDepartments'>
-            <image src='../../images/homeimages/yiyuanlogo@2x.png'>
-            </image>
-            <view class='appointment-place-content'>
-                <view class='appointment-place-contentheader'>
-                  上海市公卫中心（{{item.title}}）
-                </view>
-                <view class='appointment-place-contentcolor'>
-                  医院等级：{{item.leve}}
-                </view>
-                <view class='appointment-place-contentcolor'>
-                  医院地址：{{item.place}}
-                </view>
-            </view>
-            <view class='appointment-place-distance'>
-                  {{distance[index]}}km
-            </view>
-          </view>
+  <block wx:if="{{result}}">
+    <view class='crad-warp'>
+      <block wx:if="{{noBind}}">
+        <view class='crad-tips'>您的信息不完善</view>
+        <view class='crad-buttun' bindtap='LinkToPeople'>立即去完善</view>
       </block>
-      <view></view>
+      <block wx:else>
+        <view class='crad-tips'>{{bindCard?"您未绑定您的就诊卡":"您未完善您的个人信息"}}</view>
+        <view class='crad-buttun' bindtap='{{bindCard?"LinkToCard":"LinkToPeople"}}'>{{bindCard?"立即绑定个人卡":"立即完善个人信息"}}</view>
+      </block>
     </view>
-  </view>
+  </block>
+  <block wx:else>
+    <view class='appointment-place-warp'>
+      <view class='appointment-place-main'>
+      <block wx:for="{{content}}" wx:key="{{item.hospitalID}}">
+            <view class='appointment-place-mainitems' data-hosID="{{item.hospitalID}}" data-header="{{item.title}}" bindtap='linkToDepartments'>
+              <image src='../../images/homeimages/yiyuanlogo@2x.png'>
+              </image>
+              <view class='appointment-place-content'>
+                  <view class='appointment-place-contentheader'>
+                    上海市公卫中心（{{item.title}}）
+                  </view>
+                  <view class='appointment-place-contentcolor'>
+                    医院等级：{{item.leve}}
+                  </view>
+                  <view class='appointment-place-contentcolor'>
+                    医院地址：{{item.place}}
+                  </view>
+              </view>
+              <view class='appointment-place-distance'>
+                    {{distance[index]}}km
+              </view>
+            </view>
+        </block>
+      </view>
+    </view>
+  </block>
 </block>

@@ -17,7 +17,7 @@ Page({
     introduces:[
       { "title": "公卫简介","url":"../introduce/introduce","id":"1", "src":"../../images/homeimages/jianjie@2x.png"},
       { "title": "来院路线", "url": "../introduce/introduce", "id": "2", "src": "../../images/homeimages/luxian@2x.png"},
-      { "title": "就医指南", "url": "../introduce/introduce", "id": "3", "src": "../../images/homeimages/zhidao@2x.png"},
+      { "title": "就医指南", "url": "../docterDirect/docterDirect", "id": "3", "src": "../../images/homeimages/zhidao@2x.png"},
       { "title": "院内导航", "url": "../inNavigation/inNavigation", "id": "4", "src": "../../images/homeimages/daohang@2x.png"}
     ],
     mainNavs:[
@@ -46,7 +46,6 @@ Page({
     })
   },
   onLoad: function () {
-    console.log(1)
     var that =this;
      wx.request({
        url: 'http://192.168.2.165:8081/medicalcard/selectphoto',

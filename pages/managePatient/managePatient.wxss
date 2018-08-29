@@ -254,3 +254,22 @@ page{
   border-top-right-radius: 6rpx;
   border-bottom-right-radius: 4rpx;
 }
+/* 没有绑定就诊卡的 */
+.noSearch-wrap{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.noSearch-wrap image{
+  margin-top: 160rpx;
+  width: 340rpx;
+  height: 324rpx;
+}
+.noSearch-title{
+  height: 40rpx;
+  font-size: 28rpx;
+  color: #666666;
+  margin-top:60rpx;
+  line-height: 40rpx;
+}

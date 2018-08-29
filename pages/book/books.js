@@ -1,10 +1,14 @@
+const app = getApp()
 Page({
   data: {
     content: [{ "title": "金山总部", "leve": "三级甲等", "place": "上海市金山区嘈廊公路2901号","hospitalID":"02"}, 
       { "title": "市区总部", "leve": "三级甲等", "place": "上海市虹口区同心路921号", "hospitalID": "01"}],
     result:"",
+    bindCard:"",
+    noBind:"",
     arr:[],
     distance: [],
+    loading:true
   },
   onLoad: function (options) {
     this.getDistance(getApp().globalData.latitude, getApp().globalData.longitude, 30.7898400000, 121.3400100000)
@@ -17,18 +21,32 @@ Page({
       url: 'http://192.168.2.165:8081/common/checkdata',
       method: "post",
       data: {
-        "hospitalID": "1wew"
+        "hospitalID": app.globalData.openId
       },
       success: function (res) {
-        console.log(res)
+        that.setData({
+          loading:false
+        })
         //判断绑卡操作
-        if (res.data.result== 0){
-          that.setData({
-            result: true
-          })
-        } else if (res.data.result == 1){
+        if (res.data.result== 1){
           that.setData({
             result: false
+          })
+        } else if (res.data.result == 2){
+          that.setData({
+            result: true,
+            bindCard:false
+          })
+        } else if (res.data.result == 3){
+          that.setData({
+            result: true,
+            bindCard: true
+          })
+        } else if (res.data.result == 4){
+          that.setData({
+            result: true,
+            bindCard: false,
+            noBind :true
           })
         }
       }
@@ -53,6 +71,57 @@ Page({
     this.data.arr.push(s)
     this.setData({
       distance: this.data.arr
+    })
+  },
+  LinkToPeople:function(e){
+   wx.navigateTo({
+     url: '../editPeopleMess/editPeopleMess',
+   })
+  },
+  LinkToCard:function(e){
+    wx.navigateTo({
+      url: '../managePatient/managePatient',
+    })
+  },
+  onShow() { 
+    var that = this
+    wx.request({
+      url: 'http://192.168.2.165:8081/common/checkdata',
+      method: "post",
+      data: {
+        "hospitalID": app.globalData.openId
+      },
+      success: function (res) {
+        that.setData({
+          loading: false
+        })
+        console.log(res)
+        //判断绑卡操作
+        if (res.data.result == 1) {
+          that.setData({
+            result: false,
+            noBind: false
+          })
+        } else if (res.data.result == 2) {
+          that.setData({
+            result: true,
+            bindCard: false,
+            noBind: false
+          })
+        } else if (res.data.result == 3) {
+          that.setData({
+            result: true,
+            bindCard: true,
+            noBind: false
+          })
+        } else if (res.data.result == 4) {
+          that.setData({
+            result: true,
+            bindCard: false,
+            noBind: true
+          })
+        }
+      }
     })
   }
 })

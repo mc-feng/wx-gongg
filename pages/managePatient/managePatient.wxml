@@ -1,34 +1,43 @@
 <!--pages/managePatient/managePatient.wxml-->
 <block wx:if="{{card}}">
  <!-- 选择就诊人 -->
- <!-- 就诊人循环列表 -->
-  <block wx:for="{{parameter}}" wx:key="parameter">
-   <movable-area style="height:340rpx;width: 846rpx;margin-right:154rpx">
-    <movable-view class='patient-list' out-of-bounds="true" direction="horizontal" x="200" inertia="true" data-productIndex="{{index}}" bindchange="handleMovableChange">
-      <view class='patient-name'>{{item.openUserName}}</view>
-      <view class='patient-left'>手机号码：
-        <view class='patient-right'>{{item.openTel}}</view>
-      </view>
-      <view class='patient-left'>身份证号码：
-        <view class='patient-right'>{{item.openIDCard}}</view>
-      </view>
-      <view class='patient-left'>就诊卡号：
-        <view class='patient-right'>{{item.createTime}}</view>
-      </view>
-      <!-- 左右下角的圆 -->
-      <view class='radius'></view>
-      <view class='radius2'></view>
-      <!-- 与就诊人的关系 -->
-      <view class='relation'>本人
-        <view class='trigon'></view>
-      </view>
-      <!-- 点击确认事件 -->
-      <!-- <view class='choose-buttun {{item.checked?"":"choose-buttun2"}}'>
-        <view class='{{item.checked?"choose-show":"choose-hidden"}}'></view>
-      </view> -->
-    </movable-view>
-      <view class="delete-btn" data-productIndex="{{index}}" bindtap="handleDeleteProduct">删除</view>
-   </movable-area>
+ <!-- 没有绑定就诊卡 -->
+  <block wx:if="{{parameter.length == 0}}">
+    <view class='noSearch-wrap'>
+      <image src='../../images/homeimages/search.png'></image>
+      <view class='noSearch-title'>您还没有绑定就诊卡请点击绑定</view>
+    </view>
+  </block>
+  <!-- 就诊人循环列表 -->
+  <block wx:else>
+    <block wx:for="{{parameter}}" wx:key="parameter">
+    <movable-area style="height:340rpx;width: 846rpx;margin-right:154rpx">
+      <movable-view class='patient-list' out-of-bounds="true" direction="horizontal" x="200" inertia="true" data-productIndex="{{index}}" bindchange="handleMovableChange">
+        <view class='patient-name'>{{item.openUserName}}</view>
+        <view class='patient-left'>手机号码：
+          <view class='patient-right'>{{item.openTel}}</view>
+        </view>
+        <view class='patient-left'>身份证号码：
+          <view class='patient-right'>{{item.openIDCard}}</view>
+        </view>
+        <view class='patient-left'>就诊卡号：
+          <view class='patient-right'>{{item.createTime}}</view>
+        </view>
+        <!-- 左右下角的圆 -->
+        <view class='radius'></view>
+        <view class='radius2'></view>
+        <!-- 与就诊人的关系 -->
+        <view class='relation'>本人
+          <view class='trigon'></view>
+        </view>
+        <!-- 点击确认事件 -->
+        <!-- <view class='choose-buttun {{item.checked?"":"choose-buttun2"}}'>
+          <view class='{{item.checked?"choose-show":"choose-hidden"}}'></view>
+        </view> -->
+      </movable-view>
+        <view class="delete-btn" data-productIndex="{{index}}" bindtap="handleDeleteProduct">删除</view>
+    </movable-area>
+    </block>
   </block>
   <view class='buttun-tab'>
     <view class='tab1 buttun-peopel1' bindtap='change'>+添加就诊卡

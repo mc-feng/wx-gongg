@@ -19,7 +19,8 @@
     "pages/collectdetails/collectdetails",
     "pages/inNavigation/inNavigation" ,
     "pages/managePatient/managePatient",
-    "pages/editPeopleMess/editPeopleMess"
+    "pages/editPeopleMess/editPeopleMess",
+    "pages/docterDirect/docterDirect"
   ],
   "window":{
     "navigationBarBackgroundColor": "#FFFFFF",

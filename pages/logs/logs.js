@@ -6,6 +6,7 @@ Page({
     userInfo :{}
   },
   onLoad: function () {
+    console.log(2)
     //已获得用户信息
     this.setData({
       userInfo: app.globalData.userInfo

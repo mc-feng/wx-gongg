@@ -1,0 +1,24 @@
+/* pages/docterDirect/docterDirect.wxss */
+page{
+  margin:28rpx 0 28rpx 30rpx;
+}
+.header{
+  height:50rpx;
+  line-height: 50rpx;
+  color: #232323;
+  font-size: 36rpx;
+  font-weight: 600;
+  margin-bottom: 80rpx;
+}
+.tip{
+  line-height: 50rpx;
+  color: #232323;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.text{
+  line-height: 50rpx;
+  color: #232323;
+  font-size: 28rpx;
+  font-weight: normal
+}
