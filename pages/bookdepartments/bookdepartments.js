@@ -10,6 +10,8 @@ Page({
     departmentlist:[],
     hospitalID:"",
     deptCode1:'01_01',
+    deptCode2:"01_02",
+    deptCode:"",
     value:""
   },
   tabNav: function (e) {
@@ -34,18 +36,18 @@ Page({
     this.setData({
       selected1: false,
       selected: true,
-      deptCode1: e.currentTarget.dataset.deptcode
+      deptCode: e.currentTarget.dataset.deptcode
     })
     wx.request({
       url: 'http://192.168.2.165:8081/booking/getdept',
       method: "post",
       data: {
         "hospitalID": that.data.hospitalID,
-        "deptCode1": that.data.deptCode1,
+        "deptCode1": that.data.deptCode,
         "deptName2": that.data.value
       },
       success: function (res) {
-        if (that.data.deptCode1 == "01_02") {
+        if (that.data.deptCode == that.data.deptCode2) {
           that.setData({
             departmentlist: res.data.result
           })
@@ -63,18 +65,18 @@ Page({
     this.setData({
       selected: false,
       selected1: true,
-      deptCode1: e.currentTarget.dataset.deptcode
+      deptCode: e.currentTarget.dataset.deptcode
     }),
       wx.request({
         url: 'http://192.168.2.165:8081/booking/getdept',
         method: "post",
         data: {
           "hospitalID": that.data.hospitalID,
-          "deptCode1": that.data.deptCode1,
+          "deptCode1": that.data.deptCode,
           "deptName2": that.data.value
         },
         success: function (res) {
-          if (that.data.deptCode1 == "01_02") {
+          if (that.data.deptCode == that.data.deptCode2) {
             that.setData({
               departmentlist: res.data.result
             })
@@ -92,12 +94,18 @@ Page({
   onLoad: function (options) {
     let objects = JSON.parse(options.data);
     console.log(objects)
+    let that =this
+    if (objects.hosid=="02"){
+      that.setData({
+        deptCode1 : "02_01",
+        deptCode2 : "02_02",
+      })
+    }
     this.setData({
       title: objects.header,
       hospitalID: objects.hosid
     })
     //进行数据请求
-    var that = this
     wx.request({
       url: 'http://192.168.2.165:8081/booking/getdept',
       method: "post",
@@ -150,11 +158,11 @@ Page({
       method: "post",
       data: {
         "hospitalID": that.data.hospitalID,
-        "deptCode1": that.data.deptCode1,
+        "deptCode1": that.data.deptCode,
         "deptName2": that.data.value
       },
       success:function(res){
-        if (that.data.deptCode1 =="01_02"){
+        if (that.data.deptCode ==that.data.deptCode2){
           that.setData({
             departmentlist: res.data.result
           })

@@ -6,13 +6,16 @@ Page({
    */
   data: {
       data:null,
-      patientMessage:null
+      patientMessage:null,
+      accessToken:"",
+      result:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that = this
     if (options.data){
       let objects = JSON.parse(options.data);
       console.log(objects);
@@ -27,6 +30,15 @@ Page({
         data: objects,
         patientMessage: patientMessage
       });
+      if (objects.trans.hos == "01") {
+        that.setData({
+          accessToken: "800EBED9-63E5-4408-A184-BE693DA32CB6"
+        })
+      } else if (objects.trans.hos == "02") {
+        that.setData({
+          accessToken: "800EBED9-63E5-4408-A184-BE693DA32CB7"
+        })
+      }
     }
   },
 
@@ -80,6 +92,7 @@ Page({
   },
   // 弹出框
   showmode:function(e){
+    let that =this;
    wx.request({
      url: 'http://192.168.2.165:8081/booking/confirmbooking',
      method:'post',
@@ -92,15 +105,18 @@ Page({
        "resourceID": this.data.data.resourceid,
        "hospitalUserID": this.data.patientMessage.openId,
        "patientID": this.data.patientMessage.patientID,
-       "accessToken": "800EBED9-63E5-4408-A184-BE693DA32CB6",
+       "accessToken": this.data.accessToken,
        "openUserID": "2088022943884345",
        "id": this.data.patientMessage.id
      },
      success:function(res){
        console.log(res)
+       that.setData({
+         result: res.data.result
+       })
+       that.showView()
      }
    })
-   this.showView()
   },
   showView:function(){
     // 显示遮罩层

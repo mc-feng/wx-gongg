@@ -32,6 +32,7 @@ Page({
       },
       success: function (res) {
         console.log(res)
+        
         that.setData({
           parameter: res.data.result
         })
@@ -156,23 +157,41 @@ Page({
   addCard: function () {
     console.log(this.data.identityCard)
     wx.request({
-      url: 'http://192.168.2.165:8081/medicalcard/getRecordCard',
+      url: 'http://192.168.2.165:8081/medicalcard/checkidfrom',
       method: "post",
       data: {
-        "openID": app.globalData.openId,
-        "tel": this.data.phoneNumber,
-        "idCard": this.data.identityCard,
-        "patientName": this.data.userName,
-        "cardNo": this.data.medicareCard,
-        "cardType": 0,
         "cardProperty": this.data.index,
-        "accessToken": "800EBED9-63E5-4408-A184-BE693DA32CB6",
+        "cardType": "0",
         "openUserID": "2088022943884345",
+        "cardNo": this.data.medicareCard,
+        "dataSource": app.globalData.openId
       },
       success: function (res) {
-        console.log(res)
+        let str = JSON.stringify(res.data)
+        console.log(res);
+        wx.navigateTo({
+          url: '../chooseHospital/chooseHospital?cardData='+str,
+        })
       }
     })
+    // wx.request({
+    //   url: 'http://192.168.2.165:8081/medicalcard/getRecordCard',
+    //   method: "post",
+    //   data: {
+    //     "openID": app.globalData.openId,
+    //     "tel": this.data.phoneNumber,
+    //     "idCard": this.data.identityCard,
+    //     "patientName": this.data.userName,
+    //     "cardNo": this.data.medicareCard,
+    //     "cardType": 0,
+    //     "cardProperty": this.data.index,
+    //     "accessToken": "800EBED9-63E5-4408-A184-BE693DA32CB6",
+    //     "openUserID": "2088022943884345",
+    //   },
+    //   success: function (res) {
+    //     console.log(res)
+    //   }
+    // })
   },
   // 弹出关系框点击事件
   bindPickerChange: function (e) {

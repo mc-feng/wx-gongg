@@ -161,7 +161,7 @@ Page({
       data: {
         "deptCode": that.data.transferData.id,
         "day": datetime,
-        "accessToken": "800EBED9-63E5-4408-A184-BE693DA32CB6",
+        "accessToken": that.data.accessToken,
         "openUserID": "2088022943884345",
       },
       success: function (res) {
@@ -179,6 +179,15 @@ Page({
     //接受上一页传过来的参数
     let objects = JSON.parse(options.data);
     console.log(objects)
+    if (objects.hos == "01"){
+      this.setData({
+        accessToken:"800EBED9-63E5-4408-A184-BE693DA32CB6"
+      })
+    } else if (objects.hos == "02"){
+      this.setData({
+        accessToken: "800EBED9-63E5-4408-A184-BE693DA32CB7"
+      })
+    }
     if (objects.leve=="普通"){
       this.setData({
         shownormal:true

@@ -16,7 +16,8 @@ Page({
     transData:{},
     data:{},
     showChoose:["本人","父母","子女","配偶","朋友"],
-    index:0
+    index:0,
+    accessToken: "800EBED9-63E5-4408-A184-BE693DA32CB6"
   },
 
   /**
@@ -28,6 +29,16 @@ Page({
       console.log(objects);
       this.setData({ data: objects });
       this.data.parameter[0].checked = true;
+      var that = this
+      if (objects.trans.hos == "01") {
+        that.setData({
+          accessToken: "800EBED9-63E5-4408-A184-BE693DA32CB6"
+        })
+      } else if (objects.trans.hos == "02") {
+        that.setData({
+          accessToken: " 800EBED9-63E5-4408-A184-BE693DA32CB7"
+        })
+      }
     }
     var that =this;
     wx.request({
@@ -162,29 +173,45 @@ Page({
   addCard:function(){
     console.log(this.data.identityCard)
     wx.request({
-      url: 'http://192.168.2.165:8081/medicalcard/getRecordCard',
+      url: 'http://192.168.2.165:8081/medicalcard/checkidfrom',
       method:"post",
       data:{
-        "openID": app.globalData.openId,
-        "tel": this.data.phoneNumber,
-        "idCard": this.data.identityCard,
-        "patientName": this.data.userName,
-        "cardNo": this.data.medicareCard,
-        "cardType": 0,
         "cardProperty": this.data.index,
-        "accessToken": "800EBED9-63E5-4408-A184-BE693DA32CB6",
+        "cardType": "0",
         "openUserID": "2088022943884345",
+        "cardNo": this.data.medicareCard,
       },
       success:function(res){
-        console.log(res)
+        console.log(res);
+        wx.navigateTo({
+          url: '../chooseHospital/chooseHospital',
+        })
       }
     })
+    // wx.request({
+    //   url: 'http://192.168.2.165:8081/medicalcard/getRecordCard',
+    //   method:"post",
+    //   data:{
+    //     "openID": app.globalData.openId,
+    //     "tel": this.data.phoneNumber,
+    //     "idCard": this.data.identityCard,
+    //     "patientName": this.data.userName,
+    //     "cardNo": this.data.medicareCard,
+    //     "cardType": 0,
+    //     "cardProperty": this.data.index,
+    //     "accessToken": this.data.accessToken,
+    //     "openUserID": "2088022943884345",
+    //   },
+    //   success:function(res){
+    //     console.log(res)
+    //   }
+    // })
   },
   ConfirmPatient:function(res){
     let str = JSON.stringify(this.data.transData);
-    let str2 = JSON.stringify(this.data.data)
+    let str2 = JSON.stringify(this.data.data);
     wx.navigateTo({
-      url: '../bookorder/bookorder?patient=' + str + '&nowData=' + str2,
+      url: '../bookorder/bookorder?patient=' + str + '&nowData=' + str2 ,
     })
   },
   // 弹出关系框点击事件

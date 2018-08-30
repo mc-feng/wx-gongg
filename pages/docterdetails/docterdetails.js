@@ -14,7 +14,8 @@ Page({
     docCode:"",
     docDuty:"",
     transData:{},
-    loading:true
+    loading:true,
+    accessToken: ""//判断是那个医院的accessToken
   },
   expand: function () {
     if(this.data.change ===false){
@@ -83,21 +84,33 @@ Page({
     this.setData({
       date: objects
     })
-    console.log(options)
+    if (objects.trans.hos == "01"){
+      that.setData({
+        accessToken: "800EBED9-63E5-4408-A184-BE693DA32CB6"
+      })
+    } else if (objects.trans.hos == "02"){
+      that.setData({
+        accessToken: " 800EBED9-63E5-4408-A184-BE693DA32CB7"
+      })
+    }
+    console.log(objects)
+    console.log(that.data.accessToken)
     wx.request({
       url: 'http://192.168.2.165:8081/booking/getbookingdocresource',
       method: "post",
       data: {
         "docCode": objects.doccode,
         "day": objects.now.trim(),
-        "accessToken": "800EBED9-63E5-4408-A184-BE693DA32CB6",
+        "accessToken": that.data.accessToken,
         "openUserID": "2088022943884345",
       },
       success: function (res) {
+        console.log(res)
         let transData={
           hospital: objects.trans.title,
           office: objects.trans.office,
-          docName: res.data.result[0].docCode
+          docName: res.data.result[0].docCode,
+          hos: objects.trans.hos
         };
         console.log(res)
         console.log(transData)

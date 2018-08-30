@@ -8,7 +8,7 @@ page{
 .patient-list{
   margin-top: 20rpx;
   width: 666rpx;
-  height: 254rpx;
+  height: 264rpx;
   background: #ffffff;
   display: flex;
   flex-flow: column nowrap;
@@ -246,7 +246,7 @@ page{
   font-family: PingFangSC-Regular;
   font-size: 24rpx;
   color: #FFFFFF;
-  height: 294rpx;
+  height: 306rpx;
   line-height:294rpx;
   z-index: 1;
   background: #E66671;

@@ -7,14 +7,14 @@
 </view>
 <view class='qiehuan'>
             <view class="bc-white">
-              <view class="{{selected?'red':'default'}}" bindtap="selected" data-deptCode="01_01">普通</view>
-              <view class="{{selected1?'red':'default'}}" bindtap="selected1" data-deptCode="01_02">专家</view>
+              <view class="{{selected?'red':'default'}}" bindtap="selected" data-deptCode="{{deptCode1}}">普通</view>
+              <view class="{{selected1?'red':'default'}}" bindtap="selected1" data-deptCode="{{deptCode2}}">专家</view>
             </view>
             <scroll-view scroll-y class='scroll-wrap' style="height: {{clientHeight?clientHeight+'px':'auto'}}">
               <view id="rights">
                 <view hidden='{{!selected}}'>
                 <block wx:for="{{normallist}}" wx:key="{{item.deptCode1}}">
-                    <view class='normaldocter' bindtap="linToDetails" data-id="{{item.deptCode2}}" data-leve="{{item.deptName1}}" data-office="{{item.deptName2}}" data-title="{{title}}">
+                    <view class='normaldocter' bindtap="linToDetails" data-id="{{item.deptCode2}}" data-leve="{{item.deptName1}}" data-office="{{item.deptName2}}" data-title="{{title}}" data-hos="{{hospitalID}}">
                       {{item.deptName2}}
                       <image src='../../images/homeimages/sword.png'></image>
                     </view>
@@ -22,7 +22,7 @@
                 </view>
                 <view hidden='{{!selected1}}'>
                   <block wx:for="{{departmentlist}}" wx:key="{{item.deptCode1}}">
-                    <view class='normaldocter' bindtap="linToDetails" data-id="{{item.deptCode2}}" data-leve="{{item.deptName1}}" data-office="{{item.deptName2}}" data-title="{{title}}">
+                    <view class='normaldocter' bindtap="linToDetails" data-id="{{item.deptCode2}}" data-leve="{{item.deptName1}}" data-office="{{item.deptName2}}" data-title="{{title}}" data-hos="{{hospitalID}}">
                       {{item.deptName2}}
                       <image src='../../images/homeimages/sword.png'></image>
                     </view>

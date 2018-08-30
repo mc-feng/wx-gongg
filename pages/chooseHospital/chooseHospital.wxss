@@ -1,0 +1,54 @@
+/* pages/chooseHospital/chooseHospital.wxss */
+.image-header{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.image-header image{
+  margin-top: 74rpx;
+  height:266rpx;
+  width: 280rpx;
+}
+.image-font{
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #232323;
+  letter-spacing: -0.74rpx;
+  line-height: 44rpx;
+  margin-top: 34rpx;
+}
+.card-title{
+  font-family: PingFangSC-Medium;
+  font-size: 28rpx;
+  color: #A3A3A3;
+  letter-spacing: -0.64rpx;
+  line-height: 40rpx;
+  margin:62rpx 0 0 24rpx;
+}
+.may-bind{
+  border: 2rpx solid #0D86EB;
+  border-radius: 8rpx;
+  width: 656rpx;
+  height: 80rpx;
+  text-align: center;
+  margin:50rpx 0 0 48rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #0D86EB;
+  letter-spacing: -0.74rpx;
+  line-height:80rpx
+}
+.already-bind{
+  border: 2rpx solid #ffffff;
+  border-radius: 8rpx;
+  width: 656rpx;
+  height: 80rpx;
+  text-align: center;
+  margin:50rpx 0 0 48rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #000000;
+  letter-spacing: -0.74rpx;
+  line-height:80rpx
+}

@@ -41,22 +41,30 @@
      </view>
      <view class='sub-main'>
         <view class='main-header'>
-            人性化服务
+            个性化服务
         </view>
         <view class='fuwu-subnav'>
           <scroll-view scroll-x="true" class='hometips-subnav'>
-            <image src='../../images/homeimages/manyidu1@2x.png'>
-              <text>满意度调查</text>
-            </image>
+           <navigator>
+              <image src='../../images/homeimages/manyidu1@2x.png'>
+                <text>满意度调查</text>
+              </image>
+           </navigator>
+           <navigator>
             <image src='../../images/homeimages/xiaogongju2@2x.png'>
               <text>健康小工具</text>
             </image>
+          </navigator> 
+          <navigator url='../messageList/messageList'>
             <image src='../../images/homeimages/zixun3@2x.png'>
-              <text>健康咨询</text>
+              <text>资讯列表</text>
             </image>
+          </navigator>
+          <navigator url='../healthMission/healthMission'>
             <image src='../../images/homeimages/xuanjiao4@2x.png'>
-              <text>健康报告</text>
+              <text>健康宣教</text>
             </image>
+          </navigator>
           </scroll-view>
         </view>
       </view>

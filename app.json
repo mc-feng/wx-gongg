@@ -20,7 +20,10 @@
     "pages/inNavigation/inNavigation" ,
     "pages/managePatient/managePatient",
     "pages/editPeopleMess/editPeopleMess",
-    "pages/docterDirect/docterDirect"
+    "pages/docterDirect/docterDirect",
+    "pages/healthMission/healthMission",
+    "pages/messageList/messageList",
+    "pages/chooseHospital/chooseHospital"
   ],
   "window":{
     "navigationBarBackgroundColor": "#FFFFFF",

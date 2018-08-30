@@ -23,6 +23,9 @@
         <view class='patient-left'>就诊卡号：
           <view class='patient-right'>{{item.createTime}}</view>
         </view>
+        <view class='patient-left'>就诊医院：
+          <view class='patient-right'>{{item.idCard}}</view>
+        </view>
         <!-- 左右下角的圆 -->
         <view class='radius'></view>
         <view class='radius2'></view>

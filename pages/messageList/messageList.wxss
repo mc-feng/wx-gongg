@@ -1,0 +1,78 @@
+/* pages/messageList/messageList.wxss */
+page{
+  background:  #F5F7F9
+}
+.mission-item{
+  background: #ffffff;
+  padding: 0rpx 28rpx 26rpx 28rpx;
+  display: flex;
+  flex-flow: column nowrap;
+  margin-bottom: 10rpx;
+}
+.mission-item image{
+  width: 694rpx;
+  height: 320rpx;
+}
+.mission-font{
+  width: 694rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin-top: 20rpx;
+  height: 44rpx;
+}
+.mission-title{
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #232323;
+  line-height: 44rpx;
+}
+.mission-date{
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #A3A3A3;
+  letter-spacing: 0;
+  line-height: 48rpx;
+}
+.message-item{
+  height: 144rpx;
+  margin-bottom: 2rpx;
+  background: #ffffff;
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 22rpx 28rpx 24rpx 28rpx
+}
+.message-left{
+  display: flex;
+  flex-flow: column nowrap;
+}
+.message-title{
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #232323;
+  line-height: 44rpx;
+}
+.message-content{
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #666666;
+  letter-spacing: 0;
+  line-height: 36rpx;
+  width: 462rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: 10rpx
+}
+.message-date{
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #A3A3A3;
+  letter-spacing: 0;
+  line-height: 36rpx;
+  margin-top: 20rpx
+}
+.message-item image{
+ width: 214rpx;
+ height: 140rpx;
+}

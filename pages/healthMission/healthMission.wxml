@@ -1,0 +1,8 @@
+<!--pages/healthMission/healthMission.wxml-->
+<view class='mission-item'>
+  <image src='../../images/homeimages/search.png'></image>
+  <view class='mission-font'>
+    <view class='mission-title'>新生儿脐部的家庭护理</view>
+    <view class='mission-date'>2018.08.01</view>
+  </view>
+</view>

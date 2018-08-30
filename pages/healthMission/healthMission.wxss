@@ -1,0 +1,36 @@
+/* pages/healthMission/healthMission.wxss */
+page{
+  background:  #F5F7F9
+}
+.mission-item{
+  background: #ffffff;
+  padding: 0rpx 28rpx 26rpx 28rpx;
+  display: flex;
+  flex-flow: column nowrap;
+  margin-bottom: 10rpx;
+}
+.mission-item image{
+  width: 694rpx;
+  height: 320rpx;
+}
+.mission-font{
+  width: 694rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin-top: 20rpx;
+  height: 44rpx;
+}
+.mission-title{
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #232323;
+  line-height: 44rpx;
+}
+.mission-date{
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #A3A3A3;
+  letter-spacing: 0;
+  line-height: 48rpx;
+}

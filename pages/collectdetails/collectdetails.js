@@ -29,7 +29,9 @@ Page({
     transData: {},
     loading: false,
     showContent:true,
-    transData:{}//需要转移的数据
+    transData:{},//需要转移的数据
+    accessToken:"",
+    hos:""
   },
   //简介切换
   expand: function () {
@@ -47,15 +49,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that = this;
     let objects = JSON.parse(options.data);
     console.log(objects)
+    if (objects.hospitalName == "金山总部") {
+      that.setData({
+        accessToken: "800EBED9-63E5-4408-A184-BE693DA32CB7",
+        hos:"02"
+      })
+    } else if (objects.hospitalName == "市区分部") {
+      that.setData({
+        accessToken: "800EBED9-63E5-4408-A184-BE693DA32CB6",
+        hos: "01"
+      })
+    }
     this.dataTime();
     this.sendData();
-    let that = this;
     let transData = {
       hospital: objects.hospitalName,
       office: objects.deptName2,
-      docName: objects.docName
+      docName: objects.docName,
+      hos:that.data.hos
     };
     this.setData({
       date: objects,
@@ -71,7 +85,7 @@ Page({
       data: {
         "docCode": objects.docCode,
         "day": that.data.showDate,
-        "accessToken": "800EBED9-63E5-4408-A184-BE693DA32CB6",
+        "accessToken": that.data.accessToken,
         "openUserID": "2088022943884345",
       },
       success: function (res) {
@@ -296,7 +310,7 @@ Page({
       data: {
         "docCode": that.data.date.docCode,
         "day": that.data.showDate,
-        "accessToken": "800EBED9-63E5-4408-A184-BE693DA32CB6",
+        "accessToken": that.data.accessToken,
         "openUserID": "2088022943884345",
       },
       success: function (res) {

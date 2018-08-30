@@ -1,0 +1,25 @@
+<!--pages/messageList/messageList.wxml-->
+<view class='mission-item'>
+  <image src='../../images/homeimages/search.png'></image>
+  <view class='mission-font'>
+    <view class='mission-title'>新生儿脐部的家庭护理</view>
+    <view class='mission-date'>2018.08.01</view>
+  </view>
+</view>
+
+<view class='message-item'>
+ <view class='message-left'>
+   <view class='message-title'>新生儿脐部的家庭护理</view>
+   <view class='message-content'>宝宝出生后，脐部的观察和护理非常重要…</view>
+   <view class='message-date'>2018.08.01</view>
+ </view>
+ <image src='../../images/homeimages/search.png'></image>
+</view>
+<view class='message-item'>
+ <view class='message-left'>
+   <view class='message-title'>新生儿脐部的家庭护理</view>
+   <view class='message-content'>宝宝出生后，脐部的观察和护理非常重要…</view>
+   <view class='message-date'>2018.08.01</view>
+ </view>
+ <image src='../../images/homeimages/search.png'></image>
+</view>

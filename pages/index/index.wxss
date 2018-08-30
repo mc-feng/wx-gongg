@@ -154,3 +154,6 @@ swiper-item image {
   font-size: 13px;
   color: #232323;
 }
+.hometips-subnav navigator{
+  display: inline-block
+}
