@@ -375,7 +375,4 @@ Page({
       this.setXmove(productIndex, 0)
     }
   },
-  verifyId:function(e){
-    console.log(e)
-  }
 })

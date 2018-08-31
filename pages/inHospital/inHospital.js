@@ -170,6 +170,7 @@ Page({
       card: !this.data.card
     })
   },
+  //添加就诊卡
   addCard: function () {
     var userName = this.data.userName;
     var identityCard = this.data.identityCard;
@@ -309,6 +310,7 @@ Page({
       console.log("发送失败")
     }
   },
+  // 确认就诊人
   ConfirmPatient:function(res){
     let str = JSON.stringify(this.data.transData);
     let str2 = JSON.stringify(this.data.data);

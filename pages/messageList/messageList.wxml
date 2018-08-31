@@ -1,5 +1,5 @@
 <!--pages/messageList/messageList.wxml-->
-<view class='mission-item'>
+<view class='mission-item' bindtap='linkToContent'data-id="{{dataFirst.id}}">
   <image src='{{dataFirst.photo}}'></image>
   <view class='mission-font'>
     <view class='mission-title'>{{dataFirst.title}}</view>
