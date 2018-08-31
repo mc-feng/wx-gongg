@@ -1,34 +1,29 @@
-// pages/messageList/messageList.js
+// pages/messageContent/messageContent.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    dataFirst:{},
-    dataContent:[]
+    content:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   let that =this
+   let that = this
    wx.request({
      url: 'http://192.168.2.165:8081/medicalcard/selectnewtext',
      method:"post",
-     data: {
-       "id": ""
+     data:{
+       "id": options.id
      },
      success:function(res){
-       var object1 = res.data.result.shift()
-       console.log(object1)
-       console.log(res.data.result)
-       that.setData({
-         dataFirst: object1,
-         dataContent: res.data.result
-       })
        console.log(res)
+       that.setData({
+         content: res.data.result[0]
+       })
      }
    })
   },
@@ -80,12 +75,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-  linkToContent:function(e){
-    console.log(e.currentTarget.dataset.id)
-    var str = e.currentTarget.dataset.id
-    wx.navigateTo({
-      url: '../messageContent/messageContent?id='+str,
-    })
   }
 })

@@ -125,6 +125,7 @@ Page({
     })
     console.log(that.data.transData)
   },
+  // 获取姓名
   getUseruserName: function (e) {
     this.setData({
       userName: e.detail.value
@@ -154,9 +155,98 @@ Page({
       card: !this.data.card
     })
   },
+  // 确认添加卡
   addCard: function () {
-    console.log(this.data.identityCard)
-    wx.request({
+    var userName = this.data.userName;
+    var identityCard = this.data.identityCard;
+    var phoneNumber = this.data.phoneNumber;
+    var medicareCard = this.data.medicareCard;
+    // 正则规则
+    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+    var idreg = /^\d{6}(18|19|20)?\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d{3}(\d|[xX])$/;
+    var regNum = /^\d{15}$/
+    //验证姓名
+    if (userName == "") {
+      this.setData({
+        link1 : false
+      })
+      wx.showToast({
+        title: '姓名不能为空',
+      })
+    }else{
+      this.setData({
+        link1: true
+      })
+    }
+    // 验证手机号码
+    if (phoneNumber == ""){
+      this.setData({
+        link2: false
+      })
+      wx.showToast({
+        title: '手机号不能为空',
+      })
+    }else if (!myreg.test(phoneNumber)) {
+      this.setData({
+        link2: false
+      })
+      wx.showToast({
+        title: '手机号有误！',
+        icon: 'success',
+        duration: 1500
+      })
+    }else {
+      this.setData({
+        link2: true
+      })
+    }
+    // 验证身份证
+    if (identityCard == "") {
+      this.setData({
+        link3: false
+      })
+      wx.showToast({
+        title: '身份证号不能为空',
+      })
+    } else if (!idreg.test(identityCard)) {
+      this.setData({
+        link3: false
+      })
+      wx.showToast({
+        title: '身份证不正确！',
+        icon: 'success',
+        duration: 1500
+      })
+    } else {
+      this.setData({
+        link3: true
+      })
+    }
+    //验证医保号
+    if (medicareCard == "") {
+      this.setData({
+        link4: false
+      })
+      wx.showToast({
+        title: '卡号不能为空',
+      })
+    } else if (!regNum.test(medicareCard)){
+      this.setData({
+        link4: false
+      })
+      wx.showToast({
+        title: '卡号格式不正确',
+      })
+    }else{
+      this.setData({
+        link4: true
+      })
+    }
+    // 发送请求
+    let that = this
+    if (that.data.link1 && that.data.link2 && that.data.link3 && that.data.link4){
+      console.log("可以发送")
+       wx.request({
       url: 'http://192.168.2.165:8081/medicalcard/checkidfrom',
       method: "post",
       data: {
@@ -167,31 +257,43 @@ Page({
         "dataSource": app.globalData.openId
       },
       success: function (res) {
+        let addMessage = {
+          "openID": app.globalData.openId,
+          "tel": that.data.phoneNumber,
+          "idCard": that.data.identityCard,
+          "patientName": that.data.userName,
+          "cardNo": that.data.medicareCard,
+          "cardProperty": that.data.index,
+        }
+        let transData = JSON.stringify(addMessage)
         let str = JSON.stringify(res.data)
         console.log(res);
         wx.navigateTo({
-          url: '../chooseHospital/chooseHospital?cardData='+str,
+          url: '../chooseHospital/chooseHospital?cardData=' + str + "&transData=" + transData,
         })
       }
     })
-    // wx.request({
-    //   url: 'http://192.168.2.165:8081/medicalcard/getRecordCard',
-    //   method: "post",
-    //   data: {
-    //     "openID": app.globalData.openId,
-    //     "tel": this.data.phoneNumber,
-    //     "idCard": this.data.identityCard,
-    //     "patientName": this.data.userName,
-    //     "cardNo": this.data.medicareCard,
-    //     "cardType": 0,
-    //     "cardProperty": this.data.index,
-    //     "accessToken": "800EBED9-63E5-4408-A184-BE693DA32CB6",
-    //     "openUserID": "2088022943884345",
-    //   },
-    //   success: function (res) {
-    //     console.log(res)
-    //   }
-    // })
+    wx.request({
+      url: 'http://192.168.2.165:8081/medicalcard/getRecordCard',
+      method: "post",
+      data: {
+        "openID": app.globalData.openId,
+        "tel": this.data.phoneNumber,
+        "idCard": this.data.identityCard,
+        "patientName": this.data.userName,
+        "cardNo": this.data.medicareCard,
+        "cardType": 0,
+        "cardProperty": this.data.index,
+        "accessToken": "800EBED9-63E5-4408-A184-BE693DA32CB6",
+        "openUserID": "2088022943884345",
+      },
+      success: function (res) {
+        console.log(res)
+      }
+    })
+    }else{
+      console.log("发送失败")
+    }
   },
   // 弹出关系框点击事件
   bindPickerChange: function (e) {
@@ -242,7 +344,7 @@ Page({
   },
 
   /**
-   * 删除产品
+   * 删除就诊卡
    */
   handleDeleteProduct: function (e) {
     let that = this
@@ -252,10 +354,16 @@ Page({
       url: 'http://192.168.2.165:8081/medicalcard/deletepatient',
       method: "post",
       data: {
-        "patientID": parameter[productIndex].patientID
+        "patientID": parameter[productIndex].patientID,
+        "idCard": parameter[productIndex].idCard
       },
       success: function (res) {
         console.log(res)
+        wx.showToast({
+          title: '解绑成功',
+          icon: 'success',
+          duration: 1500
+        })
       }
     })
     parameter.splice(productIndex, 1)
@@ -266,5 +374,8 @@ Page({
     if (parameter[productIndex]) {
       this.setXmove(productIndex, 0)
     }
+  },
+  verifyId:function(e){
+    console.log(e)
   }
 })

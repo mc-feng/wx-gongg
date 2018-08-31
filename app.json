@@ -23,7 +23,8 @@
     "pages/docterDirect/docterDirect",
     "pages/healthMission/healthMission",
     "pages/messageList/messageList",
-    "pages/chooseHospital/chooseHospital"
+    "pages/chooseHospital/chooseHospital",
+    "pages/messageContent/messageContent"
   ],
   "window":{
     "navigationBarBackgroundColor": "#FFFFFF",

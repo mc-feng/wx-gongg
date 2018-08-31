@@ -1,8 +1,10 @@
 <!--pages/healthMission/healthMission.wxml-->
-<view class='mission-item'>
-  <image src='../../images/homeimages/search.png'></image>
-  <view class='mission-font'>
-    <view class='mission-title'>新生儿脐部的家庭护理</view>
-    <view class='mission-date'>2018.08.01</view>
+<block wx:for="{{dataContent}}" wx:key="{{item.id}}">
+  <view class='mission-item' data-id="{{item.id}}">
+    <image src='{{item.photo}}'></image>
+    <view class='mission-font'>
+      <view class='mission-title'>{{item.title}}</view>
+      <view class='mission-date'>{{item.createTime}}</view>
+    </view>
   </view>
-</view>
+</block>

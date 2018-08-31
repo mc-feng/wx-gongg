@@ -196,7 +196,7 @@ page{
   padding-right: 30rpx;
   font-family: PingFangSC-Regular;
   font-size: 30rpx;
-  color: #D8D8D8;
+  color: #232323;
   text-align: right;
 }
 .patient-card .user{

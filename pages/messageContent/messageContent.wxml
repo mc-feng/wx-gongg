@@ -1,0 +1,11 @@
+<!--pages/messageContent/messageContent.wxml-->
+<view class='title'>{{content.title}}</view>
+<view class='date'>{{content.createTime}}</view>
+<view class='tupian'>
+  <image src='{{content.photo}}'></image>
+</view>
+<view class='content'>
+ <text>
+  {{content.text}}
+ </text>
+</view>

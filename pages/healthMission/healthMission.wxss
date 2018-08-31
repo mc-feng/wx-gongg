@@ -26,6 +26,10 @@ page{
   font-size: 32rpx;
   color: #232323;
   line-height: 44rpx;
+  width: 320rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .mission-date{
   font-family: PingFangSC-Regular;

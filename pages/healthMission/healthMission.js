@@ -5,14 +5,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    dataContent:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    let that =this
+   wx.request({
+     url: 'http://192.168.2.165:8081/medicalcard/selectdeucationtext',
+     method:"post",
+     data:{
+       "id":""
+     },
+     success:function(res){
+       console.log(res)
+       that.setData({
+         dataContent: res.data.result
+       })
+     }
+   })
   },
 
   /**

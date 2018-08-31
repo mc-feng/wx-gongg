@@ -1,25 +1,18 @@
 <!--pages/messageList/messageList.wxml-->
 <view class='mission-item'>
-  <image src='../../images/homeimages/search.png'></image>
+  <image src='{{dataFirst.photo}}'></image>
   <view class='mission-font'>
-    <view class='mission-title'>新生儿脐部的家庭护理</view>
-    <view class='mission-date'>2018.08.01</view>
+    <view class='mission-title'>{{dataFirst.title}}</view>
+    <view class='mission-date'>{{dataFirst.createTime}}</view>
   </view>
 </view>
-
-<view class='message-item'>
- <view class='message-left'>
-   <view class='message-title'>新生儿脐部的家庭护理</view>
-   <view class='message-content'>宝宝出生后，脐部的观察和护理非常重要…</view>
-   <view class='message-date'>2018.08.01</view>
- </view>
- <image src='../../images/homeimages/search.png'></image>
-</view>
-<view class='message-item'>
- <view class='message-left'>
-   <view class='message-title'>新生儿脐部的家庭护理</view>
-   <view class='message-content'>宝宝出生后，脐部的观察和护理非常重要…</view>
-   <view class='message-date'>2018.08.01</view>
- </view>
- <image src='../../images/homeimages/search.png'></image>
-</view>
+<block wx:for="{{dataContent}}" wx:key="{{item.id}}">
+  <view class='message-item' bindtap='linkToContent' data-id="{{item.id}}">
+  <view class='message-left'>
+    <view class='message-title'>{{item.title}}</view>
+    <view class='message-content'>{{item.text}}</view>
+    <view class='message-date'>{{item.createTime}}</view>
+  </view>
+  <image src='{{item.photo}}'></image>
+  </view>
+</block>
