@@ -3,7 +3,7 @@
   <image src='../../images/homeimages/search.png'></image>
   <view class='image-font'>查询到以下信息</view>
 </view>
-<view class='card-title'>可绑定绑定就诊卡</view>
+<view class='card-title'>可绑定就诊卡</view>
 <block wx:if="{{addbind.length == 0}}">
  <view class='may-bind'>
     暂无可绑定的就诊市区

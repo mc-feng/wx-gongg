@@ -100,7 +100,24 @@ Page({
         "extInfo": e.currentTarget.dataset.hosname
       },
       success: function (res) {
-        console.log(res)
+        if (res.data.message == "绑定成功") {
+          wx.showToast({
+            title: '绑定成功',
+            icon: 'success',
+            duration: 1500
+          })
+          setTimeout(function () {
+            wx.navigateBack({
+              delta: 15
+            })
+          }, 1500)
+        }else{
+          wx.showToast({
+            title: '绑定失败',
+            icon: 'success',
+            duration: 1500
+          })
+        }
       }
     })
   }

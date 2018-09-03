@@ -206,9 +206,10 @@ Page({
         link3: false
       })
       wx.showToast({
-        title: '身份证号不能为空',
+        title: '身份证不能为空',
       })
     } else if (!idreg.test(identityCard)) {
+      console.log(10)
       this.setData({
         link3: false
       })
