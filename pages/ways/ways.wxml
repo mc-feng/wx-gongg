@@ -1,0 +1,9 @@
+<!--pages/ways/ways.wxml-->
+<view class='items-box' bindtap='linkToJin'>
+  <view class='header'>金山总部</view>
+  <view class='content'>上海市金山区漕廊公路2901号</view>
+</view>
+<view class='items-box' bindtap='linkToShi'>
+  <view class='header'>市区分院</view>
+  <view class='content'>上海市虹口同心路921号</view>
+</view>

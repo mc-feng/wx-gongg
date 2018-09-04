@@ -1,0 +1,34 @@
+/* pages/ways/ways.wxss */
+page{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center
+}
+.items-box{
+  margin-top: 36rpx;
+  width: 690rpx;
+  height: 180rpx;
+  border: 2rpx solid #0D86EB;
+  border-radius: 8rpx;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center
+}
+.header{
+  font-family: PingFangSC-Medium;
+  font-size: 36rpx;
+  color: #0D86EB;
+  letter-spacing: -0.12rpx;
+  line-height: 40rpx;
+  font-weight: 600;
+}
+.content{
+  margin-top: 14rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #0D86EB;
+  letter-spacing: -0.1rpx;
+  line-height: 40rpx;
+}

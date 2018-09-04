@@ -24,7 +24,9 @@
     "pages/healthMission/healthMission",
     "pages/messageList/messageList",
     "pages/chooseHospital/chooseHospital",
-    "pages/messageContent/messageContent"
+    "pages/messageContent/messageContent",
+    "pages/maps/maps",
+    "pages/ways/ways"
   ],
   "window":{
     "navigationBarBackgroundColor": "#FFFFFF",

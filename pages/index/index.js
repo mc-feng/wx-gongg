@@ -16,7 +16,7 @@ Page({
     circular: true,
     introduces:[
       { "title": "公卫简介","url":"../introduce/introduce","id":"1", "src":"../../images/homeimages/jianjie@2x.png"},
-      { "title": "来院路线", "url": "../messageContent/messageContent", "id": "2", "src": "../../images/homeimages/luxian@2x.png"},
+      { "title": "来院路线", "url": "../ways/ways", "id": "2", "src": "../../images/homeimages/luxian@2x.png"},
       { "title": "就医指南", "url": "../docterDirect/docterDirect", "id": "3", "src": "../../images/homeimages/zhidao@2x.png"},
       { "title": "院内导航", "url": "../inNavigation/inNavigation", "id": "4", "src": "../../images/homeimages/daohang@2x.png"}
     ],
