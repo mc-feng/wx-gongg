@@ -25,7 +25,6 @@
     "pages/messageList/messageList",
     "pages/chooseHospital/chooseHospital",
     "pages/messageContent/messageContent",
-    "pages/maps/maps",
     "pages/ways/ways"
   ],
   "window":{

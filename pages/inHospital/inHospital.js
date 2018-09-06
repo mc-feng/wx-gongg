@@ -45,7 +45,8 @@ Page({
       url: 'http://192.168.2.165:8081/medicalcard/getweachattopatient',
       method: "post",
       data: {
-        "openId": app.globalData.openId
+        "openId": app.globalData.openId,
+        "paid":this.data.data.trans.hospital
       },
       success: function (res) {
         console.log(res)

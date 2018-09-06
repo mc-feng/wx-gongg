@@ -1,4 +1,0 @@
-<!--pages/maps/maps.wxml-->
-<map id="map" longitude="{{lo}}" latitude="{{la}}" markers="{{markers}}"
-scale="18"  style="width: 100%; height:2300rpx;" bindtap="click">
-</map>
