@@ -1,25 +1,26 @@
 <view class="header-background">
-   <image src='{{userInfo.avatarUrl}}' class='user'></image>
-   <view class='name'>{{userInfo.nickName}}</view>
-   <view class='floor-box'>
-     <navigator class='floor-box-item' url="../myCollect/myCollect">
-       <image src='../../images/personimages/shoucang@2x.png'></image>
-       <text>我的收藏</text>
-     </navigator>
-     <navigator class='floor-box-item' url="../managePatient/managePatient">
-       <image src='../../images/personimages/jiuzhengren@2x.png'></image>
-       <text>就诊人管理</text>
-     </navigator>
-   </view>
-   <navigator class='edit' url="../editPeopleMess/editPeopleMess">编辑</navigator>
+  <!-- <button open-type="getUserInfo" class='user'></button> -->
+  <image src='{{userInfo.avatarUrl}}' class='user'></image>
+  <view class='name'>{{userInfo.nickName}}</view>
+  <view class='floor-box'>
+    <navigator class='floor-box-item' url="../myCollect/myCollect">
+      <image src='../../images/personimages/shoucang@2x.png'></image>
+      <text>我的收藏</text>
+    </navigator>
+    <navigator class='floor-box-item' url="../managePatient/managePatient">
+      <image src='../../images/personimages/jiuzhengren@2x.png'></image>
+      <text>就诊人管理</text>
+    </navigator>
+  </view>
+  <navigator class='edit' url="../editPeopleMess/editPeopleMess">编辑</navigator>
 </view>
 <view class='person-content'>
- <block wx:for="{{pagedata}}" wx:key="{{index}}">
-  <navigator class='person-item' url="../bookRecord/bookRecord">
-    <image src='{{item.image}}' class='tips'></image>
-    <view class='person-font'>{{item.title}}</view>
-    <image class='sword' src='../../images/homeimages/sword.png'></image>
-  </navigator>
- </block>
+  <block wx:for="{{pagedata}}" wx:key="{{index}}">
+    <navigator class='person-item' url="../bookRecord/bookRecord">
+      <image src='{{item.image}}' class='tips'></image>
+      <view class='person-font'>{{item.title}}</view>
+      <image class='sword' src='../../images/homeimages/sword.png'></image>
+    </navigator>
+  </block>
 </view>
 

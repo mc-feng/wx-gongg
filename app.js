@@ -14,38 +14,38 @@ App({
     //   success: (res) => {
     //     console.log(res)
     //       res.authSetting = {
-    //         "scope.userInfo": true,
+    //         "scope.userInfo": false,
     //         "scope.userLocation": true
     //       }
     //   }
     // })
     // 登录
     ,
-    // wx.checkSession({
-    //   success:function(e){
-    //     console.log("没有过期")
-    //   },
-    //   fail:function(){
-    //     console.log("过期了")
-    //     wx.login({
-    //       success: res => {
-    //         console.log(res.code)
-    //         wx.request({
-    //           url: 'http://192.168.2.165:8081/medicalcard/getopenid',
-    //           method: "post",
-    //           data: {
-    //             "openId": res.code
-    //           },
-    //           success: function (res) {
-    //             console.log(10)
-    //             console.log(res)
-    //           }
-    //         })
-    //         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-    //       }
-    //     })
-    //   }
-    // })
+    wx.checkSession({
+      success:function(e){
+        console.log("没有过期")
+      },
+      fail:function(){
+        console.log("过期了")
+        wx.login({
+          success: res => {
+            console.log(res.code)
+            wx.request({
+              url: 'http://192.168.2.165:8081/medicalcard/getopenid',
+              method: "post",
+              data: {
+                "openId": res.code
+              },
+              success: function (res) {
+                console.log(10)
+                console.log(res)
+              }
+            })
+            // 发送 res.code 到后台换取 openId, sessionKey, unionId
+          }
+        })
+      }
+    })
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -60,6 +60,10 @@ App({
                   that.globalData.longitude= res.longitude
               }
             },
+          })
+        }else{
+          wx.authorize({
+            scope: "scope.userLocation"
           })
         }
         //获取游客头像和登录信息
@@ -108,6 +112,20 @@ App({
               // if (this.userInfoReadyCallback) {
               //   this.userInfoReadyCallback(res)
               // }
+            }
+          })
+        }else{
+          //获取用户信息失败后。请跳转授权页面
+          wx.showModal({
+            title: '警告',
+            content: '尚未进行授权，请点击确定跳转到授权页面进行授权。',
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+                wx.navigateTo({
+                  url: '../tologin/tologin',
+                })
+              }
             }
           })
         }

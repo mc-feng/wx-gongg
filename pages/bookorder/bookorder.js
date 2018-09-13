@@ -8,7 +8,8 @@ Page({
       data:null,
       patientMessage:null,
       accessToken:"",
-      result:""
+      result:"",
+      title:""
   },
 
   /**
@@ -32,11 +33,11 @@ Page({
       });
       if (objects.trans.hos == "01") {
         that.setData({
-          accessToken: "800EBED9-63E5-4408-A184-BE693DA32CB6"
+          accessToken:"800EBED9-63E5-4408-A184-BE693DA32CB6"
         })
       } else if (objects.trans.hos == "02") {
         that.setData({
-          accessToken: "800EBED9-63E5-4408-A184-BE693DA32CB7"
+          accessToken:"800EBED9-63E5-4408-A184-BE693DA32CB7"
         })
       }
     }
@@ -111,10 +112,11 @@ Page({
      },
      success:function(res){
        console.log(res)
-       that.setData({
-         result: res.data.result
-       })
-       that.showView()
+         that.setData({
+           result: res.data.result,
+           title: res.data.message
+         })
+        that.showView()
      }
    })
   },
@@ -164,10 +166,13 @@ Page({
   linksuccee:function(e){
     this.hideView();
     console.log(e)
-    let str = JSON.stringify(e.currentTarget.dataset)
-    wx.navigateTo({
-      url:'../booksuccee/booksuccee?data='+ str,
+    wx.navigateBack({
+      delta:20
     })
+    // let str = JSON.stringify(e.currentTarget.dataset)
+    // wx.navigateTo({
+    //   url:'../booksuccee/booksuccee?data='+ str,
+    // })
   },
   linkToCard:function(){
     let str = JSON.stringify(this.data.data)

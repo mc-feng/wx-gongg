@@ -40,6 +40,7 @@ Page({
         //设置触摸起始点水平方向位置 
         startX: e.touches[0].clientX
       });
+      console.log(this.data.startX)
     }
   },
   initdata:function (that) {
@@ -50,8 +51,8 @@ Page({
     that.setData({ list: list })
   },
   touchM: function (e) {
+    console.log(e)
     var that = this
-    this.initdata(that)
     if (e.touches.length == 1) {
       //手指移动时水平方向位置 
       var moveX = e.touches[0].clientX;
@@ -80,6 +81,7 @@ Page({
   },
 
   touchE: function (e) {
+    console.log(e)
     if (e.changedTouches.length == 1) {
       //手指移动结束后水平位置 
       var endX = e.changedTouches[0].clientX;

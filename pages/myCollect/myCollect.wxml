@@ -25,7 +25,7 @@
           <view class='docter-introduce'> {{item.deptName2}}</view>
       </view>
     </view> 
-    <view data-index="{{index}}" bindtap = "delItem" class="inner del">删除</view> 
+    <view data-index="{{index}}" catchtap = "delItem" class="inner del">删除</view> 
   </view> 
   </view> 
   </view> 

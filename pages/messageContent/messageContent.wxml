@@ -5,7 +5,6 @@
   <image src='{{content.photo}}'></image>
 </view>
 <view class='content'>
- <text>
-  {{content.text}}
- </text>
+ <rich-text nodes="{{content.text}}">
+ </rich-text>
 </view>

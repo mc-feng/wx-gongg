@@ -56,8 +56,8 @@
 <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
 <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
   <image src='../../images/homeimages/booksucceed.png'></image>
-  <view class='toast-title'>预约成功</view>
-  <view class='toast-number'></view>
+  <view class='toast-title'>{{title}}</view>
+  <view class='toast-number'>号码：{{result}}</view>
   <view class='toast-buttun' bindtap='linksuccee' data-data="{{data}}" data-patientMessage="{{patientMessage}}" data-result="{{result}}">确认</view>
   <view class='toast-tip'>详细信息可在个人中心-预约记录查看</view>
 </view>

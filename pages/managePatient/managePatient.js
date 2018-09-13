@@ -1,3 +1,4 @@
+
 // pages/managePatient/managePatient.js
 // pages/inHospital/inHospital.js
 const app = getApp()
@@ -13,7 +14,7 @@ Page({
     identityCard: "",
     phoneNumber: "",
     medicareCard: "",
-    parameter: [{}],//就诊卡列表
+    parameter: [],//就诊卡列表
     data: {},
     showChoose: ["本人", "父母", "子女", "配偶", "朋友"],
     index: 0
@@ -32,9 +33,9 @@ Page({
       },
       success: function (res) {
         console.log(res)
-        
+        let parameter = res.data.result
         that.setData({
-          parameter: res.data.result
+          parameter: parameter
         })
       }
     })
@@ -312,9 +313,10 @@ Page({
    * 隐藏删除按钮
    */
   hideDeleteButton: function (e) {
+    console.log(e)
     let productIndex = e.currentTarget.dataset.productindex
 
-    this.setXmove(productIndex,0)
+    this.setXmove(productIndex,200)
   },
 
   /**
@@ -333,8 +335,10 @@ Page({
    * 处理movable-view移动事件
    */
   handleMovableChange: function (e) {
+    console.log(e)
     if (e.detail.source === 'friction') {
-      if (e.detail.x < -30) {
+      console.log(e.detail.x)
+      if (e.detail.x < 51.8) {
         this.showDeleteButton(e)
       } else {
         this.hideDeleteButton(e)

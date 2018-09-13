@@ -1,0 +1,19 @@
+<!--pages/individalService/survey/survey.wxml-->
+<view class='header'>
+  <view class='header-title'>小程序满意度调查</view>
+  <view class='header-content'>Hi为了更好的给大家服务，欢迎大家对我们拍砖!</view>
+</view>
+<view class='questionnaire'>
+    <block wx:for="{{chooseData}}" wx:for-item="itemName" wx:key="{{index}}">
+      <view class='questionnaire-warp'>
+        <view class='questionnaire-quest'>
+            {{itemName.title}}
+        </view>
+        <radio-group class="radio-group" bindchange="{{itemName.change}}">
+            <label class="radio" wx:for="{{itemName.choose}}" wx:key="{{item.name}}">
+              <radio value="{{item.name}}"/>{{item.value}}
+            </label>
+        </radio-group>
+      </view>
+    </block>
+</view>

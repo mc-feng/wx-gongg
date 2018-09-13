@@ -20,20 +20,96 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // console.log(app.globalData.openId)
+    // var that = this
+    // wx.request({
+    //   url: 'http://192.168.2.165:8081/booking/getpatientlist',
+    //   method:"post",
+    //   data:{
+    //     "openId":app.globalData.openId//openID
+    //   },
+    //   success:function(res){
+    //     console.log(res)
+    //     that.setData({
+    //       parameter: res.data.result
+    //     })
+    //     for (var i = 0; i < res.data.result.length;i++){
+    //       switch (res.data.result[i].id) {
+    //         case "0":
+    //           that.data.relation.push("已取消");
+    //           break;
+    //         case "1":
+    //           that.data.relation.push("待就诊")
+    //           break;
+    //         case "2":
+    //           that.data.relation.push("已挂号")
+    //           break;
+    //         case "3":
+    //           that.data.relation.push("已过期")
+    //           break;
+    //         case "4":
+    //           that.data.relation.push("已就诊")
+    //           break;
+    //       }
+    //     }
+    //     that.setData({
+    //       relations: that.data.relation,
+    //       loading:false
+    //     })
+    //     console.log(that.data.relation)
+    //   }
+    // })
+    // console.log(10)
+    // var that = this
+    // wx.request({
+    //   url: 'http://192.168.2.165:8081/medicalcard/getweachattopatient',
+    //   data: {
+    //     "openId": app.globalData.openId//openID
+    //   },
+    //   method: "post",
+    //   success: function (res) {
+    //     console.log(res)
+    //     that.setData({
+    //       choose: res.data.result
+    //     })
+    //     for (var i = 0; i < res.data.result.length;i++){
+    //       that.data.show.push("就诊人: "+res.data.result[i].openUserName + "  " +"卡号: "+ res.data.result[i].openIDCard)
+    //     }
+    //     that.setData({
+    //       showChoose: that.data.show
+    //     })
+    //     console.log(that.data.showChoose)
+    //   }
+    // })
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    this.data.relation = []
+    this.data.show = []
     console.log(app.globalData.openId)
     var that = this
     wx.request({
       url: 'http://192.168.2.165:8081/booking/getpatientlist',
-      method:"post",
-      data:{
-        "openId":app.globalData.openId//openID
+      method: "post",
+      data: {
+        "openId": app.globalData.openId//openID
       },
-      success:function(res){
+      success: function (res) {
         console.log(res)
         that.setData({
           parameter: res.data.result
         })
-        for (var i = 0; i < res.data.result.length;i++){
+        for (var i = 0; i < res.data.result.length; i++) {
           switch (res.data.result[i].id) {
             case "0":
               that.data.relation.push("已取消");
@@ -54,7 +130,7 @@ Page({
         }
         that.setData({
           relations: that.data.relation,
-          loading:false
+          loading: false
         })
         console.log(that.data.relation)
       }
@@ -72,8 +148,8 @@ Page({
         that.setData({
           choose: res.data.result
         })
-        for (var i = 0; i < res.data.result.length;i++){
-          that.data.show.push("就诊人: "+res.data.result[i].openUserName + "  " +"卡号: "+ res.data.result[i].openIDCard)
+        for (var i = 0; i < res.data.result.length; i++) {
+          that.data.show.push("就诊人: " + res.data.result[i].openUserName + "  " + "卡号: " + res.data.result[i].openIDCard)
         }
         that.setData({
           showChoose: that.data.show
@@ -81,20 +157,6 @@ Page({
         console.log(that.data.showChoose)
       }
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
   },
 
   /**

@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class='.container'>
   <view class="swiper-container">
-    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{duration}}" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper" indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#047BDE">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}"  circular="{{duration}}" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper" indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#047BDE">
       <block wx:for="{{imgUrls}}" wx:key="unique">
         <swiper-item>
           <image src="{{item.photo}}" class="img" bindtap="swipclick" />
@@ -45,7 +45,7 @@
         </view>
         <view class='fuwu-subnav'>
           <scroll-view scroll-x="true" class='hometips-subnav'>
-           <navigator>
+           <navigator url='../individalService/survey/survey'>
               <image src='../../images/homeimages/manyidu1@2x.png'>
                 <text>满意度调查</text>
               </image>

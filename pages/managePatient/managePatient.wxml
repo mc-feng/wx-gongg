@@ -12,7 +12,7 @@
   <block wx:else>
     <block wx:for="{{parameter}}" wx:key="parameter">
     <movable-area style="height:340rpx;width: 846rpx;margin-right:154rpx">
-      <movable-view class='patient-list' out-of-bounds="true" direction="horizontal" x="200" inertia="true" data-productIndex="{{index}}" bindchange="handleMovableChange">
+      <movable-view class='patient-list' out-of-bounds="true" direction="horizontal" x="{{item.xmove||200}}" inertia="true" data-productIndex="{{index}}" bindchange="handleMovableChange">
         <view class='patient-name'>{{item.openUserName}}</view>
         <view class='patient-left'>手机号码：
           <view class='patient-right'>{{item.openTel}}</view>

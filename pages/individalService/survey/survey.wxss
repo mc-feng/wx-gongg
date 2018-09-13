@@ -1,0 +1,47 @@
+/* pages/individalService/survey/survey.wxss */
+.header{
+  height: 168rpx;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  background-color:  #F1F5F8;
+  padding-left: 24rpx
+}
+.header-title{
+  font-family: PingFangSC-Medium;
+  font-size: 40rpx;
+  color: #0D86EB;
+}
+.header-content{
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #4A4A4A;
+  margin-top: 10rpx
+}
+.questionnaire{
+  padding: 52rpx 32rpx 0 32rpx;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.questionnaire-warp{
+  margin-bottom: 52rpx
+}
+.questionnaire-quest{
+  font-family: PingFangSC-Medium;
+  font-size: 28rpx;
+  color: #232323;
+  line-height: 42rpx;
+  width: 684rpx
+}
+.radio-group{
+  display: flex;
+  flex-flow: column nowrap
+}
+.radio{
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #232323;
+  line-height: 42rpx;
+  margin-top: 20rpx;
+}
