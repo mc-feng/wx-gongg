@@ -16,4 +16,13 @@
         </radio-group>
       </view>
     </block>
+    <view class='questionnaire-warp'>
+        <view class='questionnaire-quest'>
+            7、您对小程序的意见和建议？
+        </view>
+        <view class='inputWarp'>
+         <textarea auto-height maxlength="{{length}}" value="{{inputData}}" bindinput="radioChange7" placeholder='请输入您的意见和建议' placeholder-style="font-family: PingFangSC-Regular;font-size: 28rpx;color: #A3A3A3;" show-confirm-bar="{{confirmBar}}"/>
+        </view>
+    </view>
+    <button class='people-button' bindtap='submitMessage'>提交</button>
 </view>

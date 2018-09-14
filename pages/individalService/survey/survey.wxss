@@ -45,3 +45,28 @@
   line-height: 42rpx;
   margin-top: 20rpx;
 }
+.inputWarp{
+  background: #F6F9FB;
+  border: 2rpx solid #D8D8D8;
+  min-height:148rpx;
+  height: auto
+}
+.inputWarp textarea{
+  width: 684rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #232323;
+}
+.people-button{
+  margin-bottom: 44rpx;
+  width: 684rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  background: #0D86EB;
+  border-radius: 8rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #FFFFFF;
+  box-shadow:  0px 10rpx 30rpx  rgb(77, 169, 245);
+}

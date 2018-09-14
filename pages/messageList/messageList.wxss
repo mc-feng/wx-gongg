@@ -57,7 +57,6 @@ page{
   line-height: 44rpx;
   width: 328rpx;
   white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
 }
 .message-content{
@@ -83,4 +82,5 @@ page{
 .message-item image{
  width: 214rpx;
  height: 140rpx;
+ margin-left: 16rpx;
 }
