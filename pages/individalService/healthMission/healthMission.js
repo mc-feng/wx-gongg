@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dataContent:[]
+    dataContent:[],
+    lei:2
   },
 
   /**
@@ -14,10 +15,11 @@ Page({
   onLoad: function (options) {
     let that =this
    wx.request({
-     url: 'http://192.168.2.165:8081/medicalcard/selectdeucationtext',
+     url: 'http://192.168.2.165:8081/medicalcard/selectphototext',
      method:"post",
      data:{
-       "id":""
+       "id":"",
+       "type":this.data.lei
      },
      success:function(res){
        console.log(res)
@@ -75,5 +77,12 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  linkToContent: function (e) {
+    console.log(e.currentTarget.dataset.id)
+    var str = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '../../messageContent/messageContent?id=' + str + "&lei=" + this.data.lei,
+    })
   }
 })

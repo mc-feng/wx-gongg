@@ -6,7 +6,8 @@ Page({
    */
   data: {
     dataFirst:{},
-    dataContent:[]
+    dataContent:[],
+    lei:1
   },
 
   /**
@@ -15,10 +16,11 @@ Page({
   onLoad: function (options) {
    let that =this
    wx.request({
-     url: 'http://192.168.2.165:8081/medicalcard/selectnewtext',
+     url: 'http://192.168.2.165:8081/medicalcard/selectphototext',
      method:"post",
      data: {
-       "id": ""
+       "id": "",
+       "type": this.data.lei
      },
      success:function(res){
        var object1 = res.data.result.shift()
@@ -85,7 +87,7 @@ Page({
     console.log(e.currentTarget.dataset.id)
     var str = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '../messageContent/messageContent?id='+str,
+      url: '../../messageContent/messageContent?id='+str+"&lei="+this.data.lei,
     })
   }
 })

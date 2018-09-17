@@ -21,13 +21,13 @@
     "pages/managePatient/managePatient",
     "pages/editPeopleMess/editPeopleMess",
     "pages/docterDirect/docterDirect",
-    "pages/healthMission/healthMission",
-    "pages/messageList/messageList",
+    "pages/individalService/healthMission/healthMission",
+    "pages/individalService/messageList/messageList",
+    "pages/individalService/survey/survey",
     "pages/chooseHospital/chooseHospital",
     "pages/messageContent/messageContent",
     "pages/ways/ways",
-    "pages/tologin/tologin",
-    "pages/individalService/survey/survey"
+    "pages/tologin/tologin"
   ],
   "window":{
     "navigationBarBackgroundColor": "#FFFFFF",

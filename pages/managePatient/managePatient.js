@@ -17,28 +17,15 @@ Page({
     parameter: [],//就诊卡列表
     data: {},
     showChoose: ["本人", "父母", "子女", "配偶", "朋友"],
-    index: 0
+    index: 0,
+    loading:true,
+    noBind:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    wx.request({
-      url: 'http://192.168.2.165:8081/medicalcard/getweachattopatient',
-      method: "post",
-      data: {
-        "openId": app.globalData.openId
-      },
-      success: function (res) {
-        console.log(res)
-        let parameter = res.data.result
-        that.setData({
-          parameter: parameter
-        })
-      }
-    })
   },
 
   /**
@@ -52,7 +39,48 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      noBind:false
+    })
+    var that = this;
+    wx.request({
+      url: 'http://192.168.2.165:8081/common/checkdata',
+      method: "post",
+      data: {
+        "hospitalID": app.globalData.openId
+      },
+      success: function (res) {
+        that.setData({
+          loading: false
+        })
+        //判断绑卡操作
+        if (res.data.result == 2) {
+          that.setData({
+            noBind: true
+          })
+        } else if (res.data.result == 4) {
+          that.setData({
+            noBind: true
+          })
+        }
+        if (!that.data.noBind) {
+          wx.request({
+            url: 'http://192.168.2.165:8081/medicalcard/getweachattopatient',
+            method: "post",
+            data: {
+              "openId": app.globalData.openId
+            },
+            success: function (res) {
+              console.log(res)
+              let parameter = res.data.result
+              that.setData({
+                parameter: parameter
+              })
+            }
+          })
+        }
+      }
+    })
   },
 
   /**
@@ -275,24 +303,24 @@ Page({
         })
       }
     })
-    wx.request({
-      url: 'http://192.168.2.165:8081/medicalcard/getRecordCard',
-      method: "post",
-      data: {
-        "openID": app.globalData.openId,
-        "tel": this.data.phoneNumber,
-        "idCard": this.data.identityCard,
-        "patientName": this.data.userName,
-        "cardNo": this.data.medicareCard,
-        "cardType": 0,
-        "cardProperty": this.data.index,
-        "accessToken": "800EBED9-63E5-4408-A184-BE693DA32CB6",
-        "openUserID": "2088022943884345",
-      },
-      success: function (res) {
-        console.log(res)
-      }
-    })
+    // wx.request({
+    //   url: 'http://192.168.2.165:8081/medicalcard/getRecordCard',
+    //   method: "post",
+    //   data: {
+    //     "openID": app.globalData.openId,
+    //     "tel": this.data.phoneNumber,
+    //     "idCard": this.data.identityCard,
+    //     "patientName": this.data.userName,
+    //     "cardNo": this.data.medicareCard,
+    //     "cardType": 0,
+    //     "cardProperty": this.data.index,
+    //     "accessToken": "800EBED9-63E5-4408-A184-BE693DA32CB6",
+    //     "openUserID": "2088022943884345",
+    //   },
+    //   success: function (res) {
+    //     console.log(res)
+    //   }
+    // })
     }else{
       console.log("发送失败")
     }
@@ -360,7 +388,7 @@ Page({
       method: "post",
       data: {
         "patientID": parameter[productIndex].patientID,
-        "idCard": parameter[productIndex].idCard
+        "hosptFrom": parameter[productIndex].idCard
       },
       success: function (res) {
         console.log(res)
@@ -380,4 +408,9 @@ Page({
       this.setXmove(productIndex, 0)
     }
   },
+  LinkToPeople: function (e) {
+    wx.navigateTo({
+      url: '../editPeopleMess/editPeopleMess',
+    })
+  }
 })

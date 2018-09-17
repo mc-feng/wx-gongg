@@ -55,12 +55,12 @@
               <text>健康小工具</text>
             </image>
           </navigator> 
-          <navigator url='../messageList/messageList'>
+          <navigator url='../individalService/messageList/messageList'>
             <image src='../../images/homeimages/zixun3@2x.png'>
               <text>资讯列表</text>
             </image>
           </navigator>
-          <navigator url='../healthMission/healthMission'>
+          <navigator url='../individalService/healthMission/healthMission'>
             <image src='../../images/homeimages/xuanjiao4@2x.png'>
               <text>健康宣教</text>
             </image>

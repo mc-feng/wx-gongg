@@ -109,8 +109,8 @@ Page({
           url: 'http://192.168.2.165:8081/medicalcard/checkDoc',
           method: "post",
           data: {
-            "hospitalID": that.data.date.docCode,
-            "hospitalName": app.globalData.openId//--openID
+            "docID": that.data.date.docCode,
+            "openID": app.globalData.openId//--openID
           },
           success: function (res) {
             that.setData({

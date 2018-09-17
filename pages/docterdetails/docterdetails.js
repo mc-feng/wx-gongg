@@ -58,8 +58,8 @@ Page({
         url: 'http://192.168.2.165:8081/medicalcard/adddoclist',
         method:"post",
         data:{
-          "docCode": that.data.date.doccode,
-          "hospitalName": app.globalData.openId//--openID
+          "docID": that.data.date.doccode,
+          "openID": app.globalData.openId//--openID
         },
         success:function(res){
           wx.showToast({
@@ -128,8 +128,8 @@ Page({
           url: 'http://192.168.2.165:8081/medicalcard/checkDoc',
           method: "post",
           data: {
-            "hospitalID": that.data.date.doccode,
-            "hospitalName": app.globalData.openId//--openID
+            "docID": that.data.date.doccode,
+            "openID": app.globalData.openId//--openID
           },
           success: function (res) {
             that.setData({

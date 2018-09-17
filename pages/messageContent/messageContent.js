@@ -12,12 +12,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    console.log(options)
    let that = this
    wx.request({
-     url: 'http://192.168.2.165:8081/medicalcard/selectnewtext',
+     url: 'http://192.168.2.165:8081/medicalcard/selectphototext',
      method:"post",
      data:{
-       "id": options.id
+       "id": options.id,
+       "type": options.lei
      },
      success:function(res){
        console.log(res.data.result)

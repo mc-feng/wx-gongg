@@ -2,7 +2,8 @@ const app = getApp()
 Page({
   data: {
     delBtnWidth: 180,//删除按钮宽度单位（rpx） 
-    list: []
+    list: [],
+    loading:true
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数 
@@ -11,12 +12,13 @@ Page({
     wx.request({
       url: 'http://192.168.2.165:8081/medicalcard/getdoclist',
       data:{
-        "hospitalID": app.globalData.openId//openID
+        "openID": app.globalData.openId//openID
       },
       method:"post",
       success:function(res){
         that.setData({
-          list: res.data.result
+          list: res.data.result,
+          loading:false
         })
         console.log(res)
       }
@@ -134,8 +136,8 @@ Page({
             url: 'http://192.168.2.165:8081/medicalcard/deletedoclist',
             method: "post",
             data: {
-              "hospitalID": that.data.list[e.target.dataset.index].docCode,
-              "hospitalName": app.globalData.openId//--openID
+              "docID": that.data.list[e.target.dataset.index].docCode,
+              "openID": app.globalData.openId//--openID
             },
             success: function (res) {
               console.log(res)

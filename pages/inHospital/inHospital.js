@@ -17,44 +17,18 @@ Page({
     data:{},
     showChoose:["本人","父母","子女","配偶","朋友"],
     index:0,
-    accessToken: "800EBED9-63E5-4408-A184-BE693DA32CB6"
+    accessToken: "",
+    loading:true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (options.data){
       let objects = JSON.parse(options.data);
       console.log(objects);
       this.setData({ data: objects });
       this.data.parameter[0].checked = true;
-      var that = this
-      if (objects.trans.hos == "01") {
-        that.setData({
-          accessToken: "800EBED9-63E5-4408-A184-BE693DA32CB6"
-        })
-      } else if (objects.trans.hos == "02") {
-        that.setData({
-          accessToken: " 800EBED9-63E5-4408-A184-BE693DA32CB7"
-        })
-      }
-    }
-    var that =this;
-    wx.request({
-      url: 'http://192.168.2.165:8081/medicalcard/getweachattopatient',
-      method: "post",
-      data: {
-        "openId": app.globalData.openId,
-        "paid":this.data.data.trans.hospital
-      },
-      success: function (res) {
-        console.log(res)
-        that.setData({
-          parameter:res.data.result
-        })
-      }
-    })
   },
 
   /**
@@ -68,7 +42,23 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.data.loading = true;
+    var that = this;
+    wx.request({
+      url: 'http://192.168.2.165:8081/medicalcard/getweachattopatient',
+      method: "post",
+      data: {
+        "openId": app.globalData.openId,
+        "paid": this.data.data.trans.hospital
+      },
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          parameter: res.data.result,
+          loading:false
+        })
+      }
+    })
   },
 
   /**
@@ -289,24 +279,24 @@ Page({
           })
         }
       })
-      wx.request({
-        url: 'http://192.168.2.165:8081/medicalcard/getRecordCard',
-        method: "post",
-        data: {
-          "openID": app.globalData.openId,
-          "tel": this.data.phoneNumber,
-          "idCard": this.data.identityCard,
-          "patientName": this.data.userName,
-          "cardNo": this.data.medicareCard,
-          "cardType": 0,
-          "cardProperty": this.data.index,
-          "accessToken": "800EBED9-63E5-4408-A184-BE693DA32CB6",
-          "openUserID": "2088022943884345",
-        },
-        success: function (res) {
-          console.log(res)
-        }
-      })
+      // wx.request({
+      //   url: 'http://192.168.2.165:8081/medicalcard/getRecordCard',
+      //   method: "post",
+      //   data: {
+      //     "openID": app.globalData.openId,
+      //     "tel": this.data.phoneNumber,
+      //     "idCard": this.data.identityCard,
+      //     "patientName": this.data.userName,
+      //     "cardNo": this.data.medicareCard,
+      //     "cardType": 0,
+      //     "cardProperty": this.data.index,
+      //     "accessToken": this.data.accessToken,
+      //     "openUserID": "2088022943884345",
+      //   },
+      //   success: function (res) {
+      //     console.log(res)
+      //   }
+      // })
     } else {
       console.log("发送失败")
     }

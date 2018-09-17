@@ -1,6 +1,6 @@
 <!--pages/healthMission/healthMission.wxml-->
 <block wx:for="{{dataContent}}" wx:key="{{item.id}}">
-  <view class='mission-item' data-id="{{item.id}}">
+  <view class='mission-item' data-id="{{item.id}}" bindtap='linkToContent'>
     <image src='{{item.photo}}'></image>
     <view class='mission-font'>
       <view class='mission-title'>{{item.title}}</view>

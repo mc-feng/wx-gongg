@@ -51,7 +51,8 @@ Page({
        url: 'http://192.168.2.165:8081/medicalcard/selectphototext',
        method:"post",
        data: {
-         "id": ""
+         "id": "",
+         "type":0
        },
        success:function(res){
          console.log(res)
