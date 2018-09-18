@@ -9,7 +9,7 @@ Page({
    */
   data: {
     card: true,
-    currentTab: 0,
+    currentTab:"0",
     userName: "",
     identityCard: "",
     phoneNumber: "",
@@ -26,6 +26,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (options.card=="bing"){
+      this.setData({
+        card:false
+      })
+    }
   },
 
   /**
@@ -131,6 +136,7 @@ Page({
         currentTab: e.target.dataset.current
       })
     }
+    console.log(this.data.currentTab)
   },
   // 参数点击响应事件（确认绑定那一张就诊卡）
   parameterTap: function (e) {//e是获取e.currentTarget.dataset.id所以是必备的，跟前端的data-id获取的方式差不多
@@ -281,7 +287,7 @@ Page({
       method: "post",
       data: {
         "cardProperty": this.data.index,
-        "cardType": "0",
+        "cardType": this.data.currentTab,
         "openUserID": "2088022943884345",
         "cardNo": this.data.medicareCard,
         "dataSource": app.globalData.openId
@@ -294,6 +300,7 @@ Page({
           "patientName": that.data.userName,
           "cardNo": that.data.medicareCard,
           "cardProperty": that.data.index,
+          "cardType": that.data.currentTab
         }
         let transData = JSON.stringify(addMessage)
         let str = JSON.stringify(res.data)

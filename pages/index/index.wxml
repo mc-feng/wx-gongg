@@ -4,7 +4,7 @@
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}"  circular="{{duration}}" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper" indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#047BDE">
       <block wx:for="{{imgUrls}}" wx:key="unique">
         <swiper-item>
-          <image src="{{item.photo}}" class="img" bindtap="swipclick" />
+          <image src="{{item.photo}}" class="img" bindtap="swipclick" data-id="{{item.id}}"/>
         </swiper-item>
       </block>
     </swiper>
@@ -22,9 +22,19 @@
       <image src='../../images/homeimages/gongbu@2x.png'></image>
       <text>公卫发布</text>
     </view>
-    <view class='index-tips-color'>
+    <swiper class="index-tips-color" vertical="true" autoplay="true" circular="true" interval="5000">
+        <block wx:for="{{msgList}}" wx:key="{{item.index}}">
+        <navigator url="/pages/index/index?title={{item.url}}" open-type="navigate">
+        <swiper-item>
+          <rich-text nodes="{{item.text}}" class='index-tips-font' bindtap="noticeClick" data-id="{{item.id}}"></rich-text>
+          <!-- <view class='index-tips-font'>{{item.title}}</view> -->
+        </swiper-item>
+        </navigator>
+        </block>
+     </swiper>
+    <!-- <view class='index-tips-color'>
       产科安全办公室组织开展2018年危重孕产..... 
-    </view>
+    </view> -->
   </view>
   <view class='main-content'>
      <view class='main-header'>

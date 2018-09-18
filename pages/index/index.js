@@ -1,9 +1,9 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
 Page({
   data: {
+    msgList: [],
     list:[],
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -11,7 +11,7 @@ Page({
     swiperCurrent: 0,
     indicatorDots: true,
     autoplay: true,
-    interval: 3000,
+    interval: 6000,
     duration: 800,
     circular: true,
     introduces:[
@@ -32,12 +32,14 @@ Page({
     ],
     imgUrls: [],
     links: [
-      '../user/user',
+      '../messageContent/messageContent?id=',
 
-      '../user/user',
+      '../messageContent/messageContent?id=',
 
-      '../user/user'
-    ]
+      '../messageContent/messageContent?id='
+    ],
+    lei:0,
+    lei2:3
   },
   //事件处理函数
   bindViewTap: function() {
@@ -52,7 +54,7 @@ Page({
        method:"post",
        data: {
          "id": "",
-         "type":0
+         "type":this.data.lei
        },
        success:function(res){
          console.log(res)
@@ -61,27 +63,49 @@ Page({
          })
        }
      })
+    wx.request({
+      url: 'http://192.168.2.165:8081/medicalcard/selectphototext',
+      method: "post",
+      data: {
+        "id": "",
+        "type": this.data.lei2
+      },
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          msgList: res.data.result
+        })
+      }
+    })
   },
   //轮播图的切换事件
   swiperChange: function (e) {
-    this.setData({
-      swiperCurrent: e.detail.current
-    })
+    if(e.detail.source == "touch"){//判断是否由用户触摸导致
+      this.setData({
+        swiperCurrent: e.detail.current
+      })
+    }
   },
-
   //点击指示点切换
   chuangEvent: function (e) {
     this.setData({
       swiperCurrent: e.currentTarget.id
     })
-
   },
-
   //点击图片触发事件
   swipclick: function (e) {
+    console.log(e.currentTarget.dataset.id);
     console.log(this.data.swiperCurrent);
-    wx.switchTab({
-      url: this.data.links[this.data.swiperCurrent]
+    var str = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: this.data.links[this.data.swiperCurrent] + str + "&lei=" + this.data.lei
+    })
+  },
+  //点击公告触发时间
+  noticeClick:function(e){
+    var str = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '../messageContent/messageContent?id=' + str + "&lei=" + this.data.lei2
     })
   },
   onPageScroll: function (res) {

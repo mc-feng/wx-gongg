@@ -9,7 +9,8 @@ Page({
     userName:"",
     identityCard:"",
     phoneNumber:"",
-    exist:false
+    exist:false,
+    inputId:""
   },
 
   /**
@@ -96,45 +97,110 @@ Page({
   
   },
   submitMessage:function(e){
+    var userName = this.data.userName;
+    var identityCard = this.data.identityCard;
+    var phoneNumber = this.data.phoneNumber;
+    // 正则规则
+    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+    var idreg = /^\d{6}(18|19|20)?\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d{3}(\d|[xX])$/;
+    //验证姓名
+    if (userName == "") {
+      this.setData({
+        link1: false
+      })
+      wx.showToast({
+        title: '姓名不能为空',
+      })
+    } else {
+      this.setData({
+        link1: true
+      })
+    }
+    // 验证手机号码
+    if (phoneNumber == "") {
+      this.setData({
+        link2: false
+      })
+      wx.showToast({
+        title: '手机号不能为空',
+      })
+    } else if (!myreg.test(phoneNumber)) {
+      this.setData({
+        link2: false
+      })
+      wx.showToast({
+        title: '手机号有误！',
+        icon: 'success',
+        duration: 1500
+      })
+    } else {
+      this.setData({
+        link2: true
+      })
+    }
+    // 验证身份证
+    if (identityCard == "") {
+      this.setData({
+        link3: false
+      })
+      wx.showToast({
+        title: '身份证号不能为空',
+      })
+    } else if (!idreg.test(identityCard)) {
+      this.setData({
+        link3: false
+      })
+      wx.showToast({
+        title: '身份证不正确！',
+        icon: 'success',
+        duration: 1500
+      })
+    } else {
+      this.setData({
+        link3: true
+      })
+    }
     let that = this
-    if(this.data.exist){
-      wx.request({
-        url: 'http://192.168.2.165:8081/medicalcard/updateweachat',
-        method: "post",
-        data: {
-          "openId": app.globalData.openId,
-          "openIDCard": that.data.identityCard,
-          "openTel": that.data.phoneNumber,
-          "openUserName": that.data.userName
-        },
-        success: function (res) {
-          console.log(res)
-          if (res.data.success) {
-            wx.navigateBack({
-              delta: 1
-            })
+    if (that.data.link1 && that.data.link2 && that.data.link3) {
+      if (this.data.exist) {
+        wx.request({
+          url: 'http://192.168.2.165:8081/medicalcard/updateweachat',
+          method: "post",
+          data: {
+            "openId": app.globalData.openId,
+            "openIDCard": that.data.identityCard,
+            "openTel": that.data.phoneNumber,
+            "openUserName": that.data.userName
+          },
+          success: function (res) {
+            console.log(res)
+            if (res.data.success) {
+              wx.navigateBack({
+                delta: 1
+              })
+            }
           }
-        }
-      })
-    }else{
-      wx.request({
-        url: 'http://192.168.2.165:8081/medicalcard/insertweachat',
-        method: "post",
-        data: {
-          "openId": app.globalData.openId,
-          "openIDCard": that.data.identityCard,
-          "openTel": that.data.phoneNumber,
-          "openUserName": that.data.userName
-        },
-        success: function (res) {
-          console.log(res)
-          if (res.data.success) {
-            wx.navigateBack({
-              delta: 1
-            })
+        })
+      } else {
+        wx.request({
+          url: 'http://192.168.2.165:8081/medicalcard/insertweachat',
+          method: "post",
+          data: {
+            "openId": app.globalData.openId,
+            "openIDCard": that.data.identityCard,
+            "openTel": that.data.phoneNumber,
+            "openUserName": that.data.userName
+          },
+          success: function (res) {
+            console.log(res)
+            if (res.data.success) {
+              wx.navigateBack({
+                delta: 1
+              })
+            }
           }
-        }
-      })
+        })
+      }
     }
   },
   getUseruserName: function (e) {
@@ -154,5 +220,17 @@ Page({
       phoneNumber: e.detail.value
     })
     console.log(this.data.phoneNumber)
+  },
+  input1:function(e){
+    console.log(e)
+    this.data.inputId = e.currentTarget.dataset.id
+  },
+  input2: function (e) {
+    console.log(e)
+    this.data.inputId = e.currentTarget.dataset.id
+  },
+  input3: function (e) {
+    console.log(e)
+    this.data.inputId = e.currentTarget.dataset.id
   }
 })

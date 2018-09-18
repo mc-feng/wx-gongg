@@ -46,7 +46,6 @@ view{
   width: 100rpx;
   height: 100rpx;
   border-radius: 50%;
-  margin-left: 36rpx;
 }
 .item-left{
   display: flex;

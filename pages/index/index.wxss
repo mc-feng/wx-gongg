@@ -84,8 +84,15 @@ swiper-item image {
   font-size: 24rpx;
   color: #232323;
   text-align: left;
+  height:74rpx
 }
-
+.index-tips-font{
+  display:block;
+  width: 480rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .main-content{
   background-color: #fff
 }

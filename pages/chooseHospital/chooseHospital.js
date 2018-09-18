@@ -83,7 +83,6 @@ Page({
         accessToken: "800EBED9-63E5-4408-A184-BE693DA32CB6"
       })
     }
-    console.log(e)
     wx.request({
       url: 'http://192.168.2.165:8081/medicalcard/getRecordCard',
       method: "post",
@@ -93,13 +92,14 @@ Page({
         "idCard": that.data.transData.idCard,
         "patientName": that.data.transData.patientName,
         "cardNo": that.data.transData.cardNo,
-        "cardType": 0,
+        "cardType": that.data.transData.cardType,
         "cardProperty": that.data.transData.cardProperty,
         "accessToken": that.data.accessToken,
         "openUserID": "2088022943884345",
         "extInfo": e.currentTarget.dataset.hosname
       },
       success: function (res) {
+        console.log(res)
         if (res.data.message == "绑定成功") {
           wx.showToast({
             title: '绑定成功',
@@ -108,7 +108,7 @@ Page({
           })
           setTimeout(function () {
             wx.navigateBack({
-              delta: 15
+              delta: 2
             })
           }, 1500)
         }else{

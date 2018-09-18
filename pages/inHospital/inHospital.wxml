@@ -41,11 +41,41 @@
       <block wx:else>
       <!-- 添加就诊卡 -->
         <view class='inhospital-swiper'>
-          <view class="inhospital-swiper-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap='swichNav'>医保卡</view>
-          <view class="inhospital-swiper-item {{currentTab==1 ? 'on' : ''}}"data-current="1"bindtap='swichNav'>医院就诊卡  </view>
+          <view class="inhospital-swiper-item {{currentTab==0 ? 'on' : ''}}" data-current="1" bindtap='swichNav'>医院就诊卡</view>
+          <view class="inhospital-swiper-item {{currentTab==1 ? 'on' : ''}}"data-current="0" bindtap='swichNav'>医保卡</view>
         </view>
-        <!-- 医保卡 -->
         <swiper current="{{currentTab}}" class="swiper-box" duration="300">
+            <!-- 医院就诊卡 -->
+            <swiper-item class="patient-card">
+            <view class='user'>
+                <view class='user-item'>
+                  <view class='item-title'>姓名</view>
+                  <input class='item-content' type='text' placeholder='请输入姓名' bindinput='getUseruserName'></input>
+                </view>
+                <view class='user-item'>
+                  <view class='item-title'>身份证号</view>
+                  <input class='item-content' type="idcard" placeholder='请输入证件号码' bindinput='getUseridentityCard'></input>
+                </view>
+                <view class='user-item'>
+                  <view class='item-title'>手机号</view>
+                  <input class='item-content' type="digit" placeholder='请输入您的手机号码'bindinput='getUserphoneNumber'></input>
+                </view>
+                <view class='user-item'>
+                  <view class='item-title'>医保卡号</view>
+                  <input class='item-content' type="digit" placeholder='请输入的就诊卡号' bindinput='getUsermedicareCard'></input>
+                </view>
+                <view class='user-item'>
+                  <view class='item-title'>关系</view>
+                  <!-- 弹出关系框index就是要发到后端的关系 -->
+                  <picker bindchange="bindPickerChange" value="{{index}}" range="{{showChoose}}">
+                    <view class='item-title guanxi'>{{showChoose[index]}}
+                      <image src='../../images/smallicon/xiala@2x.png'></image>
+                    </view>
+                  </picker>
+                </view>
+              </view>
+            </swiper-item>
+             <!-- 医保卡 -->
             <swiper-item>
               <view class='inhospital-card-warp'>
                 <view class='card-boday'>
@@ -80,37 +110,7 @@
                 </view>
                 <view class='user-item'>
                   <view class='item-title'>医保卡号</view>
-                  <input class='item-content' type="digit" placeholder='圈出位置的本人医保卡号' bindinput='getUsermedicareCard'></input>
-                </view>
-                <view class='user-item'>
-                  <view class='item-title'>关系</view>
-                  <!-- 弹出关系框index就是要发到后端的关系 -->
-                  <picker bindchange="bindPickerChange" value="{{index}}" range="{{showChoose}}">
-                    <view class='item-title guanxi'>{{showChoose[index]}}
-                      <image src='../../images/smallicon/xiala@2x.png'></image>
-                    </view>
-                  </picker>
-                </view>
-              </view>
-            </swiper-item>
-            <!-- 医院就诊卡 -->
-            <swiper-item class="patient-card">
-            <view class='user'>
-                <view class='user-item'>
-                  <view class='item-title'>姓名</view>
-                  <input class='item-content' type='text' placeholder='请输入姓名' bindinput='getUseruserName'></input>
-                </view>
-                <view class='user-item'>
-                  <view class='item-title'>身份证号</view>
-                  <input class='item-content' type="idcard" placeholder='请输入证件号码' bindinput='getUseridentityCard'></input>
-                </view>
-                <view class='user-item'>
-                  <view class='item-title'>手机号</view>
-                  <input class='item-content' type="digit" placeholder='请输入您的手机号码'bindinput='getUserphoneNumber'></input>
-                </view>
-                <view class='user-item'>
-                  <view class='item-title'>医保卡号</view>
-                  <input class='item-content' type="digit" placeholder='请输入的本人医保卡号' bindinput='getUsermedicareCard'></input>
+                  <input class='item-content' type="digit" placeholder='请填写医保卡号' bindinput='getUsermedicareCard'></input>
                 </view>
                 <view class='user-item'>
                   <view class='item-title'>关系</view>

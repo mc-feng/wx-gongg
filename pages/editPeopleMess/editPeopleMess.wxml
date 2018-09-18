@@ -2,15 +2,15 @@
 <view class='user'>
            <view class='user-item'>
             <view class='item-title'>姓名</view>
-            <input class='item-content' type='text' placeholder='请输入姓名' bindinput='getUseruserName' value='{{userName}}'></input>
+            <input class='item-content' type='text' placeholder='请输入姓名' bindinput='getUseruserName' value='{{userName}}' bindtap="input1" data-id="0" focus='{{inpitID==0}}'></input>
            </view>
            <view class='user-item'>
             <view class='item-title'>身份证号</view>
-            <input class='item-content' type='text' placeholder='请输入证件号码' bindinput='getUseridentityCard' value='{{identityCard}}'></input>
+            <input class='item-content' type='number' placeholder='请输入证件号码' bindinput='getUseridentityCard' value='{{identityCard}}' bindtap="input2" data-id="1" focus='{{inpitID==1}}'></input>
            </view>
            <view class='user-item'>
             <view class='item-title'>手机号</view>
-            <input class='item-content' type='text' placeholder='请输入您的手机号码'bindinput='getUserphoneNumber' value='{{phoneNumber}}'></input>
+            <input class='item-content' type='number' placeholder='请输入您的手机号码'bindinput='getUserphoneNumber' value='{{phoneNumber}}' bindtap="input3" data-id="2" focus='{{inpitID==2}}'></input>
            </view>
           <button class='people-button' bindtap='submitMessage'>保存</button>
 </view>

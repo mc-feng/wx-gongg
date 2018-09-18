@@ -3,7 +3,7 @@ Page({
   data: {
     content: [{ "title": "金山总部", "leve": "三级甲等", "place": "上海市金山区嘈廊公路2901号","hospitalID":"02"}, 
       { "title": "市区分部", "leve": "三级甲等", "place": "上海市虹口区同心路921号", "hospitalID": "01"}],
-    result:"",
+    result:true,
     bindCard:"",
     noBind:"",
     arr:[],
@@ -80,7 +80,7 @@ Page({
   },
   LinkToCard:function(e){
     wx.navigateTo({
-      url: '../managePatient/managePatient',
+      url: '../managePatient/managePatient?card=bing',
     })
   },
   onShow() { 

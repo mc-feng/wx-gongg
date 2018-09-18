@@ -7,13 +7,13 @@ Page({
    */
   data: {
     card:true,
-    currentTab:0,
+    currentTab:"0",
     userName:"",
     identityCard:"",
     phoneNumber:"",
     medicareCard:"",
     parameter: [{ id: 1 }, { id: 2}],//模拟数据(里面必须要对象先初始定义---不知道为什么)
-    transData:{},
+    transData:"",
     data:{},
     showChoose:["本人","父母","子女","配偶","朋友"],
     index:0,
@@ -109,6 +109,7 @@ Page({
         currentTab: e.target.dataset.current
       })
     }
+    console.log(this.data.currentTab)
   },
   // 参数点击响应事件（确认绑定那一张就诊卡）
   parameterTap: function (e) {//e是获取e.currentTarget.dataset.id所以是必备的，跟前端的data-id获取的方式差不多
@@ -257,7 +258,7 @@ Page({
         method: "post",
         data: {
           "cardProperty": this.data.index,
-          "cardType": "0",
+          "cardType": this.data.currentTab,
           "openUserID": "2088022943884345",
           "cardNo": this.data.medicareCard,
           "dataSource": app.globalData.openId
@@ -270,6 +271,7 @@ Page({
             "patientName": that.data.userName,
             "cardNo": that.data.medicareCard,
             "cardProperty": that.data.index,
+            "cardType": that.data.currentTab
           }
           let transData = JSON.stringify(addMessage)
           let str = JSON.stringify(res.data)
@@ -303,11 +305,19 @@ Page({
   },
   // 确认就诊人
   ConfirmPatient:function(res){
-    let str = JSON.stringify(this.data.transData);
-    let str2 = JSON.stringify(this.data.data);
-    wx.navigateTo({
-      url: '../bookorder/bookorder?patient=' + str + '&nowData=' + str2 ,
-    })
+    if (this.data.transData == ""){
+      wx.showToast({
+        title: '您未选择就诊卡',
+        icon: 'none',
+        duration: 2000
+      })
+    }else{
+      let str = JSON.stringify(this.data.transData);
+      let str2 = JSON.stringify(this.data.data);
+      wx.navigateTo({
+        url: '../bookorder/bookorder?patient=' + str + '&nowData=' + str2,
+      })
+    }
   },
   // 弹出关系框点击事件
   bindPickerChange: function (e) {
