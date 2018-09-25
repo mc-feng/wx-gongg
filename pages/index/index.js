@@ -22,13 +22,13 @@ Page({
     ],
     mainNavs:[
       { 'word': '预约挂号', "url": "../book/books", "src":"../../images/homeimages/guahao@2x.png"},
-      { 'word': '诊间付费', "url": "../book/books", "src": "../../images/homeimages/fufei@2x.png"},
-      { 'word': '咨询医生', "url": "../consult/consult", "src": "../../images/homeimages/yisheng@2x.png"},
-      { 'word': '报告查询', "url": "../report/report", "src": "../../images/homeimages/baogao@2x.png"},
-      { 'word': '住院预约', "url": "../inHospital/inHospital", "src": "../../images/homeimages/zhuyuan@2x.png"},
-      { 'word': '手术方案', "url": "../book/books", "src": "../../images/homeimages/shoushu@2x.png"},
-      { 'word': '体验服务', "url": "../book/books", "src": "../../images/homeimages/tijian@2x.png"},
-      { 'word': '更多服务', "url": "../book/books", "src": "../../images/homeimages/gengduo@2x.png"}
+      { 'word': '诊间付费', "url": "../tips/tips", "src": "../../images/homeimages/fufei@2x.png"},
+      { 'word': '咨询医生', "url": "../tips/tips", "src": "../../images/homeimages/yisheng@2x.png"},
+      { 'word': '报告查询', "url": "../tips/tips", "src": "../../images/homeimages/baogao@2x.png"},
+      { 'word': '住院预约', "url": "../tips/tips", "src": "../../images/homeimages/zhuyuan@2x.png"},
+      { 'word': '手术方案', "url": "../tips/tips", "src": "../../images/homeimages/shoushu@2x.png"},
+      { 'word': '体验服务', "url": "../tips/tips", "src": "../../images/homeimages/tijian@2x.png"},
+      { 'word': '更多服务', "url": "../tips/tips", "src": "../../images/homeimages/gengduo@2x.png"}
     ],
     imgUrls: [],
     links: [

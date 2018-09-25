@@ -12,15 +12,15 @@ Page({
     identityCard:"",
     phoneNumber:"",
     medicareCard:"",
-    parameter: [{ id: 1 }, { id: 2}],//模拟数据(里面必须要对象先初始定义---不知道为什么)
+    parameter: [{ id: 1 }, { id: 2}],//模拟数据(第一次默认选中)
     transData:"",
     data:{},
     showChoose:["本人","父母","子女","配偶","朋友"],
     index:0,
     accessToken: "",
-    loading:true
+    loading:true,
+    link5:true//防止点击多次
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -42,7 +42,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.data.loading = true;
+    this.setData({
+      link5:true,
+      loading:true
+    })
     var that = this;
     wx.request({
       url: 'http://192.168.2.165:8081/medicalcard/getweachattopatient',
@@ -99,6 +102,14 @@ Page({
     this.setData({
       card: !this.data.card
     })
+  },
+  /**
+     * 滑动切换tab
+     */
+  bindChange: function (e) {
+    var that = this;
+    that.setData({ currentTab: e.detail.current });
+
   },
   swichNav:function(e){
     var that = this;
@@ -251,8 +262,11 @@ Page({
     }
     // 发送请求
     let that = this
-    if (that.data.link1 && that.data.link2 && that.data.link3 && that.data.link4) {
+    if (that.data.link1 && that.data.link2 && that.data.link3 && that.data.link4 && that.data.link5) {
       console.log("可以发送")
+      that.setData({
+        link5:false
+      })
       wx.request({
         url: 'http://192.168.2.165:8081/medicalcard/checkidfrom',
         method: "post",

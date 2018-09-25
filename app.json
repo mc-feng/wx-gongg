@@ -27,7 +27,8 @@
     "pages/chooseHospital/chooseHospital",
     "pages/messageContent/messageContent",
     "pages/ways/ways",
-    "pages/tologin/tologin"
+    "pages/tologin/tologin",
+    "pages/tips/tips"
   ],
   "window":{
     "navigationBarBackgroundColor": "#FFFFFF",

@@ -7,7 +7,8 @@ Page({
   data: {
     addbind :[],
     alreadybind:[],
-    transData:{}
+    transData:{},
+    link:true
   },
 
   /**
@@ -73,6 +74,9 @@ Page({
   
   },
   addToCard:function(e){
+    this.setData({
+      link :false
+    })
     let that = this
     if (e.currentTarget.dataset.hosname == "金山总部"){
       that.setData({
@@ -112,6 +116,9 @@ Page({
             })
           }, 1500)
         }else{
+          that.setData({
+            link: true
+          })
           wx.showToast({
             title: '绑定失败',
             icon: 'success',

@@ -27,12 +27,12 @@
     </view>
     <block wx:if="{{change}}">
       <view class='introduce-content-hidden'>
-        {{docMemo}}
+        {{docPhotoPath?docMemo:"暂无简介"}}
       </view>
     </block>
     <block wx:else>
       <view class='introduce-content'>
-        {{docMemo}}
+        {{docPhotoPath?docMemo:"暂无简介"}}
       </view>
     </block>
   </view>

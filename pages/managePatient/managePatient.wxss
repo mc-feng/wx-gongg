@@ -3,7 +3,8 @@ page{
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  align-items: center
+  align-items: center;
+  padding-bottom: 96rpx;
 }
 .crad-tips{
   margin-top: 528rpx;
@@ -236,6 +237,7 @@ page{
   font-family: PingFangSC-Regular;
   font-size: 32rpx;
   letter-spacing: -0.74rpx;
+  z-index: 3
 }
 .tab1{
   width: 25%;

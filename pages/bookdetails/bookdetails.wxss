@@ -123,7 +123,7 @@ align-items: center;
   width: 120rpx;
 }
 .normalyd view{
-   width: 90rpx;
+   width: 120rpx;
 }
 .details-normal{
   padding-top: 28rpx;

@@ -19,7 +19,8 @@ Page({
     showChoose: ["本人", "父母", "子女", "配偶", "朋友"],
     index: 0,
     loading:true,
-    noBind:false
+    noBind:false,
+    link5:true//防止点击多次
   },
 
   /**
@@ -45,7 +46,8 @@ Page({
    */
   onShow: function () {
     this.setData({
-      noBind:false
+      noBind:false,
+      link5:true
     })
     var that = this;
     wx.request({
@@ -127,6 +129,15 @@ Page({
       card: !this.data.card
     })
   },
+  /**
+     * 滑动切换tab
+     */
+  bindChange: function (e) {
+
+    var that = this;
+    that.setData({ currentTab: e.detail.current });
+
+  },
   swichNav: function (e) {
     var that = this;
     if (this.data.currentTab === e.target.dataset.current) {
@@ -196,6 +207,9 @@ Page({
     var identityCard = this.data.identityCard;
     var phoneNumber = this.data.phoneNumber;
     var medicareCard = this.data.medicareCard;
+    console.log(this.data.userName)
+    console.log(this.data.phoneNumber)
+    console.log(this.data.identityCard)
     // 正则规则
     var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
     var idreg = /^\d{6}(18|19|20)?\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d{3}(\d|[xX])$/;
@@ -280,7 +294,10 @@ Page({
     }
     // 发送请求
     let that = this
-    if (that.data.link1 && that.data.link2 && that.data.link3 && that.data.link4){
+    if (that.data.link1 && that.data.link2 && that.data.link3 && that.data.link4 && that.data.link5){
+      that.setData({
+        link5:false
+      })
       console.log("可以发送")
        wx.request({
       url: 'http://192.168.2.165:8081/medicalcard/checkidfrom',
@@ -310,24 +327,6 @@ Page({
         })
       }
     })
-    // wx.request({
-    //   url: 'http://192.168.2.165:8081/medicalcard/getRecordCard',
-    //   method: "post",
-    //   data: {
-    //     "openID": app.globalData.openId,
-    //     "tel": this.data.phoneNumber,
-    //     "idCard": this.data.identityCard,
-    //     "patientName": this.data.userName,
-    //     "cardNo": this.data.medicareCard,
-    //     "cardType": 0,
-    //     "cardProperty": this.data.index,
-    //     "accessToken": "800EBED9-63E5-4408-A184-BE693DA32CB6",
-    //     "openUserID": "2088022943884345",
-    //   },
-    //   success: function (res) {
-    //     console.log(res)
-    //   }
-    // })
     }else{
       console.log("发送失败")
     }
@@ -370,16 +369,15 @@ Page({
    * 处理movable-view移动事件
    */
   handleMovableChange: function (e) {
-    console.log(e)
+    console.log(e.detail.x )
     if (e.detail.source === 'friction') {
-      console.log(e.detail.x)
-      if (e.detail.x < 51.8) {
+      if (e.detail.x < 52) {
         this.showDeleteButton(e)
       } else {
         this.hideDeleteButton(e)
       }
     } else if (e.detail.source === 'out-of-bounds' && e.detail.x === 0) {
-      this.hideDeleteButton(e)
+      this.showDeleteButton(e)
     }
   },
 

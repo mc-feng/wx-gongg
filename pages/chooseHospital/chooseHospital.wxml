@@ -11,7 +11,7 @@
 </block>
 <block wx:else>
   <block wx:for="{{addbind}}" wx:key="{{index}}">
-    <view class='may-bind' bindtap='addToCard' data-hosName="{{item}}">
+    <view class='may-bind' bindtap='{{link?"addToCard":""}}' data-hosName="{{item}}">
       上海市公卫中心（{{item}}）
     </view>
   </block>

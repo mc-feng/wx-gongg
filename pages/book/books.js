@@ -4,13 +4,19 @@ Page({
     content: [{ "title": "金山总部", "leve": "三级甲等", "place": "上海市金山区嘈廊公路2901号","hospitalID":"02"}, 
       { "title": "市区分部", "leve": "三级甲等", "place": "上海市虹口区同心路921号", "hospitalID": "01"}],
     result:true,
-    bindCard:"",
-    noBind:"",
+    bindCard:true,
+    noBind:true,
     arr:[],
     distance: [],
     loading:true
   },
   onLoad: function (options) {
+    this.setData({
+      loading: true,
+      result: true,
+      bindCard: true,
+      noBind: true
+    })
     this.getDistance(getApp().globalData.latitude, getApp().globalData.longitude, 30.7898400000, 121.3400100000)
     this.getDistance(getApp().globalData.latitude, getApp().globalData.longitude, 31.2739100000, 121.4703200000)
     console.log(this.data.distance)
@@ -24,29 +30,25 @@ Page({
         "hospitalID": app.globalData.openId
       },
       success: function (res) {
-        that.setData({
-          loading:false
-        })
         //判断绑卡操作
         if (res.data.result== 1){
           that.setData({
-            result: false
+            result: false,
+            loading: false
           })
         } else if (res.data.result == 2){
           that.setData({
-            result: true,
-            bindCard:false
+            bindCard:false,
+            loading: false
           })
         } else if (res.data.result == 3){
           that.setData({
-            result: true,
-            bindCard: true
+            loading: false
           })
         } else if (res.data.result == 4){
           that.setData({
-            result: true,
             bindCard: false,
-            noBind :true
+            loading: false
           })
         }
       }

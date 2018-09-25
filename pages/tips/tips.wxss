@@ -1,0 +1,19 @@
+/* pages/tips/tips.wxss */
+page{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  vertical-align: middle;
+  background: #F5F7F9
+}
+.tipsImage{
+  width: 404rpx;
+  height: 284rpx;
+  margin-top: 204rpx;
+}
+.tips-font{
+  font-family: PingFangSC-Regular;
+  font-size: 16px;
+  color: #232323;
+  margin-top: 96rpx;
+}

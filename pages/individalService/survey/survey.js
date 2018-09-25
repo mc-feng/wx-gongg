@@ -6,13 +6,14 @@ Page({
 { title: "1、目前小程序是否解决了你的预约挂号付费等就医流程问题？", choose: [{ name: '1', value: '是' }, { name: '0', value: '否' }], change: "radioChange" }, 
 { title: "2、小程序线上预约挂号是否节约了你的大部分排队时间？", choose: [{ name: '1', value: '是' }, { name: '0', value: '否' }], change: "radioChange2" },
 { title: "3、小程序目前使用过程中是否稳定？", choose: [{ name: '1', value: '是' }, { name: '0', value: '否' }], change: "radioChange3" },
-{ title: "4、生活号的操作流程是否复杂？", choose: [{ name: '1', value: '是' }, { name: '0', value: '否' }], change: "radioChange4" }, 
+{ title: "4、小程序的操作流程是否复杂？", choose: [{ name: '1', value: '是' }, { name: '0', value: '否' }], change: "radioChange4" }, 
       { title: "5、你希望小程序可以进行哪些改造？", choose: [{ name: 'A', value: 'A.多加功能' }, { name: 'B', value: 'B.客服系统完善' }, { name: 'C', value: 'C.其他' }], change: "radioChange5" },
       { title: "6、您对小程序最不满意的是什么？？", choose: [{ name: 'A', value: 'A.操作复杂' }, { name: 'B', value: '稳定性不够' }, { name: 'C', value: 'C.功能不足' }, { name: 'D', value: 'D.其他' }], change: "radioChange6" }],
     value:[],
     length:-1,
     inputData:"",
-    confirmBar:false
+    confirmBar:false,
+    textA:false//判断是否点击了输入框
   },
   radioChange: function (e) {
     this.data.value[0] = e.detail.value
@@ -77,5 +78,11 @@ Page({
         duration: 2000
       })
     }
+  },
+  textInput:function(e){
+    this.setData({
+      textA : true
+    })
+    console.log(this.data.textA)
   }
 })

@@ -29,6 +29,7 @@
   color: #2A2A2A;
   letter-spacing: -0.32rpx;
   line-height: 50rpx;
+  width: 730rpx;
 }
 .swiper-box .header{
  font-size: 36rpx;

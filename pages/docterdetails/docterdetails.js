@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    change:true,
+    change:false,
     collect:true,
     date:null,
     docterbook: [],

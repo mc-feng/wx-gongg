@@ -5,7 +5,7 @@
     <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">市区门诊楼层分布</view>
 </view>
  
-<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:572px" bindchange="bindChange">
     <!-- 我是哈哈 -->
     <swiper-item>
       <view class='header'>金山门诊楼层分布</view>

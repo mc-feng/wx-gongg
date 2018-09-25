@@ -64,25 +64,25 @@
             <view class="inhospital-swiper-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap='swichNav'>医院就诊卡</view>
             <view class="inhospital-swiper-item {{currentTab==1 ? 'on' : ''}}"data-current="1"bindtap='swichNav'> 医保卡 </view>
           </view>
-          <swiper current="{{currentTab}}" class="swiper-box" duration="300">               
+          <swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange">               
               <!-- 医院就诊卡 -->
               <swiper-item class="patient-card">
               <view class='user'>
                   <view class='user-item'>
                     <view class='item-title'>姓名</view>
-                    <input class='item-content' type='text' placeholder='请输入姓名' bindinput='getUseruserName'></input>
+                    <input class='item-content' type='text' placeholder='请输入姓名' bindinput='getUseruserName' value="{{userName}}"></input>
                   </view>
                   <view class='user-item'>
                     <view class='item-title'>身份证号</view>
-                    <input class='item-content' type="idcard" placeholder='请输入证件号码' bindinput='getUseridentityCard'></input>
+                    <input class='item-content' type="idcard" placeholder='请输入证件号码' bindinput='getUseridentityCard' value="{{identityCard}}"></input>
                   </view>
                   <view class='user-item'>
                     <view class='item-title'>手机号</view>
-                    <input class='item-content' type="digit" placeholder='请输入您的手机号码' bindinput='getUserphoneNumber'></input>
+                    <input class='item-content' type="digit" placeholder='请输入您的手机号码' bindinput='getUserphoneNumber' value="{{phoneNumber}}"></input>
                   </view>
                   <view class='user-item'>
                     <view class='item-title'>就诊卡号</view>
-                    <input class='item-content' type="digit" placeholder='请填写就诊卡号' bindinput='getUsermedicareCard'></input>
+                    <input class='item-content' type="digit" placeholder='请填写就诊卡号' bindinput='getUsermedicareCard' value="{{medicareCard}}"></input>
                   </view>
                   <view class='user-item'>
                     <view class='item-title'>关系</view>
@@ -118,19 +118,19 @@
                 <view class='user'>
                   <view class='user-item'>
                     <view class='item-title'>姓名</view>
-                    <input class='item-content' type='text' placeholder='请输入姓名' bindinput='getUseruserName'></input>
+                    <input class='item-content' type='text' placeholder='请输入姓名' bindinput='getUseruserName' value="{{userName}}"></input>
                   </view>
                   <view class='user-item'>
                     <view class='item-title'>身份证号</view>
-                    <input class='item-content' type="idcard" placeholder='请输入证件号码' bindinput='getUseridentityCard'></input>
+                    <input class='item-content' type="idcard" placeholder='请输入证件号码' bindinput='getUseridentityCard' value="{{identityCard}}"></input>
                   </view>
                   <view class='user-item'>
                     <view class='item-title'>手机号</view>
-                    <input class='item-content' type="digit" placeholder='请输入您的手机号码' bindinput='getUserphoneNumber'></input>
+                    <input class='item-content' type="digit" placeholder='请输入您的手机号码' bindinput='getUserphoneNumber' value="{{phoneNumber}}"></input>
                   </view>
                   <view class='user-item'>
                     <view class='item-title'>医保卡号</view>
-                    <input class='item-content' type="digit" placeholder='请填写医保卡号' bindinput='getUsermedicareCard'></input>
+                    <input class='item-content' type="digit" placeholder='请填写医保卡号' bindinput='getUsermedicareCard' value="{{medicareCard}}"></input>
                   </view>
                   <view class='user-item'>
                     <view class='item-title'>关系</view>

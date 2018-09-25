@@ -6,27 +6,33 @@ App({
     // var logs = wx.getStorageSync('logs') || []
     // logs.unshift(Date.now())
     // wx.setStorageSync('logs', logs)
-    wx.authorize({
-      scope:"scope.userLocation"
-    })
+    // wx.authorize({
+    //   scope:"scope.userLocation",
+    //   success:(res)=>{
+    //     console.log("成功")
+    //   },
+    //   fail:(res)=>{
+    //     console.log("失败")
+    //   }
+    // }),
     //设置权限
     // wx.openSetting({
     //   success: (res) => {
     //     console.log(res)
-    //       res.authSetting = {
-    //         "scope.userInfo": false,
-    //         "scope.userLocation": true
-    //       }
+    //       // res.authSetting = {
+    //       //   "scope.userInfo": false,
+    //       //   "scope.userLocation": true
+    //       // }
     //   }
     // })
     // 登录
-    ,
     wx.checkSession({
       success:function(e){
         console.log("没有过期")
       },
       fail:function(){
         console.log("过期了")
+        let that = this
         wx.login({
           success: res => {
             console.log(res.code)
@@ -39,6 +45,9 @@ App({
               success: function (res) {
                 console.log(10)
                 console.log(res)
+                var openId = res.data.result
+                console.log(openId)
+                that.globalData.openId = openId
               }
             })
             // 发送 res.code 到后台换取 openId, sessionKey, unionId
@@ -63,7 +72,19 @@ App({
           })
         }else{
           wx.authorize({
-            scope: "scope.userLocation"
+            scope: "scope.userLocation",
+            success:(res)=>{
+              var that = this
+              wx.getLocation({
+                success: function (res) {
+                  if (res != undefined && res != null) {
+                    //保存用户的当前经纬度
+                    that.globalData.latitude = res.latitude,
+                      that.globalData.longitude = res.longitude
+                  }
+                },
+              })
+            }
           })
         }
         //获取游客头像和登录信息

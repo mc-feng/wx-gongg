@@ -9,7 +9,8 @@ Page({
       patientMessage:null,
       accessToken:"",
       result:"",
-      title:""
+      title:"",
+      canLink:true
   },
 
   /**
@@ -94,31 +95,36 @@ Page({
   // 弹出框
   showmode:function(e){
     let that =this;
-   wx.request({
-     url: 'http://192.168.2.165:8081/booking/confirmbooking',
-     method:'post',
-     data:{
-       "hospt": this.data.data.trans.hospital,
-       "dept": this.data.data.trans.office,
-       "doc": this.data.data.trans.docName,
-       "cost": this.data.data.price,
-       "time": this.data.data.now + " " + this.data.data.time,
-       "resourceID": this.data.data.resourceid,
-       "hospitalUserID": this.data.patientMessage.openId,
-       "patientID": this.data.patientMessage.patientID,
-       "accessToken": this.data.accessToken,
-       "openUserID": "2088022943884345",
-       "id": this.data.patientMessage.id
-     },
-     success:function(res){
-       console.log(res)
-         that.setData({
-           result: res.data.result,
-           title: res.data.message
-         })
-        that.showView()
-     }
-   })
+    if(this.data.canLink){
+      this.setData({
+        canLink:false
+      })
+      wx.request({
+        url: 'http://192.168.2.165:8081/booking/confirmbooking',
+        method: 'post',
+        data: {
+          "hospt": this.data.data.trans.hospital,
+          "dept": this.data.data.trans.office,
+          "doc": this.data.data.trans.docName,
+          "cost": this.data.data.price,
+          "time": this.data.data.now + " " + this.data.data.time,
+          "resourceID": this.data.data.resourceid,
+          "hospitalUserID": this.data.patientMessage.openId,
+          "patientID": this.data.patientMessage.patientID,
+          "accessToken": this.data.accessToken,
+          "openUserID": "2088022943884345",
+          "id": this.data.patientMessage.id
+        },
+        success: function (res) {
+          console.log(res)
+          that.setData({
+            result: res.data.result,
+            title: res.data.message
+          })
+          that.showView()
+        }
+      })
+    }
   },
   showView:function(){
     // 显示遮罩层

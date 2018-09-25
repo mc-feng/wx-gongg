@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class='.container'>
+<view class='container'>
   <view class="swiper-container">
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}"  circular="{{duration}}" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper" indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#047BDE">
       <block wx:for="{{imgUrls}}" wx:key="unique">
@@ -67,7 +67,7 @@
           </navigator> 
           <navigator url='../individalService/messageList/messageList'>
             <image src='../../images/homeimages/zixun3@2x.png'>
-              <text>资讯列表</text>
+              <text>健康资讯</text>
             </image>
           </navigator>
           <navigator url='../individalService/healthMission/healthMission'>
