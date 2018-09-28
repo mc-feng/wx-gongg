@@ -41,7 +41,7 @@
                 <view class='radius'></view>
                 <view class='radius2'></view>
                 <!-- 与就诊人的关系 -->
-                <view class='relation'>本人
+                <view class='relation'>{{listArr[index]}}
                   <view class='trigon'></view>
                 </view>
                 <!-- 点击确认事件 -->

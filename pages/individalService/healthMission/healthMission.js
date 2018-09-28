@@ -24,7 +24,7 @@ Page({
      success:function(res){
        console.log(res)
        that.setData({
-         dataContent: res.data.result
+         dataContent: res.result
        })
      }
    })

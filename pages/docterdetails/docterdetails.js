@@ -109,17 +109,17 @@ Page({
         let transData={
           hospital: objects.trans.title,
           office: objects.trans.office,
-          docName: res.data.result[0].docCode,
+          docName: res.result[0].docCode,
           hos: objects.trans.hos
         };
         console.log(res)
         console.log(transData)
         that.setData({
-          docterbook: res.data.result,
-          docPhotoPath: res.data.result[0].docPhotoPath,
-          docMemo: res.data.result[0].docMemo,
-          docCode: res.data.result[0].docCode,
-          docDuty: res.data.result[0].docDuty,
+          docterbook: res.result,
+          docPhotoPath: res.result[0].docPhotoPath,
+          docMemo: res.result[0].docMemo,
+          docCode: res.result[0].docCode,
+          docDuty: res.result[0].docDuty,
           transData: transData,
           loading:false
         })
@@ -133,7 +133,7 @@ Page({
           },
           success: function (res) {
             that.setData({
-              collect:!res.data.success
+              collect:!res.success
             })
           }
         })

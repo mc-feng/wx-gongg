@@ -83,7 +83,7 @@ Page({
           },
           success: function (res) {
             console.log(res)
-            var openId = res.data.result
+            var openId = res.result
             console.log(openId)
             app.globalData.openId = openId
             wx.request({

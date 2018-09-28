@@ -59,7 +59,7 @@ Page({
        success:function(res){
          console.log(res)
          that.setData({
-           imgUrls: res.data.result
+           imgUrls: res.result
          })
        }
      })
@@ -73,7 +73,7 @@ Page({
       success: function (res) {
         console.log(res)
         that.setData({
-          msgList: res.data.result
+          msgList: res.result
         })
       }
     })

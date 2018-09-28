@@ -49,11 +49,11 @@ Page({
       success: function (res) {
         if (that.data.deptCode == that.data.deptCode2) {
           that.setData({
-            departmentlist: res.data.result
+            departmentlist: res.result
           })
         } else {
           that.setData({
-            normallist: res.data.result
+            normallist: res.result
           })
         }
       }
@@ -78,11 +78,11 @@ Page({
         success: function (res) {
           if (that.data.deptCode == that.data.deptCode2) {
             that.setData({
-              departmentlist: res.data.result
+              departmentlist: res.result
             })
           } else {
             that.setData({
-              normallist: res.data.result
+              normallist: res.result
             })
           }
         }
@@ -113,7 +113,7 @@ Page({
         "hospitalID": objects.hosid
       },
       success: function (res) {
-        var allArr = res.data.result;
+        var allArr = res.result;
         var normol =[];
         var department=[];
         for (var i = 0; i < allArr.length;i++){
@@ -164,11 +164,11 @@ Page({
       success:function(res){
         if (that.data.deptCode ==that.data.deptCode2){
           that.setData({
-            departmentlist: res.data.result
+            departmentlist: res.result
           })
         }else{
           that.setData({
-            normallist: res.data.result
+            normallist: res.result
           })
         }
       }

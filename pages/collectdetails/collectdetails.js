@@ -92,16 +92,16 @@ Page({
         console.log(res)
         that.setData({
           showContent: false,
-          docterbook: res.data.result
+          docterbook: res.result
         })
         // 是否收到信息表
-        // if (res.data.result.length == 0) {
+        // if (res.result.length == 0) {
         //   that.setData({
-        //     docterbook: res.data.result,
+        //     docterbook: res.result,
         //   })
         // } else {
         //   that.setData({
-        //     docterbook: res.data.result
+        //     docterbook: res.result
         //   })
         // }
         // 请求是否已经收藏
@@ -114,7 +114,7 @@ Page({
           },
           success: function (res) {
             that.setData({
-              collect: !res.data.success
+              collect: !res.success
             })
           }
         })
@@ -316,15 +316,15 @@ Page({
       success: function (res) {
         that.setData({
           showContent: false,
-          docterbook: res.data.result
+          docterbook: res.result
         })
-        // if (res.data.result.length == 0){
+        // if (res.result.length == 0){
         //   that.setData({
-        //     docterbook: res.data.result,
+        //     docterbook: res.result,
         //   })
         // }else{
         //   that.setData({
-        //     docterbook: res.data.result
+        //     docterbook: res.result
         //   })
         // }
       }

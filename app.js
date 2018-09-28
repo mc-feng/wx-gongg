@@ -1,5 +1,25 @@
 //app.js
 var aldstat = require("./utils/ald-stat.js")
+const wxApiInterceptors = require('./utils/wxApiInterceptors');
+var Dec = require('./utils/public.js')
+wxApiInterceptors()
+wxApiInterceptors({
+  request: {
+    request(params) {
+      params.data = Dec.Encrypt(JSON.stringify(params.data));
+      return params;
+    },
+  },
+});
+wxApiInterceptors({
+  request: {
+    response(res) {
+      if(res.data){
+        return JSON.parse(Dec.formatString(Dec.Decrypt(res.data)));//去字符转之间空格
+      }
+    },
+  },
+});
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -29,6 +49,8 @@ App({
     wx.checkSession({
       success:function(e){
         console.log("没有过期")
+        console.log(Dec.Encrypt("sss"))
+        console.log(Dec.Decrypt(Dec.Encrypt("sss")))
       },
       fail:function(){
         console.log("过期了")
@@ -39,13 +61,13 @@ App({
             wx.request({
               url: 'http://192.168.2.165:8081/medicalcard/getopenid',
               method: "post",
-              data: {
+              data:{
                 "openId": res.code
               },
               success: function (res) {
                 console.log(10)
                 console.log(res)
-                var openId = res.data.result
+                var openId = res.result
                 console.log(openId)
                 that.globalData.openId = openId
               }
@@ -108,7 +130,7 @@ App({
                     },
                     success: function (res) {
                       console.log(res)
-                      var openId = res.data.result
+                      var openId = res.result
                       console.log(openId)
                       that.globalData.openId = openId
                       wx.request({

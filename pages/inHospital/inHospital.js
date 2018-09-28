@@ -19,7 +19,8 @@ Page({
     index:0,
     accessToken: "",
     loading:true,
-    link5:true//防止点击多次
+    link5:true,//防止点击多次
+    listArr: []//判断关系
   },
   /**
    * 生命周期函数--监听页面加载
@@ -56,8 +57,30 @@ Page({
       },
       success: function (res) {
         console.log(res)
+        let parameter = res.result;
+        let listArr = []
+        for (var i = 0; i < parameter.length; i++) {
+          switch (parameter[i].tel) {
+            case "0":
+              listArr.push("本人");
+              break;
+            case "1":
+              listArr.push("父母");
+              break;
+            case "2":
+              listArr.push("子女");
+              break;
+            case "3":
+              listArr.push("配偶");
+              break;
+            case "4":
+              listArr.push("朋友");
+              break;
+          }
+        }
         that.setData({
-          parameter: res.data.result,
+          parameter: parameter,
+          listArr: listArr,
           loading:false
         })
       }
@@ -275,7 +298,10 @@ Page({
           "cardType": this.data.currentTab,
           "openUserID": "2088022943884345",
           "cardNo": this.data.medicareCard,
-          "dataSource": app.globalData.openId
+          "certType": "0",
+          "openIDCard": this.data.identityCard,
+          "openTel": this.data.phoneNumber,
+          "openUserName": this.data.userName
         },
         success: function (res) {
           let addMessage = {
@@ -288,7 +314,7 @@ Page({
             "cardType": that.data.currentTab
           }
           let transData = JSON.stringify(addMessage)
-          let str = JSON.stringify(res.data)
+          let str = JSON.stringify(res)
           console.log(res);
           wx.navigateTo({
             url: '../chooseHospital/chooseHospital?cardData=' + str + "&transData=" + transData,

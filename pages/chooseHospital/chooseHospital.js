@@ -104,7 +104,7 @@ Page({
       },
       success: function (res) {
         console.log(res)
-        if (res.data.message == "绑定成功") {
+        if (res.message == "绑定成功") {
           wx.showToast({
             title: '绑定成功',
             icon: 'success',

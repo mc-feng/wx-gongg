@@ -118,8 +118,8 @@ Page({
         success: function (res) {
           console.log(res)
           that.setData({
-            result: res.data.result,
-            title: res.data.message
+            result: res.result,
+            title: res.message
           })
           that.showView()
         }

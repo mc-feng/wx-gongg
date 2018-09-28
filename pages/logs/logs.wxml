@@ -16,7 +16,7 @@
 </view>
 <view class='person-content'>
   <block wx:for="{{pagedata}}" wx:key="{{index}}">
-    <navigator class='person-item' url="../bookRecord/bookRecord">
+    <navigator class='person-item' url="{{item.url}}">
       <image src='{{item.image}}' class='tips'></image>
       <view class='person-font'>{{item.title}}</view>
       <image class='sword' src='../../images/homeimages/sword.png'></image>

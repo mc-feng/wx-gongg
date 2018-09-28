@@ -31,21 +31,21 @@ Page({
       },
       success: function (res) {
         //判断绑卡操作
-        if (res.data.result== 1){
+        if (res.result== 1){
           that.setData({
             result: false,
             loading: false
           })
-        } else if (res.data.result == 2){
+        } else if (res.result == 2){
           that.setData({
             bindCard:false,
             loading: false
           })
-        } else if (res.data.result == 3){
+        } else if (res.result == 3){
           that.setData({
             loading: false
           })
-        } else if (res.data.result == 4){
+        } else if (res.result == 4){
           that.setData({
             bindCard: false,
             loading: false
@@ -99,24 +99,24 @@ Page({
         })
         console.log(res)
         //判断绑卡操作
-        if (res.data.result == 1) {
+        if (res.result == 1) {
           that.setData({
             result: false,
             noBind: false
           })
-        } else if (res.data.result == 2) {
+        } else if (res.result == 2) {
           that.setData({
             result: true,
             bindCard: false,
             noBind: false
           })
-        } else if (res.data.result == 3) {
+        } else if (res.result == 3) {
           that.setData({
             result: true,
             bindCard: true,
             noBind: false
           })
-        } else if (res.data.result == 4) {
+        } else if (res.result == 4) {
           that.setData({
             result: true,
             bindCard: false,

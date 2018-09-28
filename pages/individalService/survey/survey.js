@@ -59,7 +59,7 @@ Page({
           "dataSource": this.data.value.join(",")
         },
         success:function(res){
-          if(res.data.success){
+          if(res.success){
             setTimeout(function () {
               wx.navigateBack({
                 delta: 2,
@@ -67,7 +67,7 @@ Page({
             }, 2000)
           }
           wx.showToast({
-            title: res.data.message,
+            title: res.message,
             duration: 2000
           })
         }

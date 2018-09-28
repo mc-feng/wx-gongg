@@ -23,10 +23,10 @@ Page({
        "type": options.lei
      },
      success:function(res){
-       console.log(res.data.result)
-       res.data.result[0].text = res.data.result[0].text.replace(/\<img/gi, '<img style="max-width:100%;height:auto" ')
+       console.log(res.result)
+       res.result[0].text = res.result[0].text.replace(/\<img/gi, '<img style="max-width:100%;height:auto" ')
        that.setData({
-         content: res.data.result[0]
+         content: res.result[0]
        })
      }
    })

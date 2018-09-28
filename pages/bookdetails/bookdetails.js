@@ -167,7 +167,7 @@ Page({
       success: function (res) {
         console.log(res)
         that.setData({
-          details: res.data.result,
+          details: res.result,
           loading:true
         })
       }

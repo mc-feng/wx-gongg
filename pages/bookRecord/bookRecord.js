@@ -31,10 +31,10 @@ Page({
     //   success:function(res){
     //     console.log(res)
     //     that.setData({
-    //       parameter: res.data.result
+    //       parameter: res.result
     //     })
-    //     for (var i = 0; i < res.data.result.length;i++){
-    //       switch (res.data.result[i].id) {
+    //     for (var i = 0; i < res.result.length;i++){
+    //       switch (res.result[i].id) {
     //         case "0":
     //           that.data.relation.push("已取消");
     //           break;
@@ -70,10 +70,10 @@ Page({
     //   success: function (res) {
     //     console.log(res)
     //     that.setData({
-    //       choose: res.data.result
+    //       choose: res.result
     //     })
-    //     for (var i = 0; i < res.data.result.length;i++){
-    //       that.data.show.push("就诊人: "+res.data.result[i].openUserName + "  " +"卡号: "+ res.data.result[i].openIDCard)
+    //     for (var i = 0; i < res.result.length;i++){
+    //       that.data.show.push("就诊人: "+res.result[i].openUserName + "  " +"卡号: "+ res.result[i].openIDCard)
     //     }
     //     that.setData({
     //       showChoose: that.data.show
@@ -107,10 +107,10 @@ Page({
       success: function (res) {
         console.log(res)
         that.setData({
-          parameter: res.data.result
+          parameter: res.result
         })
-        for (var i = 0; i < res.data.result.length; i++) {
-          switch (res.data.result[i].id) {
+        for (var i = 0; i < res.result.length; i++) {
+          switch (res.result[i].id) {
             case "0":
               that.data.relation.push("已取消");
               break;
@@ -146,10 +146,10 @@ Page({
       success: function (res) {
         console.log(res)
         that.setData({
-          choose: res.data.result
+          choose: res.result
         })
-        for (var i = 0; i < res.data.result.length; i++) {
-          that.data.show.push("就诊人: " + res.data.result[i].openUserName + "  " + "卡号: " + res.data.result[i].openIDCard)
+        for (var i = 0; i < res.result.length; i++) {
+          that.data.show.push("就诊人: " + res.result[i].openUserName + "  " + "卡号: " + res.result[i].openIDCard)
         }
         that.setData({
           showChoose: that.data.show
@@ -208,7 +208,7 @@ Page({
       success:function(res){
         console.log(res)
         that.setData({
-          parameter: res.data.result,
+          parameter: res.result,
           headerName:false
         })
       }

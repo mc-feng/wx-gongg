@@ -42,7 +42,7 @@ Page({
       },
       success:function(res){
         that.setData({
-          data: res.data.result[0],
+          data: res.result[0],
           relations: options.relations,
           transData: transData,
           check:false

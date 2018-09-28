@@ -17,7 +17,7 @@ Page({
       method:"post",
       success:function(res){
         that.setData({
-          list: res.data.result,
+          list: res.result,
           loading:false
         })
         console.log(res)

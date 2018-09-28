@@ -26,7 +26,7 @@ Page({
       },
       success: function (res) {
         console.log(res)
-        if(res.data.success){
+        if(res.success){
           wx.request({
             url: 'http://192.168.2.165:8081/medicalcard/getweachat',
             method:"post",
@@ -36,9 +36,9 @@ Page({
             success:function(res){
               console.log(res)
               that.setData({
-                userName: res.data.result.openUserName,
-                identityCard: res.data.result.openIDCard,
-                phoneNumber: res.data.result.openTel,
+                userName: res.result.openUserName,
+                identityCard: res.result.openIDCard,
+                phoneNumber: res.result.openTel,
                 exist: true
               })
             }
@@ -174,9 +174,21 @@ Page({
           },
           success: function (res) {
             console.log(res)
-            if (res.data.success) {
-              wx.navigateBack({
-                delta: 1
+            if (res.success) {
+              wx.showToast({
+                title: res.message,
+                duration:1000,
+              })
+              setTimeout((function call(){
+                wx.navigateBack({
+                  delta: 1
+                })
+              }),1500)
+            }else{
+              wx.showToast({
+                title: res.message,
+                icon:"none",
+                duration: 1000,
               })
             }
           }
@@ -193,7 +205,7 @@ Page({
           },
           success: function (res) {
             console.log(res)
-            if (res.data.success) {
+            if (res.success) {
               wx.navigateBack({
                 delta: 1
               })

@@ -23,12 +23,12 @@ Page({
        "type": this.data.lei
      },
      success:function(res){
-       var object1 = res.data.result.shift()
+       var object1 = res.result.shift()
        console.log(object1)
-       console.log(res.data.result)
+       console.log(res.result)
        that.setData({
          dataFirst: object1,
-         dataContent: res.data.result
+         dataContent: res.result
        })
        console.log(res)
      }

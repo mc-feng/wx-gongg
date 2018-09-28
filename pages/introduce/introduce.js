@@ -20,7 +20,7 @@ Page({
       success: function (res) {
         console.log(res)
         that.setData({
-          images: res.data.result
+          images: res.result
         })
       }
     })
