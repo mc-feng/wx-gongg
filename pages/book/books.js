@@ -24,7 +24,7 @@ Page({
     console.log('longitude的值是：' + getApp().globalData.longitude)
     var that = this
     wx.request({
-      url: 'http://192.168.2.165:8081/common/checkdata',
+      url: '/common/checkdata',
       method: "post",
       data: {
         "hospitalID": app.globalData.openId
@@ -88,7 +88,7 @@ Page({
   onShow() { 
     var that = this
     wx.request({
-      url: 'http://192.168.2.165:8081/common/checkdata',
+      url: '/common/checkdata',
       method: "post",
       data: {
         "hospitalID": app.globalData.openId

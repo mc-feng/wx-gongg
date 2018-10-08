@@ -88,7 +88,7 @@ Page({
       })
     }
     wx.request({
-      url: 'http://192.168.2.165:8081/medicalcard/getRecordCard',
+      url: '/medicalcard/getRecordCard',
       method: "post",
       data: {
         "openID": that.data.transData.openID,

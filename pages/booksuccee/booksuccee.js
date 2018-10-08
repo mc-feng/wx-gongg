@@ -93,7 +93,7 @@ Page({
       success: function (res) {
         if (res.confirm) {
           wx.request({
-            url: 'http://192.168.2.165:8081/booking/cancelbooking',
+            url: '/booking/cancelbooking',
             method:"post",
             data:{
               "bookingID": that.data.result,

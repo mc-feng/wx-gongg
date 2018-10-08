@@ -1,0 +1,137 @@
+<!--pages/expertConsultation/expertDetails/expertDetails.wxml-->
+<view class='header'>
+ <image class='header-image' src='../../../images/homeimages/defaultAvatar.png'></image>
+ <view class='header-content'>
+   <view class='header-docter'>
+     <view class='docter-name'>张科名</view>
+     <view class='docter-zhiwei'>副主任医师</view>
+   </view>
+   <view class='header-hospital'>上海市公共卫生临床中心 </view>
+   <view class='header-tips'>
+    <image class='tips-star' src='../../../images/smallicon/yishoucang@2x.png'></image>
+    <image class='tips-star' src='../../../images/smallicon/yishoucang@2x.png'></image>
+    <image class='tips-star' src='../../../images/smallicon/yishoucang@2x.png'></image>
+    <image class='tips-star' src='../../../images/smallicon/yishoucang@2x.png'></image>
+    <image class='tips-star' src='../../../images/smallicon/yishoucang@2x.png'></image>
+    <view class='tips-num'>咨询量：1680</view>
+   </view>
+ </view>
+ <view class='doctor-collect' bindtap='collectchange'>
+    <image src='{{collect?"../../../images/smallicon/shoucang@2x.png":"../../../images/smallicon/yishoucang@2x.png"}}'></image>
+      收藏
+ </view>
+</view>
+<view class='intro'>
+ <view class='intro-header'>
+  <image src='../../../images/homeimages/jianjie@2x.png'></image>
+  简介
+ </view>
+ <view class='intro-content'>
+   <view class='intro-item'>
+    <view class='intro-title'>擅长领域</view>
+    <view class='intro-font'>擅长各型病毒性肝炎、重型肝炎、失代性肝硬化药物性肝损害、重型肝炎、失代失代性肝硬化药物、失代性肝硬化药物</view>
+   </view>
+   <view class='intro-item'>
+    <view class='intro-title'>背景介绍</view>
+    <view class='intro-font'>擅长各型病毒性肝炎、重型肝炎、失代性肝硬化药物性肝损害、重型肝炎、失代失代性肝硬化药物、失代性肝硬化药物</view>
+   </view>
+   <view class='intro-item'>
+    <view class='intro-title'>专业经历</view>
+    <view class='intro-font'>擅长各型病毒性肝炎、重型肝炎、失代性肝硬化药物性肝损害、重型肝炎、失代失代性肝硬化药物、失代性肝硬化药物</view>
+   </view>
+ </view>
+</view>
+<view class='article'>
+  <view class='article-header'>
+    <image src='../../../images/homeimages/jianjie@2x.png'></image>
+    专家文章
+    <view class='article-more'>
+     更多
+     <image class='more' src='../../../images/homeimages/sword.png'></image>
+    </view>
+ </view>
+ <view class='article-content'>
+   <view class='article-title'>
+     三伏天最适合养肝，养对了远离肝癌
+     <view class='article-time'>2018.08.09</view>
+   </view>
+   <view class='article-title'>
+     三伏天最适合养肝，养对了远离肝癌
+     <view class='article-time'>2018.08.09</view>
+   </view>
+ </view>
+</view>
+<view class='comment'>
+  <view class='comment-header'>
+    <image src='../../../images/homeimages/jianjie@2x.png'></image>
+    患者评论
+    <view class='comment-num'>
+       23条
+    </view>
+  </view>
+  <view class='comment-content'>
+    <view class='comment-content-title'>
+      <view class='comment-use'>
+         <image src='../../../images/homeimages/defaultAvatar.png'></image>
+         <view class='comment-use-name'>杜**</view>
+         <view class='comment-use-grade'>5.0分</view>
+      </view>
+      <view class='comment-time'>2018.06.18  09:28</view>
+    </view>
+    <view class='comment-comment'>有耐心，说的很清楚，意见对我很有帮助。</view>
+  </view>
+  <view class='comment-content'>
+    <view class='comment-content-title'>
+      <view class='comment-use'>
+         <image src='../../../images/homeimages/defaultAvatar.png'></image>
+         <view class='comment-use-name'>杜**</view>
+         <view class='comment-use-grade'>5.0分</view>
+      </view>
+      <view class='comment-time'>2018.06.18  09:28</view>
+    </view>
+    <view class='comment-comment'>有耐心，说的很清楚，意见对我很有帮助。</view>
+  </view>
+  <view class='comment-content'>
+    <view class='comment-content-title'>
+      <view class='comment-use'>
+         <image src='../../../images/homeimages/defaultAvatar.png'></image>
+         <view class='comment-use-name'>杜**</view>
+         <view class='comment-use-grade'>5.0分</view>
+      </view>
+      <view class='comment-time'>2018.06.18  09:28</view>
+    </view>
+    <view class='comment-comment'>有耐心，说的很清楚，意见对我很有帮助。</view>
+  </view>
+  <view class='comment-content'>
+    <view class='comment-content-title'>
+      <view class='comment-use'>
+         <image src='../../../images/homeimages/defaultAvatar.png'></image>
+         <view class='comment-use-name'>杜**</view>
+         <view class='comment-use-grade'>5.0分</view>
+      </view>
+      <view class='comment-time'>2018.06.18  09:28</view>
+    </view>
+    <view class='comment-comment'>有耐心，说的很清楚，意见对我很有帮助。</view>
+  </view>
+  <view class='comment-content'>
+    <view class='comment-content-title'>
+      <view class='comment-use'>
+         <image src='../../../images/homeimages/defaultAvatar.png'></image>
+         <view class='comment-use-name'>杜**</view>
+         <view class='comment-use-grade'>5.0分</view>
+      </view>
+      <view class='comment-time'>2018.06.18  09:28</view>
+    </view>
+    <view class='comment-comment'>有耐心，说的很清楚，意见对我很有帮助。</view>
+  </view>
+</view>
+<view class='buttun-tab'>
+          <view class='tab1'>
+             <image src='../../../images/homeimages/jianjie@2x.png'></image>
+             图文资讯(25元/次)
+          </view>
+          <view class='tab2'>
+            <image src='../../../images/homeimages/jianjie@2x.png'></image>
+            电话咨询(100元/次)
+          </view>
+</view>

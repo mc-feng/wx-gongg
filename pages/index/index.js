@@ -23,7 +23,7 @@ Page({
     mainNavs:[
       { 'word': '预约挂号', "url": "../book/books", "src":"../../images/homeimages/guahao@2x.png"},
       { 'word': '诊间付费', "url": "../tips/tips", "src": "../../images/homeimages/fufei@2x.png"},
-      { 'word': '咨询医生', "url": "../tips/tips", "src": "../../images/homeimages/yisheng@2x.png"},
+      { 'word': '咨询医生', "url": "../expertConsultation/expertDetails/expertDetails", "src": "../../images/homeimages/yisheng@2x.png"},
       { 'word': '报告查询', "url": "../tips/tips", "src": "../../images/homeimages/baogao@2x.png"},
       { 'word': '住院预约', "url": "../tips/tips", "src": "../../images/homeimages/zhuyuan@2x.png"},
       { 'word': '手术方案', "url": "../tips/tips", "src": "../../images/homeimages/shoushu@2x.png"},
@@ -50,7 +50,7 @@ Page({
   onLoad: function () {
     var that =this;
      wx.request({
-       url: 'http://192.168.2.165:8081/medicalcard/selectphototext',
+       url: '/medicalcard/selectphototext',
        method:"post",
        data: {
          "id": "",
@@ -64,7 +64,7 @@ Page({
        }
      })
     wx.request({
-      url: 'http://192.168.2.165:8081/medicalcard/selectphototext',
+      url: '/medicalcard/selectphototext',
       method: "post",
       data: {
         "id": "",

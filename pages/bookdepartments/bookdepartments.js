@@ -39,7 +39,7 @@ Page({
       deptCode: e.currentTarget.dataset.deptcode
     })
     wx.request({
-      url: 'http://192.168.2.165:8081/booking/getdept',
+      url: '/booking/getdept',
       method: "post",
       data: {
         "hospitalID": that.data.hospitalID,
@@ -68,7 +68,7 @@ Page({
       deptCode: e.currentTarget.dataset.deptcode
     }),
       wx.request({
-        url: 'http://192.168.2.165:8081/booking/getdept',
+        url: '/booking/getdept',
         method: "post",
         data: {
           "hospitalID": that.data.hospitalID,
@@ -107,7 +107,7 @@ Page({
     })
     //进行数据请求
     wx.request({
-      url: 'http://192.168.2.165:8081/booking/getdept',
+      url: '/booking/getdept',
       method: "post",
       data: {
         "hospitalID": objects.hosid
@@ -154,7 +154,7 @@ Page({
       value:e.detail.value
     })
     wx.request({
-      url: 'http://192.168.2.165:8081/booking/getdept',
+      url: '/booking/getdept',
       method: "post",
       data: {
         "hospitalID": that.data.hospitalID,

@@ -6,7 +6,11 @@ wxApiInterceptors()
 wxApiInterceptors({
   request: {
     request(params) {
-      params.data = Dec.Encrypt(JSON.stringify(params.data));
+      const host = 'http://192.168.2.165:8081'
+      if (!/^(http|\/\/)/.test(params.url)) {
+        params.url = host + params.url;
+      }//设置默认host
+      params.data = Dec.Encrypt(JSON.stringify(params.data));//加密
       return params;
     },
   },
@@ -15,7 +19,7 @@ wxApiInterceptors({
   request: {
     response(res) {
       if(res.data){
-        return JSON.parse(Dec.formatString(Dec.Decrypt(res.data)));//去字符转之间空格
+        return JSON.parse(Dec.formatString(Dec.Decrypt(res.data)));//返回值去字符转之间空格
       }
     },
   },
@@ -59,7 +63,7 @@ App({
           success: res => {
             console.log(res.code)
             wx.request({
-              url: 'http://192.168.2.165:8081/medicalcard/getopenid',
+              url: '/medicalcard/getopenid',
               method: "post",
               data:{
                 "openId": res.code
@@ -123,7 +127,7 @@ App({
                 success: res => {
                   console.log(res.code)
                   wx.request({
-                    url: 'http://192.168.2.165:8081/medicalcard/getopenid',
+                    url: '/medicalcard/getopenid',
                     method: "post",
                     data: {
                       "openId": res.code
@@ -134,7 +138,7 @@ App({
                       console.log(openId)
                       that.globalData.openId = openId
                       wx.request({
-                        url: 'http://192.168.2.165:8081/common/getweachat',//获取游客记录
+                        url: '/common/getweachat',//获取游客记录
                         method: "post",
                         data: {
                           "hospitalID": openId,
@@ -158,19 +162,22 @@ App({
             }
           })
         }else{
-          //获取用户信息失败后。请跳转授权页面
-          wx.showModal({
-            title: '警告',
-            content: '尚未进行授权，请点击确定跳转到授权页面进行授权。',
-            success: function (res) {
-              if (res.confirm) {
-                console.log('用户点击确定')
-                wx.navigateTo({
-                  url: '../tologin/tologin',
-                })
-              }
-            }
+          wx.navigateTo({
+            url: '../tologin/tologin',
           })
+          //获取用户信息失败后。请跳转授权页面
+          // wx.showModal({
+          //   title: '警告',
+          //   content: '尚未进行授权，请点击确定跳转到授权页面进行授权。',
+          //   success: function (res) {
+          //     if (res.confirm) {
+          //       console.log('用户点击确定')
+          //       wx.navigateTo({
+          //         url: '../tologin/tologin',
+          //       })
+          //     }
+          //   }
+          // })
         }
       }
     })

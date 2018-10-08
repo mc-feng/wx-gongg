@@ -34,7 +34,7 @@ Page({
       var that = this
       console.log(app.globalData.openId)
       wx.request({
-        url: 'http://192.168.2.165:8081/medicalcard/deletedoclist',
+        url: '/medicalcard/deletedoclist',
         method:"post",
         data:{
           "docID": that.data.date.doccode,
@@ -55,7 +55,7 @@ Page({
     } else {
       var that = this
       wx.request({
-        url: 'http://192.168.2.165:8081/medicalcard/adddoclist',
+        url: '/medicalcard/adddoclist',
         method:"post",
         data:{
           "docID": that.data.date.doccode,
@@ -96,7 +96,7 @@ Page({
     console.log(objects)
     console.log(that.data.accessToken)
     wx.request({
-      url: 'http://192.168.2.165:8081/booking/getbookingdocresource',
+      url: '/booking/getbookingdocresource',
       method: "post",
       data: {
         "docCode": objects.doccode,
@@ -125,7 +125,7 @@ Page({
         })
         // 请求是否已经收藏
         wx.request({
-          url: 'http://192.168.2.165:8081/medicalcard/checkDoc',
+          url: '/medicalcard/checkDoc',
           method: "post",
           data: {
             "docID": that.data.date.doccode,

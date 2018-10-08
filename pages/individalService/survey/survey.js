@@ -52,7 +52,7 @@ Page({
     }
     if (this.data.value.length == 7 && kongGe){
       wx.request({
-        url: 'http://192.168.2.165:8081/common/getquestionnaire',
+        url: '/common/getquestionnaire',
         method:"post",
         data:{
           "openUserID": app.globalData.openId,

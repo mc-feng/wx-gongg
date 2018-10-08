@@ -15,7 +15,7 @@ Page({
   onLoad: function (options) {
     let that =this
    wx.request({
-     url: 'http://192.168.2.165:8081/medicalcard/selectphototext',
+     url: '/medicalcard/selectphototext',
      method:"post",
      data:{
        "id":"",

@@ -51,7 +51,7 @@ Page({
     })
     var that = this;
     wx.request({
-      url: 'http://192.168.2.165:8081/common/checkdata',
+      url: '/common/checkdata',
       method: "post",
       data: {
         "hospitalID": app.globalData.openId
@@ -72,7 +72,7 @@ Page({
         }
         if (!that.data.noBind) {
           wx.request({
-            url: 'http://192.168.2.165:8081/medicalcard/getweachattopatient',
+            url: '/medicalcard/getweachattopatient',
             method: "post",
             data: {
               "openId": app.globalData.openId
@@ -321,7 +321,7 @@ Page({
       })
       console.log("可以发送")
        wx.request({
-      url: 'http://192.168.2.165:8081/medicalcard/checkidfrom',
+      url: '/medicalcard/checkidfrom',
       method: "post",
       data: {
         "cardProperty": this.data.index,
@@ -429,7 +429,7 @@ Page({
     let productIndex = e.currentTarget.dataset.productindex
     let parameter = this.data.parameter
     wx.request({
-      url: 'http://192.168.2.165:8081/medicalcard/deletepatient',
+      url: '/medicalcard/deletepatient',
       method: "post",
       data: {
         "patientID": parameter[productIndex].patientID,

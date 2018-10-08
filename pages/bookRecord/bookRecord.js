@@ -23,7 +23,7 @@ Page({
     // console.log(app.globalData.openId)
     // var that = this
     // wx.request({
-    //   url: 'http://192.168.2.165:8081/booking/getpatientlist',
+    //   url: '/booking/getpatientlist',
     //   method:"post",
     //   data:{
     //     "openId":app.globalData.openId//openID
@@ -62,7 +62,7 @@ Page({
     // console.log(10)
     // var that = this
     // wx.request({
-    //   url: 'http://192.168.2.165:8081/medicalcard/getweachattopatient',
+    //   url: '/medicalcard/getweachattopatient',
     //   data: {
     //     "openId": app.globalData.openId//openID
     //   },
@@ -99,7 +99,7 @@ Page({
     console.log(app.globalData.openId)
     var that = this
     wx.request({
-      url: 'http://192.168.2.165:8081/booking/getpatientlist',
+      url: '/booking/getpatientlist',
       method: "post",
       data: {
         "openId": app.globalData.openId//openID
@@ -138,7 +138,7 @@ Page({
     console.log(10)
     var that = this
     wx.request({
-      url: 'http://192.168.2.165:8081/medicalcard/getweachattopatient',
+      url: '/medicalcard/getweachattopatient',
       data: {
         "openId": app.globalData.openId//openID
       },
@@ -199,7 +199,7 @@ Page({
       index: e.detail.value
     })
     wx.request({
-      url: 'http://192.168.2.165:8081/booking/getpatientlist',
+      url: '/booking/getpatientlist',
       data: {
         "openId": app.globalData.openId,//openID
         "patientID":this.data.choose[e.detail.value].patientID

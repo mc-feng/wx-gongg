@@ -156,7 +156,7 @@ Page({
     console.log(datetime)
     console.log(that.data.transferData)
     wx.request({
-      url: 'http://192.168.2.165:8081/booking/getbookingdeptnosource',
+      url: '/booking/getbookingdeptnosource',
       method: "post",
       data: {
         "deptCode": that.data.transferData.id,

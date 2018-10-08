@@ -49,7 +49,7 @@ Page({
     })
     var that = this;
     wx.request({
-      url: 'http://192.168.2.165:8081/medicalcard/getweachattopatient',
+      url: '/medicalcard/getweachattopatient',
       method: "post",
       data: {
         "openId": app.globalData.openId,
@@ -291,7 +291,7 @@ Page({
         link5:false
       })
       wx.request({
-        url: 'http://192.168.2.165:8081/medicalcard/checkidfrom',
+        url: '/medicalcard/checkidfrom',
         method: "post",
         data: {
           "cardProperty": this.data.index,
@@ -322,7 +322,7 @@ Page({
         }
       })
       // wx.request({
-      //   url: 'http://192.168.2.165:8081/medicalcard/getRecordCard',
+      //   url: '/medicalcard/getRecordCard',
       //   method: "post",
       //   data: {
       //     "openID": app.globalData.openId,

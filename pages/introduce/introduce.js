@@ -15,7 +15,7 @@ Page({
   onLoad: function () {
     var that = this;
     wx.request({
-      url: 'http://192.168.2.165:8081/medicalcard/selectintroduce',
+      url: '/medicalcard/selectintroduce',
       method: "get",
       success: function (res) {
         console.log(res)

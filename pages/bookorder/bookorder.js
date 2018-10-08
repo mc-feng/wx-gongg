@@ -100,7 +100,7 @@ Page({
         canLink:false
       })
       wx.request({
-        url: 'http://192.168.2.165:8081/booking/confirmbooking',
+        url: '/booking/confirmbooking',
         method: 'post',
         data: {
           "hospt": this.data.data.trans.hospital,

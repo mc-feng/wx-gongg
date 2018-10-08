@@ -28,7 +28,9 @@
     "pages/messageContent/messageContent",
     "pages/ways/ways",
     "pages/tologin/tologin",
-    "pages/tips/tips"
+    "pages/tips/tips",
+    "pages/expertConsultation/record/record",
+    "pages/expertConsultation/expertDetails/expertDetails"
   ],
   "window":{
     "navigationBarBackgroundColor": "#FFFFFF",

@@ -10,7 +10,7 @@ Page({
     this.initEleWidth();
     var that = this
     wx.request({
-      url: 'http://192.168.2.165:8081/medicalcard/getdoclist',
+      url: '/medicalcard/getdoclist',
       data:{
         "openID": app.globalData.openId//openID
       },
@@ -133,7 +133,7 @@ Page({
           //数据库中删除
           console.log(that.data.list[e.target.dataset.index].docCode)
           wx.request({
-            url: 'http://192.168.2.165:8081/medicalcard/deletedoclist',
+            url: '/medicalcard/deletedoclist',
             method: "post",
             data: {
               "docID": that.data.list[e.target.dataset.index].docCode,

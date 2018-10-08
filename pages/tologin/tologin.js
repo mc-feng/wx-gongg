@@ -13,9 +13,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.authorize({
-      scope: "scope.userLocation"
-    })
   },
 
   /**
@@ -76,7 +73,7 @@ Page({
       success: res => {
         console.log(res.code)
         wx.request({
-          url: 'http://192.168.2.165:8081/medicalcard/getopenid',
+          url: '/medicalcard/getopenid',
           method: "post",
           data: {
             "openId": res.code
@@ -87,7 +84,7 @@ Page({
             console.log(openId)
             app.globalData.openId = openId
             wx.request({
-              url: 'http://192.168.2.165:8081/common/getweachat',//获取游客记录
+              url: '/common/getweachat',//获取游客记录
               method: "post",
               data: {
                 "hospitalID": openId,

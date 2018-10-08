@@ -80,7 +80,7 @@ Page({
       transData: transData
     })
     wx.request({
-      url: 'http://192.168.2.165:8081/booking/getbookingdocresource',
+      url: '/booking/getbookingdocresource',
       method: "post",
       data: {
         "docCode": objects.docCode,
@@ -106,7 +106,7 @@ Page({
         // }
         // 请求是否已经收藏
         wx.request({
-          url: 'http://192.168.2.165:8081/medicalcard/checkDoc',
+          url: '/medicalcard/checkDoc',
           method: "post",
           data: {
             "docID": that.data.date.docCode,
@@ -305,7 +305,7 @@ Page({
     // 获取医生信息详情
     var that = this
     wx.request({
-      url: 'http://192.168.2.165:8081/booking/getbookingdocresource',
+      url: '/booking/getbookingdocresource',
       method: "post",
       data: {
         "docCode": that.data.date.docCode,

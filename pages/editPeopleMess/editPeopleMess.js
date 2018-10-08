@@ -19,7 +19,7 @@ Page({
   onLoad: function (options) {
     let that =this;
     wx.request({
-      url: 'http://192.168.2.165:8081/medicalcard/checkweachat',
+      url: '/medicalcard/checkweachat',
       method: "post",
       data: {
         "openId": app.globalData.openId
@@ -28,7 +28,7 @@ Page({
         console.log(res)
         if(res.success){
           wx.request({
-            url: 'http://192.168.2.165:8081/medicalcard/getweachat',
+            url: '/medicalcard/getweachat',
             method:"post",
             data: {
               "openId": app.globalData.openId
@@ -164,7 +164,7 @@ Page({
     if (that.data.link1 && that.data.link2 && that.data.link3) {
       if (this.data.exist) {
         wx.request({
-          url: 'http://192.168.2.165:8081/medicalcard/updateweachat',
+          url: '/medicalcard/updateweachat',
           method: "post",
           data: {
             "openId": app.globalData.openId,
@@ -195,7 +195,7 @@ Page({
         })
       } else {
         wx.request({
-          url: 'http://192.168.2.165:8081/medicalcard/insertweachat',
+          url: '/medicalcard/insertweachat',
           method: "post",
           data: {
             "openId": app.globalData.openId,
