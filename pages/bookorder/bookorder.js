@@ -1,4 +1,5 @@
 // pages/bookorder/bookorder.js
+const app = getApp();
 Page({
 
   /**
@@ -112,7 +113,7 @@ Page({
           "hospitalUserID": this.data.patientMessage.openId,
           "patientID": this.data.patientMessage.patientID,
           "accessToken": this.data.accessToken,
-          "openUserID": "2088022943884345",
+          "openUserID": app.globalData.openId,
           "id": this.data.patientMessage.id
         },
         success: function (res) {

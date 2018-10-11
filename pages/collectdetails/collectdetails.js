@@ -86,7 +86,7 @@ Page({
         "docCode": objects.docCode,
         "day": that.data.showDate,
         "accessToken": that.data.accessToken,
-        "openUserID": "2088022943884345",
+        "openUserID": app.globalData.openId,
       },
       success: function (res) {
         console.log(res)
@@ -311,7 +311,7 @@ Page({
         "docCode": that.data.date.docCode,
         "day": that.data.showDate,
         "accessToken": that.data.accessToken,
-        "openUserID": "2088022943884345",
+        "openUserID": app.globalData.openId,
       },
       success: function (res) {
         that.setData({

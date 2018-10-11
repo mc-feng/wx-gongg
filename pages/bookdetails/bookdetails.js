@@ -1,3 +1,4 @@
+const app = getApp();
 Page({
   /**
    * 页面的初始数据
@@ -140,13 +141,13 @@ Page({
     let that = this;
     //默认发送后一天日期
     let datetime = "";
-    if (that.data.nowmonth < 10 && that.data.nowdate >= 10) {
+    if (that.data.nowmonth < 10 && that.data.nowdate+1 >= 10) {
       datetime = that.data.year + "-" + "0" + that.data.nowmonth + "-" + (that.data.nowdate + 1);
-    } else if (that.data.nowmonth < 10 && that.data.nowdate < 10 ) {
+    } else if (that.data.nowmonth < 10 && that.data.nowdate+1 < 10 ) {
       datetime = that.data.year + "-" + "0" + that.data.nowmonth + "-" + "0" + (that.data.nowdate + 1);
-    } else if (that.data.nowmonth >= 10 && that.data.nowdate < 10 ){
+    } else if (that.data.nowmonth >= 10 && that.data.nowdate+1 < 10 ){
       datetime = that.data.year + "-"  + that.data.nowmonth + "-" + "0" + (that.data.nowdate + 1);
-    } else if (that.data.nowmonth >= 10 && that.data.nowdate >=10){
+    } else if (that.data.nowmonth >= 10 && that.data.nowdate+1 >=10){
       datetime = that.data.year + "-" + that.data.nowmonth + "-" + (that.data.nowdate + 1);
     }
     that.setData({
@@ -162,7 +163,7 @@ Page({
         "deptCode": that.data.transferData.id,
         "day": datetime,
         "accessToken": that.data.accessToken,
-        "openUserID": "2088022943884345",
+        "openUserID": app.globalData.openId,
       },
       success: function (res) {
         console.log(res)

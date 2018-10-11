@@ -296,7 +296,7 @@ Page({
         data: {
           "cardProperty": this.data.index,
           "cardType": this.data.currentTab,
-          "openUserID": "2088022943884345",
+          "openUserID": app.globalData.openId,
           "cardNo": this.data.medicareCard,
           "certType": "0",
           "openIDCard": this.data.identityCard,
@@ -316,9 +316,27 @@ Page({
           let transData = JSON.stringify(addMessage)
           let str = JSON.stringify(res)
           console.log(res);
-          wx.navigateTo({
-            url: '../chooseHospital/chooseHospital?cardData=' + str + "&transData=" + transData,
-          })
+          if (res.success) {
+            wx.showToast({
+              icon: "none",
+              title: res.message,
+              duration: 1500
+            })
+            setTimeout((() => {
+              wx.navigateTo({
+                url: '../chooseHospital/chooseHospital?cardData=' + str + "&transData=" + transData,
+              })
+            }), 1000)
+          } else {
+            wx.showToast({
+              icon: "none",
+              title: res.message,
+              duration: 1500
+            })
+            that.setData({
+              link5: true
+            })
+          }
         }
       })
       // wx.request({
@@ -333,7 +351,7 @@ Page({
       //     "cardType": 0,
       //     "cardProperty": this.data.index,
       //     "accessToken": this.data.accessToken,
-      //     "openUserID": "2088022943884345",
+      //     "openUserID": app.globalData.openId,
       //   },
       //   success: function (res) {
       //     console.log(res)

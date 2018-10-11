@@ -43,7 +43,7 @@
           <view class='radius'></view>
           <view class='radius2'></view>
           <!-- 与就诊人的关系 -->
-          <view class='relation {{relations[index]=="待就诊"?"":"gray"}}'>{{relations[index]}}
+          <view class='relation {{relations[index]=="已预约"?"":"gray"}}'>{{relations[index]}}
             <view class='trigon'></view>
           </view>
         </view>

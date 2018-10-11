@@ -115,7 +115,7 @@ Page({
               that.data.relation.push("已取消");
               break;
             case "1":
-              that.data.relation.push("待就诊")
+              that.data.relation.push("已预约")
               break;
             case "2":
               that.data.relation.push("已挂号")

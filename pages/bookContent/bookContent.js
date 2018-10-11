@@ -1,4 +1,5 @@
 // pages/bookContent/bookContent.js
+const app = getApp();
 Page({
 
   /**
@@ -38,7 +39,7 @@ Page({
       data:{
         "dataSource": options.data,
         "accessToken": that.data.accessToken,
-        "openUserID": "2088022943884345",
+        "openUserID": app.globalData.openId,
       },
       success:function(res){
         that.setData({
@@ -113,7 +114,7 @@ Page({
             data:{
               "bookingID": that.data.bookingID,
               "accessToken": that.data.accessToken,
-              "openUserID": "2088022943884345",
+              "openUserID": app.globalData.openId,
             },
             success:function(res){
               that.setData({

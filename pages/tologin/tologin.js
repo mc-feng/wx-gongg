@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    canIUse:true
   },
 
   /**
@@ -68,39 +68,51 @@ Page({
     //此处授权得到userInfo
     console.log(e.detail.userInfo);
     //接下来写业务代码
-    app.globalData.userInfo = e.detail.userInfo
-    wx.login({
-      success: res => {
-        console.log(res.code)
-        wx.request({
-          url: '/medicalcard/getopenid',
-          method: "post",
-          data: {
-            "openId": res.code
-          },
-          success: function (res) {
-            console.log(res)
-            var openId = res.result
-            console.log(openId)
-            app.globalData.openId = openId
-            wx.request({
-              url: '/common/getweachat',//获取游客记录
-              method: "post",
-              data: {
-                "hospitalID": openId,
-                "hospitalName": app.globalData.userInfo.nickName
-              },
-              success: function (res) {
-                console.log(res)
-              }
-            })
+    if (e.detail.userInfo){
+      app.globalData.userInfo = e.detail.userInfo
+      // wx.login({
+      //   success: res => {
+      //     console.log(res.code)
+      //     wx.request({
+      //       url: '/medicalcard/getopenid',
+      //       method: "post",
+      //       data: {
+      //         "openId": res.code
+      //       },
+      //       success: function (res) {
+      //         console.log(res)
+      //         var openId = res.result
+      //         console.log(openId)
+      //         app.globalData.openId = openId
+      //         wx.request({
+      //           url: '/common/getweachat',//获取游客记录
+      //           method: "post",
+      //           data: {
+      //             "hospitalID": openId,
+      //             "hospitalName": app.globalData.userInfo.nickName
+      //           },
+      //           success: function (res) {
+      //             console.log(res)
+      //           }
+      //         })
+      //       }
+      //     })
+      //   }
+      // })
+      //最后，记得返回刚才的页面
+      wx.switchTab({
+        url: '../index/index',
+      })
+    }else{
+      wx.showModal({ 
+        title: '警告', 
+        content: '您点击了拒绝授权，将无法进入小程序，请授权之后再进入!!!', 
+        showCancel: false, 
+        confirmText: '返回授权', 
+        success: function (res) { 
+          if (res.confirm) { console.log('用户点击了“返回授权”') } 
           }
-        })
-      }
-    })
-    //最后，记得返回刚才的页面
-    wx.navigateBack({
-      delta: 1
-    })
+       })
+    }
   }
 })

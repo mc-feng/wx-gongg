@@ -7,7 +7,7 @@
   <!-- 主体显示 -->
   <view class='bookordermain-wrap'>
     <view class='bookordermain'>
-        <view class='relation {{relations =="待就诊"?"":"gray"}}'>{{relations}}
+        <view class='relation {{relations =="已预约"?"":"gray"}}'>{{relations}}
             <view class='trigon'></view>
         </view>
         <!-- 列表 -->
@@ -59,12 +59,12 @@
       <!-- 取号 -->
       <view class='tokeNumber'>
           <view class='toke-title'>预约号码</view>
-          <view class='number {{relations =="待就诊"?"":"dark"}}'>{{data.bookingID}}</view>
+          <view class='number {{relations =="已预约"?"":"dark"}}'>{{data.bookingID}}</view>
       </view>
     </view>
   </view>
   <!-- 按钮 -->
-  <view class='newbuttun {{relations =="待就诊"?"":"disno"}}' bindtap='cancel'>
+  <view class='newbuttun {{relations =="已预约"?"":"disno"}}' bindtap='cancel'>
     取消预约
   </view>
   <!-- 尾部显示 -->

@@ -326,7 +326,7 @@ Page({
       data: {
         "cardProperty": this.data.index,
         "cardType": this.data.currentTab,
-        "openUserID": "2088022943884345",
+        "openUserID": app.globalData.openId,
         "cardNo": this.data.medicareCard,
         "certType": "0",
         "openIDCard": this.data.identityCard,
@@ -348,6 +348,7 @@ Page({
         console.log(res);
         if(res.success){
           wx.showToast({
+            icon:"none",
             title: res.message,
             duration:1500
           })
@@ -358,6 +359,7 @@ Page({
           }),1000)
         }else{
           wx.showToast({
+            icon: "none",
             title: res.message,
             duration: 1500
           })

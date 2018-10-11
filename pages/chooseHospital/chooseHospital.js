@@ -1,4 +1,5 @@
 // pages/chooseHospital/chooseHospital.js
+const app = getApp();
 Page({
 
   /**
@@ -99,7 +100,7 @@ Page({
         "cardType": that.data.transData.cardType,
         "cardProperty": that.data.transData.cardProperty,
         "accessToken": that.data.accessToken,
-        "openUserID": "2088022943884345",
+        "openUserID": app.globalData.openId,
         "extInfo": e.currentTarget.dataset.hosname
       },
       success: function (res) {

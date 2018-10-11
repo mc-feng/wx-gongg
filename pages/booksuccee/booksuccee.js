@@ -1,4 +1,5 @@
 // pages/booksuccee/booksuccee.js
+const app = getApp();
 Page({
 
   /**
@@ -98,7 +99,7 @@ Page({
             data:{
               "bookingID": that.data.result,
               "accessToken": that.data.accessToken,
-              "openUserID": "2088022943884345",
+              "openUserID": app.globalData.openId,
             },
             success:function(res){
               console.log(res)

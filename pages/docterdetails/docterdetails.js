@@ -102,7 +102,7 @@ Page({
         "docCode": objects.doccode,
         "day": objects.now.trim(),
         "accessToken": that.data.accessToken,
-        "openUserID": "2088022943884345",
+        "openUserID": app.globalData.openId,
       },
       success: function (res) {
         console.log(res)

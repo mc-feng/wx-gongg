@@ -67,6 +67,7 @@ Page({
             }, 2000)
           }
           wx.showToast({
+            icon: "none",
             title: res.message,
             duration: 2000
           })
@@ -74,6 +75,7 @@ Page({
       })
     }else{
       wx.showToast({
+        icon:"none",
         title: '您还有选项没有填写',
         duration: 2000
       })

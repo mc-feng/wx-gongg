@@ -50,6 +50,37 @@ App({
     //   }
     // })
     // 登录
+    wx.login({
+      success: res => {
+        console.log(res.code)
+        let that = this
+        wx.request({
+          url: '/medicalcard/getopenid',
+          method: "post",
+          data: {
+            "openId": res.code
+          },
+          success: function (res) {
+            console.log(res)
+            var openId = res.result
+            console.log(openId)
+            that.globalData.openId = openId
+            wx.request({
+              url: '/common/getweachat',//获取游客记录
+              method: "post",
+              data: {
+                "hospitalID": openId,
+                "hospitalName": that.globalData.userInfo.nickName
+              },
+              success: function (res) {
+                console.log(res)
+              }
+            })
+          }
+        })
+      }
+    })
+    //检查登录
     wx.checkSession({
       success:function(e){
         console.log("没有过期")
@@ -115,6 +146,7 @@ App({
         }
         //获取游客头像和登录信息
         if (res.authSetting['scope.userInfo']) {
+          console.log("来了")
           let that = this
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
@@ -123,35 +155,6 @@ App({
               //保存用户信息和头像
               that.globalData.userInfo = res.userInfo
               //用户登录
-              wx.login({
-                success: res => {
-                  console.log(res.code)
-                  wx.request({
-                    url: '/medicalcard/getopenid',
-                    method: "post",
-                    data: {
-                      "openId": res.code
-                    },
-                    success: function (res) {
-                      console.log(res)
-                      var openId = res.result
-                      console.log(openId)
-                      that.globalData.openId = openId
-                      wx.request({
-                        url: '/common/getweachat',//获取游客记录
-                        method: "post",
-                        data: {
-                          "hospitalID": openId,
-                          "hospitalName": that.globalData.userInfo.nickName
-                        },
-                        success: function (res) {
-                          console.log(res)
-                        }
-                      })
-                    }
-                  })
-                }
-              })
               // 可以将 res 发送给后台解码出 unionId
               // this.globalData.userInfo = user
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
@@ -162,8 +165,9 @@ App({
             }
           })
         }else{
-          wx.navigateTo({
-            url: '../tologin/tologin',
+          console.log("跳了")
+          wx.reLaunch({
+            url: '/pages/tologin/tologin',
           })
           //获取用户信息失败后。请跳转授权页面
           // wx.showModal({
@@ -179,6 +183,9 @@ App({
           //   }
           // })
         }
+      },
+      fail:res=>{
+        console.log("失败了")
       }
     })
   },

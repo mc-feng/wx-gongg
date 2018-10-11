@@ -55,26 +55,31 @@
         </view>
         <view class='fuwu-subnav'>
           <scroll-view scroll-x="true" class='hometips-subnav'>
-           <navigator url='../individalService/survey/survey'>
+            <navigator url='../tips/tips'>
               <image src='../../images/homeimages/manyidu1@2x.png'>
-                <text>满意度调查</text>
+                <text>报告解读</text>
               </image>
-           </navigator>
-           <navigator>
-            <image src='../../images/homeimages/xiaogongju2@2x.png'>
-              <text>健康小工具</text>
-            </image>
-          </navigator> 
-          <navigator url='../individalService/messageList/messageList'>
-            <image src='../../images/homeimages/zixun3@2x.png'>
-              <text>健康资讯</text>
-            </image>
-          </navigator>
-          <navigator url='../individalService/healthMission/healthMission'>
-            <image src='../../images/homeimages/xuanjiao4@2x.png'>
-              <text>健康宣教</text>
-            </image>
-          </navigator>
+            </navigator>
+            <navigator url='../out/out'>
+              <image src='../../images/homeimages/zhinengwenyao@2x.png'>
+                <text>智能问药</text>
+              </image>
+            </navigator> 
+            <!-- <navigator url='../individalService/messageList/messageList'>
+              <image src='../../images/homeimages/zixun3@2x.png'>
+                <text>健康资讯</text>
+              </image>
+            </navigator> -->
+            <navigator url='../individalService/healthMission/healthMission'>
+              <image src='../../images/homeimages/xuanjiao4@2x.png'>
+                <text>健康宣教</text>
+              </image>
+            </navigator>
+            <navigator url='../individalService/survey/survey'>
+                <image src='../../images/homeimages/zixun3@2x.png'>
+                  <text>满意度调查</text>
+                </image>
+            </navigator>
           </scroll-view>
         </view>
       </view>

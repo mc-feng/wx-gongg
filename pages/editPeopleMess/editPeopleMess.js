@@ -144,6 +144,7 @@ Page({
         link3: false
       })
       wx.showToast({
+        icon:"none",
         title: '身份证号不能为空',
       })
     } else if (!idreg.test(identityCard)) {
