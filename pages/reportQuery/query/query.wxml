@@ -1,0 +1,46 @@
+<!--pages/reportQuery/query/query.wxml-->
+<block wx:if="{{loading}}">
+  <loading>
+        加载中...
+  </loading>
+</block>
+<block wx:else>
+  <!-- 头部信息 -->
+  <view class='header'>
+      <view class='header-font'>{{showChoose[index]}}</view>
+    <!-- 底部弹出选择人信息 -->
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{showChoose}}">
+        <image src='../../../images/personimages/changeUser.png' class='changeUser'></image>
+    </picker>
+  </view>
+  <!--查询报告单首页 -->
+  <view class='report-kind'>
+   <view class='report-kind-font'>检验报告单</view>
+   <image src='../../../images/homeimages/blackSword.png'></image>
+  </view>
+  <view class='report-kind'>
+   <view class='report-kind-font'>超声报告单</view>
+   <image src='../../../images/homeimages/blackSword.png'></image>
+  </view>
+  <view class='report-kind'>
+   <view class='report-kind-font'>放射报告单</view>
+   <image src='../../../images/homeimages/blackSword.png'></image>
+  </view>
+  <view class='report-kind'>
+   <view class='report-kind-font'>病理报告单</view>
+   <image src='../../../images/homeimages/blackSword.png'></image>
+  </view>
+  <view class='report-kind'>
+   <view class='report-kind-font'>体检报告</view>
+   <image src='../../../images/homeimages/blackSword.png'></image>
+  </view>
+  <view class='report-tips'>
+    <view>温馨提示：</view>
+    <view>1、检验报告：查看血常规、尿检等生化类报告单信息；</view>
+    <view>2、超声报告：查看B超类报告单信息；</view>
+    <view>3、放射报告：查看X光、CT、MRI(磁共振）等类报告单信息；</view>
+    <view>4、病理报告：产看病例报告单信息；</view>
+    <view>5、体检报告：查看体检报告信息。</view>
+  </view>
+    <!-- 底部弹出选择器 -->
+</block>

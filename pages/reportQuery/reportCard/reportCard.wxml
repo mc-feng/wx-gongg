@@ -1,0 +1,37 @@
+<!--pages/reportQuery/reportCard/reportCard.wxml-->
+<block wx:if="{{loading}}">
+  <loading>
+        加载中...
+  </loading>
+</block>
+<block wx:else>
+  <!-- 头部信息 -->
+  <view class='header'>
+   <view>日期</view>
+   <view>编号</view>
+   <view>详情</view>
+  </view>
+  <block wx:if="{{paremtList.length==0}}">
+    <view class='no-result'>近一个月无报告</view>
+  </block>
+  <block wx:else> 
+    <view class='card-content'>
+      <view>2018-10-09 12:30</view>
+      <view class='mid-content'>Abc012345</view>
+      <image src='../../../images/homeimages/blackSword.png'></image>
+    </view>
+    <view class='card-content'>
+      <view>2018-10-09 12:30</view>
+      <view class='mid-content'>Abc012345</view>
+      <image src='../../../images/homeimages/blackSword.png'></image>
+    </view>
+    <view class='card-content'>
+      <view>2018-10-09 12:30</view>
+      <view class='mid-content'>Abc012345</view>
+      <image src='../../../images/homeimages/blackSword.png'></image>
+    </view>
+  </block>
+  <view class='more'>显示更多</view>
+</block>
+
+

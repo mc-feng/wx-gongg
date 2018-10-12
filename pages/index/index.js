@@ -22,15 +22,16 @@ Page({
     ],
     mainNavs:[
       { 'word': '预约挂号', "url": "../book/books", "src":"../../images/homeimages/guahao@2x.png"},
-      { 'word': '诊间付费', "url": "../tips/tips", "src": "../../images/homeimages/fufei@2x.png"},
+      { 'word': '排队叫号', "url": "../tips/tips", "src": "../../images/homeimages/jiaohao.png"},
       { 'word': '咨询医生', "url": "../expertConsultation/expertDetails/expertDetails", "src": "../../images/homeimages/yisheng@2x.png"},
       { 'word': '报告查询', "url": "../tologin/tologin", "src": "../../images/homeimages/baogao@2x.png"},
+      { 'word': '诊间付费', "url": "../reportQuery/query/query", "src": "../../images/homeimages/fufei@2x.png"},
       { 'word': '住院预约', "url": "../tips/tips", "src": "../../images/homeimages/zhuyuan@2x.png"},
       { 'word': '手术方案', "url": "../tips/tips", "src": "../../images/homeimages/shoushu@2x.png"},
-      { 'word': '体验服务', "url": "../tips/tips", "src": "../../images/homeimages/tijian@2x.png"},
-      { 'word': '更多服务', "url": "../tips/tips", "src": "../../images/homeimages/gengduo@2x.png"}
+      { 'word': '体验服务', "url": "../tips/tips", "src": "../../images/homeimages/tijian@2x.png"}
     ],
     imgUrls: [],
+    newList:[],
     links: [
       '../messageContent/messageContent?id=',
 
@@ -38,8 +39,6 @@ Page({
 
       '../messageContent/messageContent?id='
     ],
-    lei:0,
-    lei2:3
   },
   //事件处理函数
   bindViewTap: function() {
@@ -54,7 +53,7 @@ Page({
        method:"post",
        data: {
          "id": "",
-         "type":this.data.lei
+         "type":0
        },
        success:function(res){
          console.log(res)
@@ -68,12 +67,27 @@ Page({
       method: "post",
       data: {
         "id": "",
-        "type": this.data.lei2
+        "type":3
       },
       success: function (res) {
         console.log(res)
         that.setData({
           msgList: res.result
+        })
+      }
+    })
+    wx.request({
+      url: '/medicalcard/selectphototitle',
+      method: "post",
+      data: {
+        "type":1,
+        "id":1,
+        "status":3
+      },
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          newList: res.result
         })
       }
     })
@@ -98,14 +112,20 @@ Page({
     console.log(this.data.swiperCurrent);
     var str = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: this.data.links[this.data.swiperCurrent] + str + "&lei=" + this.data.lei
+      url: this.data.links[this.data.swiperCurrent] + str + "&lei=" +0
     })
   },
   //点击公告触发时间
   noticeClick:function(e){
     var str = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '../messageContent/messageContent?id=' + str + "&lei=" + this.data.lei2
+      url: '../messageContent/messageContent?id=' + str + "&lei=" +3
+    })
+  },
+  newsClick: function (e) {
+    var str = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '../messageContent/messageContent?id=' + str + "&lei=" + 1
     })
   },
   onPageScroll: function (res) {

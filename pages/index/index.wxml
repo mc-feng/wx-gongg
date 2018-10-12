@@ -48,10 +48,10 @@
             </navigator>
         </block>
        </view>
-     </view>
-     <view class='sub-main'>
+  </view>
+  <view class='sub-main'>
         <view class='main-header'>
-            个性化服务
+            人性化服务
         </view>
         <view class='fuwu-subnav'>
           <scroll-view scroll-x="true" class='hometips-subnav'>
@@ -75,12 +75,24 @@
                 <text>健康宣教</text>
               </image>
             </navigator>
-            <navigator url='../individalService/survey/survey'>
+            <navigator url='../individalService/survey/survey' class='last-item'>
                 <image src='../../images/homeimages/zixun3@2x.png'>
-                  <text>满意度调查</text>
+                  <text class='more'>满意度调查</text>
                 </image>
             </navigator>
           </scroll-view>
         </view>
-      </view>
+  </view>
+  <view class='three-main'>
+        <navigator url='../individalService/messageList/messageList' class='main-header'>
+            健康资讯
+            <view class='three-more'>
+               查看更多
+               <image src='../../images/homeimages/sword.png'></image>
+            </view>
+        </navigator>
+        <block wx:for="{{newList}}" wx:key="{{item.id}}">
+         <view class='news-list' data-id="{{item.id}}" bindtap="newsClick">{{item.title}}</view>
+        </block>
+  </view>
 </view>

@@ -30,7 +30,9 @@
     "pages/tologin/tologin",
     "pages/tips/tips",
     "pages/expertConsultation/record/record",
-    "pages/expertConsultation/expertDetails/expertDetails"
+    "pages/expertConsultation/expertDetails/expertDetails",
+    "pages/reportQuery/query/query",
+    "pages/reportQuery/reportCard/reportCard"
   ],
   "window":{
     "navigationBarBackgroundColor": "#FFFFFF",

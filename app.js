@@ -84,8 +84,6 @@ App({
     wx.checkSession({
       success:function(e){
         console.log("没有过期")
-        console.log(Dec.Encrypt("sss"))
-        console.log(Dec.Decrypt(Dec.Encrypt("sss")))
       },
       fail:function(){
         console.log("过期了")

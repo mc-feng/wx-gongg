@@ -154,13 +154,50 @@ swiper-item image {
    margin-right: 8rpx;
 }
 .hometips-subnav text{
-  left: 40rpx;
+  left:52rpx;
   top:30rpx;
   position: absolute;
   font-family: PingFangSC-Regular;
   font-size: 13px;
   color: #232323;
 }
+.hometips-subnav .more{
+  left: 40rpx
+}
 .hometips-subnav navigator{
   display: inline-block
+}
+.hometips-subnav .last-item{
+  padding-right: 30rpx
+}
+.three-main .main-header{
+  height: 100rpx;
+  font-family: PingFangSC-Medium;
+  font-size: 34rpx;
+  color: #232323;
+  font-weight: 600;
+  position: relative
+}
+ .three-more{
+   position: absolute;
+   top: -2rpx;
+   right: 28rpx;
+   font-size: 24rpx;
+   color: #a3a3a3;
+   font-weight: normal;
+   display: flex;
+   flex-flow: row nowrap;
+   align-items: center
+ }
+ .three-more image{
+   margin-left: 10rpx;
+   width: 14rpx;
+   height: 24rpx;
+ }
+.news-list{
+  padding: 26rpx 50rpx 26rpx 40rpx;
+  border-bottom: 2rpx solid #f0f0f0;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #232323;
 }

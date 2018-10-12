@@ -1,0 +1,62 @@
+/* pages/reportQuery/query/query.wxss */
+page{
+  background: #F5F7F9;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center
+}
+.header{
+  height: 96rpx;
+  width: 100%;
+  background:  #0D86EB;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center
+}
+.header-font{
+  margin-left: 30rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  font-family: PingFangSC-Medium;
+  font-size: 34rpx;
+  color: #FFFFFF;
+  letter-spacing: 0;
+}
+.changeUser{
+  width: 40rpx;
+  height: 44rpx;
+  margin-right: 30rpx;
+}
+.report-kind{
+  width: 100%;
+  padding: 30rpx 0rpx;
+  background: #FFFFFF;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #000000;
+  letter-spacing: 0;
+  text-align: center;
+  margin-bottom:2rpx
+}
+.report-kind-font{
+  margin-left: 26rpx
+}
+.report-kind image{
+  width: 12rpx;
+  height: 24rpx;
+  margin-right: 26rpx
+}
+.report-tips{
+  margin: 72rpx 28rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 22rpx;
+  color: #A3A3A3;
+  letter-spacing: 0;
+  line-height: 40rpx;
+}
