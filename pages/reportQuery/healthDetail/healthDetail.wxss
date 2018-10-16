@@ -1,0 +1,41 @@
+/* pages/reportQuery/healthDetail/healthDetail.wxss */
+.swiper-tab{
+	width: 100%;
+	text-align: center;
+}
+.swiper-tab-list{ 
+  font-size: 32rpx;
+  height: 80rpx; 
+	line-height: 80rpx;
+  font-family: Arial;
+  display: inline-block;
+	width: 16.66%;
+	color: #000000 ;
+	border-bottom: 2rpx solid #D8D8D8;
+}
+.on{ 
+  color: #0D86EB;
+	border-bottom: 4rpx solid #0D86EB;
+}
+.report-title{
+  background: #F6F9FB;
+  height: 70rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.title-icon{
+  height: 28rpx;
+  width: 4rpx;
+  background: #0D86EB;
+  margin-left: 26rpx;
+}
+.title-font{
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #000000;
+  letter-spacing: -0.48rpx;
+  text-align: center;
+  line-height: 34rpx;
+  margin-left: 6rpx;
+}

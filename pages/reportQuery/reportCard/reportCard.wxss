@@ -8,8 +8,40 @@
   color: #FFFFFF;
   display: flex;
   flex-flow: row nowrap;
+  align-items: center;
+  vertical-align: middle
+}
+.header view{
+  height: 48rpx;
+  line-height: 48rpx;
+  font-family: PingFangSC-Medium;
+  font-size: 34rpx;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  text-align: center
+}
+.message{
+  margin-left: 20rpx;
+}
+.number{
+  margin-top: 5rpx;
+}
+.data{
+  padding: 0rpx 28rpx 0 26rpx;
+  background: #F1F5F8;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
   justify-content: space-between;
-  align-items: center
+  height: 70rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #232323;
+  letter-spacing: 0;
+}
+.data image{
+  height: 32rpx;
+  width: 32rpx;
 }
 .no-result{
   height: 254rpx;
@@ -29,9 +61,6 @@
   font-family: PingFangSC-Regular;
   font-size: 28rpx;
   color: #000000;
-}
-.mid-content{
-  margin-left: -150rpx;
 }
 .card-content image{
   width: 16rpx;

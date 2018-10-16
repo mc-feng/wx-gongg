@@ -6,7 +6,7 @@ wxApiInterceptors()
 wxApiInterceptors({
   request: {
     request(params) {
-      const host = 'http://192.168.2.165:8081'
+      const host = 'http://212.64.52.152:8081'
       if (!/^(http|\/\/)/.test(params.url)) {
         params.url = host + params.url;
       }//设置默认host

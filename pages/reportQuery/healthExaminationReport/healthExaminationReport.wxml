@@ -1,0 +1,28 @@
+<!--pages/reportQuery/healthExaminationReport/healthExaminationReport.wxml-->
+<view class='report-title'>
+  <view class='title-icon'></view>
+  <view class='title-font'>体检结论</view>
+</view>
+<view class='report-conclusion'>
+ <view class='conclusion-font'>1、舒张压低</view>
+ <view class='conclusion-font'>2、慢性咽炎</view>
+ <view class='conclusion-font'>3、47残冠</view>
+ <view class='conclusion-font'>4、牙结石</view>
+ <view class='conclusion-font'>5、右侧甲状腺多发结节</view>
+</view>
+<view class='report-title'>
+  <view class='title-icon'></view>
+  <view class='title-font'>体检建议</view>
+</view>
+<view class='report-suggest'>
+    <view> 1、舒张压低</view>
+    <view> 肝脏大小形态正常，肝包膜平整，肝实质回声细腻增强，分布均匀，后肠伴回声衰减，肝内管道走形纤细，肝内胆管无扩张。门静脉内径：11mm</view>
+    <view> 2、慢性咽炎</view>
+    <view> 肝脏大小形态正常，肝包膜平整，肝实质回声细腻增强，分布均匀，后肠伴回声衰减，肝内管道走形纤细，肝内胆管无扩张。门静脉内径：11mm</view>
+    <view> 3、47残冠</view>
+    <view> 肝脏大小形态正常，肝包膜平整，肝实质回声细腻增强，分布均匀，后肠伴回声衰减，肝内管道走形纤细，肝内胆管无扩张。门静脉内径：11mm</view>
+</view>
+<view class='bottom-buttun'>
+  <view class='buttun1'>报告详情</view>
+  <view class='buttun2'>报告解读</view>
+</view>

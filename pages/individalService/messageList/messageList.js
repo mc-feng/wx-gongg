@@ -23,6 +23,9 @@ Page({
        "type": this.data.lei
      },
      success:function(res){
+       for (var i = 0; i < res.result.length;i++){
+         res.result[i].text = res.result[i].text.replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/gi, '')
+       }
        var object1 = res.result.shift()
        console.log(object1)
        console.log(res.result)
@@ -30,7 +33,6 @@ Page({
          dataFirst: object1,
          dataContent: res.result
        })
-       console.log(res)
      }
    })
   },

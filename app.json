@@ -32,7 +32,10 @@
     "pages/expertConsultation/record/record",
     "pages/expertConsultation/expertDetails/expertDetails",
     "pages/reportQuery/query/query",
-    "pages/reportQuery/reportCard/reportCard"
+    "pages/reportQuery/reportCard/reportCard",
+    "pages/reportQuery/xueReport/xueReport",
+    "pages/reportQuery/healthExaminationReport/healthExaminationReport",
+    "pages/reportQuery/healthDetail/healthDetail"
   ],
   "window":{
     "navigationBarBackgroundColor": "#FFFFFF",

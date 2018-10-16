@@ -24,8 +24,8 @@ Page({
       { 'word': '预约挂号', "url": "../book/books", "src":"../../images/homeimages/guahao@2x.png"},
       { 'word': '排队叫号', "url": "../tips/tips", "src": "../../images/homeimages/jiaohao.png"},
       { 'word': '咨询医生', "url": "../expertConsultation/expertDetails/expertDetails", "src": "../../images/homeimages/yisheng@2x.png"},
-      { 'word': '报告查询', "url": "../tologin/tologin", "src": "../../images/homeimages/baogao@2x.png"},
-      { 'word': '诊间付费', "url": "../reportQuery/query/query", "src": "../../images/homeimages/fufei@2x.png"},
+      { 'word': '报告查询', "url": "../reportQuery/query/query", "src": "../../images/homeimages/baogao@2x.png"},
+      { 'word': '诊间付费', "url": "../reportQuery/healthDetail/healthDetail", "src": "../../images/homeimages/fufei@2x.png"},
       { 'word': '住院预约', "url": "../tips/tips", "src": "../../images/homeimages/zhuyuan@2x.png"},
       { 'word': '手术方案', "url": "../tips/tips", "src": "../../images/homeimages/shoushu@2x.png"},
       { 'word': '体验服务', "url": "../tips/tips", "src": "../../images/homeimages/tijian@2x.png"}

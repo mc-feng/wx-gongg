@@ -1,0 +1,22 @@
+<!--pages/reportQuery/healthDetail/healthDetail.wxml-->
+<view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">内科</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">外科</view>
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">眼科</view>
+    <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">耳鼻喉</view>
+    <view class="swiper-tab-list {{currentTab==4 ? 'on' : ''}}" data-current="4" bindtap="swichNav">口腔</view>
+    <view class="swiper-tab-list {{currentTab==5 ? 'on' : ''}}" data-current="5" bindtap="swichNav">心电</view>
+</view>
+<view class='report-title'>
+  <view class='title-icon'></view>
+  <view class='title-font'>初步意见</view>
+</view>
+ 
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:572px" bindchange="bindChange">
+    <!-- 我是哈哈 -->
+    <swiper-item>
+    </swiper-item>
+    <!-- 我是呵呵 -->
+    <swiper-item>
+    </swiper-item>
+</swiper>

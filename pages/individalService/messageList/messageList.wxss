@@ -55,6 +55,8 @@ page{
   font-size: 32rpx;
   color: #232323;
   line-height: 44rpx;
+  height: 44rpx;
+  overflow: hidden;
   width: 328rpx;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -67,8 +69,8 @@ page{
   line-height: 36rpx;
   width: 462rpx;
   text-overflow: ellipsis;
-  overflow: hidden;
   white-space: nowrap;
+  overflow: hidden;
   margin-top: 10rpx
 }
 .message-date{

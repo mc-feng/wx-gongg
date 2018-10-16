@@ -1,0 +1,83 @@
+<!--pages/reportQuery/xueReport/xueReport.wxml-->
+<view class='report-title'>
+  <view class='title-icon'></view>
+  <view class='title-font'>血常规五分类</view>
+</view>
+<view class='xue-content'>
+  <view class='xue-title'>
+    <view>项目</view>
+    <view>结果</view>
+    <view>单位</view>
+    <view>详情</view>
+  </view>
+  <view class='xue-result'>
+    <view class="project">血小板</view>
+    <view class='number'>18</view>
+    <view class='unit'>10^9/L</view>
+    <view class='details' bindtap='expand1'>
+     <image src="{{change1?'../../../images/smallicon/shouqi@2x.png':'../../../images/smallicon/xiala@2x.png'}}"></image>
+    </view>
+    <image src='../../../images/smallicon/reportquery/height@2x.png' class='tips-image'></image>
+  </view>
+  <view class='xue-result'>
+    <view class="project">血小板</view>
+    <view class='number'>18</view>
+    <view class='unit'>10^9/L</view>
+    <view class='details' bindtap='expand1'>
+     <image src="{{change1?'../../../images/smallicon/shouqi@2x.png':'../../../images/smallicon/xiala@2x.png'}}"></image>
+    </view>
+    <image src='../../../images/smallicon/reportquery/low@2x.png' class='tips-image'></image>
+  </view>
+  <view class='xue-result'>
+    <view class="project">血小板</view>
+    <view class='number'>18</view>
+    <view class='unit'>10^9/L</view>
+    <view class='details' bindtap='expand1'>
+     <image src="{{change1?'../../../images/smallicon/shouqi@2x.png':'../../../images/smallicon/xiala@2x.png'}}"></image>
+    </view>
+  </view>
+</view>
+<view class='report-title'>
+  <view class='title-icon'></view>
+  <view class='title-font'>空腹血糖</view>
+</view>
+<view class='xue-content'>
+  <view class='xue-title'>
+    <view>项目</view>
+    <view>结果</view>
+    <view>单位</view>
+    <view>详情</view>
+  </view>
+  <view class='xue-result'>
+    <view class="project">血小板</view>
+    <view class='number'>18</view>
+    <view class='unit'>10^9/L</view>
+    <view class='details' bindtap='expand'>
+     <image src="{{change?'../../../images/smallicon/shouqi@2x.png':'../../../images/smallicon/xiala@2x.png'}}"></image>
+    </view>
+  </view>
+  <block wx:if="{{change}}">
+      <view class='view-content'>
+        <view class='view-image'>
+          <view class='view-rectangle'>
+            <view class='rectangle-left-raduis'></view>
+            <view class='rectangle-left'></view>
+            <view class='rectangle-mid'></view>
+            <view class='rectangle-right'></view>
+            <view class='rectangle-raduis'><view class='raduis-font'>4.24</view></view>
+            <view class='rectangle-right-raduis'></view>
+          </view>
+          <view class='rectangle-bottom'>
+            <view class='di'>低</view>
+            <view class='number1'>3.9</view>
+            <view class='zhong'>中</view>
+            <view class='number2'>6.1</view>
+            <view class='gao'>高</view>
+          </view>
+        </view>
+        <view class='content-font'>
+         空腹血糖(GLU)是指在隔夜空腹(至少8～10小时未进任何食物，饮水除外）后，早餐前采的血，所检定的血糖值，为糖尿病最常见的检测指标，反应胰岛细胞功能，一半代表基础胰岛素的分泌功能
+        </view>
+      </view>
+  </block>
+</view>

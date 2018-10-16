@@ -1,0 +1,75 @@
+/* pages/reportQuery/healthExaminationReport/healthExaminationReport.wxss */
+page{
+  background: #F6F9FB;
+  padding-bottom: 222rpx
+}
+.report-title{
+  height: 70rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.title-icon{
+  height: 28rpx;
+  width: 4rpx;
+  background: #0D86EB;
+  margin-left: 26rpx;
+}
+.title-font{
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #000000;
+  letter-spacing: -0.48rpx;
+  text-align: center;
+  line-height: 34rpx;
+  margin-left: 6rpx;
+}
+.report-conclusion{
+  background: #ffffff;
+  padding: 20rpx 0 14rpx 36rpx;
+}
+.conclusion-font{
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #232323;
+  letter-spacing: 0;
+  line-height: 44rpx;
+}
+.report-suggest{
+  background: #ffffff;
+  padding: 30rpx 28rpx 24rpx 36rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 13px;
+  color: #232323;
+  letter-spacing: 0;
+  line-height: 22px;
+}
+.bottom-buttun{
+  display: flex;
+  flex-flow: row nowrap;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  height: 96rpx;
+  width: 100%;
+}
+.buttun1{
+  width: 50%;
+  background:#ffffff;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #0D86EB;
+  letter-spacing: -0.74rpx;
+  text-align: center;
+  line-height: 96rpx;
+}
+.buttun2{
+  width: 50%;
+  background:#0D86EB;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #ffffff;
+  letter-spacing: -0.74rpx;
+  text-align: center;
+  line-height: 96rpx;
+}
