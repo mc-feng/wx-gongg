@@ -32,10 +32,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.data.relation = []
-    this.data.show = []
     console.log(app.globalData.openId)
     var that = this
+    wx.request({
+      url: '/report/getjianyanreportlist',
+      method:"post",
+      data:{
+        "openUserID": app.globalData.openId
+      },
+      success:function(res){
+        console.log(res)
+      }
+    })
     // wx.request({
     //   url: '/booking/getpatientlist',
     //   method: "post",
@@ -152,6 +160,6 @@ Page({
     //     })
     //   }
     // })
-    console.log(this.data.choose[e.detail.value].patientID)
+    // console.log(this.data.choose[e.detail.value].patientID)
   }
 })

@@ -1,0 +1,99 @@
+<!--pages/reportReading/dataEnter/dataEnter.wxml-->
+<view class='tips'>化验结果准确是正确诊断的基础，请务必认真核对和修正，确保无误再上传。</view>
+<view class='complete-tips'>
+  <text class='complete-font'>您的健康档案未完善基本信息，为了获得更准确的异常指标提醒请,<text class='tip-click'>点击此处。</text></text>
+</view>
+<view class='examine-data'>
+  <view class='examine-font'>检查日期</view>
+  <view class='examine-number'>2018-09-12</view>
+</view>
+<view class='report-title'>
+  <view class='title-icon'></view>
+  <view class='title-font'>血常规五分类</view>
+</view>
+<view class='xue-content'>
+  <view class='xue-title'>
+    <view>项目</view>
+    <view class='jieguo'>结果</view>
+    <view class='danwei'>单位</view>
+    <view class='details'>详情</view>
+  </view>
+  <view class='content-result'>
+    <view class='content-xiangmu'>WBC/白细胞指数</view>
+    <view class='content-jieguo'>18 <view class='content-position'></view></view>
+    <view class='content-danwei'>10·9/L</view>
+    <image src='../../../images/reportReading/details@2x.png' class='content-details'></image>
+  </view>
+  <view class='content-result'>
+    <view class='content-xiangmu'>WBC/白细胞指数</view>
+    <view class='content-jieguo'>18 <view class='content-position'></view></view>
+    <view class='content-danwei'>10·9/L</view>
+    <image src='../../../images/reportReading/details@2x.png' class='content-details'></image>
+  </view>
+  <view class='content-result'>
+    <view class='content-xiangmu'>WBC/白细胞指数</view>
+    <view class='content-jieguo'>18 <view class='content-position'></view></view>
+    <view class='content-danwei'>10·9/L</view>
+    <image src='../../../images/reportReading/details@2x.png' class='content-details'></image>
+  </view>
+  <view class='content-result'>
+    <view class='content-xiangmu'>WBC/白细胞指数</view>
+    <view class='content-jieguo'>18 <view class='content-position'></view></view>
+    <view class='content-danwei'>10·9/L</view>
+    <image src='../../../images/reportReading/details@2x.png' class='content-details'></image>
+  </view>
+  <view class='content-result'>
+    <view class='content-xiangmu'>WBC/白细胞指数</view>
+    <view class='content-jieguo'>18 <view class='content-position'></view></view>
+    <view class='content-danwei'>10·9/L</view>
+    <image src='../../../images/reportReading/details@2x.png' class='content-details'></image>
+  </view>
+</view>
+<view class='report-title'>
+  <view class='title-icon'></view>
+  <view class='title-font'>血量微元素</view>
+</view>
+<view class='xue-content'>
+  <view class='xue-title'>
+    <view>项目</view>
+    <view class='jieguo'>结果</view>
+    <view class='danwei'>单位</view>
+    <view class='details'>详情</view>
+  </view>
+  <view class='content-result'>
+    <view class='content-xiangmu'>WBC/白细胞指数</view>
+    <view class='content-jieguo'>18 <view class='content-position'></view></view>
+    <view class='content-danwei'>10·9/L</view>
+    <image src='../../../images/reportReading/details@2x.png' class='content-details'></image>
+  </view>
+  <view class='content-result'>
+    <view class='content-xiangmu'>WBC/白细胞指数</view>
+    <view class='content-jieguo'>18 <view class='content-position'></view></view>
+    <view class='content-danwei'>10·9/L</view>
+    <image src='../../../images/reportReading/details@2x.png' class='content-details'></image>
+  </view>
+  <view class='content-result'>
+    <view class='content-xiangmu'>WBC/白细胞指数</view>
+    <view class='content-jieguo'>18 <view class='content-position'></view></view>
+    <view class='content-danwei'>10·9/L</view>
+    <image src='../../../images/reportReading/details@2x.png' class='content-details'></image>
+  </view>
+  <view class='content-result'>
+    <view class='content-xiangmu'>WBC/白细胞指数</view>
+    <view class='content-jieguo'>18 <view class='content-position'></view></view>
+    <view class='content-danwei'>10·9/L</view>
+    <image src='../../../images/reportReading/details@2x.png' class='content-details'></image>
+  </view>
+  <view class='content-tips'>
+     <text class='complete-font'><text class='tip-click'>点击添加</text><text class='complete-font'>您的报告单上未识别遗漏指标</text></text>
+  </view>
+</view>
+<view class='submit'>
+  <view class='submit-font'>若识别不准确，点击提交反馈，提交以后还留在当前页面</view>
+  <view class='submit-buttun'>提交</view>
+</view>
+<view class='examine-image'>
+  <view class='examine-image-left'></view>
+  <view class='examine-image-right'>查看原图</view>
+</view>
+<view class='save-submit'>保存</view>

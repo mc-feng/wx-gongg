@@ -25,20 +25,13 @@ Page({
       { 'word': '排队叫号', "url": "../tips/tips", "src": "../../images/homeimages/jiaohao.png"},
       { 'word': '咨询医生', "url": "../expertConsultation/expertDetails/expertDetails", "src": "../../images/homeimages/yisheng@2x.png"},
       { 'word': '报告查询', "url": "../reportQuery/query/query", "src": "../../images/homeimages/baogao@2x.png"},
-      { 'word': '诊间付费', "url": "../reportQuery/healthDetail/healthDetail", "src": "../../images/homeimages/fufei@2x.png"},
+      { 'word': '诊间付费', "url": "../payService/payQuery/payQuery", "src": "../../images/homeimages/fufei@2x.png"},
       { 'word': '住院预约', "url": "../tips/tips", "src": "../../images/homeimages/zhuyuan@2x.png"},
       { 'word': '手术方案', "url": "../tips/tips", "src": "../../images/homeimages/shoushu@2x.png"},
       { 'word': '体验服务', "url": "../tips/tips", "src": "../../images/homeimages/tijian@2x.png"}
     ],
     imgUrls: [],
-    newList:[],
-    links: [
-      '../messageContent/messageContent?id=',
-
-      '../messageContent/messageContent?id=',
-
-      '../messageContent/messageContent?id='
-    ],
+    newList:[]
   },
   //事件处理函数
   bindViewTap: function() {
@@ -112,7 +105,7 @@ Page({
     console.log(this.data.swiperCurrent);
     var str = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: this.data.links[this.data.swiperCurrent] + str + "&lei=" +0
+      url: "../messageContent/messageContent?id=" + str + "&lei=" +0
     })
   },
   //点击公告触发时间
@@ -133,12 +126,7 @@ Page({
       this.setData({ loading: true })
     }
    },
-  changeloading:function(){
-      wx.pageScrollTo({
-        scrollTop: 166
-      }),
-        this.setData({
-          loading: false
-        })
-  }
+  onReachBottom: function () {
+    console.log("到底啦")
+  },
 })

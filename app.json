@@ -33,9 +33,11 @@
     "pages/expertConsultation/expertDetails/expertDetails",
     "pages/reportQuery/query/query",
     "pages/reportQuery/reportCard/reportCard",
-    "pages/reportQuery/xueReport/xueReport",
-    "pages/reportQuery/healthExaminationReport/healthExaminationReport",
-    "pages/reportQuery/healthDetail/healthDetail"
+    "pages/reportQuery/xueReport/xueReport",  "pages/reportQuery/healthExaminationReport/healthExaminationReport",
+    "pages/reportQuery/healthDetail/healthDetail",
+    "pages/payService/payQuery/payQuery",
+    "pages/reportReading/reading/reading",
+    "pages/reportReading/dataEnter/dataEnter"
   ],
   "window":{
     "navigationBarBackgroundColor": "#FFFFFF",

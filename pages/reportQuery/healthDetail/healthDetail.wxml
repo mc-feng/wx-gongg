@@ -11,12 +11,78 @@
   <view class='title-icon'></view>
   <view class='title-font'>初步意见</view>
 </view>
+<view class='opinion-content'>舒张压低、舒张压低、舒张压低、舒张压低、舒张压低</view>
+<view class='report-title'>
+  <view class='title-icon'></view>
+  <!-- 血常规五分类 -->
+  <view class='title-font'>血常规五分类</view>
+</view>
+<view class='xue-content'>
+  <view class='xue-title'>
+    <view>项目</view>
+    <view>结果</view>
+    <view>单位</view>
+    <view>详情</view>
+  </view>
+  <view class='xue-result'>
+    <view class="project">血小板</view>
+    <view class='number'>18</view>
+    <view class='unit'>10^9/L</view>
+    <view class='details' bindtap='expand1'>
+     <image src="{{change1?'../../../images/smallicon/shouqi@2x.png':'../../../images/smallicon/xiala@2x.png'}}"></image>
+    </view>
+    <image src='../../../images/smallicon/reportquery/height@2x.png' class='tips-image'></image>
+  </view>
+  <view class='xue-result'>
+    <view class="project">血小板</view>
+    <view class='number'>18</view>
+    <view class='unit'>10^9/L</view>
+    <view class='details' bindtap='expand1'>
+     <image src="{{change1?'../../../images/smallicon/shouqi@2x.png':'../../../images/smallicon/xiala@2x.png'}}"></image>
+    </view>
+    <image src='../../../images/smallicon/reportquery/low@2x.png' class='tips-image'></image>
+  </view>
+  <view class='xue-result'>
+    <view class="project">血小板</view>
+    <view class='number'>18</view>
+    <view class='unit'>10^9/L</view>
+    <view class='details' bindtap='expand1'>
+     <image src="{{change1?'../../../images/smallicon/shouqi@2x.png':'../../../images/smallicon/xiala@2x.png'}}"></image>
+    </view>
+  </view>
+</view>
+<!-- 内科-->
+<view class='report-title'>
+  <view class='title-icon'></view>
+  <view class='title-font'>内科</view>
+</view>
+<view class='internal-content'>
+  <view class='internal-item'>
+    <view>一般状态</view>
+    <view class='item-right'>未见异常</view>
+  </view>
+  <view class='internal-item'>
+    <view>肺部</view>
+    <view class='item-right'>未见异常</view>
+  </view>
+  <view class='internal-item'>
+    <view>心脏</view>
+    <view class='item-right'>未见异常</view>
+  </view>
+  <view class='internal-item'>
+    <view>腹部</view>
+    <view class='item-right'>未见异常</view>
+  </view>
+  <view class='internal-item'>
+    <view>神经系统</view>
+    <view class='item-right'>未见异常</view>
+  </view>
+</view>
  
-<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:572px" bindchange="bindChange">
-    <!-- 我是哈哈 -->
+<!-- <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:572px" bindchange="bindChange">
     <swiper-item>
     </swiper-item>
-    <!-- 我是呵呵 -->
     <swiper-item>
     </swiper-item>
-</swiper>
+</swiper> -->
+

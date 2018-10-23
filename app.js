@@ -6,7 +6,7 @@ wxApiInterceptors()
 wxApiInterceptors({
   request: {
     request(params) {
-      const host = 'http://212.64.52.152:8081'
+      const host = 'http://192.168.2.165:8081'
       if (!/^(http|\/\/)/.test(params.url)) {
         params.url = host + params.url;
       }//设置默认host
@@ -98,7 +98,7 @@ App({
                 "openId": res.code
               },
               success: function (res) {
-                console.log(10)
+                console.log("我重新登录了")
                 console.log(res)
                 var openId = res.result
                 console.log(openId)

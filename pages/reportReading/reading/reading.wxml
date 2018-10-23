@@ -1,0 +1,17 @@
+<!--pages/reportReading/reading/reading.wxml-->
+<view class='reading-items'>
+  <image class='items-image' src='../../../images/reportReading/paizhao@2x.png'></image>
+  <view class='items-font'>拍照录入</view>
+  <image class='items-posistion' src='../../../images/reportReading/touming@2x.png'></image>
+</view>
+<view class='reading-items shoudong'>
+  <image class='items-image' src='../../../images/reportReading/shouxie@2x.png'></image>
+  <view class='items-font shoudong-font'>手动录入</view>
+  <image class='items-posistion' src='../../../images/reportReading/touming@2x.png'></image>
+</view>
+<view class='reading-items his'>
+  <image class='items-image' src='../../../images/reportReading/his@2x.png'></image>
+  <view class='items-font his-font'>HIS直连</view>
+  <image class='items-posistion' src='../../../images/reportReading/touming@2x.png'></image>
+</view>
+

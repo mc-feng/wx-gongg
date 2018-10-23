@@ -1,0 +1,38 @@
+<!--pages/payService/payQuery/payQuery.wxml-->
+<block wx:if="{{loading}}">
+  <loading>
+        加载中...
+  </loading>
+</block>
+<block wx:else>
+  <!-- 头部信息 -->
+  <view class='header'>
+    <view class='header-font'>{{showChoose[index]}}</view>
+    <!-- 底部弹出选择人信息 -->
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{showChoose}}">
+        <image src='../../../images/personimages/changeUser.png' class='changeUser'></image>
+    </picker>
+  </view>
+    <!-- 底部弹出选择器 -->
+  <block wx:if="{{parameter.length == 0}}">
+    <view class='noSearch-wrap'>
+      <image src='../../../images/homeimages/search.png'></image>
+      <view class='noSearch-title'>未查询到代缴费记录</view>
+    </view>
+  </block>
+  <block wx:else>
+    <block wx:for="{{colorResult}}" wx:key="{{item.index}}">
+      <view class='pay-item' style='background:{{item.color}};color:{{item.font}}'>
+        <view class='pay-content'>
+          <view class='pay-content-title'>周一 10-08 </view>
+          <view class='pay-consulting'>内科</view>
+        </view>
+        <view class='pay-right'>
+          <view class='pay-symbol'>¥</view>
+          <view class='pay-number'>20000.00</view>
+          <view class='pay-click'>点击支付</view>
+        </view>
+      </view>
+    </block>
+  </block>
+</block>

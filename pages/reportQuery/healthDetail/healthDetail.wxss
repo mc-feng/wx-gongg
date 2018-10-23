@@ -39,3 +39,87 @@
   line-height: 34rpx;
   margin-left: 6rpx;
 }
+.opinion-content{
+  padding: 24rpx 30rpx 24rpx 30rpx;
+  background: #ffffff;
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #232323;
+  letter-spacing: -0.52rpx;
+}
+.xue-content{
+  padding: 30rpx 20rpx 34rpx 26rpx;
+  background: #ffffff;
+}
+.xue-title{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between
+}
+.xue-title view{
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #A3A3A3;
+  letter-spacing: -0.48rpx;
+  text-align: center;
+}
+.xue-result{
+  height: 40rpx;
+  width:100%;
+  margin-top: 20rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #000000;
+  letter-spacing: -0.56rpx;
+  text-align: center;
+  position: relative
+}
+.xue-result view{
+  position: absolute
+}
+.project{
+ left: 0;
+ top:0;
+}
+.number{
+  left: 224rpx;
+  top: 0rpx;
+}
+.unit{
+  left: 438rpx;
+  top: 0rpx;
+}
+.details{
+  left: 668rpx;
+  top:-8rpx;
+}
+.details image{
+  width: 24rpx;
+  height: 14rpx;
+}
+.tips-image{
+  position: absolute;
+  left: 270rpx;
+  top:8rpx;
+  width: 16rpx;
+  height: 24rpx;
+}
+.internal-content{
+  padding: 40rpx 36rpx 40rpx 28rpx;
+  background: #ffffff;
+}
+.internal-item{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #000000;
+  letter-spacing: -0.56rpx;
+  margin-bottom: 52rpx
+}
+.item-right{
+ color: #A3A3A3;
+}

@@ -1,0 +1,48 @@
+/* pages/reportReading/reading/reading.wxss */
+page{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.reading-items{
+  position: relative;
+  margin-top: 20rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  height: 184rpx;
+  width: 690rpx;
+  background: #FFEFD3;
+  border-radius: 16rpx;
+}
+.items-image{
+  width: 144rpx;
+  height: 100rpx;
+  margin-left: 78rpx;
+}
+.items-font{
+  font-family: PingFangSC-Medium;
+  font-size: 20px;
+  color: #FFAC00;
+  margin-left: 196rpx;
+  font-weight: 600;
+}
+.items-posistion{
+  position: absolute;
+  bottom: 0rpx;
+  left: 0rpx;
+  width: 690rpx;
+  height: 56rpx;
+}
+.shoudong{
+  background: #D3F4EC;
+}
+.shoudong-font{
+  color: #00C38B;
+}
+.his{
+  background: #DBE3FF;
+}
+.his-font{
+  color: #6384F9;
+}

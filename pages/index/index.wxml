@@ -27,14 +27,10 @@
         <navigator url="/pages/index/index?title={{item.url}}" open-type="navigate">
         <swiper-item>
           <rich-text nodes="{{item.title}}" class='index-tips-font' bindtap="noticeClick" data-id="{{item.id}}"></rich-text>
-          <!-- <view class='index-tips-font'>{{item.title}}</view> -->
         </swiper-item>
         </navigator>
         </block>
      </swiper>
-    <!-- <view class='index-tips-color'>
-      产科安全办公室组织开展2018年危重孕产..... 
-    </view> -->
   </view>
   <view class='main-content'>
      <view class='main-header'>
@@ -55,7 +51,7 @@
         </view>
         <view class='fuwu-subnav'>
           <scroll-view scroll-x="true" class='hometips-subnav'>
-            <navigator url='../tips/tips'>
+            <navigator url='../reportReading/dataEnter/dataEnter'>
               <image src='../../images/homeimages/manyidu1@2x.png'>
                 <text>报告解读</text>
               </image>
@@ -65,11 +61,6 @@
                 <text>智能问药</text>
               </image>
             </navigator> 
-            <!-- <navigator url='../individalService/messageList/messageList'>
-              <image src='../../images/homeimages/zixun3@2x.png'>
-                <text>健康资讯</text>
-              </image>
-            </navigator> -->
             <navigator url='../individalService/healthMission/healthMission'>
               <image src='../../images/homeimages/xuanjiao4@2x.png'>
                 <text>健康宣教</text>

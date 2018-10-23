@@ -130,7 +130,7 @@
                   </view>
                   <view class='user-item'>
                     <view class='item-title'>医保卡号</view>
-                    <input class='item-content' type="digit" placeholder='请填写医保卡号' bindinput='getUsermedicareCard' value="{{medicareCard}}"></input>
+                    <input class='item-content' type="text" placeholder='请填写医保卡号' bindinput='getUsermedicareCard' value="{{medicareCard}}"></input>
                   </view>
                   <view class='user-item'>
                     <view class='item-title'>关系</view>
