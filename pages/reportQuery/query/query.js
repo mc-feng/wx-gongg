@@ -6,13 +6,14 @@ Page({
    */
   data: {
     parameter: [],
-    relation: [],
-    relations: [],
     choose: [{}, {}],
     show: [],
-    showChoose: ["李丽丽  123456y123456y", "王二丫  123456y123456y", "赵思思  123456y123456y", "钱多度  123456y123456y"],
-    index: "1",
-    loading: false
+    showChoose: [],
+    index: "0",
+    loading: true,
+    result: true,
+    bindCard: true,
+    noBind: true,
   },
 
   /**
@@ -32,76 +33,63 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log(app.globalData.openId)
     var that = this
     wx.request({
-      url: '/report/getjianyanreportlist',
-      method:"post",
-      data:{
-        "openUserID": app.globalData.openId
+      url: '/common/checkdata',
+      method: "post",
+      data: {
+        "hospitalID": app.globalData.openId
       },
-      success:function(res){
-        console.log(res)
+      success: function (res) {
+        //判断绑卡操作
+        if (res.result == 1) {
+          wx.request({
+            url: '/medicalcard/getweachattopatient',
+            method: "post",
+            data: {
+              "openId": app.globalData.openId
+            },
+            success: function (res) {
+              var showData = [];
+              for (var i = 0; i < res.result.length; i++) {
+                showData.push(res.result[i].openUserName + " " + res.result[i].createTime)
+              }
+              console.log(showData)
+              console.log(res)
+              that.setData({
+                saveData: res.result,
+                showChoose: showData,
+                result: false,
+                loading: false,
+                noBind: true,
+                bindCard: true,
+              })
+            }
+          })
+        } else if (res.result == 2) {
+          that.setData({
+            loading: false,
+            result: true,
+            bindCard: false,
+            noBind: true
+          })
+        } else if (res.result == 3) {
+          that.setData({
+            loading: false,
+            result: true,
+            bindCard: true,
+            noBind: false
+          })
+        } else if (res.result == 4) {
+          that.setData({
+            loading: false,
+            result: true,
+            bindCard: false,
+            noBind: false
+          })
+        }
       }
     })
-    // wx.request({
-    //   url: '/booking/getpatientlist',
-    //   method: "post",
-    //   data: {
-    //     "openId": app.globalData.openId//openID
-    //   },
-    //   success: function (res) {
-    //     console.log(res)
-    //     that.setData({
-    //       parameter: res.result
-    //     })
-    //     for (var i = 0; i < res.result.length; i++) {
-    //       switch (res.result[i].id) {
-    //         case "0":
-    //           that.data.relation.push("已取消");
-    //           break;
-    //         case "1":
-    //           that.data.relation.push("已预约")
-    //           break;
-    //         case "2":
-    //           that.data.relation.push("已挂号")
-    //           break;
-    //         case "3":
-    //           that.data.relation.push("已过期")
-    //           break;
-    //         case "4":
-    //           that.data.relation.push("已就诊")
-    //           break;
-    //       }
-    //     }
-    //     that.setData({
-    //       relations: that.data.relation,
-    //       loading: false
-    //     })
-    //     console.log(that.data.relation)
-    //   }
-    // })
-    // var that = this
-    // wx.request({
-    //   url: '/medicalcard/getweachattopatient',
-    //   data: {
-    //     "openId": app.globalData.openId//openID
-    //   },
-    //   method: "post",
-    //   success: function (res) {
-    //     console.log(res)
-    //     that.setData({
-    //       choose: res.result
-    //     })
-    //     for (var i = 0; i < res.result.length; i++) {
-    //       that.data.show.push("就诊人: " + res.result[i].openUserName + "  " + "卡号: " + res.result[i].openIDCard)
-    //     }
-    //     that.setData({
-    //       showChoose: that.data.show
-    //     })
-    //     console.log(that.data.showChoose)
-    //   }
-    // })
   },
 
   /**
@@ -140,26 +128,34 @@ Page({
   },
   //选择就诊人
   bindPickerChange: function (e) {
+    console.log(e)
     var that = this;
     that.setData({
       index: e.detail.value,
       headerName: false
     })
-    // wx.request({
-    //   url: '/booking/getpatientlist',
-    //   data: {
-    //     "openId": app.globalData.openId,//openID
-    //     "patientID": this.data.choose[e.detail.value].patientID
-    //   },
-    //   method: "post",
-    //   success: function (res) {
-    //     console.log(res)
-    //     that.setData({
-    //       parameter: res.result,
-    //       headerName: false
-    //     })
-    //   }
-    // })
-    // console.log(this.data.choose[e.detail.value].patientID)
+  },
+  linkToReport:function(res){
+    var index = this.data.index
+    console.log(index)
+    var transData = {
+      accessToken : this.data.saveData[index].idCard,
+      patientID: this.data.saveData[index].patientID,
+      name: this.data.showChoose[index]
+    }
+    transData = JSON.stringify(transData)
+    wx.navigateTo({
+      url: '../../reportQuery/reportCard/reportCard?transData=' + transData 
+    })
+  },
+  LinkToPeople: function (e) {
+    wx.navigateTo({
+      url: '../editPeopleMess/editPeopleMess',
+    })
+  },
+  LinkToCard: function (e) {
+    wx.navigateTo({
+      url: '../managePatient/managePatient?card=bing',
+    })
   }
 })

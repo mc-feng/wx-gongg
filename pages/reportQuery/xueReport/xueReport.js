@@ -6,13 +6,35 @@ Page({
    */
   data: {
    change:false,
+   reportResult:[],
+   loading:true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    console.log(JSON.parse(options.transDetailData))
+    var reportDetails = JSON.parse(options.transDetailData);
+    wx.request({
+      url: '/report/getjianyanreportdetail',
+      method:"post",
+      data:{
+        accessToken: reportDetails.accessToken,
+        openUserID: reportDetails.patientID,
+        reportNo: reportDetails.reportNo,
+        reportReadStatus:"0"
+      },
+      success:function(res){
+        console.log(res)
+        that.setData({
+          reportResult: res.result,
+          reportName: reportDetails.reportName,
+          loading:false
+        })
+      }
+    })
   },
 
   /**

@@ -4,8 +4,6 @@
   background: #0D86EB;
   padding: 0rpx 28rpx;
   font-family: PingFangSC-Regular;
-  font-size: 28rpx;
-  color: #FFFFFF;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -71,4 +69,23 @@
   font-family: PingFangSC-Regular;
   font-size: 28rpx;
   color: #0D86EB;
+  margin-bottom: 58rpx;
+}
+.bottomLine{
+  height: 2rpx;
+  background: #d8d8d8;
+  margin-top: 10rpx;
+  position: relative;
+}
+.showBottom{
+  width: 260rpx;
+  height: 24rpx;
+  background: #FFFFFF;
+  font-size: 24rpx;
+  color: #A3A3A3;
+  position: absolute;
+  text-align: center;
+  left: 246rpx;
+  top:-15rpx;
+  margin-bottom: 58rpx;
 }

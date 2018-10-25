@@ -38,6 +38,10 @@ page{
   color: #A3A3A3;
   letter-spacing: -0.48rpx;
   text-align: center;
+  margin-right: 28rpx;
+}
+.xue-title .report-result{
+  margin-left: 380rpx;
 }
 .xue-result{
   height: 40rpx;
@@ -60,11 +64,11 @@ page{
  top:0;
 }
 .number{
-  left: 224rpx;
+  left: 508rpx;
   top: 0rpx;
 }
 .unit{
-  left: 438rpx;
+  left: 628rpx;
   top: 0rpx;
 }
 .details{
@@ -77,12 +81,21 @@ page{
 }
 .tips-image{
   position: absolute;
-  left: 270rpx;
-  top:8rpx;
+  left: 70rpx;
+  top:-2rpx;
   width: 16rpx;
   height: 24rpx;
+  color: red
 }
-.view-content{
+.tips-image-blue{
+  position: absolute;
+  left: 76rpx;
+  top:-2rpx;
+  width: 16rpx;
+  height: 24rpx;
+  color: blue
+}
+/* .view-content{
   background: #ffffff;
 }
 .view-image{
@@ -196,4 +209,4 @@ page{
   color: #A3A3A3;
   letter-spacing: 0;
   line-height: 36rpx;
-}
+} */

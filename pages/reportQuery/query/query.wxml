@@ -5,6 +5,19 @@
   </loading>
 </block>
 <block wx:else>
+  <block wx:if="{{result}}">
+    <view class='crad-warp'>
+      <block wx:if="{{noBind}}">
+        <view class='crad-tips'>您的信息不完善</view>
+        <view class='crad-buttun' bindtap='LinkToPeople'>立即去完善</view>
+      </block>
+      <block wx:else>
+        <view class='crad-tips'>{{bindCard?"您未绑定您的就诊卡":"您未完善您的个人信息"}}</view>
+        <view class='crad-buttun' bindtap='{{bindCard?"LinkToCard":"LinkToPeople"}}'>{{bindCard?"立即绑定个人卡":"立即完善个人信息"}}</view>
+      </block>
+    </view>
+  </block>
+  <block wx:else>
   <!-- 头部信息 -->
   <view class='header'>
       <view class='header-font'>{{showChoose[index]}}</view>
@@ -14,7 +27,7 @@
     </picker>
   </view>
   <!--查询报告单首页 -->
-  <view class='report-kind'>
+  <view class='report-kind' bindtap='linkToReport'>
    <view class='report-kind-font'>检验报告单</view>
    <image src='../../../images/homeimages/blackSword.png'></image>
   </view>
@@ -43,4 +56,6 @@
     <view>5、体检报告：查看体检报告信息。</view>
   </view>
     <!-- 底部弹出选择器 -->
+  </block>
 </block>
+

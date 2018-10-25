@@ -11,48 +11,11 @@ Page({
     loading:true
   },
   onLoad: function (options) {
-    this.setData({
-      loading: true,
-      result: true,
-      bindCard: true,
-      noBind: true
-    })
     this.getDistance(getApp().globalData.latitude, getApp().globalData.longitude, 30.7898400000, 121.3400100000)
     this.getDistance(getApp().globalData.latitude, getApp().globalData.longitude, 31.2739100000, 121.4703200000)
     console.log(this.data.distance)
     console.log('latitude的值是：' + getApp().globalData.latitude)
     console.log('longitude的值是：' + getApp().globalData.longitude)
-    var that = this
-    wx.request({
-      url: '/common/checkdata',
-      method: "post",
-      data: {
-        "hospitalID": app.globalData.openId
-      },
-      success: function (res) {
-        //判断绑卡操作
-        if (res.result== 1){
-          that.setData({
-            result: false,
-            loading: false
-          })
-        } else if (res.result == 2){
-          that.setData({
-            bindCard:false,
-            loading: false
-          })
-        } else if (res.result == 3){
-          that.setData({
-            loading: false
-          })
-        } else if (res.result == 4){
-          that.setData({
-            bindCard: false,
-            loading: false
-          })
-        }
-      }
-    })
   },
   linkToDepartments:function(e){
     console.log(e)
@@ -94,33 +57,35 @@ Page({
         "hospitalID": app.globalData.openId
       },
       success: function (res) {
-        that.setData({
-          loading: false
-        })
-        console.log(res)
+        console.log(res.result)
         //判断绑卡操作
         if (res.result == 1) {
           that.setData({
+            loading: false,
             result: false,
-            noBind: false
+            noBind: true,
+            bindCard: true,
           })
         } else if (res.result == 2) {
           that.setData({
+            loading: false,
             result: true,
             bindCard: false,
-            noBind: false
+            noBind: true
           })
         } else if (res.result == 3) {
           that.setData({
+            loading: false,
             result: true,
             bindCard: true,
             noBind: false
           })
         } else if (res.result == 4) {
           that.setData({
+            loading: false,
             result: true,
             bindCard: false,
-            noBind: true
+            noBind: false
           })
         }
       }

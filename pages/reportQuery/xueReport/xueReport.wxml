@@ -1,43 +1,30 @@
 <!--pages/reportQuery/xueReport/xueReport.wxml-->
 <view class='report-title'>
   <view class='title-icon'></view>
-  <view class='title-font'>血常规五分类</view>
+  <view class='title-font'>{{reportName}}</view>
 </view>
+<block wx:if="{{loading}}">
+  <loading>
+        加载中...
+  </loading>
+</block>
+<block wx:else>
 <view class='xue-content'>
   <view class='xue-title'>
     <view>项目</view>
-    <view>结果</view>
+    <view class='report-result'>结果</view>
     <view>单位</view>
-    <view>详情</view>
   </view>
-  <view class='xue-result'>
-    <view class="project">血小板</view>
-    <view class='number'>18</view>
-    <view class='unit'>10^9/L</view>
-    <view class='details' bindtap='expand1'>
-     <image src="{{change1?'../../../images/smallicon/shouqi@2x.png':'../../../images/smallicon/xiala@2x.png'}}"></image>
+  <block wx:for="{{reportResult}}" wx:key="{{index}}">
+    <view class='xue-result'>
+      <view class="project">{{item.itemName}}</view>
+      <view class='number'>{{item.itemResult}} <view class='{{item.reportAlert=="↑"?"tips-image":"tips-image-blue"}}'>{{item.reportAlert}}</view></view>
+      <view class='unit'>{{item.referenceValueUnit}}</view>
     </view>
-    <image src='../../../images/smallicon/reportquery/height@2x.png' class='tips-image'></image>
-  </view>
-  <view class='xue-result'>
-    <view class="project">血小板</view>
-    <view class='number'>18</view>
-    <view class='unit'>10^9/L</view>
-    <view class='details' bindtap='expand1'>
-     <image src="{{change1?'../../../images/smallicon/shouqi@2x.png':'../../../images/smallicon/xiala@2x.png'}}"></image>
-    </view>
-    <image src='../../../images/smallicon/reportquery/low@2x.png' class='tips-image'></image>
-  </view>
-  <view class='xue-result'>
-    <view class="project">血小板</view>
-    <view class='number'>18</view>
-    <view class='unit'>10^9/L</view>
-    <view class='details' bindtap='expand1'>
-     <image src="{{change1?'../../../images/smallicon/shouqi@2x.png':'../../../images/smallicon/xiala@2x.png'}}"></image>
-    </view>
-  </view>
+  </block>
 </view>
-<view class='report-title'>
+</block>
+<!-- <view class='report-title'>
   <view class='title-icon'></view>
   <view class='title-font'>空腹血糖</view>
 </view>
@@ -80,4 +67,4 @@
         </view>
       </view>
   </block>
-</view>
+</view> -->

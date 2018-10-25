@@ -103,6 +103,7 @@ Page({
   },
   cancel:function(){
     var that = this
+    console.log(that.data)
     wx.showModal({
       title: '提示',
       content: '是否取消预约？',
@@ -114,7 +115,7 @@ Page({
             data:{
               "bookingID": that.data.bookingID,
               "accessToken": that.data.accessToken,
-              "openUserID": app.globalData.openId,
+              "openUserID": that.data.data.patientID,
             },
             success:function(res){
               that.setData({

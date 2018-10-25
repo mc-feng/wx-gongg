@@ -1,50 +1,39 @@
 <!--pages/reportQuery/reportCard/reportCard.wxml-->
+  <!-- 头部信息 -->
+<view class='header'>
+    <view>{{transData.name}}</view>
+</view>
 <block wx:if="{{loading}}">
   <loading>
         加载中...
   </loading>
 </block>
 <block wx:else>
-  <!-- 头部信息 -->
-  <view class='header'>
-   <view>李丽丽</view>
-   <view class='message'>女|</view>
-   <view class='number'>123456789</view>
-  </view>
   <block wx:if="{{paremtList.length==0}}">
     <view class='no-result'>近一个月无报告</view>
   </block>
   <block wx:else> 
     <view class='data'>
-      <view>2018年9月</view>
-      <image src='../../../images/smallicon/rili@2x.png'></image>
+        <view>{{nowData}}</view>
+        <image src='../../../images/smallicon/rili@2x.png'></image>
     </view>
-    <view class='card-content'>
-      <view>09-10</view>
-      <view >报告编号</view>
-      <view >血常规五分类</view>
-      <image src='../../../images/homeimages/blackSword.png'></image>
-    </view>
-    <view class='card-content'>
-      <view>09-10</view>
-      <view >报告编号</view>
-      <view >血常规五分类</view>
-      <image src='../../../images/homeimages/blackSword.png'></image>
-    </view>
-    <view class='card-content'>
-      <view>09-10</view>
-      <view >报告编号</view>
-      <view >血常规五分类</view>
-      <image src='../../../images/homeimages/blackSword.png'></image>
-    </view>
-    <view class='card-content'>
-      <view>09-10</view>
-      <view >报告编号</view>
-      <view >血常规五分类</view>
-      <image src='../../../images/homeimages/blackSword.png'></image>
-    </view>
+    <block wx:for="{{paremtList}}" wx:key="{{index}}">
+      <view class='card-content' bindtap='linkToDetail' data-index="{{index}}">
+        <view>{{item.reportDateTime}}</view>
+        <view >{{item.reportNo}}</view>
+        <view >{{item.reportType}}</view>
+        <image src='../../../images/homeimages/blackSword.png'></image>
+      </view>
+    </block>
   </block>
-  <view class='more'>显示更多</view>
+  <block wx:if="{{showBottom}}">
+    <view class='more' bindtap='loadMore'>显示更多</view>
+  </block>
+  <block wx:else>
+     <view class='bottomLine'> 
+       <view class='showBottom'>已经没有更多了哦~</view>
+     </view>
+  </block>
 </block>
 
 
