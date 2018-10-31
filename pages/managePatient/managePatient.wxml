@@ -44,10 +44,6 @@
                 <view class='relation'>{{listArr[index]}}
                   <view class='trigon'></view>
                 </view>
-                <!-- 点击确认事件 -->
-                <!-- <view class='choose-buttun {{item.checked?"":"choose-buttun2"}}'>
-                  <view class='{{item.checked?"choose-show":"choose-hidden"}}'></view>
-                </view> -->
               </movable-view>
                 <view class="delete-btn" data-productIndex="{{index}}" bindtap="handleDeleteProduct">删除</view>
             </movable-area>

@@ -7,13 +7,14 @@
 <block wx:else>
   <block wx:if="{{result}}">
     <view class='crad-warp'>
+      <image src='../../../images/homeimages/search.png'></image>
       <block wx:if="{{noBind}}">
         <view class='crad-tips'>您的信息不完善</view>
         <view class='crad-buttun' bindtap='LinkToPeople'>立即去完善</view>
       </block>
       <block wx:else>
-        <view class='crad-tips'>{{bindCard?"您未绑定您的就诊卡":"您未完善您的个人信息"}}</view>
-        <view class='crad-buttun' bindtap='{{bindCard?"LinkToCard":"LinkToPeople"}}'>{{bindCard?"立即绑定个人卡":"立即完善个人信息"}}</view>
+        <view class='crad-tips'>{{bindCard?"您未绑定就诊卡":"您未完善您的个人信息"}}</view>
+        <view class='crad-buttun' bindtap='{{bindCard?"LinkToCard":"LinkToPeople"}}'>{{bindCard?"立即绑定就诊卡":"立即完善个人信息"}}</view>
       </block>
     </view>
   </block>

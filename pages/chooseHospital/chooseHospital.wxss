@@ -39,6 +39,20 @@
   letter-spacing: -0.74rpx;
   line-height:80rpx
 }
+.qian{
+  border: 2rpx solid #0D86EB;
+  border-radius: 8rpx;
+  width: 656rpx;
+  height: 80rpx;
+  text-align: center;
+  margin:50rpx 0 0 48rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  letter-spacing: -0.74rpx;
+  line-height:80rpx;
+  background: #0D86EB;
+  color: #ffffff
+}
 .already-bind{
   border: 2rpx solid #ffffff;
   border-radius: 8rpx;

@@ -71,7 +71,8 @@ page{
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  margin-top: 10rpx
+  margin-top: 10rpx;
+  height: 36rpx
 }
 .message-date{
   font-family: PingFangSC-Regular;

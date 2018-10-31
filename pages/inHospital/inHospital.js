@@ -48,6 +48,7 @@ Page({
       loading:true
     })
     var that = this;
+    console.log(this.data.data.trans.hospital)
     wx.request({
       url: '/medicalcard/getweachattopatient',
       method: "post",
@@ -56,7 +57,7 @@ Page({
         "paid": this.data.data.trans.hospital
       },
       success: function (res) {
-        console.log(res)
+        console.log(res.result)
         let parameter = res.result;
         let listArr = []
         for (var i = 0; i < parameter.length; i++) {
@@ -271,14 +272,7 @@ Page({
       wx.showToast({
         title: '卡号不能为空',
       })
-    } else if (!regNum.test(medicareCard)) {
-      this.setData({
-        link4: false
-      })
-      wx.showToast({
-        title: '卡号格式不正确',
-      })
-    } else {
+    }  else {
       this.setData({
         link4: true
       })
@@ -339,24 +333,6 @@ Page({
           }
         }
       })
-      // wx.request({
-      //   url: '/medicalcard/getRecordCard',
-      //   method: "post",
-      //   data: {
-      //     "openID": app.globalData.openId,
-      //     "tel": this.data.phoneNumber,
-      //     "idCard": this.data.identityCard,
-      //     "patientName": this.data.userName,
-      //     "cardNo": this.data.medicareCard,
-      //     "cardType": 0,
-      //     "cardProperty": this.data.index,
-      //     "accessToken": this.data.accessToken,
-      //     "openUserID": app.globalData.openId,
-      //   },
-      //   success: function (res) {
-      //     console.log(res)
-      //   }
-      // })
     } else {
       console.log("发送失败")
     }

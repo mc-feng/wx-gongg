@@ -1,7 +1,7 @@
 /**index.wxss**/
 swiper {
     height:212rpx ;
-    width: 694rpx
+    width: 694rpx;
 }
 swiper-item image {
     width: 100%;
@@ -12,6 +12,8 @@ swiper-item image {
   width: 694rpx;
   margin-left: 28rpx;
   position: relative;
+  border-radius: 8rpx;
+  overflow: hidden
 }
 .swiper-container .swiper{
  height:270rpx ;

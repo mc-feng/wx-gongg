@@ -43,16 +43,16 @@ Page({
   bindChange: function (e) {
 
     var that = this;
-    that.setData({ currentTab: e.detail.current });
-
+    console.log(e.detail.source)
+    if (e.detail.source == "touch") {//判断是否由用户触摸导致
+      that.setData({ currentTab: e.detail.current });
+    }
   },
   /**
    * 点击tab切换
    */
   swichNav: function (e) {
-
     var that = this;
-
     if (this.data.currentTab === e.target.dataset.current) {
       return false;
     } else {

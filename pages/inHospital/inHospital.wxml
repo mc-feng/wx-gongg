@@ -70,8 +70,8 @@
                   <input class='item-content' type="digit" placeholder='请输入您的手机号码'bindinput='getUserphoneNumber' value="{{phoneNumber}}"></input>
                 </view>
                 <view class='user-item'>
-                  <view class='item-title'>医保卡号</view>
-                  <input class='item-content' type="text" placeholder='请输入的就诊卡号' bindinput='getUsermedicareCard' value="{{medicareCard}}"></input>
+                  <view class='item-title'>就诊卡号</view>
+                  <input class='item-content' type="number" placeholder='请输入的就诊卡号' bindinput='getUsermedicareCard' value="{{medicareCard}}"></input>
                 </view>
                 <view class='user-item'>
                   <view class='item-title'>关系</view>
@@ -119,7 +119,7 @@
                 </view>
                 <view class='user-item'>
                   <view class='item-title'>医保卡号</view>
-                  <input class='item-content' type="digit" placeholder='请填写医保卡号' bindinput='getUsermedicareCard' value="{{medicareCard}}"></input>
+                  <input class='item-content' type="text" placeholder='请填写医保卡号' bindinput='getUsermedicareCard' value="{{medicareCard}}"></input>
                 </view>
                 <view class='user-item'>
                   <view class='item-title'>关系</view>

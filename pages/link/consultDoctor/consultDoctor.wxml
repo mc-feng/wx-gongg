@@ -1,0 +1,2 @@
+<!--pages/link/consultDoctor/consultDoctor.wxml-->
+<web-view src="https://wenzhen.linkingcloud.cn/Html/doc_list.html?customerId=4&showMenu=1"></web-view>

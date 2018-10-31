@@ -57,16 +57,15 @@ Page({
         "hospitalID": app.globalData.openId
       },
       success: function (res) {
-        that.setData({
-          loading: false
-        })
         //判断绑卡操作
         if (res.result == 2) {
           that.setData({
+            loading: false,
             noBind: true
           })
         } else if (res.result == 4) {
           that.setData({
+            loading: false,
             noBind: true
           })
         }
@@ -101,6 +100,7 @@ Page({
                 }
               }
               that.setData({
+                loading: false,
                 parameter: parameter,
                 listArr:listArr
               })
@@ -301,14 +301,7 @@ Page({
       wx.showToast({
         title: '卡号不能为空',
       })
-    } else if (!regNum.test(medicareCard)){
-      this.setData({
-        link4: false
-      })
-      wx.showToast({
-        title: '卡号格式不正确',
-      })
-    }else{
+    } else{
       this.setData({
         link4: true
       })

@@ -31,9 +31,11 @@ Page({
      * 滑动切换tab
      */
   bindChange: function (e) {
-
     var that = this;
-    that.setData({ currentTab: e.detail.current });
+    console.log(e.detail.source)
+    if (e.detail.source == "touch") {//判断是否由用户触摸导致
+      that.setData({ currentTab: e.detail.current });
+    }
 
   },
   /**

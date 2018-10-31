@@ -150,12 +150,12 @@ Page({
   },
   LinkToPeople: function (e) {
     wx.navigateTo({
-      url: '../editPeopleMess/editPeopleMess',
+      url: '../../editPeopleMess/editPeopleMess',
     })
   },
   LinkToCard: function (e) {
     wx.navigateTo({
-      url: '../managePatient/managePatient?card=bing',
+      url: '../../managePatient/managePatient?card=bing',
     })
   }
 })

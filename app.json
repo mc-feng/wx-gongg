@@ -37,7 +37,9 @@
     "pages/reportQuery/healthDetail/healthDetail",
     "pages/payService/payQuery/payQuery",
     "pages/reportReading/reading/reading",
-    "pages/reportReading/dataEnter/dataEnter"
+    "pages/reportReading/dataEnter/dataEnter",
+    "pages/link/consultDoctor/consultDoctor",
+    "pages/link/consultRecord/consultRecord"
   ],
   "window":{
     "navigationBarBackgroundColor": "#FFFFFF",

@@ -6,7 +6,7 @@
            </view>
            <view class='user-item'>
             <view class='item-title'>身份证号</view>
-            <input class='item-content' type='number' placeholder='请输入证件号码' bindinput='getUseridentityCard' value='{{identityCard}}' bindtap="input2" data-id="1" focus='{{inpitID==1}}'></input>
+            <input class='item-content' type='idcard' placeholder='请输入证件号码' bindinput='getUseridentityCard' value='{{identityCard}}' bindtap="input2" data-id="1" focus='{{inpitID==1}}'></input>
            </view>
            <view class='user-item'>
             <view class='item-title'>手机号</view>

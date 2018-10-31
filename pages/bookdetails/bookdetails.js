@@ -101,6 +101,7 @@ Page({
   },
   //改变日期
   changdate:function(e){
+    console.log(e)
     this.setData({
       nowmonth: e.currentTarget.dataset.month,
       nowweek: e.currentTarget.dataset.week,
@@ -137,9 +138,38 @@ Page({
     }
     return newArr;
   },
+  //检查日期
+  checkData:function(datas){
+    var that = this;
+    var monthDaySize;
+    if (that.data.month == 1 || that.data.month == 3 || that.data.month == 5 || that.data.month == 7 || that.data.month == 8 || that.data.month == 10 || that.data.month == 12) {
+      monthDaySize = 31;
+    } else if (that.data.month == 4 || that.data.month == 6 || that.data.month == 9 || that.data.month == 11) {
+      monthDaySize = 30;
+    } else if (that.data.month == 2) {
+      // 计算是否是闰年,如果是二月份则是29天
+      if ((that.data.year - 2000) % 4 == 0) {
+        monthDaySize = 29;
+      } else {
+        monthDaySize = 28;
+      }
+    };
+    if (datas>monthDaySize){
+      that.setData({
+        nowmonth: that.data.nowmonth + 1,
+        nowdate : 0
+      })
+      if (that.data.nowmonth + 1 > 12) {
+        that.setData({
+          nowmonth: 1,
+        })
+      }
+    }
+  },
   sendData:function(){
     let that = this;
     //默认发送后一天日期
+    this.checkData(that.data.nowdate+1);
     let datetime = "";
     if (that.data.nowmonth < 10 && that.data.nowdate+1 >= 10) {
       datetime = that.data.year + "-" + "0" + that.data.nowmonth + "-" + (that.data.nowdate + 1);

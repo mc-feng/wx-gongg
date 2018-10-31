@@ -162,6 +162,7 @@ Page({
   linkToDetails:function(e){
     var index = e.currentTarget.dataset.index
     let str = JSON.stringify(this.data.list[index])
+    console.log(str)
     wx.navigateTo({
       url: '../collectdetails/collectdetails?data='+str,
     })

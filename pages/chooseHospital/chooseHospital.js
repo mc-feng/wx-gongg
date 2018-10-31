@@ -75,58 +75,61 @@ Page({
   
   },
   addToCard:function(e){
-    this.setData({
-      link :false
-    })
     let that = this
-    if (e.currentTarget.dataset.hosname == "金山总部"){
+    if (e.currentTarget.dataset.hosname == "金山总部") {
       that.setData({
-        accessToken:"800EBED9-63E5-4408-A184-BE693DA32CB7"
+        accessToken: "800EBED9-63E5-4408-A184-BE693DA32CB7"
       })
-    } else if (e.currentTarget.dataset.hosname == "市区分部"){
+    } else if (e.currentTarget.dataset.hosname == "市区分部") {
       that.setData({
         accessToken: "800EBED9-63E5-4408-A184-BE693DA32CB6"
       })
     }
-    wx.request({
-      url: '/medicalcard/getRecordCard',
-      method: "post",
-      data: {
-        "openID": that.data.transData.openID,
-        "tel": that.data.transData.tel,
-        "idCard": that.data.transData.idCard,
-        "patientName": that.data.transData.patientName,
-        "cardNo": that.data.transData.cardNo,
-        "cardType": that.data.transData.cardType,
-        "cardProperty": that.data.transData.cardProperty,
-        "accessToken": that.data.accessToken,
-        "openUserID": app.globalData.openId,
-        "extInfo": e.currentTarget.dataset.hosname
-      },
-      success: function (res) {
-        console.log(res)
-        if (res.message == "绑定成功") {
-          wx.showToast({
-            title: '绑定成功',
-            icon: 'success',
-            duration: 1500
-          })
-          setTimeout(function () {
-            wx.navigateBack({
-              delta: 2
+    if(this.data.link){
+      this.data.link = false
+      wx.request({
+        url: '/medicalcard/getRecordCard',
+        method: "post",
+        data: {
+          "openID": that.data.transData.openID,
+          "tel": that.data.transData.tel,
+          "idCard": that.data.transData.idCard,
+          "patientName": that.data.transData.patientName,
+          "cardNo": that.data.transData.cardNo,
+          "cardType": that.data.transData.cardType,
+          "cardProperty": that.data.transData.cardProperty,
+          "accessToken": that.data.accessToken,
+          "openUserID": app.globalData.openId,
+          "extInfo": e.currentTarget.dataset.hosname
+        },
+        success: function (res) {
+          console.log(res)
+          var that = this;
+          if (res.message == "绑定成功") {
+            wx.showToast({
+              title: '绑定成功',
+              icon: 'success',
+              duration: 1500
             })
-          }, 1500)
-        }else{
-          that.setData({
-            link: true
-          })
-          wx.showToast({
-            title: '绑定失败',
-            icon: 'success',
-            duration: 1500
-          })
+            setTimeout(function () {
+              wx.navigateBack({
+                delta: 2
+              })
+            }, 1500)
+          } else {
+            wx.showToast({
+              title: '绑定失败',
+              icon: 'success',
+              duration: 1500
+            })
+            that.data.link = true;
+          }
         }
-      }
-    })
+      })
+
+    }
+  },
+  noadd:function(){
+
   }
 })
