@@ -1,0 +1,2 @@
+<!--pages/link/out/out.wxml-->
+<web-view src="https://wechat.medbot.top/wechat_all/index.html?module=maimai&origin=yijin"></web-view>

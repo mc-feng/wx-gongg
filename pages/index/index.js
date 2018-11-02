@@ -22,7 +22,7 @@ Page({
     ],
     mainNavs:[
       { 'word': '预约挂号', "url": "../book/books", "src":"../../images/homeimages/guahao@2x.png"},
-      { 'word': '排队叫号', "url": "../tips/tips", "src": "../../images/homeimages/jiaohao.png"},
+      { 'word': '排队叫号', "url": "../callNumber/list/list", "src": "../../images/homeimages/jiaohao.png"},
       // { 'word': '咨询医生', "url": "../expertConsultation/expertDetails/expertDetails", "src": "../../images/homeimages/yisheng@2x.png"},
       { 'word': '咨询医生', "url": "../link/consultDoctor/consultDoctor", "src": "../../images/homeimages/yisheng@2x.png" },
       { 'word': '报告查询', "url": "../reportQuery/query/query", "src": "../../images/homeimages/baogao@2x.png"},

@@ -1,0 +1,37 @@
+<!--pages/callNumber/list/list.wxml-->
+<block wx:if="{{timeCommit}}">
+  <view class='top'>
+    <image src='../../../images/homeimages/Group@2x.png'></image>
+    <view class='top-font'>当前非门诊时间，请在门诊时间查看！</view>
+  </view>
+  <view class='bottom'>
+    <view class='bottom-title'>开诊时间</view>
+    <view class='bottom-item'>
+      <view>虹口院区：</view>
+      <view>普通门诊时间： 7:30―16:30</view>
+      <view>专家门诊时间： 上午8:00-11:00    上午13:30-16:00</view>
+    </view>
+    <view class='bottom-item'>
+      <view>金山院区：</view>
+      <view>普通门诊时间： 8:30―15:30</view>
+      <view>专家门诊时间： 上午8:30-11:30    上午13:00-15:00</view>
+    </view>
+  </view>
+</block>
+<block wx:else>
+  <view class='header-tips'>
+    <view>1、普通门诊叫号 </view>
+    <view>2、标有“分诊”的科室，叫到号后请到护士台登记分诊   </view>
+  </view>
+  <block wx:for="{{listArr}}" wx:key="{{item.index}}">
+    <view class='departmentsList' bindtap='changeTop' data-index="{{index}}">
+      <view class='list-font'>
+          {{item.title}}
+          <block wx:if="{{item.top}}">
+          <view class='get-top'>置顶</view>
+          </block>
+      </view>
+      <view class='list-number'>{{item.number}}</view>
+    </view>
+  </block>
+</block>

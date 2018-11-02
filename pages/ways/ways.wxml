@@ -2,7 +2,7 @@
 <view class='items-box' bindtap='linkToJin'>
   <image src='../../images/homeimages/yiyuanlogo@2x.png' class='logo'></image>
   <view class='content-warp'>
-     <view class='header'>金山总部</view>
+     <view class='header'>金山院区</view>
      <view class='content'>医院等级：三级甲等</view>
      <view class='content'>医院地址：上海市金山区漕廊公路2901号</view>
   </view>
@@ -11,7 +11,7 @@
 <view class='items-box' bindtap='linkToShi'>
   <image src='../../images/homeimages/yiyuanlogo@2x.png' class='logo'></image>
   <view class='content-warp'>
-     <view class='header'>市区分院</view>
+     <view class='header'>虹口院区</view>
      <view class='content'>医院等级：三级甲等</view>
      <view class='content'>医院地址：上海市虹口区同心路921号</view>
   </view>

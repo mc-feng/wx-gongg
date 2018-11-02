@@ -76,11 +76,11 @@ Page({
   },
   addToCard:function(e){
     let that = this
-    if (e.currentTarget.dataset.hosname == "金山总部") {
+    if (e.currentTarget.dataset.hosname == "金山院区") {
       that.setData({
         accessToken: "800EBED9-63E5-4408-A184-BE693DA32CB7"
       })
-    } else if (e.currentTarget.dataset.hosname == "市区分部") {
+    } else if (e.currentTarget.dataset.hosname == "虹口院区") {
       that.setData({
         accessToken: "800EBED9-63E5-4408-A184-BE693DA32CB6"
       })

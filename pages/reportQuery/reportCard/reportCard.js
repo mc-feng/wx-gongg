@@ -22,9 +22,9 @@ Page({
     var transData = JSON.parse(options.transData)
     //判断在哪个院区
     var accessToken =""
-    if (transData.accessToken == "金山总部"){
+    if (transData.accessToken == "金山院区"){
       accessToken = "800EBED9-63E5-4408-A184-BE693DA32CB7"
-    } else if (transData.accessToken == "市区分部"){
+    } else if (transData.accessToken == "虹口院区"){
       accessToken = "800EBED9-63E5-4408-A184-BE693DA32CB6"
     }
     //获取年月

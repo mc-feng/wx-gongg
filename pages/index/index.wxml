@@ -51,12 +51,12 @@
         </view>
         <view class='fuwu-subnav'>
           <scroll-view scroll-x="true" class='hometips-subnav'>
-            <navigator url='../reportReading/dataEnter/dataEnter'>
+            <navigator url='../link/reportReading/reportReading'>
               <image src='../../images/homeimages/manyidu1@2x.png'>
                 <text>报告解读</text>
               </image>
             </navigator>
-            <navigator url='../out/out'>
+            <navigator url='../link/out/out'>
               <image src='../../images/homeimages/zhinengwenyao@2x.png'>
                 <text>智能问药</text>
               </image>

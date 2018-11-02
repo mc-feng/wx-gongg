@@ -24,11 +24,11 @@ Page({
     that.setData({
       bookingID: transData.openIDCard
     })
-    if (transData.openId == "金山总部") {
+    if (transData.openId == "金山院区") {
       that.setData({
         accessToken: "800EBED9-63E5-4408-A184-BE693DA32CB7"
       })
-    } else if (transData.openId == "市区分部") {
+    } else if (transData.openId == "虹口院区") {
       that.setData({
         accessToken: "800EBED9-63E5-4408-A184-BE693DA32CB6"
       })
