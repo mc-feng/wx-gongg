@@ -23,7 +23,7 @@
                 <view class='details-normal'>
                     {{item.deptCode}}
                 </view>
-                <view class='yuding normalyd' bindtap='link' data-now="  {{showDate}}" data-nowdate="{{nowweek}}" data-trans="{{transferData}}" data-docCode="{{item.docCode}}">
+                <view class='yuding normalyd' bindtap='{{item.resourceMemo=="已满"?"":"link"}}' data-now="{{showDate}}" data-nowdate="{{nowweek}}" data-trans="{{transferData}}" data-docCode="{{item.docCode}}">
                   <image src='../../images/homeimages/sword.png'></image>
                   <view>{{item.resourceMemo}}</view>
                 </view>
@@ -81,7 +81,7 @@
                 该医生暂无简介
               </view>
               </block>
-              <view class='yuding' bindtap='link' data-now=" {{showDate}}" data-nowdate="{{nowweek}}" data-trans="{{transferData}}" data-docCode="{{item.docCode}}">
+              <view class='yuding' bindtap='{{item.resourceMemo=="已满"?"":"link"}}' data-now=" {{showDate}}" data-nowdate="{{nowweek}}" data-trans="{{transferData}}" data-docCode="{{item.docCode}}">
                 <image src='../../images/homeimages/sword.png'></image>
                 <view>{{item.resourceMemo}}</view>
               </view>

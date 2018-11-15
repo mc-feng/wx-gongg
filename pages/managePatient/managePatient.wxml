@@ -6,6 +6,7 @@
 </block>
 <block wx:else>
    <block wx:if="{{noBind}}">
+        <image src='../../images/homeimages/search.png' class='noBindImage'></image>
         <view class='crad-tips'>您的信息不完善</view>
         <view class='crad-buttun' bindtap='LinkToPeople'>立即去完善</view>
    </block>

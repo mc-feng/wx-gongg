@@ -162,6 +162,7 @@ Page({
       if (that.data.nowmonth + 1 > 12) {
         that.setData({
           nowmonth: 1,
+          year: that.data.year +1,
         })
       }
     }

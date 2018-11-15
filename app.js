@@ -6,7 +6,7 @@ wxApiInterceptors()
 wxApiInterceptors({
   request: {
     request(params) {
-      const host = 'http://118.31.14.197:8081'
+      const host = 'https://www.tonticn.cn:8081'
       if (!/^(http|\/\/)/.test(params.url)) {
         params.url = host + params.url;
       }//设置默认host

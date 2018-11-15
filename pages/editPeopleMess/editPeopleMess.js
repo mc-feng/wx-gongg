@@ -10,6 +10,7 @@ Page({
     identityCard:"",
     phoneNumber:"",
     exist:false,
+    link4:true,
     inputId:""
   },
 
@@ -162,7 +163,10 @@ Page({
       })
     }
     let that = this
-    if (that.data.link1 && that.data.link2 && that.data.link3) {
+    if (that.data.link1 && that.data.link2 && that.data.link3 && that.data.link4) {
+      that.setData({
+        link4 :false
+      })
       if (this.data.exist) {
         wx.request({
           url: '/medicalcard/updateweachat',
