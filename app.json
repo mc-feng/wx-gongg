@@ -35,6 +35,8 @@
     "pages/payService/payQuery/payQuery",
     "pages/reportReading/reading/reading",
     "pages/reportReading/dataEnter/dataEnter",
+    "pages/reportReading/hospital/hospital",
+    "pages/reportReading/analysis/analysis",
     "pages/link/consultDoctor/consultDoctor",
     "pages/link/consultRecord/consultRecord",
     "pages/link/out/out",

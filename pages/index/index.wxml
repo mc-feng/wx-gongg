@@ -51,7 +51,7 @@
         </view>
         <view class='fuwu-subnav'>
           <scroll-view scroll-x="true" class='hometips-subnav'>
-            <navigator url='../link/reportReading/reportReading'>
+            <navigator url='../reportReading/reading/reading'>
               <image src='../../images/homeimages/manyidu1@2x.png'>
                 <text>报告解读</text>
               </image>

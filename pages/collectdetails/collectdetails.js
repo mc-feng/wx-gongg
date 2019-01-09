@@ -142,11 +142,11 @@ Page({
   checkData: function (datas) {
     var that = this;
     var monthDaySize;
-    if (that.data.month == 1 || that.data.month == 3 || that.data.month == 5 || that.data.month == 7 || that.data.month == 8 || that.data.month == 10 || that.data.month == 12) {
+    if (that.data.nowmonth == 1 || that.data.nowmonth == 3 || that.data.nowmonth == 5 || that.data.nowmonth == 7 || that.data.nowmonth == 8 || that.data.nowmonth == 10 || that.data.nowmonth == 12) {
       monthDaySize = 31;
-    } else if (that.data.month == 4 || that.data.month == 6 || that.data.month == 9 || that.data.month == 11) {
+    } else if (that.data.nowmonth == 4 || that.data.nowmonth == 6 || that.data.nowmonth == 9 || that.data.nowmonth == 11) {
       monthDaySize = 30;
-    } else if (that.data.month == 2) {
+    } else if (that.data.nowmonth == 2) {
       // 计算是否是闰年,如果是二月份则是29天
       if ((that.data.year - 2000) % 4 == 0) {
         monthDaySize = 29;
@@ -323,6 +323,18 @@ Page({
   },
   // 改变日期
   changdate: function (e) {
+    var date = new Date();
+    if (e.currentTarget.dataset.month == 13) {
+      this.setData({
+        nowmonth: 1,
+        year: date.getFullYear() + 1
+      })
+    } else {
+      this.setData({
+        nowmonth: e.currentTarget.dataset.month,
+        year: date.getFullYear()
+      })
+    }
     this.setData({
       nowmonth: e.currentTarget.dataset.month,
       nowweek: e.currentTarget.dataset.week,

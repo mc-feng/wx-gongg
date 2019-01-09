@@ -1,99 +1,117 @@
 <!--pages/reportReading/dataEnter/dataEnter.wxml-->
 <view class='tips'>化验结果准确是正确诊断的基础，请务必认真核对和修正，确保无误再上传。</view>
-<view class='complete-tips'>
+<!-- <view class='complete-tips'>
   <text class='complete-font'>您的健康档案未完善基本信息，为了获得更准确的异常指标提醒请,<text class='tip-click'>点击此处。</text></text>
-</view>
+</view> -->
 <view class='examine-data'>
   <view class='examine-font'>检查日期</view>
-  <view class='examine-number'>2018-09-12</view>
+  <input class='examine-number' value='{{checkTime}}' bindblur="saveCheckTime"></input>
 </view>
-<view class='report-title'>
-  <view class='title-icon'></view>
-  <view class='title-font'>血常规五分类</view>
+<view class='examine-data'>
+  <view class='examine-font'>检查医院</view>
+  <input class='examine-number' value='{{hospitalName}}' bindblur="saveHospitalName"></input>
 </view>
-<view class='xue-content'>
-  <view class='xue-title'>
-    <view>项目</view>
-    <view class='jieguo'>结果</view>
-    <view class='danwei'>单位</view>
-    <view class='details'>详情</view>
+<block wx:for="{{reportResult}}" wx:key="{{index}}">
+  <view class='report-title'>
+    <view class='title-icon'></view>
+    <view class='title-font'>{{item.checkName}}</view>
   </view>
-  <view class='content-result'>
-    <view class='content-xiangmu'>WBC/白细胞指数</view>
-    <view class='content-jieguo'>18 <view class='content-position'></view></view>
-    <view class='content-danwei'>10·9/L</view>
-    <image src='../../../images/reportReading/details@2x.png' class='content-details'></image>
+  <view class='xue-content'>
+    <view class='xue-title'>
+      <view>项目</view>
+      <view class='jieguo'>结果</view>
+      <view class='danwei'>单位</view>
+      <view class='details'>范围</view>
+    </view>
+    <block wx:for="{{item.indexArray}}" wx:for-item="deal" wx:for-index="dealIndex" wx:key="{{dealIndex}}">
+      <view class='content-result'>
+        <view class='content-xiangmu'>{{deal.name}}</view>
+        <input class='content-jieguo' value='{{deal.value}}' bindblur="saveData" data-index="{{dealIndex}}" data-big="{{index}}"></input>
+        <view class='content-position'></view>
+        <view class='content-danwei'>{{deal.unit}}</view>
+        <image src='../../../images/reportReading/details@2x.png' class='content-details' bindtap='changeFanwei' data-index="{{dealIndex}}" data-big="{{index}}"></image>
+      </view>
+      <view class='content-fanwei' wx:if="{{deal.check}}">
+          <view class='content-fanwei-title'>参考值</view>
+          <view class='content-fanwei-content'>{{deal.referenceValue}}</view>
+      </view>
+    </block>
   </view>
-  <view class='content-result'>
-    <view class='content-xiangmu'>WBC/白细胞指数</view>
-    <view class='content-jieguo'>18 <view class='content-position'></view></view>
-    <view class='content-danwei'>10·9/L</view>
-    <image src='../../../images/reportReading/details@2x.png' class='content-details'></image>
-  </view>
-  <view class='content-result'>
-    <view class='content-xiangmu'>WBC/白细胞指数</view>
-    <view class='content-jieguo'>18 <view class='content-position'></view></view>
-    <view class='content-danwei'>10·9/L</view>
-    <image src='../../../images/reportReading/details@2x.png' class='content-details'></image>
-  </view>
-  <view class='content-result'>
-    <view class='content-xiangmu'>WBC/白细胞指数</view>
-    <view class='content-jieguo'>18 <view class='content-position'></view></view>
-    <view class='content-danwei'>10·9/L</view>
-    <image src='../../../images/reportReading/details@2x.png' class='content-details'></image>
-  </view>
-  <view class='content-result'>
-    <view class='content-xiangmu'>WBC/白细胞指数</view>
-    <view class='content-jieguo'>18 <view class='content-position'></view></view>
-    <view class='content-danwei'>10·9/L</view>
-    <image src='../../../images/reportReading/details@2x.png' class='content-details'></image>
-  </view>
-</view>
-<view class='report-title'>
-  <view class='title-icon'></view>
-  <view class='title-font'>血量微元素</view>
-</view>
-<view class='xue-content'>
-  <view class='xue-title'>
-    <view>项目</view>
-    <view class='jieguo'>结果</view>
-    <view class='danwei'>单位</view>
-    <view class='details'>详情</view>
-  </view>
-  <view class='content-result'>
-    <view class='content-xiangmu'>WBC/白细胞指数</view>
-    <view class='content-jieguo'>18 <view class='content-position'></view></view>
-    <view class='content-danwei'>10·9/L</view>
-    <image src='../../../images/reportReading/details@2x.png' class='content-details'></image>
-  </view>
-  <view class='content-result'>
-    <view class='content-xiangmu'>WBC/白细胞指数</view>
-    <view class='content-jieguo'>18 <view class='content-position'></view></view>
-    <view class='content-danwei'>10·9/L</view>
-    <image src='../../../images/reportReading/details@2x.png' class='content-details'></image>
-  </view>
-  <view class='content-result'>
-    <view class='content-xiangmu'>WBC/白细胞指数</view>
-    <view class='content-jieguo'>18 <view class='content-position'></view></view>
-    <view class='content-danwei'>10·9/L</view>
-    <image src='../../../images/reportReading/details@2x.png' class='content-details'></image>
-  </view>
-  <view class='content-result'>
-    <view class='content-xiangmu'>WBC/白细胞指数</view>
-    <view class='content-jieguo'>18 <view class='content-position'></view></view>
-    <view class='content-danwei'>10·9/L</view>
-    <image src='../../../images/reportReading/details@2x.png' class='content-details'></image>
-  </view>
-  <view class='content-tips'>
+</block>
+<!-- <view class='content-tips'>
      <text class='complete-font'><text class='tip-click'>点击添加</text><text class='complete-font'>您的报告单上未识别遗漏指标</text></text>
-  </view>
-</view>
-<view class='submit'>
-  <view class='submit-font'>若识别不准确，点击提交反馈，提交以后还留在当前页面</view>
-  <view class='submit-buttun'>提交</view>
+</view> -->
+<view class='submit' wx:if="{{!timestamp}}">
+  <view class='submit-buttun' bindtap='showView'>点击添加</view>
+  <view class='submit-font'>可添加您的报告单上未识别遗漏指标</view>
 </view>
 <view class='examine-image'>
-  <view class='examine-image-left'></view>
-  <view class='examine-image-right'>查看原图</view>
+  <block wx:for="{{images}}" wx:key="{{index}}">
+    <image src='{{item}}' class='examine-image-left' bindtap="previewImage" mode="aspectFill" data-src="{{item}}" data-index="{{index}}"></image>
+  </block>
+  <!-- <view class='examine-image-right'>查看原图</view> -->
 </view>
-<view class='save-submit'>保存</view>
+<block wx:if="{{timestamp}}">
+  <view class='save-submit'>
+   <view class='save-submit-reading2' bindtap='readinged'>查看解读报告</view>
+  </view>
+</block>
+<block wx:else>
+  <view class='save-submit'>
+    <view class='save-submit-save' bindtap='submit'>保存</view>
+    <view class='save-submit-reading' bindtap='reading'>一键解读</view>
+  </view>
+</block>
+<!-- 弹框 -->
+<view class="commodity_screen" wx:if="{{showModalStatus}}" bindtap='hideView'></view>
+<view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+  <view class='toast-title'>添加遗漏数据</view>
+  <view class='toast-item'>
+    <view class='toast-item-name'>类目</view>
+    <view class='toast-item-input'>
+      <view class='select' bindtap ='selectTap'>
+          <text class='select_text'>{{selectData[index].name}}</text>
+          <image class='select_img {{show&&"select_img_rotate"}}' src='../../../images/smallicon/xiala@2x.png'></image>         
+      </view>
+      <view class='option_box' style='height:{{show?(selectData.length>5?324:selectData.length*60):0}}rpx;'>
+          <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' bindtap='optionTap'>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='toast-item'>
+    <view class='toast-item-name'>项目</view>
+    <view class='toast-item-input' id='mjltest'>
+      <view class='select' bindtap ='selectTap2'>
+          <text class='select_text'>{{selectData2[index2].indexName}}</text>
+          <image class='select_img {{show2&&"select_img_rotate"}}' src='../../../images/smallicon/xiala@2x.png' wx:if="{{selectData2.length!=0}}"></image>         
+      </view>
+      <view class='option_box' style='height:{{show2?(selectData2.length>5?324:selectData2.length*60):0}}rpx;top:{{sHeight2*2}}rpx'>
+          <text class='option' style='{{index2==selectData2.length-1&&"border:0;"}}' wx:for='{{selectData2}}' wx:key='this' data-index='{{index}}' bindtap='optionTap2'>{{item.indexName}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='toast-item'>
+    <view class='toast-item-name'>结果</view>
+    <view class='toast-item-input'>
+     <input class='toast-item-write' bindblur="saveToastData" value='{{toastData}}'></input>
+    </view>
+  </view>
+  <view class='toast-item'>
+    <view class='toast-item-name'>范围</view>
+    <view class='toast-item-input2'>
+     <view class='toast-item-content'>
+      {{selectData2[index2].referenceValue}}
+     </view>
+    </view>
+  </view>
+  <view class='toast-item'>
+    <view class='toast-item-name'>单位</view>
+    <view class='toast-item-input2'>
+      <view class='toast-item-content'> 
+       {{selectData2[index2].unit}}
+      </view>
+    </view>
+  </view>
+  <view class='toast-buttun' bindtap='confirmToast'>确认</view>
+  <view class='toast-buttun2' bindtap='cattyToast'>继续添加</view>
+</view>

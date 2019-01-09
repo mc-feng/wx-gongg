@@ -19,7 +19,8 @@ wxApiInterceptors({
   request: {
     response(res) {
       if(res.data){
-        return JSON.parse(Dec.formatString(Dec.Decrypt(res.data)));//返回值去字符转之间空格
+        var result = res.data.replace(/["]+/g, '');//去多余的双引号
+        return JSON.parse(Dec.formatString(Dec.Decrypt(result)));//返回值去字符转之间空格
       }
     },
   },
@@ -49,6 +50,36 @@ App({
     //       // }
     //   }
     // })
+    //检查登录
+    let that = this
+    wx.checkSession({
+      success: function (e) {
+        console.log("没有过期")
+      },
+      fail: function () {
+        console.log("过期了")
+        wx.login({
+          success: res => {
+            console.log(res.code)
+            wx.request({
+              url: '/medicalcard/getopenid',
+              method: "post",
+              data: {
+                "openId": res.code
+              },
+              success: function (res) {
+                console.log("我重新登录了")
+                console.log(res)
+                var openId = res.result
+                console.log(openId)
+                that.globalData.openId = openId
+              }
+            })
+            // 发送 res.code 到后台换取 openId, sessionKey, unionId
+          }
+        })
+      }
+    })
     // 登录
     wx.login({
       success: res => {
@@ -73,39 +104,8 @@ App({
                 "hospitalName": that.globalData.userInfo.nickName
               },
               success: function (res) {
-                console.log(res)
               }
             })
-          }
-        })
-      }
-    })
-    //检查登录
-    wx.checkSession({
-      success:function(e){
-        console.log("没有过期")
-      },
-      fail:function(){
-        console.log("过期了")
-        let that = this
-        wx.login({
-          success: res => {
-            console.log(res.code)
-            wx.request({
-              url: '/medicalcard/getopenid',
-              method: "post",
-              data:{
-                "openId": res.code
-              },
-              success: function (res) {
-                console.log("我重新登录了")
-                console.log(res)
-                var openId = res.result
-                console.log(openId)
-                that.globalData.openId = openId
-              }
-            })
-            // 发送 res.code 到后台换取 openId, sessionKey, unionId
           }
         })
       }
@@ -135,7 +135,7 @@ App({
                   if (res != undefined && res != null) {
                     //保存用户的当前经纬度
                     that.globalData.latitude = res.latitude,
-                      that.globalData.longitude = res.longitude
+                    that.globalData.longitude = res.longitude
                   }
                 },
               })

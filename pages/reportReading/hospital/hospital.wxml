@@ -1,0 +1,20 @@
+<!--pages/reportReading/hospital/hospital.wxml-->
+<block wx:if="{{result.length == 0}}">
+   <view class='noSearch-wrap'>
+        <image src='../../../images/homeimages/search.png'></image>
+        <view class='noSearch-title'>暂未查到您的上传记录</view>
+  </view>
+</block>
+<block wx:else>
+  <block wx:for="{{result}}" wx:key="{{index}}">
+      <view class='history-item' data-id="{{item.reportId}}" bindtap='linkToDel' data-timestamp="{{item.timestamp}}">
+        <image class='item-image' src='{{item.imgsrc}}'>
+        </image>
+        <view class='item-image-title'>{{item.imgNum}}张</view>
+        <view class='item-time'>{{item.time}}</view>
+        <view class='relation {{item.timestamp?"":"gray"}}'>{{item.timestamp?"已解读":"未解读"}}
+                  <view class='trigon'></view>
+        </view>
+      </view>
+   </block>
+</block>

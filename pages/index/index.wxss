@@ -194,7 +194,7 @@ swiper-item image {
  .three-more image{
    margin-left: 10rpx;
    width: 14rpx;
-   height: 24rpx;
+   height: 22rpx;
  }
 .news-list{
   padding: 26rpx 50rpx 26rpx 40rpx;

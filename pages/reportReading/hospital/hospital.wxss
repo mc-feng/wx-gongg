@@ -1,0 +1,85 @@
+/* pages/reportReading/hospital/hospital.wxss */
+page{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  background: #F6F9FB;
+}
+.history-item{
+  width: 650rpx;
+  height: 160rpx;
+  border-radius: 8rpx;
+  background: #ffffff;
+  margin-top: 20rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  padding: 0 30rpx
+}
+.item-time{
+ font-family: PingFangSC-Regular;
+ font-size: 28rpx;
+ color: #000000;
+ letter-spacing: 0;
+ margin-left: 16rpx
+}
+.item-image{
+  width: 120rpx;
+  height: 80rpx;
+  position: relative
+}
+.item-image-title{
+  color: #000000;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  position: absolute;
+  left: 90rpx
+}
+/* 显示是否解读 */
+.relation{
+  position: absolute;
+  width: 90rpx;
+  height: 40rpx;
+  border-radius: 2rpx;
+  background: #AED4FC;
+  text-align: right;
+  line-height: 40rpx;
+  right: 20rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 22rpx;
+  color: #0D86EB;
+  letter-spacing: 0;
+  padding:0rpx 15rpx 0 0
+}
+.trigon{
+  width: 0;
+  height: 0;
+  border: 20rpx solid transparent;
+  border-left: 20rpx solid #ffffff;
+  position: absolute;
+  left: 0rpx;
+  top: 0rpx;
+}
+.gray{
+  background: #D8D8D8;
+  color: #666666
+}
+/* 没有记录 */
+.noSearch-wrap{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.noSearch-wrap image{
+  margin-top: 160rpx;
+  width: 340rpx;
+  height: 324rpx;
+}
+.noSearch-title{
+  height: 40rpx;
+  font-size: 28rpx;
+  color: #666666;
+  margin-top:60rpx;
+  line-height: 40rpx;
+}

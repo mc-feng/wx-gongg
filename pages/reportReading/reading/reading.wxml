@@ -1,10 +1,23 @@
 <!--pages/reportReading/reading/reading.wxml-->
-<view class='reading-items'>
-  <image class='items-image' src='../../../images/reportReading/paizhao@2x.png'></image>
-  <view class='items-font'>拍照录入</view>
-  <image class='items-posistion' src='../../../images/reportReading/touming@2x.png'></image>
+<view class='reading-title'>上传报告单</view>
+<view class='reading-items' bindtap='chooseImage'>
+  <image class='items-background' src='../../../images/reportReading/beijing@2x.png'></image>
+  <view class='item-left'>
+    <view class='item-left-title'>拍照录入</view>
+    <view class='item-left-content'>点此上传您的化检报告照片</view>
+  </view>
+  <view class='item-right'></view>
 </view>
-<view class='reading-items shoudong'>
+<!-- toast弹出提示框 -->
+<view class="commodity_screen" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+  <image src='../../../images/homeimages/booksucceed.png'></image>
+  <view class='toast-title'>上传成功</view>
+  <view class='toast-buttun' bindtap='fenxi'>立即识别</view>
+  <view class='toast-buttun2' bindtap='chooseImage'>继续上传</view>
+</view>
+<view class='report-record' bindtap='navToHis'>上传记录>></view>
+<!-- <view class='reading-items shoudong'>
   <image class='items-image' src='../../../images/reportReading/shouxie@2x.png'></image>
   <view class='items-font shoudong-font'>手动录入</view>
   <image class='items-posistion' src='../../../images/reportReading/touming@2x.png'></image>
@@ -13,5 +26,5 @@
   <image class='items-image' src='../../../images/reportReading/his@2x.png'></image>
   <view class='items-font his-font'>HIS直连</view>
   <image class='items-posistion' src='../../../images/reportReading/touming@2x.png'></image>
-</view>
+</view> -->
 

@@ -123,11 +123,22 @@ Page({
     })
   },
   onPageScroll: function (res) {
-    if (res.scrollTop >= 166) {
-      this.setData({ loading: true })
-    }
    },
   onReachBottom: function () {
     console.log("到底啦")
+  },
+  //页面分享
+  onShareAppMessage: function (res) {
+    return {
+      title: '上海公共卫生临床中心',
+      path: '/pages/index/index',
+      imageUrl: "/images/homeimages/yiyuanlogo@2x.png",
+      success: (res) => {
+        console.log("转发成功", res);
+      },
+      fail: (res) => {
+        console.log("转发失败", res);
+      }
+    }
   },
 })

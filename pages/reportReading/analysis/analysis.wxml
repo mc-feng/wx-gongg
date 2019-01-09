@@ -1,0 +1,87 @@
+<!--pages/reportReading/analysis/analysis.wxml-->
+<view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">报告详情</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">解读建议</view>
+</view>
+<swiper current="{{currentTab}}" class="swiper-box" duration="300"  bindchange="bindChange" style="height: {{clientHeight?clientHeight+48+'px':'auto'}}">
+    <!-- 报告详情 -->
+    <swiper-item>
+      <scroll-view scroll-y="{{true}}" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+        <!-- 异常指标 -->
+        <view class='yichang-title'>异常指标</view>
+        <view class='yichang-warp'>
+          <block wx:for="{{checkedArr}}" wx:key="{{index}}">
+            <view class='yichang-item'>
+              <view class='yichang-color'></view>
+              <view class='yichang-text'>{{item.tempName}}</view>
+              <view class='yichang-tips'>{{item.indexName}}</view>
+            </view>
+          </block>
+        </view>
+        <!-- 化验指标 -->
+        <view class='huayan-title'>化验指标</view>
+        <block wx:for="{{templateList}}" wx:key="{{index}}" wx:for-item="bigItem">
+          <view class='huanyan-content'>
+            <view class='report-title'>
+              <view class='title-icon'></view>
+              <view class='title-font'>{{bigItem.templateName}}</view>
+            </view>
+            <block wx:for="{{bigItem.indexList}}" wx:key="{{smallIndex}}" wx:for-item="smallItem" wx:for-index="smallIndex">
+              <view class='report-items' bindtap ='showAdv' data-bigIndex="{{index}}" data-smallIndex="{{smallIndex}}">
+                  <view class='report-left'>{{smallItem.indexName}}</view>
+                  <view class='report-right'>
+                    <view class='report-right-value'>{{smallItem.indexValue}}</view>
+                    <view class='report-right-tips {{smallItem.prompt?"gree":""}}'>{{smallItem.prompt?(smallItem.prompt =="↑"?"偏高":"偏低"):"正常"}}</view>
+                    <image src='../../../images/smallicon/xiala@2x.png' class='report-right-image {{smallItem.show&&"slecet_image"}}'></image>
+                  </view>
+                </view>
+                <view class='report-adv' wx:if="{{smallItem.show}}">
+                  <view class='report-adv-content'>{{smallItem.clinicalSignificance}}</view>
+                </view> 
+            </block>
+          </view>
+        </block>
+      </scroll-view>
+    </swiper-item>
+    <!-- 解读建议 -->
+    <swiper-item class="jianyi">
+        <block wx:if="{{advise.length == 0}}">
+          <view class='noSearch-wrap'>
+                <image src='../../../images/homeimages/search.png'></image>
+                <view class='noSearch-title'>您的身体指标一切正常</view>
+          </view>
+        </block>
+        <block wx:else>
+          <scroll-view scroll-y="{{true}}" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+              <block wx:for="{{advise}}" wx:key="{{index}}">
+                  <view class='jianyi-tile' bindtap='showRes' data-index="{{index}}">
+                      <view class='jianyi-tile-left'>
+                          <view class='jianyi-tile-image'></view>
+                          <view class='jianyi-tile-name'>{{item.name}}</view>
+                      </view>
+                      <view class='jianyi-tile-right'>
+                          <image src='../../../images/smallicon/xiala@2x.png' class='report-right-image {{item.advShow&&"slecet_image"}}'></image>
+                      </view>
+                  </view>
+                  <view class='jianyi-content-warp' wx:if="{{item.advShow}}">
+                      <view class='jianyi-content-value'>
+                          <text class='jianyi-content-title'>结果值:</text>
+                          <text class='jianyi-content-content'>{{item.indexValue}}</text>
+                      </view>
+                      <view class='jianyi-content-reve'>
+                          <text class='jianyi-content-title'>参考值:</text>
+                          <text class='jianyi-content-content'>{{item.referenceValue}}</text>
+                      </view>
+                      <view class='jianyi-content-adv'>
+                          <view class='jianyi-content-title'>建议:</view>
+                          <view class='jianyi-content-detal'>{{item.advise}}</view>
+                      </view>
+                  </view>
+              </block>
+          </scroll-view>
+        </block>
+    </swiper-item>
+</swiper>
+<view class='save-submit'>
+    <view class='save-submit-save' bindtap='saveSubmit'>查看历史记录</view>
+</view>

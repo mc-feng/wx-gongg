@@ -44,3 +44,18 @@
     </view>
   </block>
 </block>
+<!-- 弹框 -->
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<!--content-->
+<!--使用animation属性指定需要执行的动画-->
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+  <!--drawer content-->
+  <view class="drawer_title">是否授权当前位置</view>
+  <view class="drawer_content">
+    需要获取您的地理位置，请确认授权，否则无法计算距离
+  </view>
+  <view class='btn-bottom'>
+    <button class="btn_cloose" bindtap="powerDrawer" data-statu="close" type="border:none">取消</button>
+    <button class="btn_ok" open-type="openSetting">确定</button>
+  </view>
+</view>

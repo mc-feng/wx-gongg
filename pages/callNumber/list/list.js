@@ -6,7 +6,7 @@ Page({
    */
   data: {
     listArr: [{ "title": "心脑管内科门诊", "top": false, "number": "190位" }, { "title": "内科门诊", "top": false, "number": "1位" }, { "title": "外科门诊", "top": false, "number": "5位" }, { "title": "骨科门诊", "top": false, "number": "122位" }],
-    timeCommit:true
+    timeCommit:false
   },
 
   /**
