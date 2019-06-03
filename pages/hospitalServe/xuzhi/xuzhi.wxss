@@ -1,0 +1,48 @@
+/* pages/hospitalServe/xuzhi/xuzhi.wxss */
+.warp{
+  padding: 0rpx 28rpx;
+}
+.title{
+  font-size: 40rpx;
+  color: #000000;
+  margin-top: 38rpx;
+  line-height: 56rpx;
+  font-weight: 600;
+}
+.title-tips{
+  margin-top: 24rpx;
+  font-size: 28rpx;
+  color: #A3A3A3;
+  line-height: 50rpx;
+}
+.item-tips{
+  font-size: 28rpx;
+  color: #111111;
+  line-height: 50rpx;
+  margin-bottom: 42rpx;
+}
+.item-warp{
+  margin-bottom: 20rpx;
+}
+.item{
+  line-height: 48rpx;
+  font-size: 32rpx;
+  color: #0D86EB;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+.item image{
+  width: 24rpx;
+  height: 16rpx;
+  position: absolute;
+  right: 0rpx;
+  top: 12rpx;
+  transition:transform 0.3s;
+}
+.item-content{
+  font-size: 28rpx;
+  color: #A3A3A3;
+}
+.slecet_image{
+  transform:rotate(180deg); 
+}

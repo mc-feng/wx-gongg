@@ -1,0 +1,66 @@
+<!--pages/shoushu/index/index.wxml-->
+<icon class="iconfont left" bindtap='back'/>
+<view class='header'>
+  <image src='../../../images/shoushu/nan.png' class='header-img'></image>
+  <view class='header-font'>围手术期服务</view>
+</view>
+<component showChoose="{{showChoose}}" class="component-headr" bind:myevent="onGetShow"></component>
+<!-- 内容 -->
+<block wx:if="{{!reslut}}">
+  <noselect tips="暂无手术信息" class="noselect"></noselect>
+</block>
+<block wx:else>
+  <block wx:for="{{reslut}}" wx:key="index">
+    <view class='content-warp'>
+      <view class='riqi'>
+        <view class='riqi-font'>
+          手术日期:
+          <text class='riqi-number'>{{item.yyrq}}</text>
+        </view>
+        <view class='riqi-find'>查看进度</view>
+      </view>
+      <!-- 手术信息 -->
+      <block wx:for="{{item.ssxg}}" wx:for-index="shx" wx:for-item="shitem" wx:key="shx">
+        <view class='item-warp' bindtap='link'>
+          <view>手术名称:</view>
+          <view class='item-left'>
+            <view>{{shitem.ssmc}}</view>
+            <icon class="iconfont right top"/>
+          </view>
+        </view>
+        <view class='item-warp' wx:if='{{shitem.ssfx}}'>
+          <view>手术风险:</view>
+          <view class='item-left'>
+            <view>{{shitem.ssfx}}</view>
+            <icon class="iconfont right top"/>
+          </view>
+        </view>
+        <view class='item-warp' wx:if='{{shitem.mzfs}}'>
+          <view>麻醉方式:</view>
+          <view class='item-left'>
+            <view>{{shitem.mzfs}}</view>
+            <icon class="iconfont right top"/>
+          </view>
+        </view>
+      </block>
+      <!-- 医生 -->
+      <view class='docter-warp' wx:if='{{item.zdys}}'>
+        <!-- 头像 -->
+        <view class='docter-image'>
+         <view class='tupian'>
+           <image src='{{item.zdyszp}}' class='tupian-image'></image>
+         </view>
+         <view>
+           <view class='docter-name'>{{item.zdys}}</view>
+           <view class='docter-zhiwei'>{{item.zdyszc}}</view>
+         </view>
+        </view>
+          <!-- 医生内容 -->
+        <view class='docter-content'>
+          {{item.zdysjj}}
+          <text class='docter-more'>查看更多>></text>
+        </view>
+      </view>
+    </view>
+  </block>
+</block>

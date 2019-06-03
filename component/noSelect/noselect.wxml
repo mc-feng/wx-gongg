@@ -1,0 +1,5 @@
+<!--component/noSelect/noselect.wxml-->
+<view class='noselect-warp'>
+ <image src='/images/homeimages/search.png' class='noselect-image'></image>
+ <view class='noselect-title'>{{tips}}</view>
+</view>

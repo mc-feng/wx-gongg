@@ -1,0 +1,31 @@
+/* pages/reportQuery/jiancha/jiancha.wxss */
+page{
+  background: #fff;
+  padding-bottom: 40rpx;
+}
+.report-title{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  height: 80rpx;
+  width: 100%;
+}
+.xs-left{
+  height: 40rpx;
+  width: 4rpx;
+  background: #12A5FF;
+  margin-left: 32rpx;
+}
+.title-content{
+  margin-left: 10rpx;
+  font-size: 15px;
+  color: #111111;
+  font-weight: 600
+}
+.report-content{
+  font-size: 30rpx;
+  color: #666666;
+  width: 686rpx;
+  margin-left: 32rpx;
+  margin-bottom: 40rpx;
+}

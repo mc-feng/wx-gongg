@@ -1,0 +1,26 @@
+<!--component/selectDate/selectDate.wxml-->
+<view class='chooseData'>
+    <picker
+      mode="date"
+      value="{{date}}"
+      end="{{date2}}"
+      bindchange="bindDateChange"
+    >
+        <view class="dataStart">
+          {{date}}
+        </view>
+    </picker>
+    <view class='dataMid'>至</view>
+    <picker
+        mode="date"
+        value="{{date2}}"
+        start="{{date}}"
+        end="{{nowTime}}"
+        bindchange="bindDateChange2"
+      >
+          <view class="dataEnd">
+            {{date2}}
+          </view>
+      </picker>
+    <view class='dataCha' bindtap='sendDate'>查询</view>
+  </view>

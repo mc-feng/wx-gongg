@@ -1,0 +1,8 @@
+<!--pages/reportQuery/jiancha/jiancha.wxml-->
+<block wx:for="{{reportContent}}" wx:key="{{index}}">
+  <view class='report-title'>
+    <view class='xs-left'></view>
+    <view class='title-content'>{{item.zbxmmc}}</view>
+  </view>
+  <view class='report-content'>{{item.zbjg}}</view>
+</block>

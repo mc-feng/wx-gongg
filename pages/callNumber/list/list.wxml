@@ -1,37 +1,36 @@
 <!--pages/callNumber/list/list.wxml-->
-<block wx:if="{{timeCommit}}">
-  <view class='top'>
-    <image src='../../../images/homeimages/Group@2x.png'></image>
-    <view class='top-font'>当前非门诊时间，请在门诊时间查看！</view>
+<!-- 头部信息 -->
+  <view class='header'>
+      <view class='header-font'>{{choose[index].openUserName}}</view>
+    <!-- 底部弹出选择人信息 -->
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{showChoose}}">
+        <image src='../../../images/personimages/changeUser.png' class='changeUser'></image>
+    </picker>
   </view>
-  <view class='bottom'>
-    <view class='bottom-title'>开诊时间</view>
-    <view class='bottom-item'>
-      <view>虹口院区：</view>
-      <view>普通门诊时间： 7:30―16:30</view>
-      <view>专家门诊时间： 上午8:00-11:00    上午13:30-16:00</view>
-    </view>
-    <view class='bottom-item'>
-      <view>金山院区：</view>
-      <view>普通门诊时间： 8:30―15:30</view>
-      <view>专家门诊时间： 上午8:30-11:30    上午13:00-15:00</view>
-    </view>
-  </view>
-</block>
-<block wx:else>
-  <view class='header-tips'>
-    <view>1、普通门诊叫号 </view>
-    <view>2、标有“分诊”的科室，叫到号后请到护士台登记分诊   </view>
-  </view>
-  <block wx:for="{{listArr}}" wx:key="{{item.index}}">
-    <view class='departmentsList' bindtap='changeTop' data-index="{{index}}">
-      <view class='list-font'>
-          {{item.title}}
-          <block wx:if="{{item.top}}">
-          <view class='get-top'>置顶</view>
-          </block>
-      </view>
-      <view class='list-number'>{{item.number}}</view>
+  <block wx:if="{{callContent.length!=0}}">
+      <block wx:for="{{callContent}}" wx:key="{{index}}">
+        <view class='numberContent'>
+         <image src='../../../images/callnumber/callbackground.png'></image>
+         <view class='ks'>科室：{{item.ksmc}}</view>
+         <view class='jz'>
+           <view class='jzT'>您的就诊号</view>
+           <view class='jzN'>{{item.sxh}}号</view>
+         </view>
+         <view class='xjz'>
+           <view class='xjzT'>当前就诊号</view>
+           <view class='xjzN {{item.ghbz==0?"":"gray"}}'>{{item.dqxh}}号</view>
+         </view>
+         <view class='fenjie'></view>
+         <view class='jzr'>
+           <view class='jzrT'>前面就诊人数</view>
+           <view class='jzrN {{item.ghbz==0?"":"gray"}}'>{{item.ghbz==0?item.pdrs+"人":"已过号"}}</view>
+         </view>
+        </view>
+      </block>
+  </block>
+  <block wx:else>
+     <view class='noSearch-wrap'>
+      <image src='../../../images/homeimages/search.png'></image>
+      <view class='noSearch-title'>暂无排队叫号信息</view>
     </view>
   </block>
-</block>

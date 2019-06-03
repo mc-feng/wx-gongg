@@ -1,4 +1,5 @@
 // pages/reportQuery/xueReport/xueReport.js
+const app = getApp();
 Page({
 
   /**
@@ -22,7 +23,7 @@ Page({
       method:"post",
       data:{
         accessToken: reportDetails.accessToken,
-        openUserID: reportDetails.patientID,
+        openUserID: app.globalData.openId,
         reportNo: reportDetails.reportNo,
         reportReadStatus:"0"
       },

@@ -115,7 +115,7 @@ Page({
             data:{
               "bookingID": that.data.bookingID,
               "accessToken": that.data.accessToken,
-              "openUserID": that.data.data.patientID,
+              "openUserID": app.globalData.openId,
             },
             success:function(res){
               that.setData({

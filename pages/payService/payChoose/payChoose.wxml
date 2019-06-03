@@ -1,0 +1,19 @@
+<!--pages/payService/payChoose/payChoose.wxml-->
+<view class='items-box' bindtap='navLink' data-name="金山院区">
+  <image src='../../../images/homeimages/yiyuanlogo@2x.png' class='logo'></image>
+  <view class='content-warp'>
+     <view class='header'>金山院区</view>
+     <view class='content'>医院等级：三级甲等</view>
+     <view class='content'>医院地址：上海市金山区漕廊公路2901号</view>
+  </view>
+  <image src='../../../images/homeimages/sword.png' class='icon'></image>
+</view>
+<view class='items-box' bindtap='navLink' data-name="市区总部">
+  <image src='../../../images/homeimages/yiyuanlogo@2x.png' class='logo'></image>
+  <view class='content-warp'>
+     <view class='header'>虹口院区</view>
+     <view class='content'>医院等级：三级甲等</view>
+     <view class='content'>医院地址：上海市虹口区同心路921号</view>
+  </view>
+  <image src='../../../images/homeimages/sword.png' class='icon'></image>
+</view>

@@ -3,7 +3,8 @@ page{
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  align-items: center
+  align-items: center;
+  margin-bottom: 20rpx;
 }
 .header{
   height: 96rpx;
@@ -54,31 +55,25 @@ page{
   flex-flow: row nowrap;
   align-items: center;
   background: #D2EAFF;
-  border-radius: 4rpx;
+  border-radius: 8rpx;
   margin-top: 32rpx;
   justify-content: space-between
 }
 .pay-content{
-  height: 96rpx;
-  width: 150rpx
+  width: 460rpx;
 }
 .pay-right{
   display: flex;
   flex-flow: row nowrap;
-  align-items: center
 }
 .pay-content-title{
   font-family: PingFangSC-Regular;
   font-size: 28rpx;
-  letter-spacing: -0.56rpx;
-  text-align: center;
   line-height: 40rpx
 }
 .pay-consulting{
   font-family: PingFangSC-Regular;
-  font-size: 40rpx;
-  letter-spacing: -0.8rpx;
-  text-align: center;
+  font-size: 24rpx;
   line-height: 56rpx
 }
 .pay-symbol{
@@ -91,11 +86,4 @@ page{
   font-family: PingFangSC-Regular;
   font-size: 60rpx;
   letter-spacing: -1.2rpx;
-}
-.pay-click{
-  font-family: PingFangSC-Regular;
-  font-size: 28rpx;
-  letter-spacing: -0.56rpx;
-  text-align: center;
-  margin-left: 30rpx
 }

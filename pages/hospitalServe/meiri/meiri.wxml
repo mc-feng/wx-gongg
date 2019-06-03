@@ -1,0 +1,18 @@
+<!--pages/hospitalServe/meiri/meiri.wxml-->
+<selectdate date="{{date}}" date2="{{date2}}" nowTime="{{nowTime}}" class="selectdate" bind:acdata="changeDate"></selectdate>
+<view wx:if="{{!result}}">
+  <noselect tips="暂无信息" class="noselect"></noselect>
+</view>
+<view wx:else>
+  <view class='content-warp'>
+    <view class='content-title'>费用清单</view>
+    <view class='item-warp'>
+      <block wx:for="{{result}}" wx:key="{{index}}">
+        <view class='content-item'>
+          <view class='{{index=="总费用"?"black":"item-name"}}'>{{index}}：</view>
+          <view>¥{{item}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

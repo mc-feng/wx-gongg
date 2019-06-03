@@ -112,6 +112,9 @@ Page({
               duration: 1500
             })
             setTimeout(function () {
+              // wx.redirectTo({
+              //   url: '../link/lock/lock',
+              // })
               wx.navigateBack({
                 delta: 2
               })

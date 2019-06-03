@@ -1,78 +1,90 @@
 // pages/callNumber/list/list.js
+const app = getApp();
 Page({
-
-  /**
-   * 页面的初始数据
-   */
-  data: {
-    listArr: [{ "title": "心脑管内科门诊", "top": false, "number": "190位" }, { "title": "内科门诊", "top": false, "number": "1位" }, { "title": "外科门诊", "top": false, "number": "5位" }, { "title": "骨科门诊", "top": false, "number": "122位" }],
-    timeCommit:false
+  data:{
+    index:0, // 默认选择用户
+    show:[] //所要展示的用户
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
+    var that = this
+    wx.showLoading({
+      title: '查询中',
+    })
+    var that = this
+    wx.request({
+      url: '/medicalcard/getweachattopatient',
+      data: {
+        "openId": app.globalData.openId//openID
+      },
+      method: "post",
+      success: function (res) {
+        console.log(res)
+        var choose = res.result
+        that.setData({
+          choose: res.result
+        })
+        that.callRequest(that)
+        //设置选择的患者
+        for (var i = 0; i < res.result.length; i++) {
+          that.data.show.push("就诊人: " + res.result[i].openUserName + "  " + "卡号: " + res.result[i].createTime)
+        }
+        //保留当前就诊人
+        var callIndex = app.globalData.callIndex ? app.globalData.callIndex : that.data.index
+        that.setData({
+          showChoose: that.data.show,
+          index: callIndex
+        })
+        console.log(that.data.showChoose)
+      },
+      fail: function () {
+        wx.hideLoading()
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
-  changeTop:function(res){
-    var index = res.currentTarget.dataset.index
-    var neww = this.data.listArr.splice(index, 1)
-    for (var i = 0; i < this.data.listArr.length;i++){
-      this.data.listArr[i].top = false
+  onShow:function(){
+    var that = this
+    if (that.data.choose){
+      that.callRequest(that)
     }
-    neww[0].top = true
-    this.data.listArr.unshift(neww[0])
-    this.setData({
-      listArr: this.data.listArr
+  },
+  // 点击切换头像
+  bindPickerChange: function (e) {
+    var that = this;
+    app.globalData.callIndex = e.detail.value
+    console.log(app.globalData.callIndex)
+    that.setData({
+      index: e.detail.value
+    })
+    that.callRequest(that)
+    console.log(this.data.choose[e.detail.value].patientID)
+  },
+  //刷新排队叫号请求
+  callRequest:function(that){
+    wx.showLoading({
+      title: '数据加载中',
+    })
+    wx.request({
+      url: '/sign/getMzpdPat',
+      method: "post",
+      data: {
+        dataSource: that.data.choose[that.data.index].patientID
+      },
+      success: function (res) {
+        wx.hideLoading()
+        if (res.success) {
+          that.setData({
+            callContent: res.result.mzpds
+          })
+        } else {
+          that.setData({
+            callContent: []
+          })
+        }
+        console.log(res)
+      },
+      complete:function(){
+        wx.hideLoading()
+      }
     })
   }
 })

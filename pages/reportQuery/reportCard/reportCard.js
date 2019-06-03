@@ -1,4 +1,5 @@
 // pages/reportQuery/reportCard/reportCard.js
+const app = getApp();
 Page({
 
   /**
@@ -44,7 +45,7 @@ Page({
       method:"post",
       data:{
        "accessToken": accessToken,
-        "openUserID": transData.patientID
+        "openUserID": app.globalData.openId
       },
       success:function(res){
         console.log(res)
@@ -53,7 +54,7 @@ Page({
             url: '/report/getjianyanreport',
             method:"post",
             data:{
-              "openUserID": transData.patientID,
+              "openUserID": app.globalData.openId,
               "dataSource": year + "-" + that.formatNumber(month)
             },
             success:function(res){
@@ -147,7 +148,7 @@ Page({
         url: '/report/getjianyanreport',
         method: "post",
         data: {
-          "openUserID": that.data.transData.patientID,
+          "openUserID": app.globalData.openId,
           "dataSource": that.data.year + "-" + that.data.month
         },
         success: function (res) {

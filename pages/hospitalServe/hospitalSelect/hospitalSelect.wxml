@@ -1,0 +1,41 @@
+<!--pages/hospitalServe/hospitalSelect/hospitalSelect.wxml-->
+<icon class="iconfont left" bindtap='back'/>
+<view class='header'>
+  <image src='../../../images/hospital/header.png' class='header-img'></image>
+  <view class='header-font'>住院服务</view>
+</view>
+<component showChoose="{{showChoose}}" class="component-headr" bind:myevent="onGetShow"></component>
+<view class='content-warp'>
+  <view class='content-item' bindtap='link'  data-src="../ruyuan/ruyuan">
+    <image src='../../../images/hospital/banli.png' class='item-image'></image>
+    <view class='item-font'>入院办理</view>
+  </view>
+  <view class='content-item' bindtap='link'  data-src="../chongzhi/chongzhi">
+    <image src='../../../images/hospital/chongzhi.png' class='item-image'></image>
+    <view class='item-font'>住院充值</view>
+  </view>
+  <view class='content-item' bindtap='link' data-src="../zyhository/zyhository">
+    <image src='../../../images/hospital/lishi.png' class='item-image'></image>
+    <view class='item-font'>住院记录</view>
+  </view>
+  <view class='content-item' bindtap='link' data-src="../meiri/meiri">
+    <image src='../../../images/hospital/qingdan.png' class='item-image'></image>
+    <view class='item-font'>费用清单</view>
+  </view>
+  <view class='content-item' bindtap='link' data-src="../dingjing/dingjing">
+    <image src='../../../images/hospital/dingjing.png' class='item-image'></image>
+    <view class='item-font'>预交金记录</view>
+  </view>
+  <view class='content-item' bindtap='linkToMin'>
+    <image src='../../../images/hospital/yiwai.png' class='item-image'></image>
+    <view class='item-font'>住院意外保障</view>
+  </view>
+  <view class='content-item' bindtap='link' data-src="../xuzhi/xuzhi">
+    <image src='../../../images/hospital/xuzhi.png' class='item-image'></image>
+    <view class='item-font'>住院须知</view>
+  </view>
+</view>
+<view class='bottom'>
+ <view>上海市公共卫生临床中心</view>
+ <view>021-37990333</view>
+</view>

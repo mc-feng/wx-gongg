@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "selectdate": "/component/selectDate/selectDate",
+    "noselect": "/component/noSelect/noselect"
+  },
+  "navigationBarTitleText": "费用清单"
+}

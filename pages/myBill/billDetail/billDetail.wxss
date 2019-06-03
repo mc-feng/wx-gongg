@@ -1,0 +1,38 @@
+/* pages/myBill/billDetail/billDetail.wxss */
+page{
+  background: #F6F9FB; 
+}
+.warp{
+  width: 700rpx;
+  margin:22rpx auto 0rpx;
+  background: #fff;
+  border-radius: 8rpx;
+  margin-bottom: 100rpx
+}
+.header{
+  display: flex;
+  align-items: center;
+  height: 90rpx;
+  font-size: 30rpx;
+}
+.left{
+  width: 400rpx;
+  text-align: center
+}
+.right{
+  width: 300rpx;
+  text-align: center
+}
+.item{
+  width: 100%;
+  background: #fff;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  height: 90rpx;
+  font-size: 30rpx;
+  border-bottom: 2rpx solid #EAEAEA;
+}
+.item:last-of-type{
+  border-bottom:none
+}

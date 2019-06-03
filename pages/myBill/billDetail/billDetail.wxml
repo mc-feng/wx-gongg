@@ -1,0 +1,13 @@
+<!--pages/myBill/billDetail/billDetail.wxml-->
+<view class='warp'>
+  <view class='header'>
+     <view class='left'>费用类别</view>
+     <view class='right'>金额(元)</view>
+  </view> 
+  <block wx:for="{{reslut}}" wx:key="index">
+    <view class='item'>
+      <view class='left'>{{item.subItemName}}</view>
+      <view class='right'>{{item.price}}</view>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,60 @@
+/* pages/myBill/mybill/mybill.wxss */
+page{
+  background: #F6F9FB;
+}
+.warp{
+  width: 700rpx;
+  margin:22rpx auto 0rpx;
+  background: #fff;
+  border-radius: 8rpx;
+  margin-bottom: 100rpx
+}
+.item{
+  height: 110rpx;
+  padding:0rpx 28rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2rpx solid #EAEAEA;
+  position: relative
+}
+.item:last-of-type{
+  border-bottom: none
+}
+.money{
+  font-family: PingFangSC-Medium;
+  font-size: 34rpx;
+  color: #232323;
+  margin-right: 20rpx
+}
+.name{
+  font-size: 30rpx;
+  color: #333333;
+}
+.time{
+  margin-top: 4rpx;
+  font-size: 24rpx;
+  color: #A3A3A3;
+}
+@font-face {
+  font-family: 'iconfont';  /* project id 1163800 */
+  src: url('//at.alicdn.com/t/font_1163800_jegc48xbk5p.eot');
+  src: url('//at.alicdn.com/t/font_1163800_jegc48xbk5p.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1163800_jegc48xbk5p.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1163800_jegc48xbk5p.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1163800_jegc48xbk5p.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1163800_jegc48xbk5p.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family: "iconfont";
+  font-size: .16rem;
+  font-style: normal;
+  position: absolute;
+  right: 10rpx;
+  top: 22rpx
+
+}
+.left:before { 
+  content: "\e633";
+  font-size: 28rpx;
+}

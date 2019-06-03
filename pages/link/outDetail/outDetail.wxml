@@ -1,0 +1,9 @@
+<!--pages/link/outDetail/outDetail.wxml-->
+<view class='name-top'>{{value}}</view>
+<block wx:for="{{result}}" wx:key="{{index}}">
+  <view wx:if="{{type=='drug'}}" class='title'>【{{item.fieldName}}】</view>
+  <view wx:else class='title2'>{{item.fieldName}}</view>
+  <view class='textClass-warp'>
+    <rich-text nodes="{{item.content}}" class='textClass'></rich-text>
+  </view>
+</block>

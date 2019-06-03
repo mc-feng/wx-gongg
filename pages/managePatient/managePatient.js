@@ -232,139 +232,212 @@ Page({
     console.log(this.data.phoneNumber)
     console.log(this.data.identityCard)
     // 正则规则
-    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+    var myreg = /^1[3465789]\d{9}$/;
     var idreg = /^\d{6}(18|19|20)?\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d{3}(\d|[xX])$/;
-    var regNum = /^\d{15}$/
-    //验证姓名
-    if (userName == "") {
-      this.setData({
-        link1 : false
-      })
-      wx.showToast({
-        title: '姓名不能为空',
-      })
-    }else{
-      this.setData({
-        link1: true
-      })
-    }
-    // 验证手机号码
-    if (phoneNumber == ""){
-      this.setData({
-        link2: false
-      })
-      wx.showToast({
-        title: '手机号不能为空',
-      })
-    }else if (!myreg.test(phoneNumber)) {
-      this.setData({
-        link2: false
-      })
-      wx.showToast({
-        title: '手机号有误！',
-        icon: 'success',
-        duration: 1500
-      })
-    }else {
-      this.setData({
-        link2: true
-      })
-    }
-    // 验证身份证
-    if (identityCard == "") {
-      this.setData({
-        link3: false
-      })
-      wx.showToast({
-        title: '身份证不能为空',
-      })
-    } else if (!idreg.test(identityCard)) {
-      console.log(10)
-      this.setData({
-        link3: false
-      })
-      wx.showToast({
-        title: '身份证不正确！',
-        icon: 'success',
-        duration: 1500
-      })
-    } else {
-      this.setData({
-        link3: true
-      })
-    }
-    //验证医保号
-    if (medicareCard == "") {
-      this.setData({
-        link4: false
-      })
-      wx.showToast({
-        title: '卡号不能为空',
-      })
-    } else{
-      this.setData({
-        link4: true
-      })
-    }
-    // 发送请求
     let that = this
-    if (that.data.link1 && that.data.link2 && that.data.link3 && that.data.link4 && that.data.link5){
+    if (myreg.test(phoneNumber) && idreg.test(identityCard) && userName && medicareCard && that.data.link5){
       that.setData({
-        link5:false
+        link5: false
       })
       console.log("可以发送")
-       wx.request({
-      url: '/medicalcard/checkidfrom',
-      method: "post",
-      data: {
-        "cardProperty": this.data.index,
-        "cardType": this.data.currentTab,
-        "openUserID": app.globalData.openId,
-        "cardNo": this.data.medicareCard,
-        "certType": "0",
-        "openIDCard": this.data.identityCard,
-        "openTel": this.data.phoneNumber,
-        "openUserName": this.data.userName
-      },
-      success: function (res) {
-        let addMessage = {
-          "openID": app.globalData.openId,
-          "tel": that.data.phoneNumber,
-          "idCard": that.data.identityCard,
-          "patientName": that.data.userName,
-          "cardNo": that.data.medicareCard,
-          "cardProperty": that.data.index,
-          "cardType": that.data.currentTab
-        }
-        let transData = JSON.stringify(addMessage)
-        let str = JSON.stringify(res)
-        console.log(res);
-        if(res.success){
-          wx.showToast({
-            icon:"none",
-            title: res.message,
-            duration:1500
-          })
-          setTimeout((()=>{
-            wx.navigateTo({
-              url: '../chooseHospital/chooseHospital?cardData=' + str + "&transData=" + transData,
+      wx.request({
+        url: '/medicalcard/checkidfrom',
+        method: "post",
+        data: {
+          "cardProperty": this.data.index,
+          "cardType": this.data.currentTab,
+          "openUserID": app.globalData.openId,
+          "cardNo": this.data.medicareCard,
+          "certType": "0",
+          "openIDCard": this.data.identityCard,
+          "openTel": this.data.phoneNumber,
+          "openUserName": this.data.userName
+        },
+        success: function (res) {
+          let addMessage = {
+            "openID": app.globalData.openId,
+            "tel": that.data.phoneNumber,
+            "idCard": that.data.identityCard,
+            "patientName": that.data.userName,
+            "cardNo": that.data.medicareCard,
+            "cardProperty": that.data.index,
+            "cardType": that.data.currentTab
+          }
+          let transData = JSON.stringify(addMessage)
+          let str = JSON.stringify(res)
+          console.log(res);
+          if (res.success) {
+            wx.showToast({
+              icon: "none",
+              title: res.message,
+              duration: 1500
             })
-          }),1000)
-        }else{
-          wx.showToast({
-            icon: "none",
-            title: res.message,
-            duration: 1500
-          })
-          that.setData({
-            link5: true
-          })
+            setTimeout((() => {
+              wx.navigateTo({
+                url: '../chooseHospital/chooseHospital?cardData=' + str + "&transData=" + transData,
+              })
+            }), 1000)
+          } else {
+            wx.showToast({
+              icon: "none",
+              title: res.message,
+              duration: 1500
+            })
+            that.setData({
+              link5: true
+            })
+          }
         }
-      }
-    })
-    }else{
-      console.log("发送失败")
+      })
+    } else if (!userName){
+      wx.showToast({
+        title: '姓名不能为空',
+        icon:"none"
+      })
+    } else if (!idreg.test(identityCard)){
+      wx.showToast({
+        title: '请检查身份证',
+        icon: "none"
+      })
+    } else if (!myreg.test(phoneNumber)){
+      wx.showToast({
+        title: '请检查手机号',
+        icon: "none"
+      })
+    } else if (!medicareCard){
+      wx.showToast({
+        title: '卡号不能为空',
+        icon: "none"
+      })
     }
+    // //验证姓名
+    // if (userName == "") {
+    //   this.setData({
+    //     link1 : false
+    //   })
+    //   wx.showToast({
+    //     title: '姓名不能为空',
+    //   })
+    // }else{
+    //   this.setData({
+    //     link1: true
+    //   })
+    // }
+    // // 验证手机号码
+    // if (phoneNumber == ""){
+    //   this.setData({
+    //     link2: false
+    //   })
+    //   wx.showToast({
+    //     title: '手机号不能为空',
+    //   })
+    // }else if (!myreg.test(phoneNumber)) {
+    //   this.setData({
+    //     link2: false
+    //   })
+    //   wx.showToast({
+    //     title: '手机号有误！',
+    //     icon: 'success',
+    //     duration: 1500
+    //   })
+    // }else {
+    //   this.setData({
+    //     link2: true
+    //   })
+    // }
+    // // 验证身份证
+    // if (identityCard == "") {
+    //   this.setData({
+    //     link3: false
+    //   })
+    //   wx.showToast({
+    //     title: '身份证不能为空',
+    //   })
+    // } else if (!idreg.test(identityCard)) {
+    //   console.log(10)
+    //   this.setData({
+    //     link3: false
+    //   })
+    //   wx.showToast({
+    //     title: '身份证不正确！',
+    //     icon: 'success',
+    //     duration: 1500
+    //   })
+    // } else {
+    //   this.setData({
+    //     link3: true
+    //   })
+    // }
+    // //验证医保号
+    // if (medicareCard == "") {
+    //   this.setData({
+    //     link4: false
+    //   })
+    //   wx.showToast({
+    //     title: '卡号不能为空',
+    //   })
+    // } else{
+    //   this.setData({
+    //     link4: true
+    //   })
+    // }
+    // // 发送请求
+    // if (that.data.link1 && that.data.link2 && that.data.link3 && that.data.link4 && that.data.link5){
+    //   that.setData({
+    //     link5:false
+    //   })
+    //   console.log("可以发送")
+    //    wx.request({
+    //   url: '/medicalcard/checkidfrom',
+    //   method: "post",
+    //   data: {
+    //     "cardProperty": this.data.index,
+    //     "cardType": this.data.currentTab,
+    //     "openUserID": app.globalData.openId,
+    //     "cardNo": this.data.medicareCard,
+    //     "certType": "0",
+    //     "openIDCard": this.data.identityCard,
+    //     "openTel": this.data.phoneNumber,
+    //     "openUserName": this.data.userName
+    //   },
+    //   success: function (res) {
+    //     let addMessage = {
+    //       "openID": app.globalData.openId,
+    //       "tel": that.data.phoneNumber,
+    //       "idCard": that.data.identityCard,
+    //       "patientName": that.data.userName,
+    //       "cardNo": that.data.medicareCard,
+    //       "cardProperty": that.data.index,
+    //       "cardType": that.data.currentTab
+    //     }
+    //     let transData = JSON.stringify(addMessage)
+    //     let str = JSON.stringify(res)
+    //     console.log(res);
+    //     if(res.success){
+    //       wx.showToast({
+    //         icon:"none",
+    //         title: res.message,
+    //         duration:1500
+    //       })
+    //       setTimeout((()=>{
+    //         wx.navigateTo({
+    //           url: '../chooseHospital/chooseHospital?cardData=' + str + "&transData=" + transData,})
+    //       }),1000)
+    //     }else{
+    //       wx.showToast({
+    //         icon: "none",
+    //         title: res.message,
+    //         duration: 1500
+    //       })
+    //       that.setData({
+    //         link5: true
+    //       })
+    //     }
+    //   }
+    // })
+    // }else{
+    //   console.log("发送失败")
+    // }
   },
   // 弹出关系框点击事件
   bindPickerChange: function (e) {
@@ -428,7 +501,8 @@ Page({
       method: "post",
       data: {
         "patientID": parameter[productIndex].patientID,
-        "hosptFrom": parameter[productIndex].idCard
+        "hosptFrom": parameter[productIndex].idCard,
+        "openID": app.globalData.openId
       },
       success: function (res) {
         console.log(res)

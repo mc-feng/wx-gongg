@@ -1,0 +1,12 @@
+<!--pages/shoushu/mazui/mazui.wxml-->
+<view class='warp'>
+  <view style='font-size:{{font}}rpx' class='header'>麻醉方式:全身麻醉</view>
+  <view style='font-size:{{font}}rpx' class='title'>概述</view>
+  <view style='font-size:{{font2}}rpx' class='content'>麻醉分为全身麻醉，半身麻醉和局部麻醉。麻醉分为全身麻醉，半身麻醉和局部麻醉。麻醉分为全身麻醉，半身麻醉和局部麻醉。
+  </view>
+</view>
+<view class='bottom'>
+   <text class='reduce'>A-</text>
+   <slider  min="0" max="30" selected-color="#1E80EE" bindchange="changefont" class='slider'/>
+   <text class='add'>A+</text>
+</view>

@@ -1,0 +1,13 @@
+<!--pages/link/lock/lock.wxml-->
+  <view class='crad-warp'>
+    <block wx:if="{{result==2||result==4}}">
+      <image src='../../../images/homeimages/search.png'></image>
+      <view class='crad-tips'>您的信息不完善</view>
+      <view class='crad-buttun' bindtap='linkToPeople'>立即去完善</view>
+    </block>
+    <block wx:if="{{result==3}}">
+      <image src='../../../images/homeimages/search.png'></image>
+      <view class='crad-tips'>您未绑定就诊卡</view>
+      <view class='crad-buttun' bindtap='linkToCard'>立即绑定就诊卡</view>
+    </block>
+  </view>

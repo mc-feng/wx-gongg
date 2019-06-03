@@ -1,0 +1,11 @@
+/* pages/link/outMore/outMore.wxss */
+page{
+  background: #fff;
+  padding-bottom: 40rpx;
+}
+.list-item{
+  font-size: 32rpx;
+  color: #111111;
+  margin-top: 40rpx;
+  margin-left: 28rpx
+}

@@ -1,0 +1,30 @@
+/* pages/link/outDetail/outDetail.wxss */
+page{
+  padding-bottom: 40rpx
+}
+.textClass{
+  font-size: 26rpx;
+  color: #97979A;
+  line-height: 39rpx;
+}
+.textClass-warp{
+  padding:0 30rpx 0 28rpx;
+}
+.name-top{
+  font-size: 40rpx;
+  color: #000;
+  margin:40rpx 0 40rpx 28rpx;
+  font-weight: 600;
+}
+.title{
+  font-size: 32rpx;
+  color: #111111;
+  font-weight: 600;
+  margin:40rpx 0 20rpx 12rpx
+}
+.title2{
+  font-size: 32rpx;
+  color: #111111;
+  font-weight: 600;
+  margin:40rpx 0 20rpx 28rpx
+}

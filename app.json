@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/logs/logs",
     "pages/introduce/introduce",
@@ -15,7 +15,7 @@
     "pages/bookRecord/bookRecord",
     "pages/myCollect/myCollect",
     "pages/collectdetails/collectdetails",
-    "pages/inNavigation/inNavigation" ,
+    "pages/inNavigation/inNavigation",
     "pages/managePatient/managePatient",
     "pages/editPeopleMess/editPeopleMess",
     "pages/docterDirect/docterDirect",
@@ -29,10 +29,13 @@
     "pages/tips/tips",
     "pages/reportQuery/query/query",
     "pages/reportQuery/reportCard/reportCard",
-    "pages/reportQuery/xueReport/xueReport",  
+    "pages/reportQuery/xueReport/xueReport",
     "pages/reportQuery/healthExaminationReport/healthExaminationReport",
     "pages/reportQuery/healthDetail/healthDetail",
+    "pages/reportQuery/jianyan/jianyan",
+    "pages/reportQuery/jiancha/jiancha",
     "pages/payService/payQuery/payQuery",
+    "pages/payService/payChoose/payChoose",
     "pages/reportReading/reading/reading",
     "pages/reportReading/dataEnter/dataEnter",
     "pages/reportReading/hospital/hospital",
@@ -40,34 +43,56 @@
     "pages/link/consultDoctor/consultDoctor",
     "pages/link/consultRecord/consultRecord",
     "pages/link/out/out",
-    "pages/link/reportReading/reportReading",
-    "pages/callNumber/list/list"
+    "pages/link/outDetail/outDetail",
+    "pages/link/outMore/outMore",
+    "pages/link/lock/lock",
+    "pages/callNumber/list/list",
+    "pages/hospitalServe/hospitalSelect/hospitalSelect",
+    "pages/hospitalServe/dingjing/dingjing",
+    "pages/hospitalServe/zyhository/zyhository",
+    "pages/hospitalServe/zyDetail/zyDetail",
+    "pages/hospitalServe/meiri/meiri",
+    "pages/hospitalServe/yiwai/yiwai",
+    "pages/hospitalServe/xuzhi/xuzhi",
+    "pages/hospitalServe/ruyuan/ruyuan",
+    "pages/hospitalServe/chongzhi/chongzhi",
+    "pages/shoushu/index/index",
+    "pages/shoushu/mazui/mazui",
+    "pages/myBill/mybill/mybill",
+    "pages/myBill/billDetail/billDetail"
   ],
-  "window":{
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "window": {
     "navigationBarBackgroundColor": "#FFFFFF",
-    "navigationBarTextStyle":"black",
+    "navigationBarTextStyle": "black",
     "navigationBarTitleText": "上海市公共卫生临床中心"
   },
   "tabBar": {
-    "borderStyle": "black",
-    "color":"#CCCCCC",
+    "borderStyle": "white",
+    "color": "#CCCCCC",
     "selectedColor": "#0D86EB",
     "backgroundColor": "#fff",
     "list": [
       {
-      "pagePath": "pages/index/index",
-      "text": "首页",
-       "iconPath":"images/tabimages/shouye@2x.png",
-       "selectedIconPath":
-       "images/tabimages/shouye1@2x.png"
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tabimages/shouye@2x.png",
+        "selectedIconPath": "images/tabimages/shouye1@2x.png"
       },
       {
         "pagePath": "pages/logs/logs",
         "text": "个人中心",
         "iconPath": "images/tabimages/wode@2x.png",
-        "selectedIconPath":
-        "images/tabimages/wode1@2x.png"
+        "selectedIconPath": "images/tabimages/wode1@2x.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json",
+  "navigateToMiniProgramAppIdList": [
+    "wxea7a2c3c88e3ad65"
+  ]
 }

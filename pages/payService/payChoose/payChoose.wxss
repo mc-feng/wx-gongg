@@ -1,0 +1,46 @@
+/* pages/payService/payChoose/payChoose.wxss */
+page{
+ background: #F5F7F9;
+}
+.items-box{
+  margin-top: 20rpx;
+  width:100%;
+  height: 180rpx;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  background: #ffffff;
+  position: relative;
+}
+.content-warp{
+  margin-left: 180rpx
+}
+.logo{
+  position: absolute;
+  left: 28rpx;
+  top:30rpx;
+  width: 120rpx;
+  height: 120rpx
+}
+.icon{
+  width: 12rpx;
+  height: 20rpx;
+  position: absolute;
+  right: 28rpx;
+  top: 80rpx;
+}
+.header{
+  font-family: PingFangSC-Medium;
+  font-size: 36rpx;
+  color: #0D86EB;
+  letter-spacing: -0.12rpx;
+  line-height: 40rpx;
+  margin-bottom: 14rpx
+}
+.content{
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #666666;
+  letter-spacing: -0.08rpx;
+  line-height: 40rpx;
+}

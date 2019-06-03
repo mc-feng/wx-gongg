@@ -1,0 +1,88 @@
+/* pages/hospitalServe/hospitalSelect/hospitalSelect.wxss */
+page{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  background:  #F5F7F9
+}
+.header{
+  height: 360rpx;
+  background: linear-gradient(-56deg, #0E63FD 0%, #7DB7FF 100%);
+  width: 100%;
+  position: relative
+}
+.header-img{
+  width: 416rpx;
+  height: 242rpx;
+  position: absolute;
+  bottom: 0rpx;
+  left: 50rpx;
+}
+.header-font{
+  font-size: 52rpx;
+  color: #FFFFFF;
+  position: absolute;
+  left: 388rpx;
+  bottom: 104rpx;
+}
+.component-headr{
+  width: 100%;
+  color: #0D86EB ;
+  background: #fff
+}
+.content-warp{
+  width: 700rpx;
+  margin-top: 48rpx;
+}
+.content-item{
+  width: 212rpx;
+  height: 204rpx;
+  background: #fff;
+  margin-bottom: 30rpx;
+  display: inline-block;
+  margin-right: 30rpx;
+  border-radius:8rpx
+}
+.content-item:nth-of-type(3n){
+  margin-right: 0rpx
+}
+.bottom{
+  margin-top: 62rpx;
+  bottom: 48rpx;
+  font-size: 24rpx;
+  color: #666666;
+  text-align: center;
+  padding-bottom: 28rpx;
+}
+.item-image{
+  margin: 42rpx 0 30rpx 20rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+.item-font{
+  margin-left: 20rpx;
+  font-size: 26rpx;
+  color: #232323;
+}
+@font-face {
+  font-family: 'iconfont';  /* project id 1163800 */
+  src: url('//at.alicdn.com/t/font_1163800_0sj4u83lwbhb.eot');
+  src: url('//at.alicdn.com/t/font_1163800_0sj4u83lwbhb.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1163800_0sj4u83lwbhb.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1163800_0sj4u83lwbhb.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1163800_0sj4u83lwbhb.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1163800_0sj4u83lwbhb.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family: "iconfont";
+  font-size: 50rpx;
+  font-style: normal;
+  position: fixed;
+  top: 62rpx;
+  left: 28rpx;
+  color: #fff;
+  z-index: 10
+}
+.left:before{ 
+  content:"\e64b";
+}

@@ -149,7 +149,7 @@ Page({
           choose: res.result
         })
         for (var i = 0; i < res.result.length; i++) {
-          that.data.show.push("就诊人: " + res.result[i].openUserName + "  " + "卡号: " + res.result[i].openIDCard)
+          that.data.show.push("就诊人: " + res.result[i].openUserName + "  " + "卡号: " + res.result[i].createTime)
         }
         that.setData({
           showChoose: that.data.show

@@ -1,0 +1,63 @@
+/* pages/hospitalServe/yiwai/yiwai.wxss */
+page{
+  background: #fff;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.header{
+  position: relative;
+  width: 100%;
+  height:242rpx;
+  background: linear-gradient(-56deg, #0E63FD 0%, #7DB7FF 100%);
+}
+.header-picture{
+  width: 416rpx;
+  height:242rpx;
+  position: absolute;
+  bottom: 0;
+  left: 20rpx
+}
+.header-font{
+  color: #fff;
+  position: absolute;
+  font-size: 46rpx;
+  left: 350rpx;
+  top: 80rpx;
+}
+.warp{
+  width: 700rpx;
+  margin-top: 44rpx;
+}
+.warp-title{
+  font-size: 28rpx;
+  color: #333333;
+  letter-spacing: 0;
+  line-height: 44rpx;
+}
+.warp-content-header{
+  font-size: 28rpx;
+  color: #111111;
+  letter-spacing: 0;
+  text-align: justify;
+  line-height: 60rpx;
+  margin-top: 44rpx;
+  font-weight: 600
+}
+.warp-content{
+  font-size: 28rpx;
+  color: #333333;
+  letter-spacing: 0;
+  line-height: 60rpx;
+}
+.bottom{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #0D86EB;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #FFFFFF;
+}

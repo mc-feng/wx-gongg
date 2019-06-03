@@ -1,0 +1,72 @@
+<!--pages/hospitalServe/xuzhi/xuzhi.wxml-->
+<view class='warp'>
+  <view class='title'>住院须知</view>
+  <view class='title-tips'>为了使您/您的家属在住院期间与医务人员取得良好的配合，以便顺利地度过难关，早日康复，请您仔细阅读并遵守医院有关规章制度。<view>谢谢配合！</view></view>
+  <view class='item-tips'>
+      <view>一、上海市公共卫生临床中心（复旦大学附属中山医院南院）是复旦大学附属医院，具有为国家培训各类医务人员的职责和义务。因此在对患者进行诊疗操作等过程中，可能会有实习生、进修生参与，需要您的理解和配合。</view>
+      <view>二、在经治医护人员向您询问病情时，您应当提供真实病情和有关信息，以保障诊疗服务的质量与安全。如果您对自己的病情不甚了解，请委托了解情况的家属代为提供。</view>
+   </view>
+  <view class='item-warp' bindtap='changeWarp' data-index="0">
+    <view class='item'>
+        三、重要服务告知
+        <image src='../../../images/smallicon/xiala@2x.png' class='{{changeData[0].item&&"slecet_image"}}'></image>
+    </view>
+    <view class='item-content' wx:if="{{changeData[0].item}}">
+      <view>1. 谈话签字：各种创伤性检查、治疗和手术都有一定的并发症发生率。输血亦有一定的不良反应发生率，还有一定的感染性疾病（如肝炎、艾滋病）发生率。根据国家卫生行政主管部门的要求，采取上述诊治措施都必须经医师与您或家属谈话，取得理解和同意并签字后方可安排。当患者或家属拒绝接受常规治疗和护理操作等时，也应履行签字手续，这些经签字的文件具有法律效力。</view>
+      <view>2. 医疗纠纷和投诉：当患者或家属对诊疗、护理有争议或需要投诉时，请首先向科室主任或护士长提出，如果未得到合理解释也可以向社会医疗科投诉。联系电话37990333——8337。</view>
+      <view>3. 隐私保护：对涉及患者病情及相关信息，医务人员做到不谈论，不泄漏。</view>
+      <view>4. 复印病历：当患者或家属需要复印病历，请与分管床位医生联系。</view>
+    </view>
+  </view>
+  <view class='item-warp' bindtap='changeWarp' data-index="1">
+    <view class='item'>
+        四、作息制度
+        <image src='../../../images/smallicon/xiala@2x.png' class='{{changeData[1].item&&"slecet_image"}}'></image>
+    </view>
+    <view class='item-content' wx:if="{{changeData[1].item}}">
+       <view>6：00 抽血、起床、新入院病人和发热病人测体温</view>
+       <view>6：30 — 7：30 冲开水、早餐、服药</view>
+       <view>8：50 — 10：00 晨间护理、治疗、查房</view>
+       <view>11：00 — 12：00 午餐、服药</view>
+       <view>12：00 — 14：00 午睡</view>
+       <view>14：00 — 15：00 测体温、冲开水、晚间护理</view>
+       <view>17：00 — 18：00 晚餐、服药</view>
+       <view>18：00 — 20：30发热者测体温、夜间治疗</view>
+       <view>21：00 熄灯睡觉</view>
+    </view>
+  </view>
+  <view class='item-warp' bindtap='changeWarp' data-index="2">
+    <view class='item'>
+        五、请假制度
+        <image src='../../../images/smallicon/xiala@2x.png' class='{{changeData[2].item&&"slecet_image"}}'></image>
+    </view>
+    <view class='item-content' wx:if="{{changeData[2].item}}">
+       <view>病员入院后，应遵守病房规章制度，按时作息，不得擅自离院。如有特殊情况需外出者，经主管医师或护士长同意后持请假证外出，请假时须家属同意并提供家属联系方式，当晚8点前必须回院，切不可在外留宿，离院期间发生意外事件医院无法负责。</view>
+    </view>
+  </view>
+  <view class='item-warp' bindtap='changeWarp' data-index="3">
+    <view class='item'>
+        六、安全制度
+        <image src='../../../images/smallicon/xiala@2x.png' class='{{changeData[3].item&&"slecet_image"}}'></image>
+    </view>
+    <view class='item-content' wx:if="{{changeData[3].item}}">
+       <view>1. 防跌倒告知：</view>
+       <view>(1) 当您有服用特殊药物（安眠药、降压药、利尿剂、导泻剂等）或感到头晕、行动不便时，尽可能不要独立下床行走。如必须下床，应先坐稳于床沿，再由人搀扶后站立行走。改变体位应遵循“三部曲”：即平躺30 秒，做起30 秒，站立30秒，再行走。避免突然改变体位，尤其是夜间。</view>
+       <view>(2) 如您在行走时出现头晕、双眼发黑、下肢无力、步态不稳和不能移动时，立即原地坐（蹲）下或靠墙，呼叫他人帮助。当您在病房需要任何协助而无家属在场时，请立即使用呼叫铃通知护士。</view>
+       <view>(3) 若发现地面潮湿有水渍，告诉病区工作人员，避免在有水渍地方行走，以防跌倒。</view>
+       <view>(4) 请将物品尽量放置于橱柜内，以保证病室内整洁和走道的通畅。</view>
+       <view>(5) 请在病室内尽可能穿防滑鞋、穿合适的病裤。</view>
+       <view>(6) 对已告知需置床栏者，在病人卧床期间必须保持床栏使用状态；已上床栏的病人欲下床必须先放下床栏，切勿跨越床栏。</view>
+       <view>(7) 需家属陪护病人，家属不要随意离开，需离开时告知护士。</view>
+       <view>(8) 当您所照顾的病人有意识障碍、躁动不安时请将床栏拉起，必要时还须增加约束保护。</view>
+       <view>(9) 请您向护士叙述您容易跌倒的原因。</view>
+       <view>(10) 病房夜间打开壁灯，便于病人辨清方向。</view>
+       <view>2. 当病人在接受治疗期间，家属和病人不得擅自操作医用设备，包括如补液滴速，导管护理等。有疑问者应即刻与病区工作人员联系。</view>
+       <view>3. 为保证患者的安全和睡眠，家属不得与病人同睡一床。</view>
+       <view>4. 为保证您的财产安全，住院期间请勿在病房内随意存放贵重物品，如现金、首饰、电脑等，以防失窃。</view>
+       <view>5. 在使用空调时，请关闭门窗。</view>
+       <view>6. 为了方便病人，病区配有微波炉，可供病人热饭菜。</view>
+       <view>7. 为了病区内患者抢救安全，请勿触碰设备带上的插座，请勿将手机放于设备带插座上充电等。</view>
+    </view>
+  </view>
+</view>

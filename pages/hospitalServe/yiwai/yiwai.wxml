@@ -1,0 +1,17 @@
+<!--pages/hospitalServe/yiwai/yiwai.wxml-->
+<!-- <web-view src="{{url}}"></web-view> -->
+<view class='header'>
+  <image src='../../../images/hospital/header.png' class='header-picture'></image>
+  <view class='header-font'>住院意外知多少？</view>
+</view>
+<view class='warp'>
+  <view class='warp-title'>对于住院患者，由于体弱、肌力下降、头晕、或肢体不便等情况，容易发生住院期间的意外伤害，如跌倒、坠床、碰撞、扭伤…尤其是小孩/老人群体。</view>
+  <view class='warp-title'>患者/家属/护理人员，共同关注以预防/避免发生住院期间意外伤害，避免二次创伤。</view>
+  <view class='warp-content-header'>住院意外保障，包含：</view>
+  <view class='warp-content'>
+    <view>1、住院意外预防与防范宣教</view>
+    <view>2、住院患者体适能与风险意识评估</view>
+    <view>3、意外伤害医疗金</view>
+  </view>
+</view>
+<view class='bottom'>我要评测与保障</view>

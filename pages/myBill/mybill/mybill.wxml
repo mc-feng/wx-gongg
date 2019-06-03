@@ -1,0 +1,13 @@
+<!--pages/myBill/mybill/mybill.wxml-->
+<view class='warp'>
+  <block wx:for="{{reslut}}" wx:key="index">
+    <view class='item' data-yuanqu="{{item.yuanqu}}" data-outTradeNo="{{item.outTradeNo}}" bindtap='linkDetail'>
+      <view>
+        <view class='name'>{{item.outPatientCostName}}</view>
+        <view class='time'>{{item.tradeCreateDateTime}}</view>
+      </view>
+      <view class='money'>-{{item.totalAmount}}</view>
+      <icon class="iconfont left"/>
+    </view>
+  </block>
+</view>

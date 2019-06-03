@@ -1,0 +1,85 @@
+/* pages/hospitalServe/zyhository/zyhository.wxss */
+page{
+  background: #F5F7F9;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+.no-warp{
+  margin-top: 140rpx
+}
+.content-warp{
+  width: 700rpx;
+  padding-top: 20rpx
+}
+/* 每一项样式 */
+.patient-list{
+  margin-top: 20rpx;
+  width: 660rpx;
+  background: #ffffff;
+  display: flex;
+  flex-flow: column nowrap;
+  border-radius: 4rpx;
+  position: relative;
+  height: 200rpx;
+  padding: 20rpx 20rpx 0rpx
+}
+.radius{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background: #F5F7F9;
+  position: absolute;
+  left: -20rpx;
+  bottom: -20rpx;
+}
+.radius2{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background: #F5F7F9;
+  position: absolute;
+  bottom: -20rpx;
+  right: -20rpx;
+}
+.relation{
+  position: absolute;
+  width: 98rpx;
+  height: 40rpx;
+  border-radius: 2rpx;
+  background: #AED4FC;
+  text-align: center;
+  line-height: 40rpx;
+  right: 0rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 22rpx;
+  color: #0D86EB;
+  letter-spacing: 0;
+}
+.trigon{
+  width: 0;
+  height: 0;
+  border: 20rpx solid transparent;
+  border-left: 20rpx solid #ffffff;
+  position: absolute;
+  left: 0rpx;
+  top: 0rpx;
+}
+.item-font{
+  font-size: 28rpx;
+  color: #232323;
+  line-height: 40rpx;
+  margin-bottom: 10rpx
+}
+.item-detail{
+  font-size: 14px;
+  color: #0D86EB;
+  line-height: 40rpx;
+}
+.item-state{
+  position: absolute;
+  top: 20rpx;
+  right: 40rpx;
+  font-size: 24rpx;
+  color: #8EBCED;
+}

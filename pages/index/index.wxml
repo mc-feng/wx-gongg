@@ -11,7 +11,7 @@
   </view>
   <view class='hometips-nav'>
     <block wx:for="{{introduces}}" wx:key="item.id">
-      <navigator url="{{item.url}}">
+      <navigator url="{{item.url}}" hover-class="none">
         <image class='hometips-image' src='{{item.src}}'></image>
         <view class='hometips-color'> {{item.title}}</view>
       </navigator>
@@ -38,7 +38,7 @@
       </view>
       <view class='main-nav'>
        <block wx:for="{{mainNavs}}" wx:key="unique">
-            <navigator url="{{item.url}}">
+            <navigator url="{{item.url}}" hover-class="none">
               <image class='mainnav-box' src='{{item.src}}'></image>
               <view class='mainnav-color'>{{item.word}}</view>
             </navigator>
@@ -51,22 +51,22 @@
         </view>
         <view class='fuwu-subnav'>
           <scroll-view scroll-x="true" class='hometips-subnav'>
-            <navigator url='../reportReading/reading/reading'>
+            <navigator url='../reportReading/reading/reading' hover-class="none">
               <image src='../../images/homeimages/manyidu1@2x.png'>
                 <text>报告解读</text>
               </image>
             </navigator>
-            <navigator url='../link/out/out'>
+            <navigator url='../link/out/out' hover-class="none">
               <image src='../../images/homeimages/zhinengwenyao@2x.png'>
                 <text>智能问药</text>
               </image>
             </navigator> 
-            <navigator url='../individalService/healthMission/healthMission'>
+            <navigator url='../individalService/healthMission/healthMission' hover-class="none">
               <image src='../../images/homeimages/xuanjiao4@2x.png'>
                 <text>健康宣教</text>
               </image>
             </navigator>
-            <navigator url='../individalService/survey/survey' class='last-item'>
+            <navigator url='../individalService/survey/survey' class='last-item' hover-class="none">
                 <image src='../../images/homeimages/zixun3@2x.png'>
                   <text class='more'>满意度调查</text>
                 </image>
@@ -75,7 +75,7 @@
         </view>
   </view>
   <view class='three-main'>
-        <navigator url='../individalService/messageList/messageList' class='main-header'>
+        <navigator url='../individalService/messageList/messageList' class='main-header' hover-class="none">
             健康资讯
             <view class='three-more'>
                查看更多

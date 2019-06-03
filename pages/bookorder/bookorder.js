@@ -100,6 +100,7 @@ Page({
       this.setData({
         canLink:false
       })
+      console.log(this.data.patientMessage.patientID)
       wx.request({
         url: '/booking/confirmbooking',
         method: 'post',

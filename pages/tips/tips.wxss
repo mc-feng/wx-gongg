@@ -7,8 +7,8 @@ page{
   background: #F5F7F9
 }
 .tipsImage{
-  width: 404rpx;
-  height: 284rpx;
+  width: 460rpx;
+  height: 260rpx;
   margin-top: 204rpx;
 }
 .tips-font{

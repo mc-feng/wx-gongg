@@ -1,2 +1,102 @@
 <!--pages/link/out/out.wxml-->
-<web-view src="https://wechat.medbot.top/wechat_all/index.html?module=maimai&origin=yijin"></web-view>
+<!-- <web-view src="https://wechat.medbot.top/wechat_all/index.html?module=maimai&origin=yijin"></web-view> -->
+<view>
+  <scroll-view scroll-y scroll-into-view='{{toView}}' style='height: {{scrollHeight}};'  scroll-top="{{msgList.length*1000}}">
+     <!-- 首次加载头部出现内容 -->
+    <view class='header'>
+      <image src='../../../images/wenyao/jiqiren.png'></image>
+      <view class='header-content'>
+        <view class='font1'>
+          智慧麦麦
+          <text class='header-title'>由申挚医疗提供技术服务</text>
+        </view>
+        <view class='font2'>您的医疗机器人管家</view>
+      </view>
+    </view>
+    <view class='tips-warp'>
+      <text class='tips-content' animation="{{slide_up1}}">你好！\n我是你的专属麦麦医疗机器人管家，我容纳了包括疾病、药物、指标、症状等海量的医疗知识，为您在线解笞，麦麦还在不断学习当中，希望能为您答疑解惑。
+      </text>
+      <view class='tips-question' animation="{{slide_up2}}">你可以这样问我：</view>
+      <view class='tips-anstion' animation="{{slide_up3}}" bindtap='linkToMessage' data-message="肌酐的正常值?">肌酐的正常值？</view>
+      <view class='tips-anstion' animation="{{slide_up4}}" bindtap='linkToMessage' data-message="他克莫司是处方药吗？">他克莫司是处方药吗？</view>
+      <view class='tips-anstion' animation="{{slide_up5}}" bindtap='linkToMessage' data-message="什么是BK病毒感染？">什么是BK病毒感染？</view>
+    </view>
+    <!-- <view class='scrollMsg'> -->
+    <block wx:key wx:for='{{msgList}}' wx:for-index="index">
+
+      <!-- 单个消息1 客服发出（左） -->
+      <view wx:if='{{item.map}}' id='msg-{{index}}' style='display: flex; padding: 2vw 11vw 2vw 4vw;'>
+        <view class='leftMsg'>
+          <view class='leftCaicai'>猜你想看：</view>
+          <view class='leftCaicai-content' data-id="{{item.map.show_id}}" data-type="{{item.map.type}}" bindtap='linkDetail' data-value="{{item.map.show_msg}}">{{item.map.show_msg}}</view>
+        </view>
+      </view>
+      <block wx:if='{{item.list.length!=0}}'>
+        <block wx:for="{{item.list}}" wx:for-index="listIndex" wx:for-item="listItem" wx:key="{{listIndex}}"> 
+         <!-- 单个消息2 客服发出（左）获取列表后 -->
+          <view wx:if='{{listItem.type=="disease"}}' id='msg-{{listIndex}}' style='display: flex; padding: 2vw 11vw 2vw 4vw;'>
+            <view class='leftMsg'>
+              <view class='leftCaicai'>智慧麦麦能查找到以下相关疾病：</view>
+              <view class='leftjb-warp'>
+                <block wx:for="{{listItem.list}}"  wx:for-index="list2Index" wx:for-item="list2Item" wx:key="{{list2Index}}">
+                  <view class='leftjb-content {{list2Index%2==0?"":"yellow"}}' data-id="{{list2Item.show_id}}" data-type="{{list2Item.type}}" bindtap='linkDetail' data-value="{{list2Item.show_msg}}">{{list2Item.show_msg}}</view>
+                </block>
+               </view>
+               <view class='knowMore' bindtap='linkeMore' data-list="{{listItem.list}}">查看更多</view>
+            </view>
+          </view>
+          <!-- 单个消息3 客服发出（左） 获取列表后-->
+          <view wx:elif='{{listItem.type=="drug"}}' id='msg-{{listIndex}}' style='display: flex; padding: 2vw 11vw 2vw 4vw;'>
+            <view class='leftMsg'>
+              <view class='leftCaicai'>智慧麦麦能查找到以下相关药物：</view>
+              <view class='leftjb-warp'>
+                <block wx:for="{{listItem.list}}"  wx:for-index="list2Index" wx:for-item="list2Item" wx:key="{{list2Index}}">
+                  <view class='leftjb-content {{list2Index%2==0?"":"yellow"}}' data-id="{{list2Item.show_id}}" data-type="{{list2Item.type}}" bindtap='linkDetail' data-value="{{list2Item.show_msg}}">{{list2Item.show_msg}}</view>
+                </block>
+               </view>
+               <view class='knowMore' bindtap='linkeMore' data-list="{{listItem.list}}">查看更多</view>
+            </view>
+          </view>
+          <!-- 单个消息4 客服发出（左） 获取列表后-->
+          <view wx:elif='{{listItem.type=="index"}}' id='msg-{{listIndex}}' style='display: flex; padding: 2vw 11vw 2vw 4vw;'>
+            <view class='leftMsg'>
+              <view class='leftCaicai'>智慧麦麦能查找到以下相关指标：</view>
+              <view class='leftjb-warp'>
+                <block wx:for="{{listItem.list}}"  wx:for-index="list2Index" wx:for-item="list2Item" wx:key="{{list2Index}}">
+                  <view class='leftjb-content {{list2Index%2==0?"":"yellow"}}' data-id="{{list2Item.show_id}}" data-type="{{list2Item.type}}" bindtap='linkDetail' data-value="{{list2Item.show_msg}}">{{list2Item.show_msg}}</view>
+                </block>
+               </view>
+               <view class='knowMore' bindtap='linkeMore' data-list="{{listItem.list}}">查看更多</view>
+            </view>
+          </view>
+          <!-- 单个消息5 客服发出（左） 获取列表后-->
+          <view wx:elif='{{listItem.type=="gossip"}}' id='msg-{{listIndex}}' style='display: flex; padding: 2vw 11vw 2vw 4vw;'>
+            <view class='leftMsg'>
+              <view class='leftunknown'>你的问题我们马上去学习，很快就能告诉您了</view>
+            </view>
+          </view>
+        </block>
+      </block>
+      <!-- 单个消息2 用户发出（右） -->
+      <view wx:if="{{item.speaker=='customer'}}" id='msg-{{index}}' style='display: flex; justify-content: flex-end; padding: 2vw 2vw 2vw 11vw;'>
+        <view class='rightMsg'>
+          {{item.content}}
+          <view class='zhijiao'>
+            <em></em>
+            <span></span>
+          </view>
+        </view>
+      </view>
+
+    </block>
+    <!-- </view> -->
+
+    <!-- 占位 -->
+    <view style='width: 100%; height: 18vw;'></view>
+  </scroll-view>
+
+  <view class='inputRoom' style='bottom: {{inputBottom}}'>
+    <input bindconfirm='sendClick' adjust-position='{{false}}' value='{{inputVal}}' confirm-type='send' bindfocus='focus' bindblur='blur'></input>
+    <image src='../../../images/wenyao/send.png' bindtap='sendMsg'></image>
+  </view>
+</view>

@@ -9,13 +9,16 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false
+		"autoAudits": false,
+		"checkInvalidKey": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.3.0",
-	"appid": "wxf046e2622f9fe82a",
-	"projectname": "wx-gong2",
+	"libVersion": "2.6.6",
+	"appid": "wx437670fcce781c07",
+	"projectname": "wx-yiyuan",
 	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,

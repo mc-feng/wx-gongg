@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "component": "/component/selectPeople/selectPeople"
+  },
+  "navigationStyle":"custom"
+}

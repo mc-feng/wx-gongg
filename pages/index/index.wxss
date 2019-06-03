@@ -44,6 +44,9 @@ swiper-item image {
   width: 60rpx;
   margin: 15rpx 0 14rpx 0;
 }
+.hometips-image:active{
+  opacity: 0.3
+}
 .hometips-color{
   height: 34rpx;
   line-height: 34rpx;
@@ -124,6 +127,9 @@ swiper-item image {
   height: 120rpx;
   margin-left: 14rpx;
 }
+.mainnav-box:active{
+  opacity: 0.5
+}
 .mainnav-color{
   margin-top:-12rpx;
   font-family: PingFangSC-Regular;
@@ -155,6 +161,9 @@ swiper-item image {
    display: inline-block;
    margin-right: 8rpx;
 }
+.hometips-subnav image:active{
+  opacity: 0.3
+}
 .hometips-subnav text{
   left:52rpx;
   top:30rpx;
@@ -179,6 +188,9 @@ swiper-item image {
   color: #232323;
   font-weight: 600;
   position: relative
+}
+.main-header:active{
+  opacity: 0.3
 }
  .three-more{
    position: absolute;

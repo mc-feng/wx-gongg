@@ -1,0 +1,40 @@
+/* component/selectPeople/selectPeople.wxss */
+.header{
+  height: 96rpx;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center
+}
+.header-font{
+  margin-left: 30rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  font-family: PingFangSC-Medium;
+  font-size: 34rpx;
+  letter-spacing: 0;
+}
+.changeUser{
+  width: 40rpx;
+  height: 44rpx;
+  margin-right: 30rpx;
+}
+@font-face {
+  font-family: 'iconfont';  /* project id 1163800 */
+  src: url('//at.alicdn.com/t/font_1163800_wbg14uq6hz.eot');
+  src: url('//at.alicdn.com/t/font_1163800_wbg14uq6hz.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1163800_wbg14uq6hz.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1163800_wbg14uq6hz.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1163800_wbg14uq6hz.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1163800_wbg14uq6hz.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family: "iconfont";
+  font-size: .16rem;
+  font-style: normal;
+}
+.changeUser:before { 
+  content: "\e60f";
+  font-size: 36rpx;
+}

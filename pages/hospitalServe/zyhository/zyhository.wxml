@@ -1,0 +1,22 @@
+<!--pages/hospitalServe/zyhository/zyhository.wxml-->
+<view wx:if="{{!show}}" class="no-warp">
+  <noselect tips="暂无历史记录"></noselect>
+</view>
+<view wx:else>
+  <view class='content-warp'>
+    <block wx:for="{{result}}" wx:key="{{index}}">
+      <view class='patient-list'>
+            <view class='item-font'>住院科室：{{item.ryksmc}}</view>
+            <view class='item-font'>住院日期：{{item.ryrq}}至{{item.cqrq}}</view>
+            <view class='item-detail' bindtap='link' data-chu="{{item.cqrq}}" data-yfszje="{{item.yfszje}}" data-yhje="{{item.yhje}}" data-yfszfje="{{item.yfszfje}}" data-ybbxje="{{item.ybbxje}}">查看费用详情</view>
+            <!-- 住院联系 -->
+            <view class='relation'>{{item.brzt==3?"已出院":"住院中"}}
+                  <view class='trigon'></view>
+                </view>
+            <!-- 左右下角的圆 -->
+            <view class='radius'></view>
+            <view class='radius2'></view>
+      </view>
+    </block>
+  </view>
+</view>

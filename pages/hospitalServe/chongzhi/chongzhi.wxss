@@ -1,0 +1,40 @@
+/* pages/hospitalServe/chongzhi/chongzhi.wxss */
+page{
+  background: #F5F7F9;
+}
+.top{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  background: #fff;
+}
+.top-image{
+  width: 460rpx;
+  height: 260rpx;
+  margin-top: 58rpx;
+}
+.top-tips{
+  font-size: 28rpx;
+  color: #A3A3A3;
+  margin-top: 46rpx;
+  margin-bottom: 52rpx;
+}
+.warp{
+  padding: 0rpx 28rpx;
+}
+.content-tips{
+  font-size: 30rpx;
+  color: #C1C3C9;
+  margin-top: 44rpx;
+}
+.content-header{
+  font-size: 32rpx;
+  color: #232323;
+  margin-top: 40rpx;
+  margin-bottom: 18rpx;
+}
+.content{
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 46rpx;
+}

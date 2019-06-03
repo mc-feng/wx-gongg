@@ -1,0 +1,73 @@
+/* pages/hospitalServe/dingjing/dingjing.wxss */
+page{
+  background: #F5F7F9;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.selectdate{
+  width: 100%
+}
+.noselect{
+  width: 100%
+}
+.content-warp{
+  width: 700rpx;
+  border-radius: 4rpx;
+  background: #fff;
+  box-shadow: 0 0 10px #ccc;
+  margin-top: 40rpx;
+  padding-bottom: 10rpx;
+}
+.content-title{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  font-size: 28rpx;
+  color: #A3A3A3;
+  border-bottom: 2rpx solid #E6E6E6;
+  height: 76rpx;
+}
+.content-title view:nth-of-type(1){
+  margin-left: 40rpx;
+}
+.content-title view:nth-of-type(2){
+  margin-left: 194rpx;
+}
+.content-title view:nth-of-type(3){
+  margin-left: 194rpx;
+}
+.content-item{
+  height: 106rpx;
+  border-bottom: 2rpx solid #E6E6E6;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.item-money{
+  font-size: 32rpx;
+  color: #232323;
+  position: absolute;
+  left: 40rpx;
+}
+.item-date{
+  font-size: 24rpx;
+  color: #A3A3A3;
+}
+.item-type{
+  font-size: 26rpx;
+  color: #232323;
+  position: absolute;
+  left: 340rpx;
+}
+.item-state{
+  font-size: 26rpx;
+  color: #232323;
+  position: absolute;
+  left: 574rpx;
+}
+.content-item:last-of-type{
+  border-bottom: none;
+}

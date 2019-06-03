@@ -53,7 +53,6 @@ Page({
     that.setData({ list: list })
   },
   touchM: function (e) {
-    console.log(e)
     var that = this
     if (e.touches.length == 1) {
       //手指移动时水平方向位置 
@@ -74,7 +73,9 @@ Page({
       //获取手指触摸的是哪一项 
       var index = e.target.dataset.index;
       var list = this.data.list;
-      list[index].txtStyle = txtStyle;
+      if(index != undefined){
+        list[index].txtStyle = txtStyle;
+      }
       //更新列表的状态 
       this.setData({
         list: list
@@ -83,7 +84,6 @@ Page({
   },
 
   touchE: function (e) {
-    console.log(e)
     if (e.changedTouches.length == 1) {
       //手指移动结束后水平位置 
       var endX = e.changedTouches[0].clientX;
@@ -95,7 +95,9 @@ Page({
       //获取手指触摸的是哪一项 
       var index = e.target.dataset.index;
       var list = this.data.list;
-      list[index].txtStyle = txtStyle;
+      if (index != undefined) {
+        list[index].txtStyle = txtStyle;
+      }
       //更新列表的状态 
       this.setData({
         list: list
@@ -107,7 +109,8 @@ Page({
     var real = 0;
     try {
       var res = wx.getSystemInfoSync().windowWidth;
-      var scale = (750 / 2) / (w / 2);//以宽度750px设计稿做宽度的自适应 
+      var scale = (750 / 2) / (w / 2);
+      //以宽度750px设计稿做宽度的自适应 
       // console.log(scale); 
       real = Math.floor(res / scale);
       return real;

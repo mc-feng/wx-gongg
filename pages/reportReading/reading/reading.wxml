@@ -4,12 +4,12 @@
   <image class='items-background' src='../../../images/reportReading/beijing@2x.png'></image>
   <view class='item-left'>
     <view class='item-left-title'>拍照录入</view>
-    <view class='item-left-content'>点此上传您的化检报告照片</view>
+    <view class='item-left-content'>点此上传您的化验报告照片</view>
   </view>
   <view class='item-right'></view>
 </view>
 <!-- toast弹出提示框 -->
-<view class="commodity_screen" wx:if="{{showModalStatus}}"></view>
+<view class="commodity_screen" wx:if="{{showModalStatus}}" bindtap='hideView'></view>
 <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
   <image src='../../../images/homeimages/booksucceed.png'></image>
   <view class='toast-title'>上传成功</view>

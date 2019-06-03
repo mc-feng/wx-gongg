@@ -1,0 +1,51 @@
+/* pages/hospitalServe/meiri/meiri.wxss */
+page{
+  background: #F5F7F9;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.selectdate{
+  width: 100%
+}
+.noselect{
+  width: 100%
+}
+.content-warp{
+  width: 700rpx;
+  margin-top: 34rpx;
+}
+.content-title{
+  line-height: 44rpx;
+  font-size: 32rpx;
+  color: #232323;
+}
+.item-warp{
+  width: 100%;
+  box-shadow: 0 10rpx 20rpx rgb(231, 231, 231);
+  background: #ffffff;
+  border-radius: 8rpx;
+  margin-top: 28rpx;
+  margin-bottom:40rpx;
+}
+.content-item{
+  height: 90rpx;
+  padding: 0rpx 54rpx 0rpx 40rpx;
+  width: 606rpx;
+  border-bottom: 2rpx solid #E6E6E6;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+  color: #232323;
+}
+.item-name{
+  color: #A3A3A3;
+}
+.black{
+  color: #232323;
+}
+.item-name:last-of-type{
+  border-bottom: none;
+}

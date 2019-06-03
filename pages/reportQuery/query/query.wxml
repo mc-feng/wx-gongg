@@ -1,24 +1,4 @@
 <!--pages/reportQuery/query/query.wxml-->
-<block wx:if="{{loading}}">
-  <loading>
-        加载中...
-  </loading>
-</block>
-<block wx:else>
-  <block wx:if="{{result}}">
-    <view class='crad-warp'>
-      <image src='../../../images/homeimages/search.png'></image>
-      <block wx:if="{{noBind}}">
-        <view class='crad-tips'>您的信息不完善</view>
-        <view class='crad-buttun' bindtap='LinkToPeople'>立即去完善</view>
-      </block>
-      <block wx:else>
-        <view class='crad-tips'>{{bindCard?"您未绑定就诊卡":"您未完善您的个人信息"}}</view>
-        <view class='crad-buttun' bindtap='{{bindCard?"LinkToCard":"LinkToPeople"}}'>{{bindCard?"立即绑定就诊卡":"立即完善个人信息"}}</view>
-      </block>
-    </view>
-  </block>
-  <block wx:else>
   <!-- 头部信息 -->
   <view class='header'>
       <view class='header-font'>{{showChoose[index]}}</view>
@@ -27,8 +7,50 @@
         <image src='../../../images/personimages/changeUser.png' class='changeUser'></image>
     </picker>
   </view>
+  <view class='chooseData'>
+   <view class='dataTitle'>日期选择</view>
+    <picker
+      mode="date"
+      value="{{date}}"
+      end="{{date2}}"
+      bindchange="bindDateChange"
+    >
+        <view class="dataStart">
+          {{date}}
+        </view>
+    </picker>
+    <view class='dataMid'>至</view>
+    <picker
+        mode="date"
+        value="{{date2}}"
+        start="{{date}}"
+        end="{{nowTime}}"
+        bindchange="bindDateChange2"
+      >
+          <view class="dataEnd">
+            {{date2}}
+          </view>
+      </picker>
+  </view>
+  <block wx:if="{{reportArr.length!=0}}">
+    <block wx:for="{{reportArr}}" wx:key="{{index}}">
+     <view class='content-warp' bindtap='linkToContent' data-suoshu="{{item.suoshu}}" data-bgdh="{{item.bgdh}}" data-bglbdm="{{item.bglbdm}}" data-bglbmc="{{item.bglbmc}}">
+      <view class='report-number'>报告单号：{{item.bgdh}}</view>
+      <view class='report-date'>{{item.bgfbsj}}</view>
+      <view class='report-ks'>{{item.jcksmc}}</view>
+      <view class='report-xm'>{{item.bglbmc}}</view>
+      <view class='xs-left' style='background:{{colorResult[index].color}}'></view>
+     </view>
+    </block>
+  </block>
+  <block wx:else>
+     <view class='noSearch-wrap'>
+      <image src='../../../images/homeimages/search.png'></image>
+      <view class='noSearch-title'>暂未查到您的报告记录</view>
+     </view>
+  </block>
   <!--查询报告单首页 -->
-  <view class='report-kind' bindtap='linkToReport'>
+  <!-- <view class='report-kind' bindtap='linkToReport'>
    <view class='report-kind-font'>检验报告单</view>
    <image src='../../../images/homeimages/blackSword.png'></image>
   </view>
@@ -55,8 +77,5 @@
     <view>3、放射报告：查看X光、CT、MRI(磁共振）等类报告单信息；</view>
     <view>4、病理报告：产看病例报告单信息；</view>
     <view>5、体检报告：查看体检报告信息。</view>
-  </view>
+  </view> -->
     <!-- 底部弹出选择器 -->
-  </block>
-</block>
-

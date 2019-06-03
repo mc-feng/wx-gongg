@@ -1,5 +1,6 @@
+
 //app.js
-var aldstat = require("./utils/ald-stat.js")
+const mtjwxsdk = require('./utils/mtj-wx-sdk.js');
 const wxApiInterceptors = require('./utils/wxApiInterceptors');
 var Dec = require('./utils/public.js')
 wxApiInterceptors()
@@ -7,10 +8,12 @@ wxApiInterceptors({
   request: {
     request(params) {
       const host = 'https://www.tonticn.cn:8081'
+      // const host = 'https://192.168.31.165:8081'
+      // const host = 'https://118.31.14.197:8081'
       if (!/^(http|\/\/)/.test(params.url)) {
         params.url = host + params.url;
+        params.data = Dec.Encrypt(JSON.stringify(params.data));//加密
       }//设置默认host
-      params.data = Dec.Encrypt(JSON.stringify(params.data));//加密
       return params;
     },
   },
@@ -18,7 +21,9 @@ wxApiInterceptors({
 wxApiInterceptors({
   request: {
     response(res) {
-      if(res.data){
+      if ('object' === typeof res.data){
+        return res
+      }else{
         var result = res.data.replace(/["]+/g, '');//去多余的双引号
         return JSON.parse(Dec.formatString(Dec.Decrypt(result)));//返回值去字符转之间空格
       }
@@ -118,7 +123,7 @@ App({
           var that = this
           wx.getLocation({
             success: function (res) {
-              if (res != undefined && res != null) {
+                 if (res != undefined && res != null) {
                 //保存用户的当前经纬度
                   that.globalData.latitude=res.latitude,
                   that.globalData.longitude= res.longitude

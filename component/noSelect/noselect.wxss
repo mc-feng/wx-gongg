@@ -1,0 +1,20 @@
+/* component/noSelect/noselect.wxss */
+.noselect-warp{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+  background: #F5F7F9
+}
+.noselect-image{
+  margin-top: 160rpx;
+  width: 340rpx;
+  height: 324rpx;
+}
+.noselect-title{
+  height: 40rpx;
+  font-size: 28rpx;
+  color: #A3A3A3;
+  margin-top:60rpx;
+  line-height: 40rpx;
+}

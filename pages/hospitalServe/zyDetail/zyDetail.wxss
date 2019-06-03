@@ -1,0 +1,44 @@
+/* pages/hospitalServe/zyDetail/zyDetail.wxss */
+page{
+  background: #F5F7F9;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.warp{
+  width: 700rpx;
+  margin-top: 38rpx;
+}
+.title{
+  font-size: 32rpx;
+  color: #232323;
+  margin-bottom: 20rpx;
+}
+.content-warp{
+  width: 616rpx;
+  padding: 30rpx 42rpx;
+  border-radius: 4rpx;
+  box-shadow:  0 0 10px #ccc;
+}
+.content-header{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+  color: #232323;
+}
+.content-detail-warp{
+  border-top: 2rpx solid #E6E6E6;
+}
+.content-detail{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin-top: 40rpx;
+  font-size: 28rpx;
+  color: #A3A3A3;
+}
+.content-detail-money{
+ color: #232323;
+}

@@ -1,0 +1,28 @@
+<!--pages/hospitalServe/zyDetail/zyDetail.wxml-->
+<view class='warp'>
+  <view class='title'>住院费用清单</view>
+  <view class='content-warp'>
+   <view class='content-header'>
+     <view>结算日期</view>
+     <view>{{result.chu}}</view>
+   </view>
+   <view class='content-header'>
+     <view>总费用(元)</view>
+     <view>{{result.yfszje}}</view>
+   </view>
+   <view class='content-detail-warp'>
+    <view class='content-detail'>
+      <view>自费：</view>
+      <view class='content-detail-money'>{{result.yfszfje}}</view>
+    </view>
+    <view class='content-detail'>
+      <view>医保报销：</view>
+      <view class='content-detail-money'>{{result.ybbxje}}</view>
+    </view>
+    <view class='content-detail'>
+      <view>优惠：</view>
+      <view class='content-detail-money'>{{result.yhje}}</view>
+    </view>
+   </view>
+  </view>
+</view>

@@ -1,0 +1,24 @@
+<!--pages/hospitalServe/dingjing/dingjing.wxml-->
+<!-- <selectdate date="{{date}}" date2="{{date2}}" nowTime="{{nowTime}}" class="selectdate"></selectdate> -->
+<view wx:if="{{!result}}">
+  <noselect tips="暂无信息" class="noselect"></noselect>
+</view>
+<view wx:else>
+  <view class='content-warp'>
+    <view class='content-title'>
+      <view>缴费金额</view>
+      <view>方式</view>
+      <view>状态</view>
+    </view>
+    <block wx:for="{{result}}" wx:key="{{index}}">
+      <view class='content-item'>
+        <view class='item-money'>
+          ￥{{item.yjje}}
+          <view class='item-date'>{{item.jfrq}}</view>
+        </view>
+        <view class='item-type'>{{item.memo}}</view>
+        <view class='item-state'>{{item.jlzt}}</view>
+      </view>
+    </block>
+  </view>
+</view>

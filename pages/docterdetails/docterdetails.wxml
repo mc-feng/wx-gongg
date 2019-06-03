@@ -31,9 +31,8 @@
       </view>
     </block>
     <block wx:else>
-      <view class='introduce-content'>
-        {{docPhotoPath?docMemo:"暂无简介"}}
-      </view>
+      <rich-text class='introduce-content' nodes='{{docPhotoPath?docMemo:"暂无简介"}}'>
+      </rich-text>
     </block>
   </view>
   <!-- 排班日期列表显示 -->

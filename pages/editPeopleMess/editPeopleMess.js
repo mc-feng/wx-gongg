@@ -102,7 +102,8 @@ Page({
     var identityCard = this.data.identityCard;
     var phoneNumber = this.data.phoneNumber;
     // 正则规则
-    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+    var namereg = /^[\u4E00-\u9FA5A-Za-z\s]+(·[\u4E00-\u9FA5A-Za-z]+)*$/;
+    var myreg = /^1[3456789]\d{9}$/;
     var idreg = /^\d{6}(18|19|20)?\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d{3}(\d|[xX])$/;
     //验证姓名
     if (userName == "") {
@@ -112,7 +113,16 @@ Page({
       wx.showToast({
         title: '姓名不能为空',
       })
-    } else {
+    } else if (!namereg.test(userName)){
+      this.setData({
+        link1: false
+      })
+      wx.showToast({
+        title: '姓名格式有误',
+        icon: 'success',
+        duration: 1500
+      })
+    }else{
       this.setData({
         link1: true
       })

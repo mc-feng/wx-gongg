@@ -1,0 +1,42 @@
+/* component/selectDate/selectDate.wxss */
+/* 头部日期样式 */
+.chooseData{
+  height: 156rpx;
+  width: 100%;
+  background: #0D86EB;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  font-size: 28rpx;
+  color: #fff;
+}
+.dataStart{
+  text-align: center;
+  line-height: 70rpx;
+  width: 240rpx;
+  height: 70rpx;
+  background: #fff;
+  margin-left: 30rpx;
+  font-size: 28rpx;
+  color: #232323;
+  min-width: 174rpx;
+  border-radius: 6rpx
+}
+.dataMid{
+  margin-left: 24rpx;
+}
+.dataEnd{
+  text-align: center;
+  line-height: 70rpx;
+  width: 240rpx;
+  height: 70rpx;
+  background: #fff;
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  color: #232323;
+  min-width: 174rpx;
+  border-radius: 6rpx
+}
+.dataCha{
+  margin-left: 36rpx
+}

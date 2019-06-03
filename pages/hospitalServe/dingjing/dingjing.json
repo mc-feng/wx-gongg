@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "noselect":"/component/noSelect/noselect"
+  },
+  "navigationBarTitleText": "预交金记录"
+}

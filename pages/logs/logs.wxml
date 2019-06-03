@@ -1,5 +1,6 @@
 <view class="header-background">
   <!-- <button open-type="getUserInfo" class='user'></button> -->
+  <image src='../../images/tips/logBackground.png' class='logBackground'></image>
   <image src='{{userInfo.avatarUrl}}' class='user'></image>
   <view class='name'>{{userInfo.nickName}}</view>
   <view class='floor-box'>

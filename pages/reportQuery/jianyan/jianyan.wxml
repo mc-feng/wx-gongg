@@ -1,0 +1,23 @@
+<!--pages/reportQuery/jianyan/jianyan.wxml-->
+<view class='report-title'>
+  <view class='xs-left'></view>
+  <view class='title-content'>{{reportName}}</view>
+</view>
+<view class='report-projectName'>
+  <view class='xm'>项目</view>
+  <view class='jg'>结果</view>
+  <view class='dw'>单位</view>
+  <view class='fw'>范围</view>
+</view>
+<block wx:for="{{reportContent}}" wx:key="{{index}}">
+  <view class='content'>
+    <view class='content-xm'>{{item.jyzbxmmc}}</view>
+    <view class='content-jg {{item.ycbz=="NM"?"":item.ycbz=="L"?"green":"red"}}'>
+         {{item.jyjg}}
+         <view class='jg-sword {{item.ycbz=="NM"?"":item.ycbz=="L"?"green":"red"}}'>{{item.ycbz=="NM"?"":item.ycbz=="L"?"↓":"↑"}}</view>
+    </view>
+    <view class='content-dw'>{{item.jgdw}}</view>
+    <view class='content-fw'>{{item.jgckz}}</view>
+    <view class='jg-bottom'></view>
+  </view>
+</block>

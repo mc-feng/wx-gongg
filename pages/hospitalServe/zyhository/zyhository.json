@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "noselect": "/component/noSelect/noselect"
+  },
+  "navigationBarTitleText": "历史住院记录"
+}

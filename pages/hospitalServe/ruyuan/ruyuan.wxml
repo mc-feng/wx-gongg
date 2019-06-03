@@ -1,0 +1,20 @@
+<!--pages/hospitalServe/ruyuan/ruyuan.wxml-->
+<view class='top'>
+  <image src='../../../images/tips/noPage.png' class='top-image'></image>
+  <view class='top-tips'> 入院办理功能开发中.......</view>
+</view>
+<view class='warp'>
+  <view class='content-tips'>入院办理温馨提示：</view>
+  <view class='content-header'>虹口院区</view>
+  <view class='content'>1、医生根据病情在医生工作站开具住院申请单</view>
+  <view class='content'>2、虹口院区住院的直接到门诊1楼住院处办理入院手续.赴金山院区住院的患者凭住院申请单到门诊大厅便民服务中心登记信息</view>
+  <view class='content'>3、每日上午11:30可提供一次免费班车服务，送达金山院区门诊部1楼住院处办理入院手</view>
+  <view class='content-header'>金山院区</view>
+  <view class='content'>1、医生根据病情在医生工作站开具住院申请单</view>
+  <view class='content'>2、直接到门诊1楼入院登记处办理入院手续</view>
+  <view class='content-tips-warp'>
+    <view class='content-ps'>备注：就诊时请您携带</view>
+    <view class='content-ps'>①就医记录册和/社会保障卡/医保卡</view>
+    <view class='content-ps'>②既往就诊病史卡及相关检验、影像资料等</view>
+  </view>
+</view>
