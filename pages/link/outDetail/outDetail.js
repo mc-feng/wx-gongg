@@ -30,11 +30,7 @@ Page({
       },
       success: function (res) {
         console.log(res)
-        if (type =="index"){
-          var result = res.result.data
-        }else{
-          var result = res.result.data.detail
-        }
+        var result = res.result.data.detail
         result.map((item)=>{
           if (item.content){
             item.content = item.content.replace(/[\r\n][\r\n]/g, "<br/>")

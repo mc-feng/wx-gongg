@@ -211,10 +211,18 @@ Page({
       },
       success: function (res) {
         console.log(res)
-        msgList.push(res.result.data)
-        that.setData({
-          msgList
-        });
+        if (res.result.data!=null){
+          msgList.push(res.result.data)
+          that.setData({
+            msgList
+          });
+        }else{
+          var list = { list: [{ type:"gossip"}]}
+          msgList.push(list)
+          that.setData({
+            msgList
+          });
+        }
       },
       complete:function(res){
         wx.hideLoading()

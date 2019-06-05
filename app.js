@@ -7,8 +7,8 @@ wxApiInterceptors()
 wxApiInterceptors({
   request: {
     request(params) {
-      const host = 'https://www.tonticn.cn:8081'
-      // const host = 'https://192.168.31.165:8081'
+      // const host = 'https://www.tonticn.cn:8081'
+      const host = 'https://192.168.31.165:8081'
       // const host = 'https://118.31.14.197:8081'
       if (!/^(http|\/\/)/.test(params.url)) {
         params.url = host + params.url;
