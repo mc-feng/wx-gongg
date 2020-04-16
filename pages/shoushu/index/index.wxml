@@ -17,15 +17,15 @@
           手术日期:
           <text class='riqi-number'>{{item.yyrq}}</text>
         </view>
-        <view class='riqi-find'>查看进度</view>
+        <view class='riqi-find' bindtap="checkPro">查看进度</view>
       </view>
       <!-- 手术信息 -->
       <block wx:for="{{item.ssxg}}" wx:for-index="shx" wx:for-item="shitem" wx:key="shx">
-        <view class='item-warp' bindtap='link'>
+        <view class='item-warp'>
           <view>手术名称:</view>
           <view class='item-left'>
             <view>{{shitem.ssmc}}</view>
-            <icon class="iconfont right top"/>
+            <!-- <icon class="iconfont right top"/> -->
           </view>
         </view>
         <view class='item-warp' wx:if='{{shitem.ssfx}}'>
@@ -58,7 +58,7 @@
           <!-- 医生内容 -->
         <view class='docter-content'>
           {{item.zdysjj}}
-          <text class='docter-more'>查看更多>></text>
+          <!-- <text class='docter-more'>查看更多>></text> -->
         </view>
       </view>
     </view>

@@ -99,7 +99,9 @@ swiper-item image {
   text-overflow: ellipsis;
 }
 .main-content{
-  background-color: #fff
+  background-color: #fff;
+  width: 100%;
+  overflow: hidden;
 }
 .main-header{
   margin-left: 28rpx;
@@ -113,12 +115,16 @@ swiper-item image {
 .main-nav{
   padding: 0 30rpx 0 28rpx;
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
+  height: 142rpx;
+  width: 100%;
+  overflow: hidden;
+  /* flex-flow: row wrap;
+  justify-content: space-between; */
 }
 .main-nav navigator{
   margin-bottom: 20rpx;
   width: 142rpx;
+  height: 142rpx;
   display: flex;
   flex-flow: column wrap;
 }
@@ -138,6 +144,7 @@ swiper-item image {
   height: 34rpx;
   line-height:34rpx;
   text-align: center;
+  text-indent: 10rpx;
 }
 .sub-main .main-header{
   height: 100rpx;
@@ -153,6 +160,7 @@ swiper-item image {
   margin-left: 18rpx;
   white-space: nowrap; 
   display: flex;
+  height: 218rpx;
 }
 .hometips-subnav image{
   position: relative;
@@ -214,4 +222,31 @@ swiper-item image {
   font-family: PingFangSC-Regular;
   font-size: 30rpx;
   color: #232323;
+}
+.hospitail-warp{
+  width: 100%;
+  margin-top: 24rpx;
+  display: flex;
+}
+.hospitail-image1{
+  height: 250rpx;
+  margin-right: 20rpx;
+  margin-left: 32rpx;
+  width: 332rpx;
+}
+.hospitail-image2{
+  width: 334rpx;
+  height: 110rpx;
+  margin-right: 32rpx;
+}
+.hospitail-image3{
+  width: 334rpx;
+  height: 110rpx;
+  margin-top: 18rpx;
+  margin-right: 32rpx;
+}
+::-webkit-scrollbar{
+width: 0;
+height: 0;
+color: transparent;
 }

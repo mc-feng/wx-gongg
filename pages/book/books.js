@@ -1,8 +1,8 @@
 const app = getApp()
 Page({
   data: {
-    content: [{ "title": "金山院区", "leve": "三级甲等", "place": "上海市金山区嘈廊公路2901号","hospitalID":"01"}, 
-      { "title": "虹口院区", "leve": "三级甲等", "place": "上海市虹口区同心路921号", "hospitalID": "02"}],
+    content: [{ "title": "金山院区", "leve": "三级甲等", "place": "上海市金山区嘈廊公路2901号", "hospitalID":"Y0041800100"}, 
+      { "title": "虹口院区", "leve": "三级甲等", "place": "上海市虹口区同心路921号", "hospitalID": "42500982800"}],
     result:true,
     bindCard:true,
     noBind:true,

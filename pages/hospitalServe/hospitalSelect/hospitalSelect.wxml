@@ -34,6 +34,14 @@
     <image src='../../../images/hospital/xuzhi.png' class='item-image'></image>
     <view class='item-font'>住院须知</view>
   </view>
+  <view class='content-item' bindtap='link' data-src="../../zhiNeng/index/index">
+    <image src='../../../images/hospital/tuzhineng.png' class='item-image'></image>
+    <view class='item-font'>智能监护</view>
+  </view>
+  <view class='content-item' bindtap='link' data-src="../../shoushu/index/index">
+    <image src='../../../images/hospital/tushou.png' class='item-image'></image>
+    <view class='item-font'>手术方案</view>
+  </view>
 </view>
 <view class='bottom'>
  <view>上海市公共卫生临床中心</view>

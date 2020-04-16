@@ -1,4 +1,3 @@
-
 //app.js
 const mtjwxsdk = require('./utils/mtj-wx-sdk.js');
 const wxApiInterceptors = require('./utils/wxApiInterceptors');
@@ -7,9 +6,10 @@ wxApiInterceptors()
 wxApiInterceptors({
   request: {
     request(params) {
-      // const host = 'https://www.tonticn.cn:8081'
-      const host = 'https://192.168.31.165:8081'
-      // const host = 'https://118.31.14.197:8081'
+      const host = 'https://www.tonticn.cn:8081'
+      // const host = 'http://192.168.31.165:8081'
+      // const host = 'http://118.31.14.197:8081'
+      // const host = 'http://192.168.31.229:8081'
       if (!/^(http|\/\/)/.test(params.url)) {
         params.url = host + params.url;
         params.data = Dec.Encrypt(JSON.stringify(params.data));//加密
@@ -148,44 +148,44 @@ App({
           })
         }
         //获取游客头像和登录信息
-        if (res.authSetting['scope.userInfo']) {
-          console.log("来了")
-          let that = this
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              console.log(res)
-              //保存用户信息和头像
-              that.globalData.userInfo = res.userInfo
-              //用户登录
-              // 可以将 res 发送给后台解码出 unionId
-              // this.globalData.userInfo = user
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              // if (this.userInfoReadyCallback) {
-              //   this.userInfoReadyCallback(res)
-              // }
-            }
-          })
-        }else{
-          console.log("跳了")
-          wx.reLaunch({
-            url: '/pages/tologin/tologin',
-          })
-          //获取用户信息失败后。请跳转授权页面
-          // wx.showModal({
-          //   title: '警告',
-          //   content: '尚未进行授权，请点击确定跳转到授权页面进行授权。',
-          //   success: function (res) {
-          //     if (res.confirm) {
-          //       console.log('用户点击确定')
-          //       wx.navigateTo({
-          //         url: '../tologin/tologin',
-          //       })
-          //     }
-          //   }
-          // })
-        }
+        // if (res.authSetting['scope.userInfo']) {
+        //   console.log("来了")
+        //   let that = this
+        //   // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+        //   wx.getUserInfo({
+        //     success: res => {
+        //       console.log(res)
+        //       //保存用户信息和头像
+        //       that.globalData.userInfo = res.userInfo
+        //       //用户登录
+        //       // 可以将 res 发送给后台解码出 unionId
+        //       // this.globalData.userInfo = user
+        //       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+        //       // 所以此处加入 callback 以防止这种情况
+        //       // if (this.userInfoReadyCallback) {
+        //       //   this.userInfoReadyCallback(res)
+        //       // }
+        //     }
+        //   })
+        // }else{
+        //   console.log("跳了")
+        //   wx.reLaunch({
+        //     url: '/pages/tologin/tologin',
+        //   })
+        //   //获取用户信息失败后。请跳转授权页面
+        //   // wx.showModal({
+        //   //   title: '警告',
+        //   //   content: '尚未进行授权，请点击确定跳转到授权页面进行授权。',
+        //   //   success: function (res) {
+        //   //     if (res.confirm) {
+        //   //       console.log('用户点击确定')
+        //   //       wx.navigateTo({
+        //   //         url: '../tologin/tologin',
+        //   //       })
+        //   //     }
+        //   //   }
+        //   // })
+        // }
       },
       fail:res=>{
         console.log("失败了")

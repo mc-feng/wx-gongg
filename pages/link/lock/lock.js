@@ -43,6 +43,9 @@ Page({
       success: function (res) {
         console.log(res)
         wx.hideLoading()
+        that.setData({
+          result: res.result
+        })
         if (res.result == 1) {
           var navName = that.data.navName
           if(navName=="报告查询"){
@@ -65,11 +68,20 @@ Page({
             wx.redirectTo({
               url: "../../payService/payChoose/payChoose",
             })
+          } else if (navName == "体检服务"){
+            wx.redirectTo({
+              url: "../../tijianServe/chooseCard/chooseCard",
+            })
+          } else if (navName == "智能监护"){
+            wx.redirectTo({
+              url: "../../zhiNeng/index/index",
+            })
+          } else if (navName == "费用清单"){
+            wx.redirectTo({
+              url: "../../hospitalServe/xuzhi/xuzhi",
+            })
           }
         }
-        that.setData({
-          result: res.result
-        })
       }
     })
   },

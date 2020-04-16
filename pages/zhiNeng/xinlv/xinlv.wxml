@@ -1,0 +1,47 @@
+<!--pages/zhiNeng/tiwen/tiwen.wxml-->
+  <wxs module="dateFr" src="../../../utils/filter.wxs"></wxs>
+  <view class="selectDate">
+      <picker mode="date"value="{{date}}" bindchange="bindDateChange" end="{{nowTime}}">
+          {{dateFr.getDate(date)}}
+      </picker>
+      <view class="found" bindtap="finde">
+        查询
+      </view>
+  </view>
+<view class="canvas">
+   <ff-canvas id="xinlv" canvas-id="xinlv" opts="{{ opts }}" ></ff-canvas>
+</view>
+<view class="tips-warp">
+  <view class="item-warp">
+    <view class="item-left"> 
+       <image src="../../../images/zhineng/xin.png" class="item-iamge"></image>
+       <text>心率</text>
+    </view>
+    <view class="item-right">
+       <view>
+         <view class="item-top">最大值：{{dateFr.getXinLv(tips.highestHeartRate)}}</view>
+         <view class="item-botton">{{tips.highestHeartRateTime}}</view>
+       </view>
+       <view class="item-min">
+         <view class="item-top">最小值：{{dateFr.getXinLv(tips.lowestHeartRate)}}</view>
+         <view class="item-botton">{{tips.lowestHeartRateTime}}</view>
+       </view>
+    </view>
+  </view>
+  <view class="item-warp">
+    <view class="item-left"> 
+       <image src="../../../images/zhineng/hu.png" class="item-iamge"></image>
+       <text>呼吸率</text>
+    </view>
+    <view class="item-right">
+       <view>
+         <view class="item-top blue">最大值：{{dateFr.getXinLv(tips.highestRespiratoryRate)}}</view>
+         <view class="item-botton">{{tips.highestRespiratoryRateTime}}</view>
+       </view>
+       <view class="item-min blue">
+         <view class="item-top">最小值：{{dateFr.getXinLv(tips.lowestRespiratoryRate)}}</view>
+         <view class="item-botton">{{tips.lowestRespiratoryRateTime}}</view>
+       </view>
+    </view>
+  </view>
+</view>

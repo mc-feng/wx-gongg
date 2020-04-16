@@ -176,19 +176,19 @@ Page({
   },
   getUseridentityCard: function (e) {
     this.setData({
-      identityCard: e.detail.value
+      identityCard: e.detail.value.trim()
     })
     console.log(this.data.identityCard)
   },
   getUserphoneNumber: function (e) {
     this.setData({
-      phoneNumber: e.detail.value
+      phoneNumber: e.detail.value.trim()
     })
     console.log(this.data.phoneNumber)
   },
   getUsermedicareCard: function (e) {
     this.setData({
-      medicareCard: e.detail.value
+      medicareCard: e.detail.value.split(" ").join("")
     })
     console.log(this.data.medicareCard)
   },

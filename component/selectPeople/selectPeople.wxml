@@ -1,8 +1,8 @@
 <!--component/selectPeople/selectPeople.wxml-->
-<view class='header'>
-      <view class='header-font'>{{showChoose[index]}}</view>
+<view class='header i-header'>
+    <view class='header-font'>{{showChoose[index]}}</view>
     <!-- 底部弹出选择人信息 -->
     <picker bindchange="bindPickerChange" value="{{index}}" range="{{showChoose}}">
         <icon class="iconfont changeUser"/>
     </picker>
-  </view>
+</view>

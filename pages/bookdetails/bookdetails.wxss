@@ -159,3 +159,12 @@ align-items: center;
   line-height: 64rpx;
   margin:10rpx 0 0 4rpx;
 }
+.kuang{
+  border: 2rpx solid #0D86EB;
+  width: 62rpx;
+  height: 62rpx;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 64rpx;
+  margin:10rpx 0 0 4rpx;
+}

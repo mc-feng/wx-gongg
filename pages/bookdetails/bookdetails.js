@@ -215,11 +215,11 @@ Page({
     //接受上一页传过来的参数
     let objects = JSON.parse(options.data);
     console.log(objects)
-    if (objects.hos == "01"){
+    if (objects.hos == "Y0041800100"){
       this.setData({
         accessToken:"800EBED9-63E5-4408-A184-BE693DA32CB6"
       })
-    } else if (objects.hos == "02"){
+    } else if (objects.hos == "42500982800"){
       this.setData({
         accessToken: "800EBED9-63E5-4408-A184-BE693DA32CB7"
       })
@@ -238,23 +238,50 @@ Page({
     });
     //发送数据
     this.sendData();
+    var that = this;
     //数组转换为对象数组
-    var activeSubjectsArr = [];
-    for (var i = 0; i < this.data.weeks.length; i++) {
-      var activeSubjectsObject = {};
-      for (var j = 0; j < this.data.arr.length; j++) {
-        if (i == j) {
-          activeSubjectsObject.name = this.data.weeks[i];
-          activeSubjectsObject.value = this.data.arr[j];
-          activeSubjectsObject.months = this.data.months[j];
-          activeSubjectsArr.push(activeSubjectsObject);
+    wx.request({
+      url: "/booking/getBookingDeptNoSourceAll",
+      // url: '/booking/getbookingdeptnosource',
+      method: "post",
+      data: {
+        "deptCode": this.data.transferData.id,
+        // "day": datetime,
+        "accessToken": this.data.accessToken,
+        "openUserID": app.globalData.openId,
+      },
+      success: function (res) {
+        console.log(res.result)//获得到有排班的数据
+        // console.log(that.data.weeks)//28天周几
+        // console.log(that.data.arr)//28天哪一号
+        // console.log(that.data.months)
+        var activeSubjectsArr = [];
+        for (var i = 0; i < that.data.weeks.length; i++) {//数据重组
+          var activeSubjectsObject = {};
+          for (var j = 0; j < that.data.arr.length; j++) {
+            if (i == j) {
+              activeSubjectsObject.name = that.data.weeks[i];
+              activeSubjectsObject.value = that.data.arr[j];
+              activeSubjectsObject.months = that.data.months[j];
+              for (var k = 0; k < res.result.length;k++){//每一天和排班日期对比
+                if (that.data.arr[j] == res.result[k].day && that.data.months[j] == res.result[k].month){
+                  activeSubjectsObject.check = true
+                  break;
+                }else{
+                  activeSubjectsObject.check = false
+                }
+              }
+              activeSubjectsArr.push(activeSubjectsObject);
+            }
+          }
         }
+        console.log(activeSubjectsArr)
+        //分割成为新数组
+        var relust = that.split_array(activeSubjectsArr, 7);
+        that.setData({
+          resultData: relust
+        })
       }
-    }
-    //分割成为新数组
-    var relust = this.split_array(activeSubjectsArr,7);
-    this.setData({
-      resultData: relust
     })
   }
 })

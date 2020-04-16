@@ -27,8 +27,6 @@ Page({
     docCode: "",
     docDuty: "",
     transData: {},
-    loading: false,
-    showContent:true,
     transData:{},//需要转移的数据
     accessToken:"",
     hos:""
@@ -49,18 +47,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中',
+    })
     let that = this;
     let objects = JSON.parse(options.data);
     console.log(objects)
-    if (objects.hospitalID == "02") {
+    if (objects.hospitalID == "42500982800") {
       that.setData({
         accessToken: "800EBED9-63E5-4408-A184-BE693DA32CB7",
-        hos:"02"
+        hos:"42500982800"
       })
-    } else if (objects.hospitalID == "01") {
+    } else if (objects.hospitalID == "Y0041800100") {
       that.setData({
         accessToken: "800EBED9-63E5-4408-A184-BE693DA32CB6",
-        hos: "01"
+        hos: "Y0041800100"
       })
     }
     this.dataTime();
@@ -91,7 +92,6 @@ Page({
       success: function (res) {
         console.log(res)
         that.setData({
-          showContent: false,
           docterbook: res.result
         })
         // 是否收到信息表
@@ -116,27 +116,71 @@ Page({
             that.setData({
               collect: !res.success
             })
+            wx.request({//查询排班日期
+              url: '/booking/getbookingdocresourceAll',
+              // url: '/booking/getbookingdocresource',
+              method: "post",
+              data: {
+                "docCode": objects.docCode,
+                // "day": datetime,
+                "accessToken": that.data.accessToken,
+                "openUserID": app.globalData.openId,
+              },
+              success: function (res) {
+                console.log(res.result)//获得到有排班的数据
+                // console.log(that.data.weeks)//28天周几
+                // console.log(that.data.arr)//28天哪一号
+                // console.log(that.data.months)
+                var activeSubjectsArr = [];
+                for (var i = 0; i < that.data.weeks.length; i++) {//数据重组
+                  var activeSubjectsObject = {};
+                  for (var j = 0; j < that.data.arr.length; j++) {
+                    if (i == j) {
+                      activeSubjectsObject.name = that.data.weeks[i];
+                      activeSubjectsObject.value = that.data.arr[j];
+                      activeSubjectsObject.months = that.data.months[j];
+                      for (var k = 0; k < res.result.length; k++) {//每一天和排班日期对比
+                        if (that.data.arr[j] == res.result[k].day && that.data.months[j] == res.result[k].month) {
+                          activeSubjectsObject.check = true
+                          break;
+                        } else {
+                          activeSubjectsObject.check = false
+                        }
+                      }
+                      activeSubjectsArr.push(activeSubjectsObject);
+                    }
+                  }
+                }
+                console.log(activeSubjectsArr)
+                //分割成为新数组
+                var relust = that.split_array(activeSubjectsArr, 7);
+                that.setData({
+                  resultData: relust
+                })
+                wx.hideLoading()
+              }
+            })
           }
         })
       }
     })
-    var activeSubjectsArr = [];
-    for (var i = 0; i < this.data.weeks.length; i++) {
-      var activeSubjectsObject = {};
-      for (var j = 0; j < this.data.arr.length; j++) {
-        if (i == j) {
-          activeSubjectsObject.name = this.data.weeks[i];
-          activeSubjectsObject.value = this.data.arr[j];
-          activeSubjectsObject.months = this.data.months[j];
-          activeSubjectsArr.push(activeSubjectsObject);
-        }
-      }
-    }
-    //分割成为新数组
-    var relust = this.split_array(activeSubjectsArr, 7);
-    this.setData({
-      resultData: relust
-    })
+    // var activeSubjectsArr = [];
+    // for (var i = 0; i < this.data.weeks.length; i++) {
+    //   var activeSubjectsObject = {};
+    //   for (var j = 0; j < this.data.arr.length; j++) {
+    //     if (i == j) {
+    //       activeSubjectsObject.name = this.data.weeks[i];
+    //       activeSubjectsObject.value = this.data.arr[j];
+    //       activeSubjectsObject.months = this.data.months[j];
+    //       activeSubjectsArr.push(activeSubjectsObject);
+    //     }
+    //   }
+    // }
+    // //分割成为新数组
+    // var relust = this.split_array(activeSubjectsArr, 7);
+    // this.setData({
+    //   resultData: relust
+    // })
   },
   //检查日期
   checkData: function (datas) {
@@ -339,11 +383,12 @@ Page({
       nowmonth: e.currentTarget.dataset.month,
       nowweek: e.currentTarget.dataset.week,
       nowdate: e.currentTarget.dataset.date - 1,
-      loading: false,
       catalogSelect: e.currentTarget.dataset.index,
-      showContent: true,
     })
     this.sendData();
+    wx.showLoading({
+      title: '加载中',
+    })
     // 获取医生信息详情
     var that = this
     wx.request({
@@ -358,7 +403,6 @@ Page({
       success: function (res) {
         console.log(res)
         that.setData({
-          showContent: false,
           docterbook: res.result
         })
         // if (res.result.length == 0){
@@ -370,6 +414,9 @@ Page({
         //     docterbook: res.result
         //   })
         // }
+      },
+      complete:function(){
+        wx.hideLoading()
       }
     })
   },

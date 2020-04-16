@@ -1,0 +1,2 @@
+<!--pages/tijianServe/linkeWeb/linkeWeb.wxml-->
+<web-view src="{{src}}"></web-view>

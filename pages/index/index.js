@@ -21,10 +21,11 @@ Page({
       { 'word': '排队叫号', "url": "../link/lock/lock?str=排队叫号", "src": "../../images/homeimages/jiaohao.png"},
       { 'word': '咨询医生', "url": "../link/consultDoctor/consultDoctor", "src": "../../images/homeimages/yisheng@2x.png" },
       { 'word': '报告查询', "url": "../link/lock/lock?str=报告查询", "src": "../../images/homeimages/baogao@2x.png"},
-      { 'word': '诊间付费', "url": "../link/lock/lock?str=诊间付费", "src": "../../images/homeimages/fufei@2x.png"},
-      { 'word': '住院服务', "url": "../link/lock/lock?str=住院服务", "src": "../../images/homeimages/zhuyuan@2x.png"},
-      { 'word': '手术方案', "url": "../link/lock/lock?str=手术方案", "src": "../../images/homeimages/shoushu@2x.png"},
-      { 'word': '体检服务', "url": "../tips/tips", "src": "../../images/homeimages/tijian@2x.png"}
+      // { 'word': '诊间付费', "url": "../link/lock/lock?str=诊间付费", "src": "../../images/homeimages/fufei@2x.png"},
+      { 'word': '诊间付费', "url": "../tips/tips", "src": "../../images/homeimages/fufei@2x.png" }
+      // { 'word': '住院服务', "url": "../link/lock/lock?str=住院服务", "src": "../../images/homeimages/zhuyuan@2x.png"},
+      // { 'word': '手术方案', "url": "../link/lock/lock?str=手术方案", "src": "../../images/homeimages/shoushu@2x.png"},
+      // { 'word': '体检服务', "url": "../link/lock/lock?str=体检服务", "src": "../../images/homeimages/tijian@2x.png"}
     ],
     imgUrls: [],
     newList:[]
@@ -163,4 +164,20 @@ Page({
       }
     }
   },
+  linkeToHos:function(e){
+    let index = e.currentTarget.dataset.index;
+    if(index==1){
+      wx.navigateTo({
+        url: '../link/lock/lock?str=智能监护',
+      })
+    }else if(index == 3){
+      wx.navigateTo({
+        url: '../link/lock/lock?str=手术方案',
+      })
+    }else if(index == 2){
+      wx.navigateTo({
+        url: '../link/lock/lock?str=费用清单',
+      })
+    }
+  }
 })

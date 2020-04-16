@@ -1,0 +1,33 @@
+var DateFr = {
+  getDate: function (time) {
+    return time.split("-").join("/")
+  },
+  getTems: function (data) {
+    if (data == undefined) {
+      return ""
+    } else {
+      return "最高温度" + data + "℃"
+    }
+  },
+  getContent:function(data) {
+    if (data == undefined) {
+      return ""
+    } else {
+      return "高温次数" + data + "次"
+    }
+  },
+  getXinLv:function(data){
+    if (data == undefined) {
+      return ""
+    } else {
+      return data
+    }
+  }
+}
+
+module.exports = {
+  getDate: DateFr.getDate,
+  getTems: DateFr.getTems,
+  getContent: DateFr.getContent,
+  getXinLv: DateFr.getXinLv
+}

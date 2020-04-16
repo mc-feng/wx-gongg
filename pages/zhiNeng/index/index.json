@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "component": "/component/selectPeople/selectPeople"
+  },
+  "navigationBarTitleText": "智能监护"
+}

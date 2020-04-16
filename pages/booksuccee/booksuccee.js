@@ -25,11 +25,11 @@ Page({
       patientMessage: objects.patientmessage,
       result: objects.result
     })
-    if(objects.data.trans.hos =="02"){
+    if (objects.data.trans.hos =="42500982800"){
       that.setData({
         accessToken:"800EBED9-63E5-4408-A184-BE693DA32CB7"
       })
-    } else if (objects.data.trans.hos == "01"){
+    } else if (objects.data.trans.hos == "Y0041800100"){
       that.setData({
         accessToken: "800EBED9-63E5-4408-A184-BE693DA32CB6"
       })

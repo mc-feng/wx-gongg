@@ -17,7 +17,8 @@ page{
   border-radius: 50%;
   background-color: rebeccapurple;
   top: 60rpx;
-  position: absolute
+  position: absolute;
+  overflow: hidden;
 }
 .name{
   height: 48rpx;

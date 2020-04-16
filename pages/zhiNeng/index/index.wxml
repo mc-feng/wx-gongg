@@ -1,0 +1,31 @@
+<!--pages/zhiNeng/index/index.wxml-->
+<component showChoose="{{showChoose}}" i-header="component-headr" bind:myevent="onGetShow"></component>
+<view class="warp">
+  <block wx:for="{{dataArr}}" wx:key="index">
+    <view class="item" bindtap="linke" data-font="{{item.font}}">
+      <view class="item-header">
+         <view class="dian">
+             <view class="battery">
+                    <view class="battery-top-warp">
+                      <view class="battery-top"></view>
+                    </view>
+                    <view class="power"></view>
+             </view>
+             <view>{{item.dianLiang}}</view>
+         </view>
+      </view>
+      <view class="item-content">
+        <view class="content-left">
+          <image src="{{item.imgUrl}}" class="content-iamge"></image>
+          <view class="content-type">
+            <view>{{item.font}}</view>
+            <view class="content-tips" wx:if="{{item.errState}}">{{item.errMessage}}</view>
+          </view>
+        </view>
+        <view class="content-right">{{item.data}}</view>
+      </view>
+    </view>
+  </block>
+  <view class="botton-font">测量数据由智能硬件采集，易受佩戴位置、身体活动等外界因素影响，准确体征测量数据请及时咨询护理人员。</view>
+</view>
+

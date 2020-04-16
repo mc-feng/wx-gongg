@@ -33,11 +33,11 @@ Page({
         data: objects,
         patientMessage: patientMessage
       });
-      if (objects.trans.hos == "01") {
+      if (objects.trans.hos == "Y0041800100") {
         that.setData({
           accessToken:"800EBED9-63E5-4408-A184-BE693DA32CB6"
         })
-      } else if (objects.trans.hos == "02") {
+      } else if (objects.trans.hos == "42500982800") {
         that.setData({
           accessToken:"800EBED9-63E5-4408-A184-BE693DA32CB7"
         })

@@ -34,23 +34,54 @@
   </view>
   <view class='main-content'>
      <view class='main-header'>
-          自助诊疗服务
+          门诊服务
       </view>
-      <view class='main-nav'>
+      <scroll-view scroll-x="true" class='main-nav' enable-flex>
+         <block wx:for="{{mainNavs}}" wx:key="unique">
+            <navigator url="{{item.url}}" hover-class="none">
+              <image class='mainnav-box' src='{{item.src}}'></image>
+              <view class='mainnav-color'>{{item.word}}</view>
+            </navigator>
+         </block>
+      </scroll-view>
+      <!-- <view class='main-nav'>
        <block wx:for="{{mainNavs}}" wx:key="unique">
             <navigator url="{{item.url}}" hover-class="none">
               <image class='mainnav-box' src='{{item.src}}'></image>
               <view class='mainnav-color'>{{item.word}}</view>
             </navigator>
         </block>
-       </view>
+       </view> -->
+  </view>
+  <view class='three-main'>
+        <navigator url='../link/lock/lock?str=住院服务' class='main-header' hover-class="none">
+            住院服务
+            <view class='three-more'>
+               更多
+               <image src='../../images/homeimages/sword.png'></image>
+            </view>
+        </navigator>
+        <view class="hospitail-warp">
+          <view>  
+            <image src="../../images/hospital/zhineng.png" class="hospitail-image1" bindtap="linkeToHos" data-index="1"></image>
+          </view>
+          <view>
+            <image src="../../images/hospital/zhuyuan.png" class="hospitail-image2" bindtap="linkeToHos" data-index="2"></image>
+            <image src="../../images/hospital/shoushu.png" class="hospitail-image3" bindtap="linkeToHos" data-index="3"></image>
+          </view>
+        </view>
   </view>
   <view class='sub-main'>
         <view class='main-header'>
             人性化服务
         </view>
         <view class='fuwu-subnav'>
-          <scroll-view scroll-x="true" class='hometips-subnav'>
+          <scroll-view scroll-x="true" class='hometips-subnav' enable-flex>
+          <navigator url='../link/lock/lock?str=体检服务' hover-class="none">
+              <image src='../../images/homeimages/tijian.png'>
+                <text>体检服务</text>
+              </image>
+            </navigator>
             <navigator url='../reportReading/reading/reading' hover-class="none">
               <image src='../../images/homeimages/manyidu1@2x.png'>
                 <text>报告解读</text>

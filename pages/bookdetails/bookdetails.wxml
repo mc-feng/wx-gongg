@@ -8,7 +8,7 @@
         <!-- data是上一个循环的item -->
         <view class='riqi'wx:for="{{data}}" wx:key="{{index}}"  wx:for-item="result" bindtap='changdate' data-date="{{result.value}}" data-week="{{result.name}}" data-month="{{result.months}}" data-index="{{result.value}}">
           <view class='riqi-week'>{{result.name}}</view>
-          <view class='riqi-date {{result.value==catalogSelect?"raduis":""}}'>{{result.value}}</view>
+          <view class='riqi-date {{result.value==catalogSelect?"raduis":""}} {{result.check?"kuang":""}}'>{{result.value}}</view>
         </view>
     </swiper-item>
 </swiper>

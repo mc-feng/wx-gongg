@@ -1,5 +1,6 @@
 // component/selectPeople/selectPeople.js
 Component({
+  externalClasses: ["i-header"],
   /**
    * 组件的属性列表
    */

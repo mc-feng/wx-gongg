@@ -1,0 +1,20 @@
+<!--pages/zhiNeng/tiwen/tiwen.wxml-->
+<wxs module="dateFr" src="../../../utils/filter.wxs"></wxs>
+<view class="selectDate">
+    <picker mode="date"value="{{date}}" bindchange="bindDateChange" end="{{nowTime}}">
+        {{dateFr.getDate(date)}}
+    </picker>
+    <view class="found" bindtap="finde">
+      查询
+    </view>
+</view>
+<view class="canvas">
+   <ff-canvas id="area" canvas-id="area" opts="{{ opts }}" ></ff-canvas>
+</view>
+<view class="tips-warp">
+  <view class="warp1">
+    <view class="tems">{{dateFr.getTems(tems)}}</view>
+    <view class="time">{{time}}</view>
+  </view>
+  <view class="warp2">{{dateFr.getContent(content)}}</view>
+</view>

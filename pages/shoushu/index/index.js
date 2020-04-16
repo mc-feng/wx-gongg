@@ -47,6 +47,7 @@ Page({
     var index = e.detail
     var patientID = this.data.saveData[index].patientID
     this.data.selectIndex = index
+    this.data.patientID = patientID 
     console.log(patientID)
     this.getContent(patientID)
   },
@@ -74,5 +75,36 @@ Page({
     wx.navigateTo({
       url: '../mazui/mazui',
     })
+  },//链接手术详情
+  checkPro(){//查看进度
+     wx.request({
+       url: '/hospitalization/getZySsxx',
+       method:"post",
+       data:{
+         "patientID": this.data.patientID
+       },
+       success(res){
+         console.log(res)
+         if (res.result.status =="1"){
+           var text = res.result.progress
+         }else{
+           var text = "预约中~~还未开始"
+         }
+         wx.showModal({
+           title: '当前手术进度',
+           content: text,
+           showCancel:false,
+           success(res) {
+             if (res.confirm) {
+             }
+           }
+         })
+       },
+       fail(){
+         wx.showToast({
+           title: '查看失败',
+         })
+       }
+     })
   }
 })

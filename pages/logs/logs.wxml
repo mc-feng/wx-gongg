@@ -1,8 +1,9 @@
 <view class="header-background">
   <!-- <button open-type="getUserInfo" class='user'></button> -->
   <image src='../../images/tips/logBackground.png' class='logBackground'></image>
-  <image src='{{userInfo.avatarUrl}}' class='user'></image>
-  <view class='name'>{{userInfo.nickName}}</view>
+  <open-data type="userAvatarUrl" class='user'></open-data>
+  <open-data type="userNickName" class='name'></open-data>
+  <!-- <view class='name'>{{userInfo.nickName}}</view> -->
   <view class='floor-box'>
     <navigator class='floor-box-item' url="../myCollect/myCollect">
       <image src='../../images/personimages/shoucang@2x.png'></image>

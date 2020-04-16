@@ -71,8 +71,9 @@ page{
 }
 .normaldocter{
   position: relative;
-  height: 90rpx;
-  line-height: 90rpx;
+  min-height: 90rpx;
+  display: flex;
+  align-items: center;
   border-bottom: 2rpx solid #F5F7F9;
   padding: 0 28rpx 0 30rpx;
   font-family: PingFangSC-Regular;

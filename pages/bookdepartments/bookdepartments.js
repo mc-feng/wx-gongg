@@ -9,8 +9,8 @@ Page({
     normallist: [],
     departmentlist:[],
     hospitalID:"",
-    deptCode1:'01_01',
-    deptCode2:"01_02",
+    deptCode1:'Y0041800100_01',
+    deptCode2:"Y0041800100_02",
     deptCode:"",
     value:""
   },
@@ -95,10 +95,10 @@ Page({
     let objects = JSON.parse(options.data);
     console.log(objects)
     let that =this
-    if (objects.hosid=="02"){
+    if (objects.hosid=="42500982800"){
       that.setData({
-        deptCode1 : "02_01",
-        deptCode2 : "02_02",
+        deptCode1 : "42500982800_01",
+        deptCode2 : "42500982800_02",
       })
     }
     this.setData({
